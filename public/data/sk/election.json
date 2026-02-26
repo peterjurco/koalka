@@ -1,0 +1,9 @@
+{
+  "electionId": "sk-2024",
+  "countryId": "sk",
+  "name": "Slovak Parliamentary Election 2024",
+  "type": "parliamentary",
+  "totalSeats": 150,
+  "thresholdPercent": 5,
+  "allocationMethod": "dHondt"
+}
