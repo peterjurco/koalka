@@ -1,12 +1,84 @@
 [
-  {"id":"smer","name":"SMER-SSD","shortName":"SMER","color":"#c41e3a","order":1,"visibleByDefault":true},
-  {"id":"ps","name":"Progresívne Slovensko","shortName":"PS","color":"#0066cc","order":2,"visibleByDefault":true},
-  {"id":"hlas","name":"HLAS-SD","shortName":"HLAS","color":"#e30613","order":3,"visibleByDefault":true},
-  {"id":"sns","name":"Slovenská národná strana","shortName":"SNS","color":"#006633","order":4,"visibleByDefault":true},
-  {"id":"sas","name":"Sloboda a Solidarita","shortName":"SaS","color":"#00a651","order":5,"visibleByDefault":true},
-  {"id":"kdh","name":"Kresťanskodemokratické hnutie","shortName":"KDH","color":"#ccbb66","order":6,"visibleByDefault":true},
-  {"id":"olano","name":"OBYČAJNÍ ĽUDIA","shortName":"OĽaNO","color":"#00aaaa","order":7,"visibleByDefault":false},
-  {"id":"republika","name":"REPUBLIKA","shortName":"REP","color":"#b5651d","order":8,"visibleByDefault":false},
-  {"id":"lsns","name":"Kotlebovci – Ľudová strana Naše Slovensko","shortName":"ĽSNS","color":"#1a1a1a","order":9,"visibleByDefault":false},
-  {"id":"sme_rodina","name":"SME RODINA","shortName":"RODINA","color":"#522e92","order":10,"visibleByDefault":false}
+  {
+    "id": "smer",
+    "name": "SMER-SSD",
+    "shortName": "SMER",
+    "color": "#c41e3a",
+    "order": 1,
+    "visibleByDefault": true
+  },
+  {
+    "id": "ps",
+    "name": "Progresívne Slovensko",
+    "shortName": "PS",
+    "color": "#0066cc",
+    "order": 2,
+    "visibleByDefault": true
+  },
+  {
+    "id": "hlas",
+    "name": "HLAS-SD",
+    "shortName": "HLAS",
+    "color": "#e30613",
+    "order": 3,
+    "visibleByDefault": true
+  },
+  {
+    "id": "sns",
+    "name": "Slovenská národná strana",
+    "shortName": "SNS",
+    "color": "#006633",
+    "order": 4,
+    "visibleByDefault": true
+  },
+  {
+    "id": "sas",
+    "name": "Sloboda a Solidarita",
+    "shortName": "SaS",
+    "color": "#00a651",
+    "order": 5,
+    "visibleByDefault": true
+  },
+  {
+    "id": "kdh",
+    "name": "Kresťanskodemokratické hnutie",
+    "shortName": "KDH",
+    "color": "#ccbb66",
+    "order": 6,
+    "visibleByDefault": true
+  },
+  {
+    "id": "olano",
+    "name": "OBYČAJNÍ ĽUDIA",
+    "shortName": "OĽaNO",
+    "color": "#00aaaa",
+    "order": 7,
+    "visibleByDefault": false
+  },
+  {
+    "id": "republika",
+    "name": "REPUBLIKA",
+    "shortName": "REP",
+    "color": "#b5651d",
+    "order": 8,
+    "visibleByDefault": false,
+    "start": "2021-03-01"
+  },
+  {
+    "id": "lsns",
+    "name": "Kotlebovci – Ľudová strana Naše Slovensko",
+    "shortName": "ĽSNS",
+    "color": "#1a1a1a",
+    "order": 9,
+    "visibleByDefault": false,
+    "end": "2024-01-01"
+  },
+  {
+    "id": "sme_rodina",
+    "name": "SME RODINA",
+    "shortName": "RODINA",
+    "color": "#522e92",
+    "order": 10,
+    "visibleByDefault": false
+  }
 ]

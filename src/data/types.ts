@@ -10,6 +10,10 @@ export interface Party {
   order: number;
   /** Whether the party is shown in the trend chart by default (default true if omitted) */
   visibleByDefault?: boolean;
+  /** If set (YYYY-MM), show this party in the trend chart only from this month onward */
+  start?: string;
+  /** If set (YYYY-MM), show this party in the trend chart only up to this month (inclusive) */
+  end?: string;
 }
 
 /** Vote/share per party (percentages or counts) */

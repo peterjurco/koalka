@@ -112,8 +112,11 @@ add(
   "OĽaNO a priatelia: Obyčajní ľudia (OĽANO), Nezavíslí kandidáti (NEKA), NOVA, Slobodní a zodpovední, Pačivale Roma, Magyar Szívek a Kresťanská únia a Za ľudí",
   // AKO June 2023
   "OBYČAJNÍ ĽUDIA a NEZÁVISLÍ KANDIDÁTI a NOVA a SLOBODNÍ A ZODPOVEDNÍ a PAČIVALE ROMA a MAGYAR SZÍVEK",
-  // AKO November 2023
+  // AKO November 2023 (name on two lines; % on second)
   "Koalícia SLOVENSKO, Kresťanská únia a Za ľudí",
+  // AKO January 2024 etc. (name on two lines; % on first line, so we only see first part)
+  "Koalícia SLOVENSKO, Kresťanská únia",
+  "SLOVENSKO",
 );
 add("republika", "REPUBLIKA", "REP");
 add(
@@ -122,6 +125,7 @@ add(
   "Kotlebovci",
   "ĽSNS",
   "Kotlebovci - ĽSNS",
+  "Kotlebovci - Ľudová strana Naše",
 );
 add("sme_rodina", "sme rodina", "SR", "Sme Rodina", "SME RODINA");
 
@@ -141,8 +145,13 @@ export function resolvePartySlug(raw: string): PartyId | null {
   let slug = aliasToSlug.get(key) ?? null;
   const stripped = stripLeadingNumber(raw);
   const keyStripped = stripped !== raw ? normalizeForMatch(stripped) : null;
-  if (slug == null && keyStripped != null) slug = aliasToSlug.get(keyStripped) ?? null;
-  if (slug == null && (key.includes("olano") || (keyStripped != null && keyStripped.includes("olano")))) {
+  if (slug == null && keyStripped != null)
+    slug = aliasToSlug.get(keyStripped) ?? null;
+  if (
+    slug == null &&
+    (key.includes("olano") ||
+      (keyStripped != null && keyStripped.includes("olano")))
+  ) {
     slug = "olano";
   }
   return slug;

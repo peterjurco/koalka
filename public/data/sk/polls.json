@@ -9,10 +9,11 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2020/02/ag.AKO_VOLEBNE_PREFERENCIE_FEBRUAR_2020-2.pdf",
     "results": {
-      "smer": 14.4,
-      "sme_rodina": 4.5,
-      "sas": 4,
-      "sns": 3.4
+      "smer": 17.3,
+      "sme_rodina": 6.4,
+      "sas": 5.8,
+      "sns": 5.1,
+      "olano": 11.8
     }
   },
   {
@@ -25,11 +26,13 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2020/02/AKO_VOLEBNE_PREFERENCIE_FEBRUAR_II_2020.pdf",
     "results": {
-      "smer": 13.6,
-      "sme_rodina": 5,
-      "sas": 4,
-      "kdh": 3.4,
-      "sns": 3.1
+      "smer": 16.9,
+      "sme_rodina": 7.2,
+      "sas": 6.1,
+      "kdh": 5.3,
+      "sns": 5,
+      "olano": 15.5,
+      "lsns": 10.3
     }
   },
   {
@@ -42,6 +45,7 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2020/07/ag.AKO_VOLEBNE_PREF_JUL_2020.pdf",
     "results": {
+      "olano": 23.5,
       "hlas": 16.7,
       "smer": 10.7,
       "sas": 9.4,
@@ -64,6 +68,7 @@
     "results": {
       "hlas": 22.8,
       "sas": 16.2,
+      "olano": 14.2,
       "smer": 9,
       "ps": 6.5,
       "lsns": 5.7,
@@ -424,16 +429,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2021/11/AKO_VOLEBNE_PREF_NOVEMBER_2021.pdf",
     "results": {
-      "hlas": 15.4,
-      "sas": 10.8,
-      "smer": 10.3,
-      "olano": 7.3,
-      "ps": 6.4,
-      "sme_rodina": 4.8,
-      "republika": 3.8,
-      "kdh": 3.7,
-      "sns": 2.1,
-      "lsns": 2
+      "hlas": 18.5,
+      "sas": 13.6,
+      "smer": 13,
+      "olano": 9.7,
+      "ps": 8.7,
+      "sme_rodina": 6.8,
+      "republika": 5.6,
+      "kdh": 5.4,
+      "sns": 3.6,
+      "lsns": 3.5
     }
   },
   {
@@ -536,7 +541,7 @@
       "smer": 14.5,
       "sas": 14.2,
       "ps": 8.7,
-      "olano": 8,
+      "olano": 5.9,
       "kdh": 7.2,
       "sme_rodina": 6.9,
       "republika": 6.9,
@@ -575,15 +580,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/03/ag.AKO_VOLEBNE_PREF_MAREC_2022.pdf",
     "results": {
-      "hlas": 15.1,
-      "sas": 12,
-      "smer": 11.4,
-      "olano": 7.2,
-      "ps": 6.7,
-      "kdh": 5.4,
-      "sme_rodina": 4.4,
-      "republika": 3.9,
-      "sns": 2.4
+      "hlas": 18,
+      "sas": 14.7,
+      "smer": 14,
+      "olano": 9.4,
+      "ps": 8.9,
+      "kdh": 7.4,
+      "sme_rodina": 6.2,
+      "republika": 5.7,
+      "sns": 3.9,
+      "lsns": 1.8
     }
   },
   {
@@ -617,15 +623,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/04/ag.AKO_VOLEBNE_PREF_APRIL_2022.pdf",
     "results": {
-      "hlas": 15.9,
-      "smer": 11.8,
-      "sas": 11.4,
-      "olano": 6.7,
-      "ps": 6.6,
-      "sme_rodina": 4.7,
-      "kdh": 4.6,
-      "republika": 4.4,
-      "sns": 2.4
+      "hlas": 18.9,
+      "smer": 14.5,
+      "sas": 14,
+      "olano": 11.9,
+      "ps": 8.7,
+      "sme_rodina": 6.6,
+      "kdh": 6.5,
+      "republika": 6.2,
+      "sns": 3.9,
+      "lsns": 3
     }
   },
   {
@@ -638,15 +645,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/05/ag.AKO_VOLEBNE_PREF_MAJ_2022.pdf",
     "results": {
-      "hlas": 15.3,
-      "sas": 11.7,
-      "smer": 11,
-      "olano": 8.4,
-      "ps": 7.5,
-      "kdh": 5.7,
-      "republika": 4.4,
-      "sme_rodina": 4.3,
-      "sns": 2.5
+      "hlas": 18.2,
+      "sas": 14.3,
+      "smer": 13.5,
+      "olano": 10.7,
+      "ps": 9.7,
+      "kdh": 7.7,
+      "republika": 6.2,
+      "sme_rodina": 6.1,
+      "sns": 4,
+      "lsns": 1.1
     }
   },
   {
@@ -680,16 +688,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/06/ag.AKO_VOLEBNE_PREF_JUN_2022.pdf",
     "results": {
-      "hlas": 17.2,
-      "smer": 12.1,
-      "sas": 11.7,
-      "ps": 7.5,
-      "olano": 6.4,
-      "kdh": 5.3,
-      "sme_rodina": 3.9,
-      "republika": 3.5,
-      "sns": 2.7,
-      "lsns": 0.8
+      "hlas": 20.2,
+      "smer": 14.8,
+      "sas": 14.3,
+      "ps": 9.9,
+      "olano": 8.5,
+      "kdh": 7.3,
+      "sme_rodina": 5.7,
+      "republika": 5.2,
+      "sns": 4.2,
+      "lsns": 1.8
     }
   },
   {
@@ -723,16 +731,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/07/ag.AKO_VOLEBNE_PREF_JUL_2022.pdf",
     "results": {
-      "hlas": 16.9,
-      "sas": 12,
-      "smer": 11.9,
-      "ps": 7.5,
-      "olano": 7,
-      "kdh": 5.2,
-      "sme_rodina": 4.2,
-      "republika": 3.7,
-      "sns": 2.6,
-      "lsns": 0.6
+      "hlas": 20,
+      "sas": 14.7,
+      "smer": 14.6,
+      "ps": 9.8,
+      "olano": 9.2,
+      "kdh": 7.2,
+      "sme_rodina": 6,
+      "republika": 5.4,
+      "sns": 4.1,
+      "lsns": 1.5
     }
   },
   {
@@ -775,7 +783,8 @@
       "sme_rodina": 7.6,
       "kdh": 6.2,
       "republika": 5.2,
-      "sns": 4.2
+      "sns": 4.2,
+      "lsns": 2.3
     }
   },
   {
@@ -809,15 +818,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/10/ag.AKO_VOLEBNE_PREF_OKTOBER_2022.pdf",
     "results": {
-      "hlas": 16,
-      "smer": 13.2,
-      "sas": 9,
-      "ps": 8.7,
-      "olano": 5.9,
-      "sme_rodina": 5.6,
-      "republika": 4.6,
-      "kdh": 3.9,
-      "sns": 2.5
+      "hlas": 19.1,
+      "smer": 16.1,
+      "sas": 11.5,
+      "ps": 11.2,
+      "olano": 8.1,
+      "sme_rodina": 7.7,
+      "republika": 6.6,
+      "kdh": 5.8,
+      "sns": 4.1,
+      "lsns": 2.6
     }
   },
   {
@@ -851,15 +861,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/11/ag.AKO_VOLEBNE_PREF_NOVEMBER_2022.pdf",
     "results": {
-      "hlas": 16.5,
-      "smer": 13.2,
-      "ps": 9.1,
-      "sas": 8.5,
-      "olano": 5.5,
-      "sme_rodina": 5,
-      "republika": 4.5,
-      "kdh": 4.3,
-      "sns": 2.7
+      "hlas": 19.5,
+      "smer": 16,
+      "ps": 11.5,
+      "sas": 10.8,
+      "olano": 7.5,
+      "sme_rodina": 6.9,
+      "republika": 6.3,
+      "kdh": 6.1,
+      "sns": 4.2,
+      "lsns": 1.9
     }
   },
   {
@@ -893,16 +904,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2022/12/ag.AKO_VOLEBNE_PREF_DECEMBER_2022.pdf",
     "results": {
-      "hlas": 17.1,
-      "smer": 13.2,
-      "ps": 9.3,
-      "sas": 7.6,
-      "olano": 5.9,
-      "sme_rodina": 5.6,
-      "republika": 4.7,
-      "kdh": 3.7,
-      "sns": 2.5,
-      "lsns": 0.6
+      "hlas": 20.2,
+      "smer": 16.1,
+      "ps": 11.8,
+      "sas": 9.9,
+      "olano": 8,
+      "sme_rodina": 7.7,
+      "republika": 6.6,
+      "kdh": 5.5,
+      "sns": 4,
+      "lsns": 1.6
     }
   },
   {
@@ -936,16 +947,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/01/ag.AKO_VOLEBNE_PREF_JANUAR_2023.pdf",
     "results": {
-      "hlas": 14.7,
-      "smer": 13.2,
-      "ps": 10.7,
-      "sas": 6.9,
-      "olano": 6.6,
-      "republika": 5.4,
-      "sme_rodina": 4.9,
-      "kdh": 4.4,
-      "sns": 2.6,
-      "lsns": 0.9
+      "hlas": 17.6,
+      "smer": 15.9,
+      "ps": 13.2,
+      "sas": 9.1,
+      "olano": 8.7,
+      "republika": 7.3,
+      "sme_rodina": 6.8,
+      "kdh": 6.2,
+      "sns": 4.1,
+      "lsns": 1.9
     }
   },
   {
@@ -979,16 +990,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/02/ag.AKO_VOLEBNE_PREF_FEBRUAR_2023.pdf",
     "results": {
-      "hlas": 15.8,
-      "smer": 13.4,
-      "ps": 11,
-      "olano": 7.3,
-      "sas": 5.8,
-      "sme_rodina": 5.1,
-      "kdh": 4.9,
-      "republika": 4.6,
-      "sns": 2.5,
-      "lsns": 0.5
+      "hlas": 18.9,
+      "smer": 16.3,
+      "ps": 13.7,
+      "olano": 5.3,
+      "sas": 7.9,
+      "sme_rodina": 7.1,
+      "kdh": 6.9,
+      "republika": 6.6,
+      "sns": 4,
+      "lsns": 1.5
     }
   },
   {
@@ -1001,16 +1012,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/03/ag.AKO_VOLEBNE_PREF_MAREC_2023.pdf",
     "results": {
-      "smer": 14.7,
-      "hlas": 13.3,
-      "ps": 12.4,
-      "sas": 6,
-      "sme_rodina": 4.9,
-      "republika": 4.9,
-      "kdh": 4.8,
-      "olano": 3.4,
-      "sns": 2.7,
-      "lsns": 0.4
+      "smer": 17.6,
+      "hlas": 16.1,
+      "ps": 15.1,
+      "sas": 8.1,
+      "sme_rodina": 6.8,
+      "republika": 6.8,
+      "kdh": 6.7,
+      "olano": 5,
+      "sns": 4.2,
+      "lsns": 1.2
     }
   },
   {
@@ -1044,16 +1055,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/04/ag.AKO_VOLEBNE_PREF_APRIL_2023.pdf",
     "results": {
-      "smer": 15,
-      "hlas": 13.5,
-      "ps": 11.4,
-      "sas": 6.2,
-      "sme_rodina": 5.1,
-      "republika": 4.7,
-      "kdh": 4.5,
-      "olano": 4,
-      "sns": 2.7,
-      "lsns": 0.5
+      "smer": 17.9,
+      "hlas": 16.3,
+      "ps": 14.1,
+      "sas": 8.3,
+      "sme_rodina": 7.1,
+      "republika": 6.6,
+      "kdh": 6.4,
+      "olano": 5.8,
+      "sns": 4.3,
+      "lsns": 1.4
     }
   },
   {
@@ -1087,37 +1098,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/05/ag.AKO_VOLEBNE_PREF_MAJ_2023.pdf",
     "results": {
-      "smer": 15.1,
-      "hlas": 13.7,
-      "ps": 11.7,
-      "sas": 6.2,
-      "republika": 5,
-      "kdh": 4.7,
-      "sme_rodina": 3.9,
-      "sns": 2.9,
-      "lsns": 0.1
-    }
-  },
-  {
-    "id": "sk-ako-2023-05",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-05-05",
-    "fieldworkEnd": "2023-05-10",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/05/ag.AKO_VOLEBNE_PREF_MAJ_2023.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.7,
-      "ps": 11.7,
-      "sas": 6.2,
+      "smer": 18,
+      "hlas": 16.5,
+      "ps": 14.3,
+      "sas": 8.3,
       "olano": 5.4,
-      "republika": 5,
-      "kdh": 4.7,
-      "sme_rodina": 3.9,
-      "sns": 2.9,
-      "lsns": 0.1
+      "republika": 6.9,
+      "kdh": 6.6,
+      "sme_rodina": 5.6,
+      "sns": 4.4,
+      "lsns": 0.7
     }
   },
   {
@@ -1151,15 +1141,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/06/ag.AKO_VOLEBNE_PREF_JUN_2023.pdf",
     "results": {
-      "smer": 15.9,
-      "hlas": 14.2,
-      "ps": 11.6,
-      "sas": 5.7,
-      "republika": 5,
-      "kdh": 4.5,
-      "sme_rodina": 4.3,
-      "sns": 3,
-      "lsns": 0.2
+      "smer": 19,
+      "hlas": 17.2,
+      "ps": 14.4,
+      "olano": 7.1,
+      "sas": 7.8,
+      "republika": 7,
+      "kdh": 6.5,
+      "sme_rodina": 6.2,
+      "sns": 4.7,
+      "lsns": 1
     }
   },
   {
@@ -1177,6 +1168,7 @@
       "ps": 13.5,
       "republika": 9,
       "sme_rodina": 6.1,
+      "olano": 6,
       "kdh": 6,
       "sns": 5.5,
       "sas": 5
@@ -1192,124 +1184,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
     "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-10",
-    "fieldworkEnd": "2023-07-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-10",
-    "fieldworkEnd": "2023-07-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
+      "smer": 18.1,
+      "hlas": 16.5,
+      "ps": 15.4,
+      "sas": 7.6,
       "olano": 5.2,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-10",
-    "fieldworkEnd": "2023-07-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
-      "olano": 5.2,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-10",
-    "fieldworkEnd": "2023-07-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
-      "olano": 5.2,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-10",
-    "fieldworkEnd": "2023-07-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/07/ag.AKO_VOLEBNE_PREF_JUL_2023_.pdf",
-    "results": {
-      "smer": 15.1,
-      "hlas": 13.6,
-      "ps": 12.6,
-      "sas": 5.5,
-      "olano": 5.2,
-      "republika": 4.8,
-      "sme_rodina": 4.3,
-      "kdh": 4.1,
-      "sns": 3.4,
-      "lsns": 0.7
+      "republika": 6.8,
+      "sme_rodina": 6.2,
+      "kdh": 5.9,
+      "sns": 5.1,
+      "lsns": 1.7
     }
   },
   {
@@ -1326,8 +1210,11 @@
       "hlas": 16,
       "ps": 14.3,
       "republika": 8.7,
+      "olano": 6.2,
+      "sas": 5.2,
       "sme_rodina": 5.6,
-      "kdh": 5.6
+      "kdh": 5.6,
+      "sns": 5.1
     }
   },
   {
@@ -1340,124 +1227,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
     "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-24",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-24",
-    "fieldworkEnd": "2023-07-28",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
-    "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-24",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-24",
-    "fieldworkEnd": "2023-07-28",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
-    "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
+      "smer": 19.9,
+      "ps": 16.4,
+      "hlas": 15.2,
       "olano": 4.8,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-24",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-24",
-    "fieldworkEnd": "2023-07-28",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
-    "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
-      "olano": 4.8,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-24",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-24",
-    "fieldworkEnd": "2023-07-28",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
-    "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
-      "olano": 4.8,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
-    }
-  },
-  {
-    "id": "sk-ako-2023-07-24",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-07-24",
-    "fieldworkEnd": "2023-07-28",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_.pdf",
-    "results": {
-      "smer": 16.9,
-      "ps": 13.6,
-      "hlas": 12.5,
-      "olano": 4.8,
-      "republika": 4.8,
-      "sas": 4.7,
-      "sme_rodina": 4.3,
-      "kdh": 4.2,
-      "sns": 4,
-      "lsns": 0.4
+      "republika": 6.7,
+      "sas": 6.6,
+      "sme_rodina": 6.1,
+      "kdh": 6,
+      "sns": 5.8,
+      "lsns": 1.2
     }
   },
   {
@@ -1470,81 +1249,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_DRUHE.pdf",
     "results": {
-      "smer": 16.4,
-      "ps": 15.1,
-      "hlas": 12.5,
-      "sas": 4.8,
-      "republika": 4.6,
-      "kdh": 4.5,
-      "sns": 4.2,
-      "sme_rodina": 4.1,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-08",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-08-07",
-    "fieldworkEnd": "2023-08-14",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_DRUHE.pdf",
-    "results": {
-      "smer": 16.4,
-      "ps": 15.1,
-      "hlas": 12.5,
+      "smer": 19.2,
+      "ps": 17.8,
+      "hlas": 15,
       "olano": 5.4,
-      "sas": 4.8,
-      "republika": 4.6,
-      "kdh": 4.5,
-      "sns": 4.2,
-      "sme_rodina": 4.1,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-08",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-08-07",
-    "fieldworkEnd": "2023-08-14",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_DRUHE.pdf",
-    "results": {
-      "smer": 16.4,
-      "ps": 15.1,
-      "hlas": 12.5,
-      "olano": 5.4,
-      "sas": 4.8,
-      "republika": 4.6,
-      "kdh": 4.5,
-      "sns": 4.2,
-      "sme_rodina": 4.1,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-08",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-08-07",
-    "fieldworkEnd": "2023-08-14",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/08/ag.AKO_VOLEBNE_PREF_AUGUST_2023_DRUHE.pdf",
-    "results": {
-      "smer": 16.4,
-      "ps": 15.1,
-      "hlas": 12.5,
-      "olano": 5.4,
-      "sas": 4.8,
-      "republika": 4.6,
-      "kdh": 4.5,
-      "sns": 4.2,
-      "sme_rodina": 4.1,
-      "lsns": 0
+      "sas": 6.6,
+      "republika": 6.3,
+      "kdh": 6.2,
+      "sns": 5.9,
+      "sme_rodina": 5.7,
+      "lsns": 0.3
     }
   },
   {
@@ -1561,7 +1275,10 @@
       "ps": 15,
       "hlas": 14.2,
       "republika": 8.8,
+      "olano": 6.4,
+      "sas": 6.1,
       "kdh": 6.1,
+      "sns": 5.3,
       "sme_rodina": 5.1
     }
   },
@@ -1575,59 +1292,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023.pdf",
     "results": {
-      "smer": 16.5,
-      "ps": 15.4,
-      "hlas": 12.5,
-      "sas": 5.5,
-      "sns": 4.3,
-      "kdh": 4.3,
-      "sme_rodina": 3.7,
-      "republika": 3.6,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-09-05",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-09-05",
-    "fieldworkEnd": "2023-09-11",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023.pdf",
-    "results": {
-      "smer": 16.5,
-      "ps": 15.4,
-      "hlas": 12.5,
-      "sas": 5.5,
+      "smer": 19.4,
+      "ps": 18.2,
+      "hlas": 15.1,
+      "sas": 7.4,
       "olano": 5.1,
-      "sns": 4.3,
-      "kdh": 4.3,
-      "sme_rodina": 3.7,
-      "republika": 3.6,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-09-05",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-09-05",
-    "fieldworkEnd": "2023-09-11",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023.pdf",
-    "results": {
-      "smer": 16.5,
-      "ps": 15.4,
-      "hlas": 12.5,
-      "sas": 5.5,
-      "olano": 5.1,
-      "sns": 4.3,
-      "kdh": 4.3,
-      "sme_rodina": 3.7,
-      "republika": 3.6,
-      "lsns": 0
+      "sns": 6,
+      "kdh": 6,
+      "sme_rodina": 5.3,
+      "republika": 5.2,
+      "lsns": 0.6
     }
   },
   {
@@ -1644,6 +1318,9 @@
       "ps": 16.5,
       "hlas": 14.6,
       "republika": 8,
+      "olano": 6.3,
+      "sns": 6.4,
+      "sas": 5.1,
       "kdh": 6.2,
       "sme_rodina": 4.9
     }
@@ -1658,59 +1335,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023_DRUHE.pdf",
     "results": {
-      "ps": 15.1,
-      "smer": 14.8,
-      "hlas": 12.3,
-      "sas": 5.3,
-      "kdh": 4.3,
-      "sns": 4.2,
-      "republika": 3.7,
-      "sme_rodina": 3.4,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-09-20",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-09-20",
-    "fieldworkEnd": "2023-09-26",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023_DRUHE.pdf",
-    "results": {
-      "ps": 15.1,
-      "smer": 14.8,
-      "hlas": 12.3,
+      "ps": 18,
+      "smer": 17.7,
+      "hlas": 15,
       "olano": 7.2,
-      "sas": 5.3,
-      "kdh": 4.3,
-      "sns": 4.2,
-      "republika": 3.7,
-      "sme_rodina": 3.4,
-      "lsns": 0
-    }
-  },
-  {
-    "id": "sk-ako-2023-09-20",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2023-09-20",
-    "fieldworkEnd": "2023-09-26",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2023/09/ag.AKO_VOLEBNE_PREF_SEPTEMBER_2023_DRUHE.pdf",
-    "results": {
-      "ps": 15.1,
-      "smer": 14.8,
-      "hlas": 12.3,
-      "olano": 7.2,
-      "sas": 5.3,
-      "kdh": 4.3,
-      "sns": 4.2,
-      "republika": 3.7,
-      "sme_rodina": 3.4,
-      "lsns": 0
+      "sas": 7.3,
+      "kdh": 6.1,
+      "sns": 6,
+      "republika": 5.4,
+      "sme_rodina": 5.1,
+      "lsns": 0.3
     }
   },
   {
@@ -1726,6 +1360,9 @@
       "smer": 18,
       "ps": 16.6,
       "hlas": 13.7,
+      "olano": 8.2,
+      "sas": 5.8,
+      "sns": 6.4,
       "republika": 7.7,
       "kdh": 6.5,
       "sme_rodina": 4.1
@@ -1741,14 +1378,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/11/ag.AKO_VOLEBNE_PREF_NOVEMBER_2023.pdf",
     "results": {
-      "smer": 21,
-      "ps": 17.2,
-      "hlas": 12.8,
-      "kdh": 5.1,
-      "sas": 4.2,
-      "sns": 3.8,
-      "republika": 3.4,
-      "sme_rodina": 1.5
+      "smer": 24,
+      "ps": 20.1,
+      "hlas": 15.4,
+      "kdh": 6.9,
+      "olano": 6.6,
+      "sas": 5.9,
+      "sns": 5.4,
+      "republika": 4.9,
+      "sme_rodina": 2.7,
+      "lsns": 0.3
     }
   },
   {
@@ -1781,14 +1420,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2023/12/ag.AKO_VOLEBNE_PREF_DECEMBER_2023_.pdf",
     "results": {
-      "smer": 21.1,
-      "ps": 18.5,
-      "hlas": 12.1,
-      "kdh": 5.4,
-      "sas": 4.7,
-      "republika": 3.8,
-      "sns": 3.7,
-      "sme_rodina": 1.2
+      "smer": 24.2,
+      "ps": 21.4,
+      "hlas": 14.6,
+      "kdh": 7.3,
+      "olano": 7,
+      "sas": 6.4,
+      "republika": 5.4,
+      "sns": 5.3,
+      "sme_rodina": 2.3
     }
   },
   {
@@ -1801,14 +1441,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/01/ag.AKO_VOLEBNE_PREF_JANUAR_2024.pdf",
     "results": {
-      "smer": 19.1,
-      "ps": 17,
-      "hlas": 11.8,
-      "kdh": 6.7,
-      "sas": 4.3,
-      "sns": 3.8,
-      "republika": 3.7,
-      "sme_rodina": 1.3
+      "smer": 22.1,
+      "ps": 19.9,
+      "hlas": 14.3,
+      "olano": 7,
+      "kdh": 8.7,
+      "sas": 6,
+      "sns": 5.4,
+      "republika": 5.3,
+      "sme_rodina": 2.4,
+      "lsns": 0
     }
   },
   {
@@ -1841,14 +1483,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/02/ag.AKO_VOLEBNE_PREF_FEBRUAR_2024.pdf",
     "results": {
-      "smer": 21,
-      "ps": 19.6,
-      "hlas": 12,
-      "kdh": 6.2,
-      "sas": 4.5,
-      "sns": 3.7,
-      "republika": 2.4,
-      "sme_rodina": 1.6
+      "smer": 24,
+      "ps": 22.6,
+      "hlas": 14.5,
+      "kdh": 8.2,
+      "sas": 6.2,
+      "olano": 6.2,
+      "sns": 5.3,
+      "republika": 3.7,
+      "sme_rodina": 2.8
     }
   },
   {
@@ -1881,14 +1524,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/03/ag.AKO_VOLEBNE_PREF_MAREC_2024.pdf",
     "results": {
-      "smer": 19.2,
-      "ps": 18.2,
-      "hlas": 13.4,
-      "kdh": 6.2,
-      "sas": 5,
-      "sns": 3.6,
-      "republika": 2.6,
-      "sme_rodina": 1
+      "smer": 22.1,
+      "ps": 21,
+      "hlas": 15.9,
+      "kdh": 8.1,
+      "sas": 6.7,
+      "olano": 6.8999999999999995,
+      "sns": 5.1,
+      "republika": 3.9,
+      "sme_rodina": 2
     }
   },
   {
@@ -1921,14 +1565,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/04/ag.AKO_VOLEBNE_PREF_APRIL_2024.pdf",
     "results": {
-      "smer": 18.4,
-      "ps": 17.3,
-      "hlas": 13.9,
-      "kdh": 6,
-      "sas": 4.8,
-      "sns": 3.6,
-      "republika": 3.4,
-      "sme_rodina": 1.3
+      "smer": 21.2,
+      "ps": 20.1,
+      "hlas": 16.5,
+      "kdh": 7.9,
+      "sas": 6.5,
+      "olano": 6,
+      "sns": 5.1,
+      "republika": 4.9,
+      "sme_rodina": 2.3
     }
   },
   {
@@ -1961,14 +1606,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/05/ag.AKO_VOLEBNE_PREF_MAJ_2024.pdf",
     "results": {
-      "smer": 18.9,
-      "ps": 17.9,
-      "hlas": 14.5,
-      "kdh": 5.5,
-      "sas": 4.9,
-      "sns": 3.6,
-      "republika": 3.5,
-      "sme_rodina": 1.9
+      "smer": 21.8,
+      "ps": 20.8,
+      "hlas": 17.2,
+      "olano": 4.7,
+      "kdh": 7.3,
+      "sas": 6.7,
+      "sns": 5.2,
+      "republika": 5.1,
+      "sme_rodina": 3.1
     }
   },
   {
@@ -2001,14 +1647,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/06/ag.AKO_VOLEBNE_PREF_JUN-2024.pdf",
     "results": {
-      "smer": 20.8,
-      "ps": 19.8,
-      "hlas": 12.7,
-      "kdh": 5,
-      "republika": 4.3,
-      "sas": 3.7,
-      "sns": 3.5,
-      "sme_rodina": 1.1
+      "smer": 23.8,
+      "ps": 22.8,
+      "hlas": 15.2,
+      "kdh": 6.8,
+      "republika": 6,
+      "sas": 5.3,
+      "sns": 5,
+      "olano": 4.7,
+      "sme_rodina": 2.1
     }
   },
   {
@@ -2028,6 +1675,7 @@
       "republika": 5.6,
       "sas": 5.6,
       "sns": 5,
+      "olano": 3.5,
       "sme_rodina": 2.3,
       "lsns": 0.5
     }
@@ -2042,15 +1690,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/08/ag.AKO_VOLEBNE_PREF_AUGUST-2024.pdf",
     "results": {
-      "smer": 20.5,
-      "ps": 19,
-      "hlas": 13.2,
-      "sas": 6.2,
-      "kdh": 5.1,
-      "republika": 3.6,
-      "sns": 3.3,
-      "sme_rodina": 1.5,
-      "lsns": 0
+      "smer": 23.6,
+      "ps": 22,
+      "hlas": 15.9,
+      "kdh": 6.9,
+      "republika": 5.2,
+      "sns": 4.9,
+      "olano": 3.6,
+      "sme_rodina": 2.7,
+      "lsns": 0.2,
+      "sas": 6.2
     }
   },
   {
@@ -2063,14 +1712,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2024.pdf",
     "results": {
-      "smer": 19.7,
-      "ps": 19.3,
-      "hlas": 12.4,
-      "kdh": 4.9,
-      "sas": 4.6,
-      "republika": 3.9,
-      "sns": 3.3,
-      "sme_rodina": 1.4
+      "smer": 22.8,
+      "ps": 22.4,
+      "hlas": 15.1,
+      "kdh": 6.8,
+      "sas": 6.4,
+      "republika": 5.6,
+      "sns": 4.9,
+      "olano": 3.9,
+      "sme_rodina": 2.6
     }
   },
   {
@@ -2103,15 +1753,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/10/ag.AKO_VOLEBNE-PREF-OKTOBER-2024.pdf",
     "results": {
-      "ps": 18.2,
-      "smer": 18.2,
-      "hlas": 12.3,
-      "republika": 4.9,
-      "sas": 4.7,
-      "kdh": 4.4,
-      "sns": 3.2,
-      "sme_rodina": 1.4,
-      "lsns": 0
+      "ps": 21.3,
+      "smer": 21.3,
+      "hlas": 15,
+      "republika": 6.8,
+      "sas": 6.5,
+      "kdh": 6.2,
+      "olano": 5.9,
+      "sns": 4.8,
+      "sme_rodina": 2.6,
+      "lsns": 0.6
     }
   },
   {
@@ -2144,15 +1795,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2024/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2024.pdf",
     "results": {
-      "ps": 18.1,
-      "smer": 17.7,
-      "hlas": 12,
-      "sas": 5,
-      "kdh": 4.8,
-      "republika": 4.1,
-      "sns": 3.1,
-      "sme_rodina": 2.2,
-      "lsns": 0
+      "ps": 21.2,
+      "smer": 20.7,
+      "hlas": 14.7,
+      "sas": 6.9,
+      "kdh": 6.7,
+      "olano": 6.6,
+      "republika": 5.9,
+      "sns": 4.7,
+      "sme_rodina": 3.6,
+      "lsns": 0.4
     }
   },
   {
@@ -2185,15 +1837,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/01/ag.AKO_VOLEBNE-PREF-DECEMBER-2024.pdf",
     "results": {
-      "ps": 19.5,
-      "smer": 17.1,
-      "hlas": 11.2,
-      "kdh": 5.3,
-      "sas": 4.7,
-      "republika": 3.6,
-      "sns": 3,
-      "sme_rodina": 2.3,
-      "lsns": 0
+      "ps": 22.8,
+      "smer": 20.3,
+      "hlas": 13.9,
+      "kdh": 7.3,
+      "sas": 6.6,
+      "olano": 6.2,
+      "republika": 5.4,
+      "sns": 4.6,
+      "sme_rodina": 3.8,
+      "lsns": 0.3
     }
   },
   {
@@ -2206,15 +1859,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/01/ag.AKO_VOLEBNE-PREF-JANUAR-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 21.4,
-      "smer": 19.4,
-      "hlas": 10.5,
-      "sas": 5.2,
-      "kdh": 4.8,
-      "republika": 3.5,
-      "sns": 2.7,
-      "sme_rodina": 1.1,
-      "lsns": 0.1
+      "ps": 24.6,
+      "smer": 22.5,
+      "hlas": 13,
+      "sas": 7.1,
+      "kdh": 6.7,
+      "olano": 5.4,
+      "republika": 5.1,
+      "sns": 4.2,
+      "sme_rodina": 2.2,
+      "lsns": 0.8
     }
   },
   {
@@ -2227,15 +1881,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/02/ag.AKO_VOLEBNE-PREF-FEBRUAR-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 20.9,
-      "smer": 19,
-      "hlas": 10,
-      "kdh": 5,
-      "sas": 4.6,
-      "republika": 4,
-      "sns": 2.6,
-      "sme_rodina": 1.7,
-      "lsns": 0
+      "ps": 24.1,
+      "smer": 22.1,
+      "hlas": 12.5,
+      "kdh": 6.9,
+      "sas": 6.4,
+      "olano": 6,
+      "republika": 5.7,
+      "sns": 4.1,
+      "sme_rodina": 2.9,
+      "lsns": 0.3
     }
   },
   {
@@ -2268,15 +1923,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/03/ag.AKO_VOLEBNE-PREF-MAREC-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 18.6,
-      "smer": 18.2,
-      "hlas": 9.9,
-      "kdh": 5.8,
-      "republika": 5.1,
-      "sas": 4.8,
-      "sns": 2.6,
-      "sme_rodina": 1.3,
-      "lsns": 0
+      "ps": 21.7,
+      "smer": 21.2,
+      "hlas": 12.3,
+      "kdh": 7.8,
+      "olano": 7.3,
+      "republika": 7,
+      "sas": 6.6,
+      "sns": 4,
+      "sme_rodina": 2.4,
+      "lsns": 0.2
     }
   },
   {
@@ -2309,14 +1965,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/04/ag.AKO_VOLEBNE-PREF-APRIL-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 19.4,
-      "smer": 17.5,
-      "hlas": 9.6,
-      "kdh": 5.4,
-      "sas": 5.2,
-      "republika": 5.1,
-      "sns": 2.6,
-      "sme_rodina": 0.6
+      "ps": 22.5,
+      "smer": 20.5,
+      "hlas": 12,
+      "olano": 8.7,
+      "kdh": 7.3,
+      "sas": 7.1,
+      "republika": 7,
+      "sns": 4.1,
+      "sme_rodina": 1.5
     }
   },
   {
@@ -2349,14 +2006,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/06/ag.AKO_VOLEBNE-PREF-MAJ-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 18.5,
-      "smer": 16.1,
-      "hlas": 9.7,
-      "kdh": 5.8,
-      "republika": 5.4,
-      "sas": 5.4,
-      "sns": 2.7,
-      "sme_rodina": 1.8
+      "ps": 21.5,
+      "smer": 19,
+      "hlas": 12.1,
+      "olano": 8.8,
+      "kdh": 7.8,
+      "republika": 7.3,
+      "sas": 7.2,
+      "sns": 4.2,
+      "sme_rodina": 3
     }
   },
   {
@@ -2389,14 +2047,15 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/06/ag.AKO_VOLEBNE-PREF-JUN-2025-tlacova-sprava-.pdf",
     "results": {
-      "ps": 19.4,
-      "smer": 16.3,
-      "hlas": 9.7,
-      "republika": 6.1,
-      "sas": 5.3,
-      "kdh": 5,
-      "sns": 2.6,
-      "sme_rodina": 1.5
+      "ps": 22.5,
+      "smer": 19.3,
+      "hlas": 12.1,
+      "republika": 8.1,
+      "olano": 8,
+      "sas": 7.3,
+      "kdh": 6.9,
+      "sns": 4.1,
+      "sme_rodina": 2.7
     }
   },
   {
@@ -2429,15 +2088,16 @@
     "sampleSize": 1000,
     "sourceUrl": "https://ako.sk/wp-content/uploads/2025/07/ag.AKO_VOLEBNE-PREF-JUL-2025-tlacova-sprava.pdf",
     "results": {
-      "ps": 19,
-      "smer": 16.5,
-      "hlas": 10,
-      "republika": 6,
-      "sas": 5.5,
-      "kdh": 4.8,
-      "sns": 2.7,
-      "sme_rodina": 1.4,
-      "lsns": 0
+      "ps": 22.1,
+      "smer": 19.4,
+      "hlas": 12.4,
+      "olano": 8.3,
+      "republika": 8,
+      "sas": 7.5,
+      "kdh": 6.6,
+      "sns": 4.2,
+      "sme_rodina": 2.6,
+      "lsns": 0.4
     }
   },
   {
@@ -2454,6 +2114,7 @@
       "smer": 18.2,
       "hlas": 11.3,
       "sas": 7.9,
+      "olano": 7.6,
       "republika": 7.4,
       "kdh": 7.1,
       "sns": 4.5,
@@ -2502,132 +2163,6 @@
     }
   },
   {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-09",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-09-08",
-    "fieldworkEnd": "2025-09-22",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/09/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2025-tlacova-sprava.pdf",
-    "results": {
-      "ps": 23.1,
-      "smer": 17.4,
-      "hlas": 11,
-      "olano": 8.7,
-      "republika": 8.2,
-      "sas": 7.4,
-      "kdh": 7.2,
-      "sns": 4.6,
-      "sme_rodina": 3.5
-    }
-  },
-  {
     "id": "sk-focus-2025-09",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2646,132 +2181,6 @@
       "sas": 6.1,
       "sns": 4.3,
       "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
-    }
-  },
-  {
-    "id": "sk-ako-2025-10",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-10-08",
-    "fieldworkEnd": "2025-10-17",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-OKTOBER-2025-tlacova-sprava-FINAL-FINAL.pdf",
-    "results": {
-      "ps": 22.8,
-      "smer": 17.9,
-      "hlas": 10.8,
-      "republika": 8.6,
-      "olano": 7.5,
-      "sas": 7.1,
-      "kdh": 6.8,
-      "sns": 4.5,
-      "sme_rodina": 3.5
     }
   },
   {
@@ -2859,132 +2268,6 @@
     }
   },
   {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
-    "id": "sk-ako-2025-11",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2025-11-11",
-    "fieldworkEnd": "2025-11-18",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2025/11/ag.AKO_VOLEBNE-PREF-NOVEMBER-2025-tlacova-sprava-final.pdf",
-    "results": {
-      "ps": 23.3,
-      "smer": 17.1,
-      "hlas": 10.4,
-      "olano": 8.2,
-      "sas": 7.5,
-      "republika": 6.9,
-      "kdh": 6.5,
-      "sns": 4.6,
-      "sme_rodina": 3
-    }
-  },
-  {
     "id": "sk-focus-2025-12",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -3002,132 +2285,6 @@
       "kdh": 7.2,
       "sas": 6.7,
       "sns": 4.3,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
-      "sme_rodina": 2.3
-    }
-  },
-  {
-    "id": "sk-ako-2026-01",
-    "countryId": "sk",
-    "electionId": "sk-2024",
-    "agency": "AKO",
-    "fieldworkStart": "2026-01-13",
-    "fieldworkEnd": "2026-01-20",
-    "sampleSize": 1000,
-    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/01/ag.AKO_VOLEBNE-PREF-JANUAR-2026-tlacova-sprava-FINAL.pdf",
-    "results": {
-      "ps": 23.2,
-      "smer": 16.9,
-      "hlas": 9.2,
-      "olano": 8,
-      "sas": 7.5,
-      "republika": 7.2,
-      "kdh": 7,
-      "sns": 4.7,
       "sme_rodina": 2.3
     }
   },

@@ -8,8 +8,8 @@ const AGENCY = 'AKO' as const;
 
 /** Match a percentage at start of line (e.g. "24,9" or "24,9 21,5 - 28,3") */
 const PCT_AT_START = /^\s*(\d{1,2}[,.]\d+)\s/;
-/** Match party name then percentage on same line: "Party name  22,8  ..." */
-const NAME_PCT_SAME_LINE = /^(.{3,}?)\s+(\d{1,2}[,.]\d+)\s/;
+/** Match party name then percentage on same line. Prefer number followed by % (main share column), not the first number of 95% interval. */
+const NAME_PCT_SAME_LINE = /^(.{3,}?)\s+(\d{1,2}[,.]\d+)%?\s/;
 /** Percentage value (for cell-by-cell scan) */
 const PCT_VALUE = /^(\d{1,2}[,.]\d+)$/;
 
@@ -55,6 +55,15 @@ function extractResultsFromPdfText(text: string): Record<string, number> {
             }
           }
           results[mergedName] = value;
+        }
+      } else if (valueValid && recentLines.length >= 1 && /^\s*a\s+/i.test(name)) {
+        // Continuation line (e.g. "a Za ľudí") - prepend previous line so "Koalícia SLOVENSKO, Kresťanská únia a Za ľudí" resolves
+        const prevLine = recentLines[recentLines.length - 1];
+        if (prevLine.length >= 2 && !/^\d/.test(prevLine)) {
+          const mergedName = (prevLine.replace(/\s+/g, ' ').trim() + ' ' + name.trim()).trim();
+          results[mergedName] = value;
+        } else {
+          if (!/^\d+$/.test(name)) results[name] = value;
         }
       } else if (!/^\d+$/.test(name) && valueValid) {
         results[name] = value;

@@ -72,18 +72,42 @@ export async function exportPolls(
   const runIds = new Set(runPollsWithIds.map((p) => p.id));
 
   let finalPolls: NormalizedPoll[];
+  const existingById = new Map<string, NormalizedPoll>();
+
   if (options.processedDataUntil != null && options.processedDataUntil !== '') {
     const existing = await loadExistingPolls(options.outputPath);
+    for (const p of existing) {
+      existingById.set(p.id, p);
+    }
     const until = options.processedDataUntil;
-    const verified = existing.filter((p) => p.fieldworkEnd <= until);
+    // Verified: keep only if not replaced by this run (same id in runPollsWithIds)
+    const verified = existing.filter(
+      (p) => p.fieldworkEnd <= until && !runIds.has(p.id)
+    );
     const existingNotVerified = existing.filter((p) => p.fieldworkEnd > until);
     const existingToKeep = existingNotVerified.filter((p) => !runIds.has(p.id));
-    finalPolls = [...verified, ...existingToKeep, ...runPollsWithIds].sort((a, b) =>
-      a.fieldworkStart.localeCompare(b.fieldworkStart)
-    );
+    // Merge run polls with existing: keep manual edits (party results only in existing), parsed data wins when present
+    const runMerged = runPollsWithIds.map((p) => {
+      const ex = existingById.get(p.id);
+      if (!ex?.results) return p;
+      return {
+        ...p,
+        results: { ...ex.results, ...p.results },
+      };
+    });
+    finalPolls = [...verified, ...existingToKeep, ...runMerged];
   } else {
     finalPolls = runPollsWithIds;
   }
+
+  // Deduplicate by id (last wins) so multiple runs never leave duplicate records
+  const byId = new Map<string, NormalizedPoll>();
+  for (const p of finalPolls) {
+    byId.set(p.id, p);
+  }
+  finalPolls = Array.from(byId.values()).sort((a, b) =>
+    a.fieldworkStart.localeCompare(b.fieldworkStart)
+  );
 
   const payload = options.pretty !== false
     ? JSON.stringify(finalPolls, null, 2)
