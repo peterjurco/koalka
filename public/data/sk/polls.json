@@ -1782,7 +1782,8 @@
       "sas": 6.7,
       "kdh": 6.2,
       "sns": 3.6,
-      "sme_rodina": 3.3
+      "sme_rodina": 3.3,
+      "olano": 3.6
     }
   },
   {
@@ -1824,7 +1825,8 @@
       "kdh": 6.9,
       "sas": 6.1,
       "sns": 3.7,
-      "sme_rodina": 2.2
+      "sme_rodina": 2.2,
+      "olano": 5.2
     }
   },
   {
@@ -1910,7 +1912,8 @@
       "kdh": 7.8,
       "sas": 6.2,
       "sns": 3.7,
-      "sme_rodina": 2.6
+      "sme_rodina": 2.6,
+      "olano": 5.6
     }
   },
   {
@@ -1952,7 +1955,8 @@
       "republika": 8.2,
       "sas": 6.6,
       "sns": 3.9,
-      "sme_rodina": 2.9
+      "sme_rodina": 2.9,
+      "olano": 7.3
     }
   },
   {
@@ -1993,7 +1997,8 @@
       "kdh": 7.3,
       "sas": 6.8,
       "sns": 3.9,
-      "sme_rodina": 3.2
+      "sme_rodina": 3.2,
+      "olano": 7.8
     }
   },
   {
@@ -2034,7 +2039,8 @@
       "kdh": 7.5,
       "sas": 6.1,
       "sns": 3.7,
-      "sme_rodina": 3.4
+      "sme_rodina": 3.4,
+      "olano": 8.5
     }
   },
   {
@@ -2075,7 +2081,8 @@
       "sas": 6.8,
       "kdh": 6.3,
       "sns": 3.8,
-      "sme_rodina": 2.5
+      "sme_rodina": 2.5,
+      "olano": 7.5
     }
   },
   {
@@ -2138,7 +2145,8 @@
       "kdh": 6.7,
       "sas": 6.3,
       "sns": 4,
-      "sme_rodina": 2.6
+      "sme_rodina": 2.6,
+      "olano": 8.2
     }
   },
   {
