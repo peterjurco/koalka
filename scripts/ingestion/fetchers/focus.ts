@@ -144,7 +144,7 @@ export async function fetchFocus(options?: FetchOptions | null): Promise<Fetched
         try {
           const csvText = await fetchText(csvUrl);
           await delay(PIPELINE_CONFIG.fetchDelayMs);
-          docs.push({ url: reportUrl, html: csvText });
+          docs.push({ url: reportUrl, html: csvText, sourceType: 'csv' });
           continue;
         } catch {
           // fall through
@@ -155,13 +155,13 @@ export async function fetchFocus(options?: FetchOptions | null): Promise<Fetched
         try {
           const pdfBuffer = await fetchBuffer(pdfUrl);
           await delay(PIPELINE_CONFIG.fetchDelayMs);
-          docs.push({ url: reportUrl, pdfBuffer });
+          docs.push({ url: reportUrl, pdfBuffer, sourceType: 'pdf' });
         } catch (e) {
           console.warn(`Focus: failed to fetch PDF ${pdfUrl}: ${shortFetchError(e)}`);
-          docs.push({ url: reportUrl, html: reportHtml });
+          docs.push({ url: reportUrl, html: reportHtml, sourceType: 'html' });
         }
       } else {
-        docs.push({ url: reportUrl, html: reportHtml });
+        docs.push({ url: reportUrl, html: reportHtml, sourceType: 'html' });
       }
     } catch (e) {
       console.warn(`Focus: failed to fetch report ${reportUrl}: ${shortFetchError(e)}`);

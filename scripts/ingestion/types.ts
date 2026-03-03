@@ -55,12 +55,17 @@ export interface SkipReason {
   context?: unknown;
 }
 
+/** How the document was obtained (for verbose logging). */
+export type DocumentSourceType = 'csv' | 'pdf' | 'html';
+
 /** Fetcher output: raw content for parser */
 export interface FetchedDocument {
   url: string;
   html?: string;
   pdfBuffer?: ArrayBuffer;
   pdfText?: string;
+  /** Set by fetcher for verbose output: csv, pdf, or html */
+  sourceType?: DocumentSourceType;
 }
 
 /** Optional date window for fetchers: only fetch sources that fall in [dateFrom, dateTo] (YYYY-MM-DD). */

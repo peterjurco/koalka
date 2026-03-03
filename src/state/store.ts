@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { ElectionConfig, PartyId, Poll, VoteShare } from '../data/types.ts'
-import type { MonthlyAggregate } from '../core/aggregation/index.ts'
+import type { MonthlyAggregate, TrendValueSource } from '../core/aggregation/index.ts'
 import type { CoalitionResult } from '../core/coalition/index.ts'
 import type { SeatAllocation } from '../core/allocation/index.ts'
 import { getElectionConfig, getPollsLoader, DEFAULT_COUNTRY_ID, DEFAULT_ELECTION_ID } from '../config/elections.ts'
@@ -30,8 +30,10 @@ export interface KoalkaState {
   /** Polls after applying filters; used by charts and aggregates */
   filteredPolls: Poll[]
   monthlyAggregates: MonthlyAggregate[]
-  /** Monthly aggregates from filteredPolls */
+  /** Monthly aggregates from filteredPolls (percent or mandates per trendValueMode) */
   filteredMonthlyAggregates: MonthlyAggregate[]
+  /** Trend chart: show percent or mandates */
+  trendValueMode: TrendValueSource
   /** Current vote source for seat calc and coalition */
   voteSource: VoteSource | null
   /** Seat allocation for current vote source */
@@ -47,6 +49,7 @@ export interface KoalkaState {
 export interface KoalkaActions {
   setElection: (countryId: string, electionId: string) => Promise<void>
   setFilters: (partial: Partial<PollFilters>) => void
+  setTrendValueMode: (mode: TrendValueSource) => void
   setVoteSource: (source: VoteSource | null) => void
   setSelectedCoalitionPartyIds: (ids: PartyId[]) => void
   toggleCoalitionParty: (partyId: PartyId) => void
@@ -96,6 +99,7 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
   filteredPolls: [],
   monthlyAggregates: [],
   filteredMonthlyAggregates: [],
+  trendValueMode: 'results',
   voteSource: null,
   seatAllocation: null,
   selectedCoalitionPartyIds: [],
@@ -114,8 +118,9 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
       const validAgencies = [...new Set(polls.map((p) => p.agency))]
       const filters = getFiltersFromUrl(months, validAgencies)
       const filteredPolls = applyFilters(polls, filters)
-      const monthlyAggregates = aggregatePollsByMonth(polls)
-      const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls)
+      const mode = get().trendValueMode
+      const monthlyAggregates = aggregatePollsByMonth(polls, mode)
+      const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls, mode)
       set({ polls, filters, filteredPolls, monthlyAggregates, filteredMonthlyAggregates })
       set({ voteSource: null, seatAllocation: null, coalitionResult: null })
     } catch (e) {
@@ -141,8 +146,15 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
         filteredPolls = applyFilters(state.polls, filters)
       }
     }
-    const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls)
+    const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls, get().trendValueMode)
     set({ filters, filteredPolls, filteredMonthlyAggregates })
+  },
+
+  setTrendValueMode: (mode) => {
+    const state = get()
+    const monthlyAggregates = aggregatePollsByMonth(state.polls, mode)
+    const filteredMonthlyAggregates = aggregatePollsByMonth(state.filteredPolls, mode)
+    set({ trendValueMode: mode, monthlyAggregates, filteredMonthlyAggregates })
   },
 
   setVoteSource: (source) => {
@@ -214,8 +226,9 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
       const dateTo = state.filters.dateTo && months.includes(state.filters.dateTo) ? state.filters.dateTo : (months[months.length - 1] ?? '')
       const filters: PollFilters = { ...state.filters, dateFrom, dateTo }
       const filteredPolls = applyFilters(polls, filters)
-      const monthlyAggregates = aggregatePollsByMonth(polls)
-      const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls)
+      const mode = get().trendValueMode
+      const monthlyAggregates = aggregatePollsByMonth(polls, mode)
+      const filteredMonthlyAggregates = aggregatePollsByMonth(filteredPolls, mode)
       set({ polls, filters, filteredPolls, monthlyAggregates, filteredMonthlyAggregates })
     } catch (e) {
       set({ error: e instanceof Error ? e.message : 'Nepodarilo sa načítať prieskumy' })

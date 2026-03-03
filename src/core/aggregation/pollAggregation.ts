@@ -9,24 +9,33 @@ export interface MonthlyAggregate {
   results: VoteShare
 }
 
+export type TrendValueSource = 'results' | 'seatProjection'
+
 /**
- * Aggregate poll results by month: average percentage per party per month.
+ * Aggregate poll results by month: average per party per month.
  * Uses fieldwork end date to assign poll to a month.
+ * valueSource: 'results' = percentages, 'seatProjection' = mandates (from metadata.seatProjection).
  */
-export function aggregatePollsByMonth(polls: Poll[]): MonthlyAggregate[] {
+export function aggregatePollsByMonth(
+  polls: Poll[],
+  valueSource: TrendValueSource = 'results'
+): MonthlyAggregate[] {
   const byMonth = new Map<string, { sum: VoteShare; count: number }>()
 
   for (const poll of polls) {
     const date = parseISODate(poll.fieldworkEnd)
     const key = getMonthKey(date)
     const existing = byMonth.get(key)
-    const results = poll.results
+    const values: VoteShare =
+      valueSource === 'seatProjection'
+        ? (poll.metadata?.seatProjection ?? {})
+        : poll.results
 
     if (!existing) {
-      byMonth.set(key, { sum: { ...results }, count: 1 })
+      byMonth.set(key, { sum: { ...values }, count: 1 })
     } else {
-      for (const [partyId, pct] of Object.entries(results)) {
-        existing.sum[partyId] = (existing.sum[partyId] ?? 0) + pct
+      for (const [partyId, v] of Object.entries(values)) {
+        existing.sum[partyId] = (existing.sum[partyId] ?? 0) + v
       }
       existing.count += 1
     }

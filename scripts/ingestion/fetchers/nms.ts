@@ -10,7 +10,7 @@ export async function fetchNMS(): Promise<FetchedDocument[]> {
   for (const listUrl of PIPELINE_CONFIG.sources.NMS.listUrls) {
     try {
       const html = await fetchText(listUrl);
-      docs.push({ url: listUrl, html });
+      docs.push({ url: listUrl, html, sourceType: 'html' });
     } catch (e) {
       console.warn(`NMS: failed to fetch ${listUrl}: ${shortFetchError(e)}`);
     }

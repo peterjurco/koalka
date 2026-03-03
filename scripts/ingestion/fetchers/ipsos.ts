@@ -10,7 +10,7 @@ export async function fetchIpsos(): Promise<FetchedDocument[]> {
   for (const listUrl of PIPELINE_CONFIG.sources.Ipsos.listUrls) {
     try {
       const html = await fetchText(listUrl);
-      docs.push({ url: listUrl, html });
+      docs.push({ url: listUrl, html, sourceType: 'html' });
     } catch (e) {
       console.warn(`Ipsos: failed to fetch ${listUrl}: ${shortFetchError(e)}`);
     }

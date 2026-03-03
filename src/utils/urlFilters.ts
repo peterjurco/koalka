@@ -19,6 +19,13 @@ export function getFiltersFromUrl(
   const agency = params.get('agency')
   const dateFrom = params.get('dateFrom')
   const dateTo = params.get('dateTo')
+  let dateFromVal = dateFrom && months.includes(dateFrom) ? dateFrom : fallback.dateFrom
+  let dateToVal = dateTo && months.includes(dateTo) ? dateTo : fallback.dateTo
+  // Clamp to available data so a stale URL (e.g. dateTo=2025-11 before Dec 2025 was added) doesn't hide new months
+  if (months.length > 0) {
+    if (dateFromVal > months[0]!) dateFromVal = months[0]!
+    if (dateToVal < months[months.length - 1]!) dateToVal = months[months.length - 1]!
+  }
   const filters: PollFilters = {
     agency:
       agency === null || agency === ''
@@ -26,8 +33,8 @@ export function getFiltersFromUrl(
         : validAgencies.includes(agency)
           ? agency
           : null,
-    dateFrom: dateFrom && months.includes(dateFrom) ? dateFrom : fallback.dateFrom,
-    dateTo: dateTo && months.includes(dateTo) ? dateTo : fallback.dateTo,
+    dateFrom: dateFromVal,
+    dateTo: dateToVal,
   }
   return filters
 }

@@ -14,6 +14,15 @@
       "sas": 5.8,
       "sns": 5.1,
       "olano": 11.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 56,
+        "sme_rodina": 21,
+        "sas": 19,
+        "sns": 16,
+        "olano": 38
+      }
     }
   },
   {
@@ -33,6 +42,17 @@
       "sns": 5,
       "olano": 15.5,
       "lsns": 10.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "sme_rodina": 16,
+        "sas": 14,
+        "kdh": 12,
+        "sns": 11,
+        "olano": 35,
+        "lsns": 23
+      }
     }
   },
   {
@@ -54,6 +74,19 @@
       "ps": 5.2,
       "kdh": 3,
       "sns": 1.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "olano": 44,
+        "hlas": 31,
+        "smer": 20,
+        "sas": 18,
+        "lsns": 15,
+        "sme_rodina": 12,
+        "ps": 10,
+        "kdh": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -75,6 +108,19 @@
       "sme_rodina": 5.7,
       "kdh": 4.7,
       "sns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 43,
+        "sas": 30,
+        "olano": 27,
+        "smer": 17,
+        "ps": 12,
+        "lsns": 11,
+        "sme_rodina": 10,
+        "kdh": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -94,7 +140,21 @@
       "ps": 5.2,
       "sme_rodina": 5.1,
       "kdh": 4.4,
-      "sns": 2.8
+      "sns": 2.8,
+      "lsns": 9.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 47,
+        "sas": 26,
+        "olano": 20,
+        "smer": 18,
+        "ps": 10,
+        "sme_rodina": 10,
+        "kdh": 0,
+        "sns": 0,
+        "lsns": 19
+      }
     }
   },
   {
@@ -116,6 +176,19 @@
       "kdh": 4.9,
       "lsns": 3.8,
       "sns": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 50,
+        "sas": 30,
+        "olano": 28,
+        "smer": 17,
+        "ps": 15,
+        "sme_rodina": 10,
+        "kdh": 0,
+        "lsns": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -135,7 +208,21 @@
       "ps": 6.7,
       "sme_rodina": 5.2,
       "kdh": 4.9,
-      "sns": 2.8
+      "sns": 2.8,
+      "lsns": 6.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 47,
+        "sas": 26,
+        "olano": 21,
+        "smer": 19,
+        "ps": 14,
+        "sme_rodina": 10,
+        "kdh": 0,
+        "sns": 0,
+        "lsns": 13
+      }
     }
   },
   {
@@ -158,6 +245,20 @@
       "lsns": 4.3,
       "sns": 3,
       "republika": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 47,
+        "sas": 27,
+        "olano": 24,
+        "smer": 16,
+        "ps": 15,
+        "sme_rodina": 11,
+        "kdh": 10,
+        "lsns": 0,
+        "sns": 0,
+        "republika": 0
+      }
     }
   },
   {
@@ -178,7 +279,22 @@
       "ps": 6.2,
       "kdh": 5.7,
       "republika": 4.7,
-      "sns": 3.4
+      "sns": 3.4,
+      "lsns": 4.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 46,
+        "sas": 23,
+        "smer": 22,
+        "olano": 19,
+        "sme_rodina": 15,
+        "ps": 13,
+        "kdh": 12,
+        "republika": 0,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -201,6 +317,20 @@
       "sns": 3.3,
       "republika": 3.1,
       "lsns": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 50,
+        "sas": 28,
+        "olano": 21,
+        "smer": 19,
+        "ps": 17,
+        "sme_rodina": 15,
+        "kdh": 0,
+        "sns": 0,
+        "republika": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -221,7 +351,22 @@
       "ps": 6.1,
       "kdh": 5.7,
       "republika": 4.5,
-      "sns": 3.4
+      "sns": 3.4,
+      "lsns": 4.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 45,
+        "sas": 25,
+        "smer": 24,
+        "olano": 18,
+        "sme_rodina": 15,
+        "ps": 12,
+        "kdh": 11,
+        "republika": 0,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -244,6 +389,20 @@
       "republika": 3.5,
       "lsns": 2.1,
       "sns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 44,
+        "sas": 27,
+        "olano": 19,
+        "smer": 19,
+        "ps": 17,
+        "sme_rodina": 14,
+        "kdh": 10,
+        "republika": 0,
+        "lsns": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -264,7 +423,22 @@
       "ps": 6.3,
       "kdh": 5.8,
       "republika": 4.6,
-      "sns": 3.2
+      "sns": 3.2,
+      "lsns": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 44,
+        "sas": 26,
+        "smer": 24,
+        "olano": 16,
+        "sme_rodina": 15,
+        "ps": 13,
+        "kdh": 12,
+        "republika": 0,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -287,6 +461,20 @@
       "sns": 3.1,
       "lsns": 3,
       "republika": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 42,
+        "sas": 28,
+        "smer": 21,
+        "olano": 18,
+        "ps": 16,
+        "sme_rodina": 15,
+        "kdh": 10,
+        "sns": 0,
+        "lsns": 0,
+        "republika": 0
+      }
     }
   },
   {
@@ -309,6 +497,20 @@
       "republika": 3.8,
       "lsns": 3.5,
       "sns": 3.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 41,
+        "sas": 27,
+        "smer": 21,
+        "olano": 17,
+        "ps": 17,
+        "sme_rodina": 15,
+        "kdh": 12,
+        "republika": 0,
+        "lsns": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -331,6 +533,20 @@
       "republika": 4.5,
       "lsns": 3.9,
       "sns": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 38,
+        "sas": 29,
+        "smer": 22,
+        "olano": 19,
+        "ps": 17,
+        "sme_rodina": 13,
+        "kdh": 12,
+        "republika": 0,
+        "lsns": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -351,7 +567,22 @@
       "republika": 6.8,
       "sme_rodina": 6.7,
       "kdh": 6.1,
-      "sns": 3.6
+      "sns": 3.6,
+      "lsns": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 27,
+        "sas": 22,
+        "olano": 15,
+        "ps": 13,
+        "republika": 13,
+        "sme_rodina": 13,
+        "kdh": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -374,6 +605,20 @@
       "republika": 5.2,
       "sns": 3.5,
       "lsns": 2.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "sas": 26,
+        "smer": 25,
+        "olano": 18,
+        "ps": 15,
+        "sme_rodina": 12,
+        "kdh": 12,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -396,6 +641,20 @@
       "republika": 5,
       "sns": 3.6,
       "lsns": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "sas": 26,
+        "smer": 25,
+        "olano": 17,
+        "ps": 16,
+        "sme_rodina": 13,
+        "kdh": 11,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -416,7 +675,22 @@
       "sme_rodina": 6.3,
       "kdh": 6.1,
       "republika": 5.5,
-      "sns": 3.3
+      "sns": 3.3,
+      "lsns": 3.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 36,
+        "smer": 29,
+        "sas": 23,
+        "olano": 16,
+        "ps": 13,
+        "sme_rodina": 12,
+        "kdh": 11,
+        "republika": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -439,6 +713,20 @@
       "kdh": 5.4,
       "sns": 3.6,
       "lsns": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 34,
+        "sas": 25,
+        "smer": 24,
+        "olano": 18,
+        "ps": 16,
+        "sme_rodina": 13,
+        "republika": 10,
+        "kdh": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -459,7 +747,22 @@
       "republika": 6.8,
       "sme_rodina": 6.1,
       "kdh": 6.1,
-      "sns": 3.6
+      "sns": 3.6,
+      "lsns": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 36,
+        "smer": 28,
+        "sas": 22,
+        "olano": 15,
+        "ps": 14,
+        "republika": 13,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -482,6 +785,20 @@
       "republika": 5.9,
       "sns": 3.6,
       "lsns": 3.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "sas": 25,
+        "smer": 25,
+        "olano": 16,
+        "ps": 15,
+        "sme_rodina": 12,
+        "kdh": 11,
+        "republika": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -504,6 +821,20 @@
       "kdh": 6,
       "sns": 3.6,
       "lsns": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "sas": 26,
+        "smer": 25,
+        "olano": 17,
+        "ps": 15,
+        "sme_rodina": 12,
+        "republika": 11,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -524,7 +855,22 @@
       "republika": 7.8,
       "sme_rodina": 6.1,
       "kdh": 5.8,
-      "sns": 3.9
+      "sns": 3.9,
+      "lsns": 4.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "smer": 30,
+        "sas": 21,
+        "ps": 15,
+        "olano": 15,
+        "republika": 14,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -547,6 +893,20 @@
       "republika": 6.9,
       "sns": 3.8,
       "lsns": 2.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 32,
+        "smer": 27,
+        "sas": 26,
+        "ps": 16,
+        "olano": 11,
+        "kdh": 13,
+        "sme_rodina": 13,
+        "republika": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -567,7 +927,22 @@
       "republika": 7,
       "sme_rodina": 6.3,
       "kdh": 6,
-      "sns": 3.8
+      "sns": 3.8,
+      "lsns": 3.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 34,
+        "smer": 29,
+        "sas": 22,
+        "ps": 15,
+        "olano": 14,
+        "republika": 13,
+        "sme_rodina": 12,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -590,6 +965,20 @@
       "republika": 5.7,
       "sns": 3.9,
       "lsns": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 32,
+        "sas": 26,
+        "smer": 25,
+        "olano": 17,
+        "ps": 16,
+        "kdh": 13,
+        "sme_rodina": 11,
+        "republika": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -610,7 +999,22 @@
       "ps": 7.3,
       "republika": 6.9,
       "kdh": 6.3,
-      "sns": 3.6
+      "sns": 3.6,
+      "lsns": 4.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 28,
+        "sas": 19,
+        "olano": 15,
+        "sme_rodina": 14,
+        "ps": 14,
+        "republika": 13,
+        "kdh": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -633,6 +1037,20 @@
       "republika": 6.2,
       "sns": 3.9,
       "lsns": 3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "smer": 25,
+        "sas": 24,
+        "olano": 20,
+        "ps": 15,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "republika": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -655,6 +1073,20 @@
       "sme_rodina": 6.1,
       "sns": 4,
       "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 32,
+        "sas": 25,
+        "smer": 23,
+        "olano": 19,
+        "ps": 17,
+        "kdh": 13,
+        "republika": 11,
+        "sme_rodina": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -675,7 +1107,22 @@
       "republika": 6.8,
       "kdh": 6.5,
       "sme_rodina": 5.6,
-      "sns": 3.7
+      "sns": 3.7,
+      "lsns": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 37,
+        "smer": 27,
+        "sas": 20,
+        "ps": 17,
+        "olano": 15,
+        "republika": 12,
+        "kdh": 12,
+        "sme_rodina": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -698,6 +1145,20 @@
       "republika": 5.2,
       "sns": 4.2,
       "lsns": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 26,
+        "sas": 25,
+        "ps": 17,
+        "olano": 15,
+        "kdh": 13,
+        "sme_rodina": 10,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -718,7 +1179,22 @@
       "olano": 7.1,
       "republika": 6.8,
       "kdh": 6.7,
-      "sns": 4
+      "sns": 4,
+      "lsns": 3.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 38,
+        "smer": 26,
+        "sas": 18,
+        "ps": 17,
+        "sme_rodina": 14,
+        "olano": 13,
+        "republika": 12,
+        "kdh": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -741,6 +1217,20 @@
       "republika": 5.4,
       "sns": 4.1,
       "lsns": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "sas": 26,
+        "smer": 25,
+        "ps": 17,
+        "olano": 16,
+        "kdh": 12,
+        "sme_rodina": 10,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -763,6 +1253,20 @@
       "republika": 5.3,
       "sns": 4.1,
       "lsns": 2.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 34,
+        "smer": 27,
+        "sas": 23,
+        "ps": 18,
+        "olano": 15,
+        "kdh": 12,
+        "sme_rodina": 12,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -785,6 +1289,20 @@
       "republika": 5.2,
       "sns": 4.2,
       "lsns": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 27,
+        "sas": 23,
+        "ps": 18,
+        "olano": 14,
+        "sme_rodina": 13,
+        "kdh": 11,
+        "republika": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -805,7 +1323,22 @@
       "olano": 7.2,
       "sme_rodina": 7,
       "kdh": 6.2,
-      "sns": 3.9
+      "sns": 3.9,
+      "lsns": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 38,
+        "smer": 28,
+        "ps": 18,
+        "sas": 15,
+        "republika": 14,
+        "olano": 13,
+        "sme_rodina": 13,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -828,6 +1361,20 @@
       "kdh": 5.8,
       "sns": 4.1,
       "lsns": 2.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 33,
+        "smer": 28,
+        "sas": 20,
+        "ps": 20,
+        "olano": 14,
+        "sme_rodina": 13,
+        "republika": 12,
+        "kdh": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -848,7 +1395,22 @@
       "olano": 7,
       "kdh": 6.9,
       "sme_rodina": 6.6,
-      "sns": 3.8
+      "sns": 3.8,
+      "lsns": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 36,
+        "smer": 29,
+        "ps": 19,
+        "sas": 15,
+        "republika": 13,
+        "olano": 13,
+        "kdh": 13,
+        "sme_rodina": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -871,6 +1433,20 @@
       "kdh": 6.1,
       "sns": 4.2,
       "lsns": 1.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 29,
+        "ps": 20,
+        "sas": 19,
+        "olano": 13,
+        "sme_rodina": 12,
+        "republika": 11,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -891,7 +1467,22 @@
       "sme_rodina": 7.3,
       "olano": 7,
       "kdh": 6,
-      "sns": 3.7
+      "sns": 3.7,
+      "lsns": 3
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 37,
+        "smer": 29,
+        "ps": 19,
+        "republika": 14,
+        "sas": 14,
+        "sme_rodina": 13,
+        "olano": 13,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -914,6 +1505,20 @@
       "kdh": 5.5,
       "sns": 4,
       "lsns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 28,
+        "ps": 21,
+        "sas": 17,
+        "olano": 14,
+        "sme_rodina": 13,
+        "republika": 12,
+        "kdh": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -934,7 +1539,22 @@
       "republika": 6.9,
       "kdh": 5.9,
       "sas": 5.6,
-      "sns": 3.4
+      "sns": 3.4,
+      "lsns": 3.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 35,
+        "smer": 30,
+        "ps": 23,
+        "sme_rodina": 15,
+        "olano": 13,
+        "republika": 13,
+        "kdh": 11,
+        "sas": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -957,6 +1577,20 @@
       "kdh": 6.2,
       "sns": 4.1,
       "lsns": 1.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 31,
+        "smer": 28,
+        "ps": 24,
+        "sas": 16,
+        "olano": 15,
+        "republika": 13,
+        "sme_rodina": 12,
+        "kdh": 11,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -977,7 +1611,22 @@
       "kdh": 6.9,
       "olano": 6.4,
       "sas": 5.3,
-      "sns": 3.6
+      "sns": 3.6,
+      "lsns": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 38,
+        "smer": 27,
+        "ps": 20,
+        "republika": 16,
+        "sme_rodina": 14,
+        "kdh": 13,
+        "olano": 12,
+        "sas": 10,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -1000,6 +1649,20 @@
       "republika": 6.6,
       "sns": 4,
       "lsns": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "hlas": 34,
+        "smer": 30,
+        "ps": 25,
+        "olano": 10,
+        "sas": 14,
+        "sme_rodina": 13,
+        "kdh": 12,
+        "republika": 12,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -1022,6 +1685,20 @@
       "olano": 5,
       "sns": 4.2,
       "lsns": 1.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 32,
+        "hlas": 30,
+        "ps": 28,
+        "sas": 15,
+        "sme_rodina": 12,
+        "republika": 12,
+        "kdh": 12,
+        "olano": 9,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -1042,7 +1719,24 @@
       "kdh": 5.8,
       "sas": 5.1,
       "olano": 4.3,
-      "sns": 3.4
+      "sns": 3.4,
+      "lsns": 2.7,
+      "demokrati": 5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "hlas": 32,
+        "ps": 23,
+        "republika": 18,
+        "sme_rodina": 14,
+        "kdh": 11,
+        "sas": 10,
+        "olano": 0,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -1064,7 +1758,23 @@
       "kdh": 6.4,
       "olano": 5.8,
       "sns": 4.3,
-      "lsns": 1.4
+      "lsns": 1.4,
+      "demokrati": 4.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "hlas": 30,
+        "ps": 26,
+        "sas": 15,
+        "sme_rodina": 13,
+        "republika": 12,
+        "kdh": 11,
+        "olano": 10,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1085,7 +1795,24 @@
       "kdh": 6,
       "olano": 5.6,
       "sas": 5.2,
-      "sns": 4
+      "sns": 4,
+      "lsns": 2.7,
+      "demokrati": 3.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "hlas": 32,
+        "ps": 25,
+        "republika": 18,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "olano": 10,
+        "sas": 10,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1107,7 +1834,23 @@
       "kdh": 6.6,
       "sme_rodina": 5.6,
       "sns": 4.4,
-      "lsns": 0.7
+      "lsns": 0.7,
+      "demokrati": 3.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "hlas": 31,
+        "ps": 26,
+        "sas": 15,
+        "olano": 10,
+        "republika": 13,
+        "kdh": 12,
+        "sme_rodina": 10,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1128,7 +1871,24 @@
       "kdh": 5.5,
       "olano": 5.3,
       "sas": 5.3,
-      "sns": 4.7
+      "sns": 4.7,
+      "lsns": 2.5,
+      "demokrati": 3.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "hlas": 33,
+        "ps": 23,
+        "republika": 18,
+        "sme_rodina": 12,
+        "kdh": 10,
+        "olano": 10,
+        "sas": 10,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1150,7 +1910,23 @@
       "kdh": 6.5,
       "sme_rodina": 6.2,
       "sns": 4.7,
-      "lsns": 1
+      "lsns": 1,
+      "demokrati": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "hlas": 30,
+        "ps": 25,
+        "olano": 13,
+        "sas": 14,
+        "republika": 12,
+        "kdh": 11,
+        "sme_rodina": 11,
+        "sns": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1171,7 +1947,24 @@
       "olano": 6,
       "kdh": 6,
       "sns": 5.5,
-      "sas": 5
+      "sas": 5,
+      "lsns": 2.1,
+      "demokrati": 3.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "hlas": 28,
+        "ps": 23,
+        "republika": 16,
+        "sme_rodina": 11,
+        "olano": 10,
+        "kdh": 10,
+        "sns": 10,
+        "sas": 9,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1193,7 +1986,23 @@
       "sme_rodina": 6.2,
       "kdh": 5.9,
       "sns": 5.1,
-      "lsns": 1.7
+      "lsns": 1.7,
+      "demokrati": 2.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 31,
+        "hlas": 28,
+        "ps": 27,
+        "sas": 13,
+        "olano": 9,
+        "republika": 12,
+        "sme_rodina": 11,
+        "kdh": 10,
+        "sns": 9,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1210,11 +2019,28 @@
       "hlas": 16,
       "ps": 14.3,
       "republika": 8.7,
-      "olano": 6.2,
+      "olano": 2.3,
       "sas": 5.2,
       "sme_rodina": 5.6,
       "kdh": 5.6,
-      "sns": 5.1
+      "sns": 5.1,
+      "lsns": 2.3,
+      "demokrati": 3.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 35,
+        "hlas": 30,
+        "ps": 27,
+        "republika": 16,
+        "olano": 0,
+        "sas": 10,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "sns": 10,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1236,7 +2062,23 @@
       "sme_rodina": 6.1,
       "kdh": 6,
       "sns": 5.8,
-      "lsns": 1.2
+      "lsns": 1.2,
+      "demokrati": 2.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 36,
+        "ps": 30,
+        "hlas": 28,
+        "olano": 0,
+        "republika": 12,
+        "sas": 12,
+        "sme_rodina": 11,
+        "kdh": 11,
+        "sns": 10,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1258,7 +2100,23 @@
       "kdh": 6.2,
       "sns": 5.9,
       "sme_rodina": 5.7,
-      "lsns": 0.3
+      "lsns": 0.3,
+      "demokrati": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "ps": 30,
+        "hlas": 26,
+        "olano": 9,
+        "sas": 11,
+        "republika": 11,
+        "kdh": 10,
+        "sns": 10,
+        "sme_rodina": 10,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1275,11 +2133,28 @@
       "ps": 15,
       "hlas": 14.2,
       "republika": 8.8,
-      "olano": 6.4,
+      "olano": 2.1,
       "sas": 6.1,
       "kdh": 6.1,
       "sns": 5.3,
-      "sme_rodina": 5.1
+      "sme_rodina": 5.1,
+      "lsns": 2.1,
+      "demokrati": 3.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 37,
+        "ps": 28,
+        "hlas": 27,
+        "republika": 16,
+        "olano": 0,
+        "sas": 11,
+        "kdh": 11,
+        "sns": 10,
+        "sme_rodina": 10,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1301,7 +2176,23 @@
       "kdh": 6,
       "sme_rodina": 5.3,
       "republika": 5.2,
-      "lsns": 0.6
+      "lsns": 0.6,
+      "demokrati": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "ps": 31,
+        "hlas": 26,
+        "sas": 13,
+        "olano": 9,
+        "sns": 10,
+        "kdh": 10,
+        "sme_rodina": 9,
+        "republika": 9,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1318,11 +2209,28 @@
       "ps": 16.5,
       "hlas": 14.6,
       "republika": 8,
-      "olano": 6.3,
+      "olano": 1.8,
       "sns": 6.4,
       "sas": 5.1,
       "kdh": 6.2,
-      "sme_rodina": 4.9
+      "sme_rodina": 4.9,
+      "lsns": 1.8,
+      "demokrati": 3.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 37,
+        "ps": 33,
+        "hlas": 29,
+        "republika": 16,
+        "olano": 0,
+        "sns": 13,
+        "sas": 10,
+        "kdh": 12,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1344,7 +2252,23 @@
       "sns": 6,
       "republika": 5.4,
       "sme_rodina": 5.1,
-      "lsns": 0.3
+      "lsns": 0.3,
+      "demokrati": 4.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 31,
+        "smer": 30,
+        "hlas": 26,
+        "olano": 12,
+        "sas": 13,
+        "kdh": 10,
+        "sns": 10,
+        "republika": 9,
+        "sme_rodina": 9,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1360,12 +2284,29 @@
       "smer": 18,
       "ps": 16.6,
       "hlas": 13.7,
-      "olano": 8.2,
+      "olano": 1.7,
       "sas": 5.8,
       "sns": 6.4,
       "republika": 7.7,
       "kdh": 6.5,
-      "sme_rodina": 4.1
+      "sme_rodina": 4.1,
+      "lsns": 1.7,
+      "demokrati": 4
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 36,
+        "ps": 33,
+        "hlas": 28,
+        "olano": 0,
+        "sas": 12,
+        "sns": 13,
+        "republika": 15,
+        "kdh": 13,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1387,7 +2328,23 @@
       "sns": 5.4,
       "republika": 4.9,
       "sme_rodina": 2.7,
-      "lsns": 0.3
+      "lsns": 0.3,
+      "demokrati": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 43,
+        "ps": 36,
+        "hlas": 27,
+        "kdh": 12,
+        "olano": 12,
+        "sas": 10,
+        "sns": 10,
+        "republika": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1406,8 +2363,26 @@
       "kdh": 7.5,
       "sas": 6.4,
       "sns": 5.8,
+      "olano": 6.4,
       "republika": 5.3,
-      "sme_rodina": 2.8
+      "sme_rodina": 2.8,
+      "lsns": 1.2,
+      "demokrati": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 41,
+        "ps": 30,
+        "hlas": 25,
+        "kdh": 13,
+        "sas": 11,
+        "sns": 10,
+        "olano": 11,
+        "republika": 9,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1424,11 +2399,26 @@
       "ps": 21.4,
       "hlas": 14.6,
       "kdh": 7.3,
-      "olano": 7,
+      "olano": 6.8,
       "sas": 6.4,
       "republika": 5.4,
       "sns": 5.3,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "demokrati": 2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 40,
+        "ps": 35,
+        "hlas": 24,
+        "kdh": 12,
+        "olano": 11,
+        "sas": 10,
+        "republika": 9,
+        "sns": 9,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1450,7 +2440,23 @@
       "sns": 5.4,
       "republika": 5.3,
       "sme_rodina": 2.4,
-      "lsns": 0
+      "lsns": 0,
+      "demokrati": 3.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 37,
+        "ps": 34,
+        "hlas": 24,
+        "olano": 12,
+        "kdh": 15,
+        "sas": 10,
+        "sns": 9,
+        "republika": 9,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1470,7 +2476,25 @@
       "sns": 5.7,
       "sas": 5.5,
       "republika": 4.8,
-      "sme_rodina": 2.4
+      "sme_rodina": 2.4,
+      "olano": 6.5,
+      "lsns": 1.7,
+      "demokrati": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 35,
+        "hlas": 33,
+        "kdh": 11,
+        "sns": 10,
+        "sas": 10,
+        "republika": 0,
+        "sme_rodina": 0,
+        "olano": 12,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1491,7 +2515,22 @@
       "olano": 6.2,
       "sns": 5.3,
       "republika": 3.7,
-      "sme_rodina": 2.8
+      "sme_rodina": 2.8,
+      "demokrati": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 41,
+        "ps": 39,
+        "hlas": 25,
+        "kdh": 14,
+        "sas": 11,
+        "olano": 11,
+        "sns": 9,
+        "republika": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1511,7 +2550,25 @@
       "kdh": 6.1,
       "sns": 5.8,
       "republika": 4.2,
-      "sme_rodina": 2.6
+      "sme_rodina": 2.6,
+      "olano": 5.9,
+      "lsns": 2.7,
+      "demokrati": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 35,
+        "hlas": 32,
+        "sas": 11,
+        "kdh": 11,
+        "sns": 11,
+        "republika": 0,
+        "sme_rodina": 0,
+        "olano": 11,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1532,7 +2589,22 @@
       "olano": 6.8999999999999995,
       "sns": 5.1,
       "republika": 3.9,
-      "sme_rodina": 2
+      "sme_rodina": 2,
+      "demokrati": 3.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 37,
+        "hlas": 28,
+        "kdh": 14,
+        "sas": 11,
+        "olano": 12,
+        "sns": 9,
+        "republika": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1552,7 +2624,25 @@
       "sas": 5.4,
       "sns": 5.1,
       "republika": 4.6,
-      "sme_rodina": 1.8
+      "sme_rodina": 1.8,
+      "olano": 6.4,
+      "lsns": 1.9,
+      "demokrati": 3.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 37,
+        "hlas": 32,
+        "kdh": 11,
+        "sas": 10,
+        "sns": 9,
+        "republika": 0,
+        "sme_rodina": 0,
+        "olano": 12,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1573,7 +2663,22 @@
       "olano": 6,
       "sns": 5.1,
       "republika": 4.9,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "demokrati": 3.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 38,
+        "ps": 36,
+        "hlas": 30,
+        "kdh": 14,
+        "sas": 12,
+        "olano": 11,
+        "sns": 9,
+        "republika": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1593,7 +2698,25 @@
       "kdh": 6.9,
       "republika": 5.5,
       "sns": 5.3,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "olano": 5.2,
+      "lsns": 0.9,
+      "demokrati": 3.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 36,
+        "ps": 33,
+        "hlas": 30,
+        "sas": 12,
+        "kdh": 12,
+        "republika": 9,
+        "sns": 9,
+        "sme_rodina": 0,
+        "olano": 9,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1614,7 +2737,22 @@
       "sas": 6.7,
       "sns": 5.2,
       "republika": 5.1,
-      "sme_rodina": 3.1
+      "sme_rodina": 3.1,
+      "demokrati": 3.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 37,
+        "hlas": 31,
+        "olano": 0,
+        "kdh": 13,
+        "sas": 12,
+        "sns": 9,
+        "republika": 9,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1634,7 +2772,23 @@
       "kdh": 6.6,
       "sas": 6.1,
       "sns": 4.7,
-      "sme_rodina": 1.8
+      "sme_rodina": 1.8,
+      "olano": 4.1,
+      "demokrati": 3.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 45,
+        "ps": 41,
+        "hlas": 27,
+        "republika": 14,
+        "kdh": 12,
+        "sas": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1655,7 +2809,22 @@
       "sas": 5.3,
       "sns": 5,
       "olano": 4.7,
-      "sme_rodina": 2.1
+      "sme_rodina": 2.1,
+      "demokrati": 4.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 42,
+        "ps": 40,
+        "hlas": 27,
+        "kdh": 12,
+        "republika": 11,
+        "sas": 9,
+        "sns": 9,
+        "olano": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1677,7 +2846,23 @@
       "sns": 5,
       "olano": 3.5,
       "sme_rodina": 2.3,
-      "lsns": 0.5
+      "lsns": 0.5,
+      "demokrati": 4.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 42,
+        "ps": 39,
+        "hlas": 27,
+        "kdh": 13,
+        "republika": 10,
+        "sas": 10,
+        "sns": 9,
+        "olano": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1699,7 +2884,23 @@
       "olano": 3.6,
       "sme_rodina": 2.7,
       "lsns": 0.2,
-      "sas": 6.2
+      "sas": 6.2,
+      "demokrati": 4.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 44,
+        "ps": 41,
+        "hlas": 30,
+        "kdh": 13,
+        "republika": 10,
+        "sns": 0,
+        "olano": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "sas": 12,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1720,7 +2921,22 @@
       "republika": 5.6,
       "sns": 4.9,
       "olano": 3.9,
-      "sme_rodina": 2.6
+      "sme_rodina": 2.6,
+      "demokrati": 4.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 43,
+        "ps": 43,
+        "hlas": 29,
+        "kdh": 13,
+        "sas": 12,
+        "republika": 10,
+        "sns": 0,
+        "olano": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1740,7 +2956,23 @@
       "kdh": 6,
       "sas": 5.6,
       "sns": 4.7,
-      "sme_rodina": 3.2
+      "sme_rodina": 3.2,
+      "olano": 4.1,
+      "demokrati": 5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 43,
+        "ps": 40,
+        "hlas": 23,
+        "republika": 14,
+        "kdh": 11,
+        "sas": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -1762,7 +2994,23 @@
       "olano": 5.9,
       "sns": 4.8,
       "sme_rodina": 2.6,
-      "lsns": 0.6
+      "lsns": 0.6,
+      "demokrati": 4.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 39,
+        "hlas": 27,
+        "republika": 12,
+        "sas": 12,
+        "kdh": 11,
+        "olano": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1783,7 +3031,22 @@
       "kdh": 6.2,
       "sns": 3.6,
       "sme_rodina": 3.3,
-      "olano": 3.6
+      "olano": 3.6,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 43,
+        "smer": 41,
+        "hlas": 25,
+        "republika": 16,
+        "sas": 13,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1805,7 +3068,23 @@
       "republika": 5.9,
       "sns": 4.7,
       "sme_rodina": 3.6,
-      "lsns": 0.4
+      "lsns": 0.4,
+      "demokrati": 4.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 38,
+        "hlas": 27,
+        "sas": 12,
+        "kdh": 12,
+        "olano": 12,
+        "republika": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1826,7 +3105,22 @@
       "sas": 6.1,
       "sns": 3.7,
       "sme_rodina": 2.2,
-      "olano": 5.2
+      "olano": 5.2,
+      "demokrati": 4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 38,
+        "hlas": 25,
+        "republika": 15,
+        "kdh": 13,
+        "sas": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 9,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1848,7 +3142,23 @@
       "republika": 5.4,
       "sns": 4.6,
       "sme_rodina": 3.8,
-      "lsns": 0.3
+      "lsns": 0.3,
+      "demokrati": 4.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 37,
+        "hlas": 25,
+        "kdh": 13,
+        "sas": 12,
+        "olano": 11,
+        "republika": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1870,7 +3180,23 @@
       "republika": 5.1,
       "sns": 4.2,
       "sme_rodina": 2.2,
-      "lsns": 0.8
+      "lsns": 0.8,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 40,
+        "hlas": 23,
+        "sas": 13,
+        "kdh": 12,
+        "olano": 9,
+        "republika": 9,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1892,7 +3218,23 @@
       "republika": 5.7,
       "sns": 4.1,
       "sme_rodina": 2.9,
-      "lsns": 0.3
+      "lsns": 0.3,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 43,
+        "smer": 40,
+        "hlas": 23,
+        "kdh": 12,
+        "sas": 11,
+        "olano": 11,
+        "republika": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1913,7 +3255,22 @@
       "sas": 6.2,
       "sns": 3.7,
       "sme_rodina": 2.6,
-      "olano": 5.6
+      "olano": 5.6,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 40,
+        "hlas": 21,
+        "republika": 14,
+        "kdh": 14,
+        "sas": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 10,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1935,7 +3292,23 @@
       "sas": 6.6,
       "sns": 4,
       "sme_rodina": 2.4,
-      "lsns": 0.2
+      "lsns": 0.2,
+      "demokrati": 4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 38,
+        "hlas": 22,
+        "kdh": 14,
+        "olano": 13,
+        "republika": 12,
+        "sas": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1956,7 +3329,22 @@
       "sas": 6.6,
       "sns": 3.9,
       "sme_rodina": 2.9,
-      "olano": 7.3
+      "olano": 7.3,
+      "demokrati": 4.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 36,
+        "hlas": 20,
+        "kdh": 15,
+        "republika": 15,
+        "sas": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 13,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1977,7 +3365,22 @@
       "sas": 7.1,
       "republika": 7,
       "sns": 4.1,
-      "sme_rodina": 1.5
+      "sme_rodina": 1.5,
+      "demokrati": 4.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 36,
+        "hlas": 21,
+        "olano": 15,
+        "kdh": 13,
+        "sas": 13,
+        "republika": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -1998,7 +3401,22 @@
       "sas": 6.8,
       "sns": 3.9,
       "sme_rodina": 3.2,
-      "olano": 7.8
+      "olano": 7.8,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 36,
+        "hlas": 20,
+        "republika": 15,
+        "kdh": 13,
+        "sas": 13,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 14,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2019,7 +3437,22 @@
       "republika": 7.3,
       "sas": 7.2,
       "sns": 4.2,
-      "sme_rodina": 3
+      "sme_rodina": 3,
+      "demokrati": 4.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 34,
+        "hlas": 22,
+        "olano": 16,
+        "kdh": 14,
+        "republika": 13,
+        "sas": 13,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2040,7 +3473,22 @@
       "sas": 6.1,
       "sns": 3.7,
       "sme_rodina": 3.4,
-      "olano": 8.5
+      "olano": 8.5,
+      "demokrati": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 35,
+        "hlas": 19,
+        "republika": 18,
+        "kdh": 14,
+        "sas": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 16,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2061,7 +3509,22 @@
       "sas": 7.3,
       "kdh": 6.9,
       "sns": 4.1,
-      "sme_rodina": 2.7
+      "sme_rodina": 2.7,
+      "demokrati": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 35,
+        "hlas": 22,
+        "republika": 14,
+        "olano": 14,
+        "sas": 13,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2082,7 +3545,22 @@
       "kdh": 6.3,
       "sns": 3.8,
       "sme_rodina": 2.5,
-      "olano": 7.5
+      "olano": 7.5,
+      "demokrati": 4.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 36,
+        "hlas": 21,
+        "republika": 18,
+        "sas": 12,
+        "kdh": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 14,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2104,7 +3582,23 @@
       "kdh": 6.6,
       "sns": 4.2,
       "sme_rodina": 2.6,
-      "lsns": 0.4
+      "lsns": 0.4,
+      "demokrati": 4.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 35,
+        "hlas": 22,
+        "olano": 15,
+        "republika": 14,
+        "sas": 13,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2125,7 +3619,22 @@
       "republika": 7.4,
       "kdh": 7.1,
       "sns": 4.5,
-      "sme_rodina": 3.6
+      "sme_rodina": 3.6,
+      "demokrati": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 33,
+        "hlas": 21,
+        "sas": 14,
+        "olano": 14,
+        "republika": 14,
+        "kdh": 13,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2146,7 +3655,22 @@
       "sas": 6.3,
       "sns": 4,
       "sme_rodina": 2.6,
-      "olano": 8.2
+      "olano": 8.2,
+      "demokrati": 4.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 35,
+        "hlas": 19,
+        "republika": 18,
+        "kdh": 12,
+        "sas": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "olano": 15,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2167,7 +3691,22 @@
       "sas": 7.4,
       "kdh": 7.2,
       "sns": 4.6,
-      "sme_rodina": 3.5
+      "sme_rodina": 3.5,
+      "demokrati": 4.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 31,
+        "hlas": 20,
+        "olano": 16,
+        "republika": 15,
+        "sas": 13,
+        "kdh": 13,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2188,7 +3727,22 @@
       "kdh": 6.1,
       "sas": 6.1,
       "sns": 4.3,
-      "sme_rodina": 3
+      "sme_rodina": 3,
+      "demokrati": 5.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 32,
+        "hlas": 17,
+        "republika": 17,
+        "olano": 15,
+        "kdh": 11,
+        "sas": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -2209,7 +3763,22 @@
       "sas": 7.1,
       "kdh": 6.8,
       "sns": 4.5,
-      "sme_rodina": 3.5
+      "sme_rodina": 3.5,
+      "demokrati": 5.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 31,
+        "hlas": 19,
+        "republika": 15,
+        "olano": 13,
+        "sas": 12,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -2230,7 +3799,22 @@
       "kdh": 6.7,
       "sas": 6.3,
       "sns": 4.3,
-      "sme_rodina": 2.8
+      "sme_rodina": 2.8,
+      "demokrati": 5.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 30,
+        "republika": 17,
+        "hlas": 16,
+        "olano": 14,
+        "kdh": 12,
+        "sas": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -2251,7 +3835,22 @@
       "sas": 6.5,
       "kdh": 6.3,
       "sns": 4.2,
-      "sme_rodina": 2.1
+      "sme_rodina": 2.1,
+      "demokrati": 5.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 29,
+        "republika": 18,
+        "hlas": 16,
+        "olano": 16,
+        "sas": 12,
+        "kdh": 11,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -2272,7 +3871,22 @@
       "republika": 6.9,
       "kdh": 6.5,
       "sns": 4.6,
-      "sme_rodina": 3
+      "sme_rodina": 3,
+      "demokrati": 5.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 30,
+        "hlas": 18,
+        "olano": 15,
+        "sas": 13,
+        "republika": 12,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 9
+      }
     }
   },
   {
@@ -2293,7 +3907,22 @@
       "kdh": 7.2,
       "sas": 6.7,
       "sns": 4.3,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "demokrati": 5.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 31,
+        "republika": 16,
+        "hlas": 15,
+        "olano": 15,
+        "kdh": 13,
+        "sas": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 10
+      }
     }
   },
   {
@@ -2314,7 +3943,22 @@
       "republika": 7.2,
       "kdh": 7,
       "sns": 4.7,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "demokrati": 6.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 30,
+        "hlas": 16,
+        "olano": 14,
+        "sas": 13,
+        "republika": 13,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 11
+      }
     }
   },
   {
@@ -2335,7 +3979,58 @@
       "sas": 7.6,
       "kdh": 6.9,
       "sns": 4.1,
-      "sme_rodina": 2.3
+      "sme_rodina": 2.3,
+      "demokrati": 5.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 31,
+        "republika": 18,
+        "olano": 17,
+        "hlas": 14,
+        "sas": 14,
+        "kdh": 12,
+        "sns": 0,
+        "sme_rodina": 0,
+        "demokrati": 10
+      }
+    }
+  },
+  {
+    "id": "sk-ako-2026-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-02-10",
+    "fieldworkEnd": "2026-02-19",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/03/ag.AKO_VOLEBNE-PREF-FEBRUAR-2026-tlacova-sprava_.pdf",
+    "results": {
+      "ps": 20.6,
+      "smer": 16.4,
+      "olano": 9.3,
+      "hlas": 8.8,
+      "republika": 8.7,
+      "sas": 7.9,
+      "kdh": 7.4,
+      "demokrati": 6.2,
+      "sns": 4.8,
+      "sme_rodina": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 29,
+        "olano": 16,
+        "hlas": 16,
+        "republika": 15,
+        "sas": 14,
+        "kdh": 13,
+        "demokrati": 11,
+        "sns": 0,
+        "sme_rodina": 0
+      }
     }
   }
 ]

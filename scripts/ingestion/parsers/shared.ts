@@ -150,7 +150,7 @@ export function shortName(url: string): string {
   }
 }
 
-/** One-line summary of a raw poll for verbose output. */
+/** One-line summary of a raw poll (legacy / non-verbose). */
 export function formatRawPollForLog(poll: RawPoll): string {
   const results = Object.entries(poll.results)
     .sort((a, b) => b[1] - a[1])
@@ -159,6 +159,26 @@ export function formatRawPollForLog(poll: RawPoll): string {
     .join(', ');
   const more = Object.keys(poll.results).length > 8 ? '…' : '';
   return `fieldwork ${poll.fieldworkStart}–${poll.fieldworkEnd}, n=${poll.sampleSize}, ${results}${more}`;
+}
+
+/**
+ * Verbose log: document URL + source type, then raw extracted data (one party per line).
+ * Results are shown as extracted (raw party names/labels), not normalized.
+ */
+export function logVerbosePoll(
+  docUrl: string,
+  sourceType: 'csv' | 'pdf' | 'html' | undefined,
+  poll: RawPoll,
+): void {
+  const typeLabel = sourceType ?? 'unknown';
+  console.log(`  Document: ${docUrl} (${typeLabel})`);
+  console.log(`  fieldwork ${poll.fieldworkStart} – ${poll.fieldworkEnd}, n=${poll.sampleSize}`);
+  console.log('  Raw results:');
+  const entries = Object.entries(poll.results).sort((a, b) => b[1] - a[1]);
+  for (const [name, value] of entries) {
+    console.log(`    ${name}: ${value}%`);
+  }
+  console.log('');
 }
 
 export function skip(agency: PollAgency, url: string, reason: string, context?: unknown): SkipReason {

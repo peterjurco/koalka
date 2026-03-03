@@ -12,6 +12,9 @@ export const CANONICAL_PARTY_SLUGS: PartyId[] = [
   "republika",
   "lsns",
   "sme_rodina",
+  "demokrati",
+  "madarska_aliancia",
+  "za_ludi",
 ];
 
 /**
@@ -116,18 +119,45 @@ add(
   "Koalícia SLOVENSKO, Kresťanská únia a Za ľudí",
   // AKO January 2024 etc. (name on two lines; % on first line, so we only see first part)
   "Koalícia SLOVENSKO, Kresťanská únia",
+  "Koalícia Slovensko, KÚ a ZĽ",
   "SLOVENSKO",
 );
 add("republika", "REPUBLIKA", "REP");
 add(
   "lsns",
   "Kotlebovci - Ľudová strana Naše Slovensko",
+  "Kotlebovci – ĽS Naše Slovensko",
   "Kotlebovci",
   "ĽSNS",
   "Kotlebovci - ĽSNS",
   "Kotlebovci - Ľudová strana Naše",
 );
 add("sme_rodina", "sme rodina", "SR", "Sme Rodina", "SME RODINA");
+add("demokrati", "Demokrati", "DEM");
+add(
+  "madarska_aliancia",
+  "Maďarská aliancia",
+  "madarska aliancia",
+  "Aliancia – Szövetség",
+  "Aliancia - Szövetség",
+  "Magyar Szövetség - Maďarská aliancia",
+  "Magyar Szövetség – Maďarská aliancia",
+  "Magyar Szövetseg - Madarska aliancia",
+  "Szövetség",
+  "MA",
+);
+add(
+  "za_ludi",
+  "Za ľudí",
+  "za ludi",
+  "ZA ĽUDÍ",
+  "ZA LUDI",
+  "Za ludi",
+  "ZĽ",
+  "ZL",
+  "Za ľudi",
+  "Za ludí",
+);
 
 /** Strip leading numbers (e.g. "3 Progresívne Slovensko" → "Progresívne Slovensko"). */
 function stripLeadingNumber(s: string): string {

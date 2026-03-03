@@ -5,5 +5,5 @@
   "type": "parliamentary",
   "totalSeats": 150,
   "thresholdPercent": 5,
-  "allocationMethod": "dHondt"
+  "allocationMethod": "hagenbachBischoff"
 }

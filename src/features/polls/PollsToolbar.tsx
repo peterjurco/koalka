@@ -19,7 +19,9 @@ function getDataLink(): string {
 
 // Plain helpers; no useMemo — lists are small (months ~120 for 10y, agencies handful).
 // useMemo overhead (deps, comparison) can outweigh recompute cost for small inputs.
-function getMonthOptions(polls: { fieldworkStart: string; fieldworkEnd: string }[]): string[] {
+function getMonthOptions(
+  polls: { fieldworkStart: string; fieldworkEnd: string }[],
+): string[] {
   const set = new Set<string>();
   for (const p of polls) {
     set.add(p.fieldworkStart.slice(0, 7));
@@ -39,8 +41,10 @@ export function PollsToolbar() {
     filters,
     setFilters,
     setElection,
+    setTrendValueMode,
     countryId,
     electionId,
+    trendValueMode,
   } = useStore();
 
   const monthOptions = getMonthOptions(polls);
@@ -53,7 +57,7 @@ export function PollsToolbar() {
   };
 
   const dataLink = getDataLink();
-  const copyLink = () => navigator.clipboard.writeText(dataLink);
+  void dataLink;
 
   if (!config || monthOptions.length === 0) return null;
 
@@ -80,7 +84,9 @@ export function PollsToolbar() {
           <select
             className="polls-toolbar-select"
             value={filters.agency ?? ""}
-            onChange={(e) => handleFilterChange({ agency: e.target.value || null })}
+            onChange={(e) =>
+              handleFilterChange({ agency: e.target.value || null })
+            }
           >
             <option value="">Všetky</option>
             {agencyOptions.map((a) => (
@@ -120,21 +126,39 @@ export function PollsToolbar() {
             ))}
           </select>
         </label>
-      </div>
 
-      <div className="polls-toolbar-row polls-toolbar-link-row">
-        <span className="polls-toolbar-label">Odkaz na dáta</span>
-        <a
-          href={dataLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="polls-toolbar-link"
+        <button
+          type="button"
+          className="polls-toolbar-btn"
+          onClick={() => {
+            const fullRange = {
+              dateFrom: monthOptions[0]!,
+              dateTo: monthOptions[monthOptions.length - 1]!,
+            };
+            handleFilterChange(fullRange);
+          }}
+          title="Zobraziť všetky mesiace s dátami"
         >
-          {dataLink || "(aktuálny pohľad)"}
-        </a>
-        <button type="button" className="polls-toolbar-copy" onClick={copyLink}>
-          Kopírovať
+          Celý rozsah
         </button>
+
+        <div className="polls-toolbar-toggle-group" role="group" aria-label="Trend hodnoty">
+          <span className="polls-toolbar-toggle-label">Trend:</span>
+          <button
+            type="button"
+            className={`polls-toolbar-btn ${trendValueMode === "results" ? "polls-toolbar-btn--active" : ""}`}
+            onClick={() => setTrendValueMode("results")}
+          >
+            %
+          </button>
+          <button
+            type="button"
+            className={`polls-toolbar-btn ${trendValueMode === "seatProjection" ? "polls-toolbar-btn--active" : ""}`}
+            onClick={() => setTrendValueMode("seatProjection")}
+          >
+            Mandáty
+          </button>
+        </div>
       </div>
     </div>
   );

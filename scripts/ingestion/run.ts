@@ -184,6 +184,37 @@ async function main(): Promise<void> {
     console.log(`Party filter: ${partySlug} → ${pollsToExport.length} polls`);
   }
 
+  if (verbose && pollsToExport.length > 0) {
+    console.log('');
+    console.log(`Polls to export (${pollsToExport.length}):`);
+    const filterParts: string[] = [];
+    if (partySlug != null) {
+      filterParts.push(`only polls that have --party=${partySlug}`);
+    } else {
+      filterParts.push('all polls (no --party filter)');
+    }
+    if (dateFrom != null || dateTo != null) {
+      filterParts.push(`date window ${dateFrom ?? '…'} to ${dateTo ?? '…'}`);
+    } else {
+      filterParts.push('no date filter');
+    }
+    console.log(`  Output filters: ${filterParts.join('; ')}`);
+    console.log('  Each poll is written with all its normalized party results (full poll).');
+    console.log('');
+    for (const p of pollsToExport) {
+      const parties = Object.keys(p.results).sort().join(', ');
+      const idLabel = p.id || `${p.agency} ${p.fieldworkStart.slice(0, 7)}`;
+      console.log(`  ${idLabel}  fieldwork ${p.fieldworkStart} – ${p.fieldworkEnd}  n=${p.sampleSize}`);
+      console.log(`    parties: ${parties}`);
+      if (partySlug != null) {
+        console.log(`    included because: poll has result for --party=${partySlug}`);
+      } else {
+        console.log(`    included because: no party filter (all validated polls)`);
+      }
+      console.log('');
+    }
+  }
+
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, "");
   const outputPath = join(REPO_ROOT, "public/data/sk/polls.json");
   const skipLogPath = join(

@@ -53,8 +53,9 @@ function App() {
             </button>
             <button
               type="button"
-              className={`app-nav-link ${page === "koalicie" ? "active" : ""}`}
-              onClick={() => setPage("koalicie")}
+              className="app-nav-link"
+              disabled
+              title="Táto funkcia bude dostupná čoskoro"
             >
               Koalície
             </button>

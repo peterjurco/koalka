@@ -77,6 +77,11 @@ body {
   background: rgba(100, 108, 255, 0.2);
 }
 
+.app-nav-link:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 @media (prefers-color-scheme: light) {
   .app-nav-link:hover {
     border-color: rgba(0, 0, 0, 0.15);
@@ -520,6 +525,52 @@ body {
 .polls-toolbar-copy {
   padding: 0.35rem 0.75rem;
   font-size: 0.85rem;
+}
+
+.polls-toolbar-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: inherit;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.polls-toolbar-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.polls-toolbar-btn--active {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.polls-toolbar-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.polls-toolbar-toggle-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: light) {
+  .polls-toolbar-btn {
+    border-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.06);
+  }
+  .polls-toolbar-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .polls-toolbar-btn--active {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .hint {

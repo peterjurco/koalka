@@ -71,7 +71,7 @@ export async function fetchAKO(options?: FetchOptions | null): Promise<FetchedDo
   for (const pdfUrl of pdfUrls) {
     try {
       const pdfBuffer = await fetchBuffer(pdfUrl);
-      docs.push({ url: pdfUrl, pdfBuffer });
+      docs.push({ url: pdfUrl, pdfBuffer, sourceType: 'pdf' });
     } catch (e) {
       console.warn(`AKO: failed to fetch PDF ${pdfUrl}: ${shortFetchError(e)}`);
     }

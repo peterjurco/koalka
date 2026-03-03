@@ -2,7 +2,7 @@ import * as cheerio from 'cheerio';
 import type { FetchedDocument } from '../types.ts';
 import type { RawPoll } from '../types.ts';
 import type { ParseResult, ParseOptions } from './shared.ts';
-import { extractSampleSize, extractDateRange, skip, shortName, formatRawPollForLog } from './shared.ts';
+import { extractSampleSize, extractDateRange, skip, shortName, logVerbosePoll } from './shared.ts';
 import { parseDateToYYYYMMDD } from '../normalize/dates.ts';
 
 const AGENCY = 'NMS' as const;
@@ -83,7 +83,7 @@ export function parseNMS(docs: FetchedDocument[], options?: ParseOptions | null)
       results,
     };
     rawPolls.push(poll);
-    if (verbose) console.log(`  ${shortName(doc.url)} → ${formatRawPollForLog(poll)}`);
+    if (verbose) logVerbosePoll(doc.url, doc.sourceType, poll);
   }
 
   return { rawPolls, skips };

@@ -1,7 +1,7 @@
 import type { FetchedDocument } from '../types.ts';
 import type { RawPoll } from '../types.ts';
 import type { ParseResult, ParseOptions } from './shared.ts';
-import { extractSampleSize, extractDateRange, skip, shortName, formatRawPollForLog } from './shared.ts';
+import { extractSampleSize, extractDateRange, skip, shortName, logVerbosePoll } from './shared.ts';
 import { resolvePartySlug } from '../normalize/partySlugs.ts';
 
 const AGENCY = 'AKO' as const;
@@ -192,7 +192,7 @@ export function parseAKO(docs: FetchedDocument[], options?: ParseOptions | null)
       };
       rawPolls.push(poll);
       if (verbose) {
-        console.log(`  ${shortName(doc.url)} → ${formatRawPollForLog(poll)}`);
+        logVerbosePoll(doc.url, doc.sourceType, poll);
         if (unmapped.length > 0) {
           console.log(`    unmapped: ${unmapped.map((u) => JSON.stringify(u)).join(', ')}`);
         }
