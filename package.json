@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "ingest": "tsx scripts/ingestion/run.ts",
-    "add-seat-projections": "tsx scripts/addSeatProjections.ts",
+    "mandates": "tsx scripts/addSeatProjections.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -2,6 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { allocateSeats } from './hagenbachBischoff.ts'
 
 // ---------------------------------------------------------------------------
+// Unit testy na prepočet mandátov z percent (Hagenbach-Bischoff, zákon 180/2014 Z. z., §68).
+//
+// Historické percentá a skutočné mandáty boli overené podľa verejne dostupných zdrojov:
+//   - Voľby do NRSR 2023: ŠÚ SR / volbysr.sk, Wikipedia (Parlamentné voľby na Slovensku 2023)
+//   - Voľby do NRSR 2020: ŠÚ SR / volbysr.sk, Wikipedia (2020 Slovak parliamentary election)
+//   - Voľby do NRSR 2016: ŠÚ SR (volby.statistics.sk/nrsr/nrsr2016), Wikipedia (2016 Slovak parliamentary election)
+// ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 // Základné vlastnosti Hagenbach-Bischoffovej metódy
 // (zákon č. 180/2014 Z. z., §68 – Republikanské číslo)
 // ---------------------------------------------------------------------------
@@ -102,10 +111,9 @@ describe('allocateSeats – ručne overiteľný príklad', () => {
 
 // ---------------------------------------------------------------------------
 // Parlamentné voľby SR 2023 (30. septembra 2023)
-// Zdroj: Štatistický úrad SR / Wikipedia
-//
-// Metóda: Hagenbach-Bischoffova kvóta + najväčší zvyšok (zákon č. 180/2014 Z. z., §68)
-// Prah: 5 % pre strany, 7 % pre 2–3-stranové koalície, 10 % pre 4+ stranové koalície
+// Zdroj: Štatistický úrad SR (volbysr.sk), zákon 180/2014 Z. z. §68
+// Metóda: Hagenbach-Bischoff (Republikanské číslo) + najväčší zvyšok
+// Prah: 5 % strany, 7 % koalície 2–3, 10 % koalície 4+
 // ---------------------------------------------------------------------------
 
 describe('Parlamentné voľby SR 2023', () => {
@@ -178,12 +186,9 @@ describe('Parlamentné voľby SR 2023', () => {
 
 // ---------------------------------------------------------------------------
 // Parlamentné voľby SR 2020 (29. februára 2020)
-// Zdroj: Štatistický úrad SR / Wikipedia
-//
-// Prah: 5 % pre strany, 7 % pre 2–3-stranové koalície, 10 % pre 4+ stranové koalície
-// Poznámky:
-//   - PS+Spolu: koalícia 2 strán, dosiahla 6,97 % (< 7 %) → 0 mandátov
-//   - OĽaNO-NOVA-KÚ-ZZ: koalícia 4 strán, dosiahla 25,03 % (> 10 %) → postúpila
+// Zdroj: Štatistický úrad SR (volby.statistics.sk), zákon 180/2014 Z. z.
+// Prah: 5 % strany, 7 % koalície 2–3, 10 % koalície 4+
+// Poznámky: PS+Spolu 6,97 % (< 7 %) → 0; OĽaNO-NOVA-KÚ-ZZ 25,03 % → 53 mandátov
 // ---------------------------------------------------------------------------
 
 describe('Parlamentné voľby SR 2020', () => {
@@ -241,5 +246,63 @@ describe('Parlamentné voľby SR 2020', () => {
     expect(result['lsns']).toBe(17)
     expect(result['sas']).toBe(13)
     expect(result['za-ludi']).toBe(12)
+  })
+})
+
+// ---------------------------------------------------------------------------
+// Parlamentné voľby SR 2016 (5. marca 2016)
+// Zdroj: Štatistický úrad SR (volby.statistics.sk/nrsr/nrsr2016/),
+//   Wikipedia: 2016 Slovak parliamentary election (citing Volby statistics.sk)
+// Metóda: Hagenbach-Bischoff (§68), prah 5 %
+// Osem strán prekročilo prah; KDH 4,94 % → 0 mandátov
+// ---------------------------------------------------------------------------
+
+describe('Parlamentné voľby SR 2016', () => {
+  /**
+   * Oficiálne výsledky (ŠÚ SR):
+   *   Smer-SD     28,28 %  →  49 mandátov
+   *   SaS         12,10 %  →  21 mandátov
+   *   OĽaNO-NOVA  11,03 %  →  19 mandátov
+   *   SNS          8,64 %  →  15 mandátov
+   *   ĽSNS         8,04 %  →  14 mandátov
+   *   Sme Rodina   6,63 %  →  11 mandátov
+   *   Most-Híd     6,50 %  →  11 mandátov
+   *   SIEŤ         5,61 %  →  10 mandátov
+   *   KDH          4,94 %  →   0 (pod prahom)
+   */
+
+  const hlasy2016 = {
+    smer: 28.28,
+    sas: 12.1,
+    olano: 11.03,
+    sns: 8.64,
+    lsns: 8.04,
+    sme_rodina: 6.63,
+    most_hid: 6.5,
+    siet: 5.61,
+    kdh: 4.94,
+  }
+
+  it('pridelí spolu 150 mandátov', () => {
+    const result = allocateSeats(hlasy2016, 150, 5.0)
+    const total = Object.values(result).reduce((s, v) => s + v, 0)
+    expect(total).toBe(150)
+  })
+
+  it('KDH pod 5 % nedostane mandáty', () => {
+    const result = allocateSeats(hlasy2016, 150, 5.0)
+    expect(result.kdh).toBe(0)
+  })
+
+  it('pridelí presne toľko mandátov, koľko dostali strany v skutočných voľbách', () => {
+    const result = allocateSeats(hlasy2016, 150, 5.0)
+    expect(result.smer).toBe(49)
+    expect(result.sas).toBe(21)
+    expect(result.olano).toBe(19)
+    expect(result.sns).toBe(15)
+    expect(result.lsns).toBe(14)
+    expect(result.sme_rodina).toBe(11)
+    expect(result.most_hid).toBe(11)
+    expect(result.siet).toBe(10)
   })
 })

@@ -10,11 +10,28 @@ const AGENCY = 'AKO' as const;
 const PCT_AT_START = /^\s*(\d{1,2}[,.]\d+)\s/;
 /** Match party name then percentage on same line. Prefer number followed by % (main share column), not the first number of 95% interval. */
 const NAME_PCT_SAME_LINE = /^(.{3,}?)\s+(\d{1,2}[,.]\d+)%?\s/;
+/** Match party name then percentage at end of line (e.g. "Regiók /Aliancia - Maďari. Národnosti. 5,2" with number in the middle of a multi-line block) */
+const NAME_PCT_END_OF_LINE = /^(.{3,}?)\s+(\d{1,2}[,.]\d+)%?\s*$/;
 /** Percentage value (for cell-by-cell scan) */
 const PCT_VALUE = /^(\d{1,2}[,.]\d+)$/;
 
 /** Name that is just a number (with optional %): e.g. "7,2%" or "6,7%" - not a party, use prev line as name */
 const NUMBER_LIKE_NAME = /^\d{1,2}[,.]\d+\s*%?\s*$/;
+
+/** Maďarská aliancia: last line of three-line block is "Regióny" (or just that word); merge with previous lines for slug resolution */
+function isMagyarRegionyOnly(name: string): boolean {
+  const n = name.replace(/\s+/g, ' ').trim().toLowerCase();
+  return n === 'regióny' || n === 'regiony';
+}
+
+/** Full label for Maďarská aliancia (AKO Nov 2023: percentage can appear *before* the name on one long line) */
+const MAGYAR_ALIANCIA_LABEL =
+  'Szövetség - Magyarok. Nemzetiségek. Regiók /Aliancia - Maďari. Národnosti. Regióny';
+/** Match "X,X%" or "X,X" followed by the Maďarská aliancia block (spaces/newlines normalized) */
+const PCT_THEN_MAGYAR_ALIANCIA = new RegExp(
+  `(\\d{1,2}[,.]\\d+)\\s*%?\\s*Szövetség\\s*-\\s*Magyarok\\.\\s*Nemzetiségek\\.\\s*Regiók\\s*/?\\s*Aliancia\\s*-\\s*Maďari\\.\\s*Národnosti\\.\\s*Regióny`,
+  'i'
+);
 
 /** Max lines to merge when building a multi-line party name (e.g. OĽaNO continuation). */
 const MAX_PARTY_NAME_LINES = 5;
@@ -34,8 +51,8 @@ function extractResultsFromPdfText(text: string): Record<string, number> {
   const recentLines: string[] = [];
 
   for (const line of lines) {
-    // Same-line: "Party name  XX,X  ..."
-    const sameMatch = line.match(NAME_PCT_SAME_LINE);
+    // Same-line: "Party name  XX,X  ..." or "Party name  XX,X" at end of line (e.g. Maďarská aliancia with number in the middle of a three-line block)
+    const sameMatch = line.match(NAME_PCT_SAME_LINE) ?? line.match(NAME_PCT_END_OF_LINE);
     if (sameMatch) {
       const name = sameMatch[1].trim().replace(/\s+/g, ' ');
       const value = parseFloat(sameMatch[2].replace(/,/g, '.'));
@@ -65,6 +82,18 @@ function extractResultsFromPdfText(text: string): Record<string, number> {
         } else {
           if (!/^\d+$/.test(name)) results[name] = value;
         }
+      } else if (valueValid && isMagyarRegionyOnly(name) && recentLines.length >= 1) {
+        // Three-line block: "Szövetség...", "Regiók /Aliancia...", "Regióny 5,2" → merge so slug resolves to madarska_aliancia
+        let mergedName = recentLines[recentLines.length - 1].replace(/\s+/g, ' ').trim() + ' ' + name.trim();
+        for (let k = 1; k < Math.min(MAX_PARTY_NAME_LINES, recentLines.length); k++) {
+          const part = recentLines[recentLines.length - 1 - k].replace(/\s+/g, ' ').trim();
+          if (part.length >= 2 && !/^\d/.test(part)) {
+            mergedName = part + ' ' + mergedName;
+          } else {
+            break;
+          }
+        }
+        results[mergedName.trim()] = value;
       } else if (!/^\d+$/.test(name) && valueValid) {
         results[name] = value;
       }
@@ -96,6 +125,16 @@ function extractResultsFromPdfText(text: string): Record<string, number> {
     }
     recentLines.push(line);
     if (recentLines.length > MAX_PARTY_NAME_LINES) recentLines.shift();
+  }
+
+  // Post-pass: AKO Nov 2023 has "4,75% Szövetség - Magyarok. ... Regióny" on one long line (pct before name)
+  const normalizedText = text.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ');
+  const magyarMatch = normalizedText.match(PCT_THEN_MAGYAR_ALIANCIA);
+  if (magyarMatch) {
+    const value = parseFloat(magyarMatch[1].replace(/,/g, '.'));
+    if (value >= 0 && value <= 100) {
+      results[MAGYAR_ALIANCIA_LABEL] = value;
+    }
   }
 
   // Fallback: if we got very few from line-by-line, try splitting on 2+ spaces (table cells)

@@ -88,7 +88,7 @@ export function PollsToolbar() {
               handleFilterChange({ agency: e.target.value || null })
             }
           >
-            <option value="">Všetky</option>
+            <option value="">Priemer</option>
             {agencyOptions.map((a) => (
               <option key={a} value={a}>
                 {a}
@@ -97,67 +97,77 @@ export function PollsToolbar() {
           </select>
         </label>
 
-        <label className="polls-toolbar-label">
-          Dátum od
-          <select
-            className="polls-toolbar-select"
-            value={filters.dateFrom}
-            onChange={(e) => handleFilterChange({ dateFrom: e.target.value })}
-          >
-            {monthOptions.map((ym) => (
-              <option key={ym} value={ym}>
-                {formatMonthLabel(ym)}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div className="polls-toolbar-date-group">
+          <label className="polls-toolbar-label">
+            Dátum od
+            <select
+              className="polls-toolbar-select"
+              value={filters.dateFrom}
+              onChange={(e) => handleFilterChange({ dateFrom: e.target.value })}
+            >
+              {monthOptions.map((ym) => (
+                <option key={ym} value={ym}>
+                  {formatMonthLabel(ym)}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <label className="polls-toolbar-label">
-          Dátum do
-          <select
-            className="polls-toolbar-select"
-            value={filters.dateTo}
-            onChange={(e) => handleFilterChange({ dateTo: e.target.value })}
-          >
-            {monthOptions.map((ym) => (
-              <option key={ym} value={ym}>
-                {formatMonthLabel(ym)}
-              </option>
-            ))}
-          </select>
-        </label>
+          <label className="polls-toolbar-label">
+            Dátum do
+            <select
+              className="polls-toolbar-select"
+              value={filters.dateTo}
+              onChange={(e) => handleFilterChange({ dateTo: e.target.value })}
+            >
+              {monthOptions.map((ym) => (
+                <option key={ym} value={ym}>
+                  {formatMonthLabel(ym)}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <button
-          type="button"
-          className="polls-toolbar-btn"
-          onClick={() => {
-            const fullRange = {
-              dateFrom: monthOptions[0]!,
-              dateTo: monthOptions[monthOptions.length - 1]!,
-            };
-            handleFilterChange(fullRange);
-          }}
-          title="Zobraziť všetky mesiace s dátami"
+          <button
+            type="button"
+            className="polls-toolbar-btn polls-toolbar-btn--ghost"
+            onClick={() => {
+              const fullRange = {
+                dateFrom: monthOptions[0]!,
+                dateTo: monthOptions[monthOptions.length - 1]!,
+              };
+              handleFilterChange(fullRange);
+            }}
+            title="Zobraziť všetky mesiace s dátami"
+          >
+            Celý rozsah
+          </button>
+        </div>
+
+        <div
+          className="polls-toolbar-trend-toggle"
+          role="group"
+          aria-label="Zobrazenie trendu"
         >
-          Celý rozsah
-        </button>
-
-        <div className="polls-toolbar-toggle-group" role="group" aria-label="Trend hodnoty">
-          <span className="polls-toolbar-toggle-label">Trend:</span>
-          <button
-            type="button"
-            className={`polls-toolbar-btn ${trendValueMode === "results" ? "polls-toolbar-btn--active" : ""}`}
-            onClick={() => setTrendValueMode("results")}
-          >
-            %
-          </button>
-          <button
-            type="button"
-            className={`polls-toolbar-btn ${trendValueMode === "seatProjection" ? "polls-toolbar-btn--active" : ""}`}
-            onClick={() => setTrendValueMode("seatProjection")}
-          >
-            Mandáty
-          </button>
+          <span className="polls-toolbar-toggle-label">Trend</span>
+          <div className="trend-toggle">
+            <button
+              type="button"
+              className={`trend-toggle-btn${trendValueMode === "results" ? " trend-toggle-btn--active" : ""}`}
+              onClick={() => setTrendValueMode("results")}
+              aria-pressed={trendValueMode === "results"}
+            >
+              %
+            </button>
+            <button
+              type="button"
+              className={`trend-toggle-btn${trendValueMode === "seatProjection" ? " trend-toggle-btn--active" : ""}`}
+              onClick={() => setTrendValueMode("seatProjection")}
+              aria-pressed={trendValueMode === "seatProjection"}
+            >
+              Mandáty
+            </button>
+          </div>
         </div>
       </div>
     </div>

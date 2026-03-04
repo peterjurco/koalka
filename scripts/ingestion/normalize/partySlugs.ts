@@ -140,11 +140,22 @@ add(
   "madarska aliancia",
   "Aliancia – Szövetség",
   "Aliancia - Szövetség",
+  "Aliancia – Szövetség3",
+  "Regiók /Aliancia - Maďari. Národnosti.",
+  "Regiók /Aliancia - Maďari. Národnosti. Regióny",
   "Magyar Szövetség - Maďarská aliancia",
   "Magyar Szövetség – Maďarská aliancia",
   "Magyar Szövetseg - Madarska aliancia",
+  "Maďarská aliancia – Magyar Szövetség",
   "Szövetség",
+  "Szövetség – ALIANCIA",
   "MA",
+  // AKO November 2023: three-line label, number in the middle or at end of second line
+  "Szövetség - Magyarok. Nemzetiségek. Regiók /Aliancia - Maďari. Národnosti. Regióny",
+  "Szövetség - Magyarok. Nemzetiségek.",
+  "Szövetség - Magyarok. Nemzetiségek. Regiók /Aliancia - Maďari. Národnosti.",
+  "Regióny", // last line of the three-line block when % is on same line
+  "/Aliancia - Maďari. Národnosti. Regióny", // AKO Aug 2023: second line when break is after "Regiók"
 );
 add(
   "za_ludi",

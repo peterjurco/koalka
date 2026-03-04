@@ -3,6 +3,7 @@ import type { PartyId } from "../../data/types.ts";
 import type { Party } from "../../data/types.ts";
 import { AddSumModal } from "./AddSumModal.tsx";
 import type { PartySum } from "./trendyStorage.ts";
+import { TrashIcon } from "../../icons/TrashIcon.tsx";
 import {
   getSumColor,
   loadTrendyStorage,
@@ -26,6 +27,7 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
   const [customSums, setCustomSums] = useState<PartySum[]>([]);
   const [visibleSumIds, setVisibleSumIds] = useState<Set<string>>(new Set());
   const [addSumModalOpen, setAddSumModalOpen] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const hasUserModifiedRef = useRef(false);
 
   useEffect(() => {
@@ -164,11 +166,11 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
                   <button
                     type="button"
                     className="trendy-sum-remove"
-                    onClick={() => removeSum(s.id)}
+                    onClick={() => setConfirmDeleteId(s.id)}
                     title="Odstrániť súčet"
                     aria-label={`Odstrániť ${s.name}`}
                   >
-                    ×
+                    <TrashIcon />
                   </button>
                 </li>
               ))}
@@ -184,6 +186,52 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
           onAdd={addSum}
         />
       )}
+
+      {confirmDeleteId !== null && (() => {
+        const sum = customSums.find((s) => s.id === confirmDeleteId);
+        return (
+          <div
+            className="modal-backdrop"
+            onClick={() => setConfirmDeleteId(null)}
+            role="presentation"
+          >
+            <div
+              className="modal-content modal-content--narrow"
+              onClick={(e) => e.stopPropagation()}
+              role="alertdialog"
+              aria-labelledby="modal-confirm-title"
+              aria-modal="true"
+            >
+              <h2 id="modal-confirm-title" className="modal-title">
+                Odstrániť súčet?
+              </h2>
+              <p className="modal-hint">
+                Naozaj chcete odstrániť súčet{" "}
+                <strong>{sum?.name}</strong>?
+              </p>
+              <div className="modal-actions">
+                <button
+                  type="button"
+                  className="modal-btn modal-btn--secondary"
+                  onClick={() => setConfirmDeleteId(null)}
+                >
+                  Zrušiť
+                </button>
+                <button
+                  type="button"
+                  className="modal-btn modal-btn--danger"
+                  onClick={() => {
+                    removeSum(confirmDeleteId);
+                    setConfirmDeleteId(null);
+                  }}
+                >
+                  Odstrániť
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </>
   );
 }

@@ -30,6 +30,8 @@ export interface LineChartProps {
   referenceLineLabel?: string;
   /** Format value in tooltip (default: X.X%) */
   valueFormatter?: (value: number) => string;
+  /** Called when user clicks a data point; receives the full SeriesPoint payload */
+  onPointClick?: (point: SeriesPoint) => void;
 }
 
 export function LineChart({
@@ -45,27 +47,42 @@ export function LineChart({
   referenceLineY,
   referenceLineLabel,
   valueFormatter,
+  onPointClick,
 }: LineChartProps) {
+  function handleChartClick(chartData: unknown) {
+    const d = chartData as { activeIndex?: string | number } | null;
+    if (d?.activeIndex == null) return;
+    const index = parseInt(String(d.activeIndex));
+    const payload = data[index];
+    if (payload && onPointClick) onPointClick(payload);
+  }
+
   const isLinear = xAxisScale === "linear";
   const shouldConnectNulls = connectNulls ?? !isLinear;
   const formatValue = valueFormatter ?? ((v: number) => `${v.toFixed(1)}%`);
   const labelStyle = { fill: "var(--chart-label-fill, #fff)" };
+
   return (
     <ResponsiveContainer width="100%" height={height}>
       <RechartsLineChart
         data={data}
         margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+        style={onPointClick ? { cursor: "pointer" } : undefined}
+        onClick={onPointClick ? handleChartClick : undefined}
       >
         <CartesianGrid strokeDasharray="3 3" />
         {referenceLineY != null && (
           <ReferenceLine
             y={referenceLineY}
-            stroke="var(--reference-line-stroke, #c62828)"
-            strokeDasharray="4 4"
+            stroke="var(--reference-line-stroke, #ef4444)"
+            strokeWidth={2}
+            strokeDasharray="6 3"
             label={{
               value: referenceLineLabel ?? `${referenceLineY}%`,
               position: "insideTopRight",
-              fill: "var(--chart-label-fill, #fff)",
+              fill: "var(--reference-line-stroke, #ef4444)",
+              fontWeight: 600,
+              fontSize: 12,
             }}
           />
         )}

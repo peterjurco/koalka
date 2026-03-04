@@ -13,15 +13,17 @@
       "sme_rodina": 6.4,
       "sas": 5.8,
       "sns": 5.1,
-      "olano": 11.8
+      "olano": 11.8,
+      "za_ludi": 9.5
     },
     "metadata": {
       "seatProjection": {
-        "smer": 56,
-        "sme_rodina": 21,
-        "sas": 19,
-        "sns": 16,
-        "olano": 38
+        "smer": 47,
+        "sme_rodina": 17,
+        "sas": 15,
+        "sns": 14,
+        "olano": 32,
+        "za_ludi": 25
       }
     }
   },
@@ -40,18 +42,20 @@
       "sas": 6.1,
       "kdh": 5.3,
       "sns": 5,
-      "olano": 15.5,
-      "lsns": 10.3
+      "olano": 10.3,
+      "lsns": 10.3,
+      "za_ludi": 8.9
     },
     "metadata": {
       "seatProjection": {
-        "smer": 39,
+        "smer": 36,
         "sme_rodina": 16,
-        "sas": 14,
-        "kdh": 12,
+        "sas": 13,
+        "kdh": 11,
         "sns": 11,
-        "olano": 35,
-        "lsns": 23
+        "olano": 22,
+        "lsns": 22,
+        "za_ludi": 19
       }
     }
   },
@@ -73,7 +77,8 @@
       "sme_rodina": 6.4,
       "ps": 5.2,
       "kdh": 3,
-      "sns": 1.4
+      "sns": 1.4,
+      "za_ludi": 4
     },
     "metadata": {
       "seatProjection": {
@@ -85,7 +90,8 @@
         "sme_rodina": 12,
         "ps": 10,
         "kdh": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -107,7 +113,8 @@
       "lsns": 5.7,
       "sme_rodina": 5.7,
       "kdh": 4.7,
-      "sns": 1.6
+      "sns": 1.6,
+      "za_ludi": 4.7
     },
     "metadata": {
       "seatProjection": {
@@ -119,7 +126,8 @@
         "lsns": 11,
         "sme_rodina": 10,
         "kdh": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -141,7 +149,8 @@
       "sme_rodina": 5.1,
       "kdh": 4.4,
       "sns": 2.8,
-      "lsns": 9.7
+      "lsns": 9.7,
+      "za_ludi": 4.2
     },
     "metadata": {
       "seatProjection": {
@@ -153,7 +162,8 @@
         "sme_rodina": 10,
         "kdh": 0,
         "sns": 0,
-        "lsns": 19
+        "lsns": 19,
+        "za_ludi": 0
       }
     }
   },
@@ -175,19 +185,21 @@
       "sme_rodina": 5.1,
       "kdh": 4.9,
       "lsns": 3.8,
-      "sns": 2.3
+      "sns": 2.3,
+      "za_ludi": 5.4
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 50,
-        "sas": 30,
-        "olano": 28,
-        "smer": 17,
-        "ps": 15,
+        "hlas": 47,
+        "sas": 28,
+        "olano": 26,
+        "smer": 16,
+        "ps": 13,
         "sme_rodina": 10,
         "kdh": 0,
         "lsns": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 10
       }
     }
   },
@@ -209,19 +221,21 @@
       "sme_rodina": 5.2,
       "kdh": 4.9,
       "sns": 2.8,
-      "lsns": 6.6
+      "lsns": 6.6,
+      "za_ludi": 5.2
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 47,
-        "sas": 26,
-        "olano": 21,
-        "smer": 19,
-        "ps": 14,
+        "hlas": 44,
+        "sas": 24,
+        "olano": 20,
+        "smer": 17,
+        "ps": 13,
         "sme_rodina": 10,
         "kdh": 0,
         "sns": 0,
-        "lsns": 13
+        "lsns": 12,
+        "za_ludi": 10
       }
     }
   },
@@ -244,7 +258,8 @@
       "kdh": 5.2,
       "lsns": 4.3,
       "sns": 3,
-      "republika": 0.3
+      "republika": 0.3,
+      "za_ludi": 4.3
     },
     "metadata": {
       "seatProjection": {
@@ -257,7 +272,8 @@
         "kdh": 10,
         "lsns": 0,
         "sns": 0,
-        "republika": 0
+        "republika": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -280,20 +296,24 @@
       "kdh": 5.7,
       "republika": 4.7,
       "sns": 3.4,
-      "lsns": 4.3
+      "lsns": 4.3,
+      "madarska_aliancia": 5,
+      "za_ludi": 4.8
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 46,
-        "sas": 23,
-        "smer": 22,
-        "olano": 19,
-        "sme_rodina": 15,
-        "ps": 13,
-        "kdh": 12,
+        "hlas": 43,
+        "sas": 22,
+        "smer": 21,
+        "olano": 18,
+        "sme_rodina": 14,
+        "ps": 12,
+        "kdh": 11,
         "republika": 0,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 9,
+        "za_ludi": 0
       }
     }
   },
@@ -316,7 +336,9 @@
       "kdh": 4.5,
       "sns": 3.3,
       "republika": 3.1,
-      "lsns": 2.9
+      "lsns": 2.9,
+      "za_ludi": 4.3,
+      "madarska_aliancia": 4.2
     },
     "metadata": {
       "seatProjection": {
@@ -329,7 +351,9 @@
         "kdh": 0,
         "sns": 0,
         "republika": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -352,7 +376,9 @@
       "kdh": 5.7,
       "republika": 4.5,
       "sns": 3.4,
-      "lsns": 4.9
+      "lsns": 4.9,
+      "madarska_aliancia": 4.8,
+      "za_ludi": 3.5
     },
     "metadata": {
       "seatProjection": {
@@ -365,7 +391,9 @@
         "kdh": 11,
         "republika": 0,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -388,20 +416,24 @@
       "kdh": 5,
       "republika": 3.5,
       "lsns": 2.1,
-      "sns": 1.6
+      "sns": 1.6,
+      "za_ludi": 4,
+      "madarska_aliancia": 5.3
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 44,
-        "sas": 27,
-        "olano": 19,
-        "smer": 19,
-        "ps": 17,
-        "sme_rodina": 14,
-        "kdh": 10,
+        "hlas": 41,
+        "sas": 25,
+        "olano": 18,
+        "smer": 18,
+        "ps": 16,
+        "sme_rodina": 13,
+        "kdh": 9,
         "republika": 0,
         "lsns": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 10
       }
     }
   },
@@ -424,20 +456,24 @@
       "kdh": 5.8,
       "republika": 4.6,
       "sns": 3.2,
-      "lsns": 4.8
+      "lsns": 4.8,
+      "madarska_aliancia": 5.7,
+      "za_ludi": 3.4
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 44,
-        "sas": 26,
-        "smer": 24,
-        "olano": 16,
-        "sme_rodina": 15,
-        "ps": 13,
-        "kdh": 12,
+        "hlas": 41,
+        "sas": 24,
+        "smer": 22,
+        "olano": 15,
+        "sme_rodina": 14,
+        "ps": 12,
+        "kdh": 11,
         "republika": 0,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 11,
+        "za_ludi": 0
       }
     }
   },
@@ -460,20 +496,24 @@
       "kdh": 5.3,
       "sns": 3.1,
       "lsns": 3,
-      "republika": 2.8
+      "republika": 2.8,
+      "za_ludi": 3.6,
+      "madarska_aliancia": 5.2
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 42,
-        "sas": 28,
-        "smer": 21,
-        "olano": 18,
-        "ps": 16,
-        "sme_rodina": 15,
+        "hlas": 39,
+        "sas": 26,
+        "smer": 20,
+        "olano": 17,
+        "ps": 15,
+        "sme_rodina": 14,
         "kdh": 10,
         "sns": 0,
         "lsns": 0,
-        "republika": 0
+        "republika": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 9
       }
     }
   },
@@ -496,7 +536,9 @@
       "kdh": 6.2,
       "republika": 3.8,
       "lsns": 3.5,
-      "sns": 3.4
+      "sns": 3.4,
+      "za_ludi": 3.1,
+      "madarska_aliancia": 4.3
     },
     "metadata": {
       "seatProjection": {
@@ -509,7 +551,9 @@
         "kdh": 12,
         "republika": 0,
         "lsns": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -532,7 +576,9 @@
       "kdh": 6.3,
       "republika": 4.5,
       "lsns": 3.9,
-      "sns": 3.5
+      "sns": 3.5,
+      "za_ludi": 3,
+      "madarska_aliancia": 3.3
     },
     "metadata": {
       "seatProjection": {
@@ -545,7 +591,9 @@
         "kdh": 12,
         "republika": 0,
         "lsns": 0,
-        "sns": 0
+        "sns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -568,20 +616,24 @@
       "sme_rodina": 6.7,
       "kdh": 6.1,
       "sns": 3.6,
-      "lsns": 4.6
+      "lsns": 4.6,
+      "madarska_aliancia": 5.5,
+      "za_ludi": 2.2
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 35,
-        "smer": 27,
-        "sas": 22,
-        "olano": 15,
-        "ps": 13,
-        "republika": 13,
-        "sme_rodina": 13,
-        "kdh": 12,
+        "hlas": 33,
+        "smer": 25,
+        "sas": 21,
+        "olano": 14,
+        "ps": 12,
+        "republika": 12,
+        "sme_rodina": 12,
+        "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 10,
+        "za_ludi": 0
       }
     }
   },
@@ -604,7 +656,9 @@
       "kdh": 6.6,
       "republika": 5.2,
       "sns": 3.5,
-      "lsns": 2.7
+      "lsns": 2.7,
+      "za_ludi": 1.7,
+      "madarska_aliancia": 3.8
     },
     "metadata": {
       "seatProjection": {
@@ -617,7 +671,9 @@
         "kdh": 12,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -640,7 +696,9 @@
       "kdh": 5.9,
       "republika": 5,
       "sns": 3.6,
-      "lsns": 2.3
+      "lsns": 2.3,
+      "za_ludi": 2.1,
+      "madarska_aliancia": 4.5
     },
     "metadata": {
       "seatProjection": {
@@ -653,7 +711,9 @@
         "kdh": 11,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -676,20 +736,24 @@
       "kdh": 6.1,
       "republika": 5.5,
       "sns": 3.3,
-      "lsns": 3.8
+      "lsns": 3.8,
+      "madarska_aliancia": 5.2,
+      "za_ludi": 2.8
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 36,
-        "smer": 29,
-        "sas": 23,
-        "olano": 16,
-        "ps": 13,
-        "sme_rodina": 12,
+        "hlas": 34,
+        "smer": 27,
+        "sas": 21,
+        "olano": 15,
+        "ps": 12,
+        "sme_rodina": 11,
         "kdh": 11,
         "republika": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 9,
+        "za_ludi": 0
       }
     }
   },
@@ -712,7 +776,9 @@
       "republika": 5.6,
       "kdh": 5.4,
       "sns": 3.6,
-      "lsns": 3.5
+      "lsns": 3.5,
+      "madarska_aliancia": 4.2,
+      "za_ludi": 2.2
     },
     "metadata": {
       "seatProjection": {
@@ -725,7 +791,9 @@
         "republika": 10,
         "kdh": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -748,7 +816,9 @@
       "sme_rodina": 6.1,
       "kdh": 6.1,
       "sns": 3.6,
-      "lsns": 4.8
+      "lsns": 4.8,
+      "madarska_aliancia": 4.4,
+      "za_ludi": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -761,7 +831,9 @@
         "sme_rodina": 11,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -784,7 +856,9 @@
       "kdh": 6,
       "republika": 5.9,
       "sns": 3.6,
-      "lsns": 3.4
+      "lsns": 3.4,
+      "za_ludi": 2.4,
+      "madarska_aliancia": 3.7
     },
     "metadata": {
       "seatProjection": {
@@ -797,7 +871,9 @@
         "kdh": 11,
         "republika": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -820,7 +896,9 @@
       "republika": 6.2,
       "kdh": 6,
       "sns": 3.6,
-      "lsns": 2.9
+      "lsns": 2.9,
+      "za_ludi": 2.2,
+      "madarska_aliancia": 4
     },
     "metadata": {
       "seatProjection": {
@@ -833,7 +911,9 @@
         "republika": 11,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -856,7 +936,9 @@
       "sme_rodina": 6.1,
       "kdh": 5.8,
       "sns": 3.9,
-      "lsns": 4.3
+      "lsns": 4.3,
+      "madarska_aliancia": 4.4,
+      "za_ludi": 3
     },
     "metadata": {
       "seatProjection": {
@@ -869,7 +951,9 @@
         "sme_rodina": 11,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -892,7 +976,9 @@
       "sme_rodina": 6.9,
       "republika": 6.9,
       "sns": 3.8,
-      "lsns": 2.5
+      "lsns": 2.5,
+      "za_ludi": 2.3,
+      "madarska_aliancia": 4.1
     },
     "metadata": {
       "seatProjection": {
@@ -905,7 +991,9 @@
         "sme_rodina": 13,
         "republika": 12,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -926,9 +1014,11 @@
       "olano": 7.8,
       "republika": 7,
       "sme_rodina": 6.3,
+      "madarska_aliancia": 4.6,
       "kdh": 6,
       "sns": 3.8,
-      "lsns": 3.8
+      "lsns": 3.8,
+      "za_ludi": 2.7
     },
     "metadata": {
       "seatProjection": {
@@ -939,9 +1029,11 @@
         "olano": 14,
         "republika": 13,
         "sme_rodina": 12,
+        "madarska_aliancia": 0,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -964,7 +1056,9 @@
       "sme_rodina": 6.2,
       "republika": 5.7,
       "sns": 3.9,
-      "lsns": 1.8
+      "lsns": 1.8,
+      "za_ludi": 2.6,
+      "madarska_aliancia": 3
     },
     "metadata": {
       "seatProjection": {
@@ -977,7 +1071,9 @@
         "sme_rodina": 11,
         "republika": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1000,7 +1096,9 @@
       "republika": 6.9,
       "kdh": 6.3,
       "sns": 3.6,
-      "lsns": 4.5
+      "lsns": 4.5,
+      "madarska_aliancia": 4.4,
+      "za_ludi": 2.5
     },
     "metadata": {
       "seatProjection": {
@@ -1013,7 +1111,9 @@
         "republika": 13,
         "kdh": 12,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1036,7 +1136,9 @@
       "kdh": 6.5,
       "republika": 6.2,
       "sns": 3.9,
-      "lsns": 3
+      "lsns": 3,
+      "za_ludi": 2,
+      "madarska_aliancia": 2.6
     },
     "metadata": {
       "seatProjection": {
@@ -1049,7 +1151,9 @@
         "kdh": 11,
         "republika": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1072,7 +1176,9 @@
       "republika": 6.2,
       "sme_rodina": 6.1,
       "sns": 4,
-      "lsns": 1.1
+      "lsns": 1.1,
+      "za_ludi": 2.1,
+      "madarska_aliancia": 2.4
     },
     "metadata": {
       "seatProjection": {
@@ -1085,7 +1191,9 @@
         "republika": 11,
         "sme_rodina": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1108,7 +1216,9 @@
       "kdh": 6.5,
       "sme_rodina": 5.6,
       "sns": 3.7,
-      "lsns": 2.8
+      "lsns": 2.8,
+      "madarska_aliancia": 3.7,
+      "za_ludi": 3.1
     },
     "metadata": {
       "seatProjection": {
@@ -1121,7 +1231,9 @@
         "kdh": 12,
         "sme_rodina": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1144,7 +1256,9 @@
       "sme_rodina": 5.7,
       "republika": 5.2,
       "sns": 4.2,
-      "lsns": 1.8
+      "lsns": 1.8,
+      "za_ludi": 2.2,
+      "madarska_aliancia": 1.9
     },
     "metadata": {
       "seatProjection": {
@@ -1157,7 +1271,9 @@
         "sme_rodina": 10,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1180,7 +1296,9 @@
       "republika": 6.8,
       "kdh": 6.7,
       "sns": 4,
-      "lsns": 3.3
+      "lsns": 3.3,
+      "madarska_aliancia": 4.1,
+      "za_ludi": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -1193,7 +1311,9 @@
         "republika": 12,
         "kdh": 12,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1216,7 +1336,9 @@
       "sme_rodina": 6,
       "republika": 5.4,
       "sns": 4.1,
-      "lsns": 1.5
+      "lsns": 1.5,
+      "za_ludi": 2.2,
+      "madarska_aliancia": 1.1
     },
     "metadata": {
       "seatProjection": {
@@ -1229,7 +1351,9 @@
         "sme_rodina": 10,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1252,7 +1376,9 @@
       "sme_rodina": 6.6,
       "republika": 5.3,
       "sns": 4.1,
-      "lsns": 2.1
+      "lsns": 2.1,
+      "za_ludi": 2.1,
+      "madarska_aliancia": 2.5
     },
     "metadata": {
       "seatProjection": {
@@ -1265,7 +1391,9 @@
         "sme_rodina": 12,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1283,25 +1411,29 @@
       "smer": 15,
       "sas": 12.9,
       "ps": 10,
-      "olano": 7.9,
+      "olano": 10.2,
       "sme_rodina": 7.6,
       "kdh": 6.2,
       "republika": 5.2,
       "sns": 4.2,
-      "lsns": 2.3
+      "lsns": 2.3,
+      "za_ludi": 2.3,
+      "madarska_aliancia": 2.7
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 35,
-        "smer": 27,
-        "sas": 23,
-        "ps": 18,
-        "olano": 14,
+        "hlas": 34,
+        "smer": 26,
+        "sas": 22,
+        "ps": 17,
+        "olano": 18,
         "sme_rodina": 13,
         "kdh": 11,
         "republika": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1324,7 +1456,9 @@
       "sme_rodina": 7,
       "kdh": 6.2,
       "sns": 3.9,
-      "lsns": 2.9
+      "lsns": 2.9,
+      "madarska_aliancia": 4.6,
+      "za_ludi": 2.4
     },
     "metadata": {
       "seatProjection": {
@@ -1337,7 +1471,9 @@
         "sme_rodina": 13,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1360,7 +1496,9 @@
       "republika": 6.6,
       "kdh": 5.8,
       "sns": 4.1,
-      "lsns": 2.6
+      "lsns": 2.6,
+      "za_ludi": 1.6,
+      "madarska_aliancia": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -1373,7 +1511,9 @@
         "republika": 12,
         "kdh": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1396,20 +1536,24 @@
       "kdh": 6.9,
       "sme_rodina": 6.6,
       "sns": 3.8,
-      "lsns": 3.5
+      "lsns": 3.5,
+      "madarska_aliancia": 5.6,
+      "za_ludi": 2
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 36,
-        "smer": 29,
-        "ps": 19,
-        "sas": 15,
-        "republika": 13,
-        "olano": 13,
-        "kdh": 13,
-        "sme_rodina": 12,
+        "hlas": 34,
+        "smer": 27,
+        "ps": 18,
+        "sas": 14,
+        "republika": 12,
+        "olano": 12,
+        "kdh": 12,
+        "sme_rodina": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 10,
+        "za_ludi": 0
       }
     }
   },
@@ -1432,7 +1576,9 @@
       "republika": 6.3,
       "kdh": 6.1,
       "sns": 4.2,
-      "lsns": 1.9
+      "lsns": 1.9,
+      "za_ludi": 1.9,
+      "madarska_aliancia": 2.6
     },
     "metadata": {
       "seatProjection": {
@@ -1445,7 +1591,9 @@
         "republika": 11,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1468,20 +1616,24 @@
       "olano": 7,
       "kdh": 6,
       "sns": 3.7,
-      "lsns": 3
+      "lsns": 3,
+      "madarska_aliancia": 5.1,
+      "za_ludi": 2.7
     },
     "metadata": {
       "seatProjection": {
-        "hlas": 37,
-        "smer": 29,
-        "ps": 19,
+        "hlas": 34,
+        "smer": 27,
+        "ps": 18,
         "republika": 14,
-        "sas": 14,
+        "sas": 13,
         "sme_rodina": 13,
-        "olano": 13,
-        "kdh": 11,
+        "olano": 12,
+        "kdh": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 9,
+        "za_ludi": 0
       }
     }
   },
@@ -1504,7 +1656,9 @@
       "republika": 6.6,
       "kdh": 5.5,
       "sns": 4,
-      "lsns": 1.6
+      "lsns": 1.6,
+      "za_ludi": 1.7,
+      "madarska_aliancia": 3.1
     },
     "metadata": {
       "seatProjection": {
@@ -1517,7 +1671,9 @@
         "republika": 12,
         "kdh": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1540,7 +1696,9 @@
       "kdh": 5.9,
       "sas": 5.6,
       "sns": 3.4,
-      "lsns": 3.1
+      "lsns": 3.1,
+      "madarska_aliancia": 4.4,
+      "za_ludi": 2.2
     },
     "metadata": {
       "seatProjection": {
@@ -1553,7 +1711,9 @@
         "kdh": 11,
         "sas": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1576,7 +1736,9 @@
       "sme_rodina": 6.8,
       "kdh": 6.2,
       "sns": 4.1,
-      "lsns": 1.9
+      "lsns": 1.9,
+      "za_ludi": 2.9,
+      "madarska_aliancia": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -1589,7 +1751,9 @@
         "sme_rodina": 12,
         "kdh": 11,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1612,7 +1776,9 @@
       "olano": 6.4,
       "sas": 5.3,
       "sns": 3.6,
-      "lsns": 2.9
+      "lsns": 2.9,
+      "madarska_aliancia": 4.5,
+      "za_ludi": 1
     },
     "metadata": {
       "seatProjection": {
@@ -1625,7 +1791,9 @@
         "olano": 12,
         "sas": 10,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1648,7 +1816,9 @@
       "kdh": 6.9,
       "republika": 6.6,
       "sns": 4,
-      "lsns": 1.5
+      "lsns": 1.5,
+      "za_ludi": 2.3,
+      "madarska_aliancia": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -1661,7 +1831,9 @@
         "kdh": 12,
         "republika": 12,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1684,7 +1856,9 @@
       "kdh": 6.7,
       "olano": 5,
       "sns": 4.2,
-      "lsns": 1.2
+      "lsns": 1.2,
+      "za_ludi": 1.6,
+      "madarska_aliancia": 1.9
     },
     "metadata": {
       "seatProjection": {
@@ -1697,7 +1871,9 @@
         "kdh": 12,
         "olano": 9,
         "sns": 0,
-        "lsns": 0
+        "lsns": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1721,7 +1897,9 @@
       "olano": 4.3,
       "sns": 3.4,
       "lsns": 2.7,
-      "demokrati": 5
+      "demokrati": 5,
+      "madarska_aliancia": 4.7,
+      "za_ludi": 1.2
     },
     "metadata": {
       "seatProjection": {
@@ -1735,7 +1913,9 @@
         "olano": 0,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1759,7 +1939,9 @@
       "olano": 5.8,
       "sns": 4.3,
       "lsns": 1.4,
-      "demokrati": 4.1
+      "demokrati": 4.1,
+      "za_ludi": 1.8,
+      "madarska_aliancia": 2.1
     },
     "metadata": {
       "seatProjection": {
@@ -1773,7 +1955,9 @@
         "olano": 10,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1797,7 +1981,9 @@
       "sas": 5.2,
       "sns": 4,
       "lsns": 2.7,
-      "demokrati": 3.6
+      "demokrati": 3.6,
+      "madarska_aliancia": 4.3,
+      "za_ludi": 1
     },
     "metadata": {
       "seatProjection": {
@@ -1811,7 +1997,9 @@
         "sas": 10,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1835,7 +2023,9 @@
       "sme_rodina": 5.6,
       "sns": 4.4,
       "lsns": 0.7,
-      "demokrati": 3.4
+      "demokrati": 3.4,
+      "za_ludi": 1.9,
+      "madarska_aliancia": 1.1
     },
     "metadata": {
       "seatProjection": {
@@ -1849,7 +2039,9 @@
         "sme_rodina": 10,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1873,7 +2065,9 @@
       "sas": 5.3,
       "sns": 4.7,
       "lsns": 2.5,
-      "demokrati": 3.2
+      "demokrati": 3.2,
+      "madarska_aliancia": 4,
+      "za_ludi": 1.1
     },
     "metadata": {
       "seatProjection": {
@@ -1887,7 +2081,9 @@
         "sas": 10,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1911,7 +2107,9 @@
       "sme_rodina": 6.2,
       "sns": 4.7,
       "lsns": 1,
-      "demokrati": 2.8
+      "demokrati": 2.8,
+      "za_ludi": 0.6,
+      "madarska_aliancia": 1.3
     },
     "metadata": {
       "seatProjection": {
@@ -1925,7 +2123,9 @@
         "sme_rodina": 11,
         "sns": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "za_ludi": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -1949,7 +2149,9 @@
       "sns": 5.5,
       "sas": 5,
       "lsns": 2.1,
-      "demokrati": 3.6
+      "demokrati": 3.6,
+      "madarska_aliancia": 3.9,
+      "za_ludi": 0.7
     },
     "metadata": {
       "seatProjection": {
@@ -1963,7 +2165,9 @@
         "sns": 10,
         "sas": 9,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -1987,7 +2191,8 @@
       "kdh": 5.9,
       "sns": 5.1,
       "lsns": 1.7,
-      "demokrati": 2.2
+      "demokrati": 2.2,
+      "madarska_aliancia": 1.7
     },
     "metadata": {
       "seatProjection": {
@@ -2001,7 +2206,8 @@
         "kdh": 10,
         "sns": 9,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2025,6 +2231,7 @@
       "kdh": 5.6,
       "sns": 5.1,
       "lsns": 2.3,
+      "madarska_aliancia": 4,
       "demokrati": 3.8
     },
     "metadata": {
@@ -2039,6 +2246,7 @@
         "kdh": 11,
         "sns": 10,
         "lsns": 0,
+        "madarska_aliancia": 0,
         "demokrati": 0
       }
     }
@@ -2063,7 +2271,8 @@
       "kdh": 6,
       "sns": 5.8,
       "lsns": 1.2,
-      "demokrati": 2.2
+      "demokrati": 2.2,
+      "madarska_aliancia": 2.2
     },
     "metadata": {
       "seatProjection": {
@@ -2077,7 +2286,8 @@
         "kdh": 11,
         "sns": 10,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2101,7 +2311,8 @@
       "sns": 5.9,
       "sme_rodina": 5.7,
       "lsns": 0.3,
-      "demokrati": 2.9
+      "demokrati": 2.9,
+      "madarska_aliancia": 2.5
     },
     "metadata": {
       "seatProjection": {
@@ -2115,7 +2326,8 @@
         "sns": 10,
         "sme_rodina": 10,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2139,7 +2351,8 @@
       "sns": 5.3,
       "sme_rodina": 5.1,
       "lsns": 2.1,
-      "demokrati": 3.1
+      "demokrati": 3.1,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -2153,7 +2366,8 @@
         "sns": 10,
         "sme_rodina": 10,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2177,7 +2391,8 @@
       "sme_rodina": 5.3,
       "republika": 5.2,
       "lsns": 0.6,
-      "demokrati": 3.5
+      "demokrati": 3.5,
+      "madarska_aliancia": 2.9
     },
     "metadata": {
       "seatProjection": {
@@ -2191,7 +2406,8 @@
         "sme_rodina": 9,
         "republika": 9,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2215,7 +2431,8 @@
       "kdh": 6.2,
       "sme_rodina": 4.9,
       "lsns": 1.8,
-      "demokrati": 3.7
+      "demokrati": 3.7,
+      "madarska_aliancia": 3.6
     },
     "metadata": {
       "seatProjection": {
@@ -2229,7 +2446,8 @@
         "kdh": 12,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2253,7 +2471,8 @@
       "republika": 5.4,
       "sme_rodina": 5.1,
       "lsns": 0.3,
-      "demokrati": 4.3
+      "demokrati": 4.3,
+      "madarska_aliancia": 2.8
     },
     "metadata": {
       "seatProjection": {
@@ -2267,7 +2486,8 @@
         "republika": 9,
         "sme_rodina": 9,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2290,6 +2510,7 @@
       "republika": 7.7,
       "kdh": 6.5,
       "sme_rodina": 4.1,
+      "madarska_aliancia": 3.5,
       "lsns": 1.7,
       "demokrati": 4
     },
@@ -2304,6 +2525,7 @@
         "republika": 15,
         "kdh": 13,
         "sme_rodina": 0,
+        "madarska_aliancia": 0,
         "lsns": 0,
         "demokrati": 0
       }
@@ -2329,7 +2551,8 @@
       "republika": 4.9,
       "sme_rodina": 2.7,
       "lsns": 0.3,
-      "demokrati": 2.3
+      "demokrati": 2.3,
+      "madarska_aliancia": 4.4
     },
     "metadata": {
       "seatProjection": {
@@ -2343,7 +2566,8 @@
         "republika": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2367,21 +2591,23 @@
       "republika": 5.3,
       "sme_rodina": 2.8,
       "lsns": 1.2,
-      "demokrati": 2.9
+      "demokrati": 2.9,
+      "madarska_aliancia": 5
     },
     "metadata": {
       "seatProjection": {
-        "smer": 41,
-        "ps": 30,
-        "hlas": 25,
-        "kdh": 13,
-        "sas": 11,
-        "sns": 10,
-        "olano": 11,
+        "smer": 39,
+        "ps": 29,
+        "hlas": 24,
+        "kdh": 12,
+        "sas": 10,
+        "sns": 9,
+        "olano": 10,
         "republika": 9,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 8
       }
     }
   },
@@ -2399,12 +2625,13 @@
       "ps": 21.4,
       "hlas": 14.6,
       "kdh": 7.3,
-      "olano": 6.8,
+      "olano": 7,
       "sas": 6.4,
       "republika": 5.4,
       "sns": 5.3,
       "sme_rodina": 2.3,
-      "demokrati": 2
+      "demokrati": 2,
+      "madarska_aliancia": 3.6
     },
     "metadata": {
       "seatProjection": {
@@ -2417,7 +2644,8 @@
         "republika": 9,
         "sns": 9,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2441,7 +2669,8 @@
       "republika": 5.3,
       "sme_rodina": 2.4,
       "lsns": 0,
-      "demokrati": 3.2
+      "demokrati": 3.2,
+      "madarska_aliancia": 4.3
     },
     "metadata": {
       "seatProjection": {
@@ -2455,7 +2684,8 @@
         "republika": 9,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2479,7 +2709,8 @@
       "sme_rodina": 2.4,
       "olano": 6.5,
       "lsns": 1.7,
-      "demokrati": 3.5
+      "demokrati": 3.5,
+      "madarska_aliancia": 4.6
     },
     "metadata": {
       "seatProjection": {
@@ -2493,7 +2724,8 @@
         "sme_rodina": 0,
         "olano": 12,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2516,7 +2748,8 @@
       "sns": 5.3,
       "republika": 3.7,
       "sme_rodina": 2.8,
-      "demokrati": 1.5
+      "demokrati": 1.5,
+      "madarska_aliancia": 4.6
     },
     "metadata": {
       "seatProjection": {
@@ -2529,7 +2762,8 @@
         "sns": 9,
         "republika": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2553,21 +2787,23 @@
       "sme_rodina": 2.6,
       "olano": 5.9,
       "lsns": 2.7,
-      "demokrati": 3.5
+      "demokrati": 3.5,
+      "madarska_aliancia": 5.4
     },
     "metadata": {
       "seatProjection": {
-        "smer": 39,
-        "ps": 35,
-        "hlas": 32,
+        "smer": 37,
+        "ps": 33,
+        "hlas": 30,
         "sas": 11,
-        "kdh": 11,
-        "sns": 11,
+        "kdh": 10,
+        "sns": 10,
         "republika": 0,
         "sme_rodina": 0,
-        "olano": 11,
+        "olano": 10,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 9
       }
     }
   },
@@ -2590,7 +2826,8 @@
       "sns": 5.1,
       "republika": 3.9,
       "sme_rodina": 2,
-      "demokrati": 3.2
+      "demokrati": 3.2,
+      "madarska_aliancia": 4.6
     },
     "metadata": {
       "seatProjection": {
@@ -2603,7 +2840,8 @@
         "sns": 9,
         "republika": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2627,21 +2865,23 @@
       "sme_rodina": 1.8,
       "olano": 6.4,
       "lsns": 1.9,
-      "demokrati": 3.7
+      "demokrati": 3.7,
+      "madarska_aliancia": 5
     },
     "metadata": {
       "seatProjection": {
-        "smer": 39,
-        "ps": 37,
-        "hlas": 32,
+        "smer": 37,
+        "ps": 34,
+        "hlas": 31,
         "kdh": 11,
-        "sas": 10,
+        "sas": 9,
         "sns": 9,
         "republika": 0,
         "sme_rodina": 0,
-        "olano": 12,
+        "olano": 11,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 8
       }
     }
   },
@@ -2664,7 +2904,8 @@
       "sns": 5.1,
       "republika": 4.9,
       "sme_rodina": 2.3,
-      "demokrati": 3.3
+      "demokrati": 3.3,
+      "madarska_aliancia": 4.9
     },
     "metadata": {
       "seatProjection": {
@@ -2677,7 +2918,8 @@
         "sns": 9,
         "republika": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2701,7 +2943,8 @@
       "sme_rodina": 2.3,
       "olano": 5.2,
       "lsns": 0.9,
-      "demokrati": 3.5
+      "demokrati": 3.5,
+      "madarska_aliancia": 4.5
     },
     "metadata": {
       "seatProjection": {
@@ -2715,7 +2958,8 @@
         "sme_rodina": 0,
         "olano": 9,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2738,7 +2982,8 @@
       "sns": 5.2,
       "republika": 5.1,
       "sme_rodina": 3.1,
-      "demokrati": 3.6
+      "demokrati": 3.6,
+      "madarska_aliancia": 3.9
     },
     "metadata": {
       "seatProjection": {
@@ -2751,7 +2996,8 @@
         "sns": 9,
         "republika": 9,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2774,20 +3020,22 @@
       "sns": 4.7,
       "sme_rodina": 1.8,
       "olano": 4.1,
-      "demokrati": 3.6
+      "demokrati": 3.6,
+      "madarska_aliancia": 5.2
     },
     "metadata": {
       "seatProjection": {
-        "smer": 45,
-        "ps": 41,
-        "hlas": 27,
-        "republika": 14,
-        "kdh": 12,
+        "smer": 43,
+        "ps": 38,
+        "hlas": 25,
+        "republika": 13,
+        "kdh": 11,
         "sas": 11,
         "sns": 0,
         "sme_rodina": 0,
         "olano": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 9
       }
     }
   },
@@ -2810,7 +3058,8 @@
       "sns": 5,
       "olano": 4.7,
       "sme_rodina": 2.1,
-      "demokrati": 4.1
+      "demokrati": 4.1,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -2823,7 +3072,8 @@
         "sns": 9,
         "olano": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2847,7 +3097,8 @@
       "olano": 3.5,
       "sme_rodina": 2.3,
       "lsns": 0.5,
-      "demokrati": 4.4
+      "demokrati": 4.4,
+      "madarska_aliancia": 4.3
     },
     "metadata": {
       "seatProjection": {
@@ -2861,7 +3112,8 @@
         "olano": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2885,7 +3137,8 @@
       "sme_rodina": 2.7,
       "lsns": 0.2,
       "sas": 6.2,
-      "demokrati": 4.5
+      "demokrati": 4.5,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -2899,7 +3152,8 @@
         "sme_rodina": 0,
         "lsns": 0,
         "sas": 12,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2922,7 +3176,8 @@
       "sns": 4.9,
       "olano": 3.9,
       "sme_rodina": 2.6,
-      "demokrati": 4.9
+      "demokrati": 4.9,
+      "madarska_aliancia": 3.7
     },
     "metadata": {
       "seatProjection": {
@@ -2935,7 +3190,8 @@
         "sns": 0,
         "olano": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -2958,20 +3214,22 @@
       "sns": 4.7,
       "sme_rodina": 3.2,
       "olano": 4.1,
-      "demokrati": 5
+      "demokrati": 5,
+      "madarska_aliancia": 5.2
     },
     "metadata": {
       "seatProjection": {
-        "smer": 43,
-        "ps": 40,
-        "hlas": 23,
-        "republika": 14,
-        "kdh": 11,
+        "smer": 40,
+        "ps": 38,
+        "hlas": 22,
+        "republika": 13,
+        "kdh": 10,
         "sas": 10,
         "sns": 0,
         "sme_rodina": 0,
         "olano": 0,
-        "demokrati": 9
+        "demokrati": 8,
+        "madarska_aliancia": 9
       }
     }
   },
@@ -2995,7 +3253,8 @@
       "sns": 4.8,
       "sme_rodina": 2.6,
       "lsns": 0.6,
-      "demokrati": 4.7
+      "demokrati": 4.7,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -3009,7 +3268,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3032,7 +3292,8 @@
       "sns": 3.6,
       "sme_rodina": 3.3,
       "olano": 3.6,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 4.8
     },
     "metadata": {
       "seatProjection": {
@@ -3045,7 +3306,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3069,7 +3331,8 @@
       "sns": 4.7,
       "sme_rodina": 3.6,
       "lsns": 0.4,
-      "demokrati": 4.1
+      "demokrati": 4.1,
+      "madarska_aliancia": 3.7
     },
     "metadata": {
       "seatProjection": {
@@ -3083,7 +3346,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3106,20 +3370,24 @@
       "sns": 3.7,
       "sme_rodina": 2.2,
       "olano": 5.2,
-      "demokrati": 4
+      "demokrati": 4,
+      "madarska_aliancia": 5.6,
+      "za_ludi": 0.9
     },
     "metadata": {
       "seatProjection": {
-        "ps": 39,
-        "smer": 38,
-        "hlas": 25,
-        "republika": 15,
-        "kdh": 13,
-        "sas": 11,
+        "ps": 37,
+        "smer": 36,
+        "hlas": 23,
+        "republika": 14,
+        "kdh": 12,
+        "sas": 10,
         "sns": 0,
         "sme_rodina": 0,
         "olano": 9,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 9,
+        "za_ludi": 0
       }
     }
   },
@@ -3143,7 +3411,9 @@
       "sns": 4.6,
       "sme_rodina": 3.8,
       "lsns": 0.3,
-      "demokrati": 4.3
+      "demokrati": 4.3,
+      "madarska_aliancia": 3.2,
+      "za_ludi": 0.2
     },
     "metadata": {
       "seatProjection": {
@@ -3157,7 +3427,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3181,7 +3453,9 @@
       "sns": 4.2,
       "sme_rodina": 2.2,
       "lsns": 0.8,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 3.4,
+      "za_ludi": 0.3
     },
     "metadata": {
       "seatProjection": {
@@ -3195,7 +3469,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3219,7 +3495,8 @@
       "sns": 4.1,
       "sme_rodina": 2.9,
       "lsns": 0.3,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 3.1
     },
     "metadata": {
       "seatProjection": {
@@ -3233,7 +3510,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3256,7 +3534,9 @@
       "sns": 3.7,
       "sme_rodina": 2.6,
       "olano": 5.6,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 4.6,
+      "za_ludi": 0.6
     },
     "metadata": {
       "seatProjection": {
@@ -3269,7 +3549,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 10,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3293,7 +3575,8 @@
       "sns": 4,
       "sme_rodina": 2.4,
       "lsns": 0.2,
-      "demokrati": 4
+      "demokrati": 4,
+      "madarska_aliancia": 4.4
     },
     "metadata": {
       "seatProjection": {
@@ -3307,7 +3590,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3330,7 +3614,9 @@
       "sns": 3.9,
       "sme_rodina": 2.9,
       "olano": 7.3,
-      "demokrati": 4.3
+      "demokrati": 4.3,
+      "madarska_aliancia": 4.7,
+      "za_ludi": 0.8
     },
     "metadata": {
       "seatProjection": {
@@ -3343,7 +3629,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 13,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3366,7 +3654,9 @@
       "republika": 7,
       "sns": 4.1,
       "sme_rodina": 1.5,
-      "demokrati": 4.2
+      "demokrati": 4.2,
+      "madarska_aliancia": 4,
+      "za_ludi": 0.1
     },
     "metadata": {
       "seatProjection": {
@@ -3379,7 +3669,9 @@
         "republika": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3402,7 +3694,9 @@
       "sns": 3.9,
       "sme_rodina": 3.2,
       "olano": 7.8,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 4.6,
+      "za_ludi": 1.1
     },
     "metadata": {
       "seatProjection": {
@@ -3415,7 +3709,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 14,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3438,7 +3734,8 @@
       "sas": 7.2,
       "sns": 4.2,
       "sme_rodina": 3,
-      "demokrati": 4.5
+      "demokrati": 4.5,
+      "madarska_aliancia": 3.5
     },
     "metadata": {
       "seatProjection": {
@@ -3451,7 +3748,8 @@
         "sas": 13,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3474,7 +3772,9 @@
       "sns": 3.7,
       "sme_rodina": 3.4,
       "olano": 8.5,
-      "demokrati": 4.8
+      "demokrati": 4.8,
+      "madarska_aliancia": 4.8,
+      "za_ludi": 0.8
     },
     "metadata": {
       "seatProjection": {
@@ -3487,7 +3787,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 16,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3510,7 +3812,8 @@
       "kdh": 6.9,
       "sns": 4.1,
       "sme_rodina": 2.7,
-      "demokrati": 4.8
+      "demokrati": 4.8,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -3523,7 +3826,8 @@
         "kdh": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3546,7 +3850,9 @@
       "sns": 3.8,
       "sme_rodina": 2.5,
       "olano": 7.5,
-      "demokrati": 4.6
+      "demokrati": 4.6,
+      "madarska_aliancia": 4,
+      "za_ludi": 0.7
     },
     "metadata": {
       "seatProjection": {
@@ -3559,7 +3865,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 14,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3583,7 +3891,8 @@
       "sns": 4.2,
       "sme_rodina": 2.6,
       "lsns": 0.4,
-      "demokrati": 4.1
+      "demokrati": 4.1,
+      "madarska_aliancia": 3.5
     },
     "metadata": {
       "seatProjection": {
@@ -3597,7 +3906,8 @@
         "sns": 0,
         "sme_rodina": 0,
         "lsns": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3620,7 +3930,8 @@
       "kdh": 7.1,
       "sns": 4.5,
       "sme_rodina": 3.6,
-      "demokrati": 4.8
+      "demokrati": 4.8,
+      "madarska_aliancia": 4
     },
     "metadata": {
       "seatProjection": {
@@ -3633,7 +3944,8 @@
         "kdh": 13,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3656,7 +3968,9 @@
       "sns": 4,
       "sme_rodina": 2.6,
       "olano": 8.2,
-      "demokrati": 4.8
+      "demokrati": 4.8,
+      "madarska_aliancia": 4.6,
+      "za_ludi": 1
     },
     "metadata": {
       "seatProjection": {
@@ -3669,7 +3983,9 @@
         "sns": 0,
         "sme_rodina": 0,
         "olano": 15,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3692,7 +4008,9 @@
       "kdh": 7.2,
       "sns": 4.6,
       "sme_rodina": 3.5,
-      "demokrati": 4.9
+      "demokrati": 4.9,
+      "madarska_aliancia": 2.9,
+      "za_ludi": 0.2
     },
     "metadata": {
       "seatProjection": {
@@ -3705,7 +4023,9 @@
         "kdh": 13,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 0
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3728,7 +4048,9 @@
       "sas": 6.1,
       "sns": 4.3,
       "sme_rodina": 3,
-      "demokrati": 5.1
+      "demokrati": 5.1,
+      "madarska_aliancia": 4.3,
+      "za_ludi": 0.4
     },
     "metadata": {
       "seatProjection": {
@@ -3741,7 +4063,9 @@
         "sas": 10,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3764,7 +4088,8 @@
       "kdh": 6.8,
       "sns": 4.5,
       "sme_rodina": 3.5,
-      "demokrati": 5.1
+      "demokrati": 5.1,
+      "madarska_aliancia": 3.8
     },
     "metadata": {
       "seatProjection": {
@@ -3777,7 +4102,8 @@
         "kdh": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3800,7 +4126,9 @@
       "sas": 6.3,
       "sns": 4.3,
       "sme_rodina": 2.8,
-      "demokrati": 5.2
+      "demokrati": 5.2,
+      "madarska_aliancia": 4,
+      "za_ludi": 0.4
     },
     "metadata": {
       "seatProjection": {
@@ -3813,7 +4141,9 @@
         "sas": 11,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3836,7 +4166,9 @@
       "kdh": 6.3,
       "sns": 4.2,
       "sme_rodina": 2.1,
-      "demokrati": 5.2
+      "demokrati": 5.2,
+      "madarska_aliancia": 4.6,
+      "za_ludi": 0.6
     },
     "metadata": {
       "seatProjection": {
@@ -3849,7 +4181,9 @@
         "kdh": 11,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3872,7 +4206,8 @@
       "kdh": 6.5,
       "sns": 4.6,
       "sme_rodina": 3,
-      "demokrati": 5.3
+      "demokrati": 5.3,
+      "madarska_aliancia": 3.4
     },
     "metadata": {
       "seatProjection": {
@@ -3885,7 +4220,8 @@
         "kdh": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 9
+        "demokrati": 9,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3908,7 +4244,9 @@
       "sas": 6.7,
       "sns": 4.3,
       "sme_rodina": 2.3,
-      "demokrati": 5.5
+      "demokrati": 5.5,
+      "madarska_aliancia": 4,
+      "za_ludi": 0.7
     },
     "metadata": {
       "seatProjection": {
@@ -3921,7 +4259,9 @@
         "sas": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 10
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -3944,7 +4284,8 @@
       "kdh": 7,
       "sns": 4.7,
       "sme_rodina": 2.3,
-      "demokrati": 6.3
+      "demokrati": 6.3,
+      "madarska_aliancia": 4.3
     },
     "metadata": {
       "seatProjection": {
@@ -3957,7 +4298,8 @@
         "kdh": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 11
+        "demokrati": 11,
+        "madarska_aliancia": 0
       }
     }
   },
@@ -3980,7 +4322,9 @@
       "kdh": 6.9,
       "sns": 4.1,
       "sme_rodina": 2.3,
-      "demokrati": 5.6
+      "demokrati": 5.6,
+      "madarska_aliancia": 4.7,
+      "za_ludi": 0.8
     },
     "metadata": {
       "seatProjection": {
@@ -3993,7 +4337,9 @@
         "kdh": 12,
         "sns": 0,
         "sme_rodina": 0,
-        "demokrati": 10
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "za_ludi": 0
       }
     }
   },
@@ -4016,7 +4362,8 @@
       "kdh": 7.4,
       "demokrati": 6.2,
       "sns": 4.8,
-      "sme_rodina": 2.9
+      "sme_rodina": 2.9,
+      "madarska_aliancia": 4.6
     },
     "metadata": {
       "seatProjection": {
@@ -4029,7 +4376,8 @@
         "kdh": 13,
         "demokrati": 11,
         "sns": 0,
-        "sme_rodina": 0
+        "sme_rodina": 0,
+        "madarska_aliancia": 0
       }
     }
   }
