@@ -3,9 +3,7 @@ import {
   DEFAULT_COUNTRY_ID,
   DEFAULT_ELECTION_ID,
 } from "../config/elections.ts";
-import { CoalitionBuilder } from "../features/coalitions/CoalitionBuilder.tsx";
-import { CoalitionToolbar } from "../features/coalitions/CoalitionToolbar.tsx";
-import { SeatOverview } from "../features/seatOverview/SeatOverview.tsx";
+import { CoalitionPage } from "../features/coalitions/CoalitionPage.tsx";
 import { TrendyPage } from "../features/trends/TrendyPage.tsx";
 import "../index.css";
 import { useStore } from "../state/store.ts";
@@ -53,9 +51,8 @@ function App() {
             </button>
             <button
               type="button"
-              className="app-nav-link"
-              disabled
-              title="Táto funkcia bude dostupná čoskoro"
+              className={`app-nav-link ${page === "koalicie" ? "active" : ""}`}
+              onClick={() => setPage("koalicie")}
             >
               Koalície
             </button>
@@ -66,13 +63,7 @@ function App() {
 
       <main className="app-main">
         {page === "trendy" && <TrendyPage />}
-        {page === "koalicie" && (
-          <>
-            <CoalitionToolbar />
-            <SeatOverview />
-            <CoalitionBuilder />
-          </>
-        )}
+        {page === "koalicie" && <CoalitionPage />}
       </main>
     </div>
   );

@@ -938,6 +938,303 @@ body {
   margin: 0.25rem 0;
 }
 
+/* ===== Poll date slider ===== */
+
+.poll-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 220px;
+  max-width: 480px;
+}
+
+.poll-slider-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.poll-slider-current {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.poll-slider {
+  width: 100%;
+  accent-color: #646cff;
+  cursor: pointer;
+  height: 4px;
+}
+
+.poll-slider-bounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* ===== Coalition page ===== */
+
+.coalition-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coalition-chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.25rem 1rem 0.75rem;
+}
+
+/* Make all SVG text in the chart readable in both themes */
+.coalition-chart-container text {
+  fill: rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-chart-container {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .coalition-chart-container text {
+    fill: rgba(0, 0, 0, 0.75);
+  }
+}
+
+.coalition-chart-empty {
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-chart-empty {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Tooltip */
+.coalition-tooltip {
+  background: #1e1e2e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.88rem;
+  min-width: 140px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-tooltip {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #213547;
+  }
+}
+
+.coalition-tooltip-title {
+  font-weight: 600;
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+  word-break: break-word;
+}
+
+.coalition-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0;
+}
+
+.coalition-tooltip-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.coalition-tooltip-name {
+  flex: 1;
+}
+
+.coalition-tooltip-val {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  margin-left: auto;
+  padding-left: 0.75rem;
+}
+
+.coalition-tooltip-total {
+  display: flex;
+  align-items: center;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-tooltip-total {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Coalition builder */
+.coalition-builder {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-builder {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.coalition-builder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.coalition-builder-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.coalition-empty-hint {
+  font-size: 0.88rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* Coalition results table */
+.coalition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.coalition-th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+  padding: 0 0.5rem 0.5rem;
+  white-space: nowrap;
+}
+
+.coalition-th--seats,
+.coalition-th--majority {
+  text-align: center;
+}
+
+.coalition-th--remove {
+  width: 2rem;
+}
+
+.coalition-row td {
+  padding: 0.4rem 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-row td {
+    border-top-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.coalition-td--name {
+  width: 100%;
+}
+
+.coalition-td--seats {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.coalition-td--majority {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.coalition-td--remove {
+  text-align: right;
+}
+
+.coalition-td--loading {
+  opacity: 0.35;
+}
+
+.coalition-majority-yes {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.coalition-majority-no {
+  color: #f87171;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-majority-yes {
+    color: #059669;
+  }
+  .coalition-majority-no {
+    color: #dc2626;
+  }
+}
+
+/* Party chips in builder table */
+.coalition-party-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.coalition-party-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.88rem;
+}
+
+.coalition-party-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.coalition-chip-plus {
+  opacity: 0.45;
+  margin: 0 0.05rem;
+}
+
 .month-buttons {
   display: flex;
   flex-wrap: wrap;

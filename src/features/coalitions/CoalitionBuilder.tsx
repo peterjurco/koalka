@@ -1,47 +1,193 @@
-import { useStore } from '../../state/store.ts'
-import { Card } from '../../components/ui/Card.tsx'
-import { formatPercent } from '../../utils/index.ts'
+import { useState } from 'react';
+import { TrashIcon } from '../../icons/TrashIcon.tsx';
+import type { Party } from '../../data/types.ts';
+import type { CoalitionResult } from '../../core/coalition/types.ts';
+import type { SavedCoalition } from './coalitionStorage.ts';
 
-export function CoalitionBuilder() {
-  const {
-    config,
-    voteSource,
-    selectedCoalitionPartyIds,
-    coalitionResult,
-    toggleCoalitionParty,
-  } = useStore()
+interface Props {
+  coalitions: SavedCoalition[];
+  coalitionResults: Array<CoalitionResult | null>;
+  parties: Party[];
+  onAdd: (coalition: SavedCoalition) => void;
+  onRemove: (id: string) => void;
+}
 
-  if (!config) return null
-  const { parties, rules } = config
+export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd, onRemove }: Props) {
+  const [isAdding, setIsAdding] = useState(false);
+  const [draftPartyIds, setDraftPartyIds] = useState<string[]>([]);
+
+  const partyById = new Map(parties.map((p) => [p.id, p]));
+  const sortedParties = [...parties].sort((a, b) => a.order - b.order);
+
+  const handleToggleDraft = (id: string) => {
+    setDraftPartyIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
+  };
+
+  const handleConfirmAdd = () => {
+    if (draftPartyIds.length === 0) return;
+    onAdd({ id: `user-${Date.now()}`, partyIds: [...draftPartyIds] });
+    setDraftPartyIds([]);
+    setIsAdding(false);
+  };
+
+  const handleCancelAdd = () => {
+    setDraftPartyIds([]);
+    setIsAdding(false);
+  };
 
   return (
-    <Card title="Vlastné koalície">
-      <p className="hint">Vyberte prieskum alebo priemer v toolbare vyššie, potom zvoľte strany do koalície.</p>
-      <div className="coalition-parties">
-        {parties.sort((a, b) => a.order - b.order).map((p) => (
-          <label key={p.id} className="party-checkbox">
-            <input
-              type="checkbox"
-              checked={selectedCoalitionPartyIds.includes(p.id)}
-              onChange={() => toggleCoalitionParty(p.id)}
-              disabled={!voteSource}
-            />
-            <span className="party-color" style={{ backgroundColor: p.color }} />
-            <span>{p.shortName}</span>
-          </label>
-        ))}
+    <div className="coalition-builder">
+      <div className="coalition-builder-header">
+        <h2 className="coalition-builder-title">Koalície</h2>
+        <button
+          type="button"
+          className="trendy-add-sum-btn"
+          onClick={() => setIsAdding(true)}
+          title="Pridať koalíciu"
+        >
+          +
+        </button>
       </div>
-      {coalitionResult && (
-        <div className="coalition-result">
-          <p>
-            <strong>Podiel hlasov:</strong> {formatPercent(coalitionResult.totalVotePercent)}
-          </p>
-          <p>
-            <strong>Kreslá:</strong> {coalitionResult.totalSeats} / {rules.totalSeats}
-            {coalitionResult.majority ? ' (väčšina)' : ` (na väčšinu treba ${coalitionResult.majorityThreshold})`}
-          </p>
+
+      {coalitions.length === 0 ? (
+        <p className="coalition-empty-hint">Zatiaľ žiadna koalícia. Pridajte pomocou tlačidla +.</p>
+      ) : (
+        <table className="coalition-table">
+          <thead>
+            <tr>
+              <th className="coalition-th coalition-th--name">Koalícia</th>
+              <th className="coalition-th coalition-th--seats">Mandáty</th>
+              <th className="coalition-th coalition-th--majority">Väčšina (76)</th>
+              <th className="coalition-th coalition-th--majority">Úst. väčšina (90)</th>
+              <th className="coalition-th coalition-th--remove" />
+            </tr>
+          </thead>
+          <tbody>
+            {coalitions.map((coalition, i) => {
+              const result = coalitionResults[i] ?? null;
+              const seats = result?.totalSeats ?? null;
+              const toMajority = seats !== null ? 76 - seats : null;
+              const toConstitutional = seats !== null ? 90 - seats : null;
+
+              return (
+                <tr key={coalition.id} className="coalition-row">
+                  <td className="coalition-td coalition-td--name">
+                    <div className="coalition-party-chips">
+                      {coalition.partyIds.map((pid, j) => {
+                        const party = partyById.get(pid);
+                        return (
+                          <span key={pid} className="coalition-party-chip">
+                            <span
+                              className="coalition-party-dot"
+                              style={{ backgroundColor: party?.color ?? '#888' }}
+                            />
+                            <span>{party?.shortName ?? pid}</span>
+                            {j < coalition.partyIds.length - 1 && (
+                              <span className="coalition-chip-plus">+</span>
+                            )}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </td>
+                  <td className="coalition-td coalition-td--seats">
+                    {seats !== null ? (
+                      <strong>{seats}</strong>
+                    ) : (
+                      <span className="coalition-td--loading">–</span>
+                    )}
+                  </td>
+                  <td className="coalition-td coalition-td--majority">
+                    {toMajority !== null ? (
+                      toMajority <= 0 ? (
+                        <span className="coalition-majority-yes">✓</span>
+                      ) : (
+                        <span className="coalition-majority-no">−{toMajority}</span>
+                      )
+                    ) : (
+                      <span className="coalition-td--loading">–</span>
+                    )}
+                  </td>
+                  <td className="coalition-td coalition-td--majority">
+                    {toConstitutional !== null ? (
+                      toConstitutional <= 0 ? (
+                        <span className="coalition-majority-yes">✓</span>
+                      ) : (
+                        <span className="coalition-majority-no">−{toConstitutional}</span>
+                      )
+                    ) : (
+                      <span className="coalition-td--loading">–</span>
+                    )}
+                  </td>
+                  <td className="coalition-td coalition-td--remove">
+                    <button
+                      type="button"
+                      className="trendy-sum-remove"
+                      onClick={() => onRemove(coalition.id)}
+                      title="Odstrániť koalíciu"
+                      aria-label={`Odstrániť koalíciu`}
+                    >
+                      <TrashIcon />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+
+      {isAdding && (
+        <div className="modal-backdrop" onClick={handleCancelAdd}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h3 className="modal-title">Pridať koalíciu</h3>
+            <p className="modal-hint">Vyberte strany, ktoré budú tvoriť koalíciu:</p>
+            <ul className="modal-party-list">
+              {sortedParties.map((p) => (
+                <li key={p.id}>
+                  <label className="modal-party-label">
+                    <input
+                      type="checkbox"
+                      checked={draftPartyIds.includes(p.id)}
+                      onChange={() => handleToggleDraft(p.id)}
+                    />
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        width: 12,
+                        height: 12,
+                        borderRadius: 2,
+                        backgroundColor: p.color,
+                        flexShrink: 0,
+                      }}
+                    />
+                    <span>{p.shortName}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <div className="modal-actions">
+              <button
+                type="button"
+                className="modal-btn modal-btn--secondary"
+                onClick={handleCancelAdd}
+              >
+                Zrušiť
+              </button>
+              <button
+                type="button"
+                className="modal-btn modal-btn--primary"
+                onClick={handleConfirmAdd}
+                disabled={draftPartyIds.length === 0}
+              >
+                Pridať
+              </button>
+            </div>
+          </div>
         </div>
       )}
-    </Card>
-  )
+    </div>
+  );
 }

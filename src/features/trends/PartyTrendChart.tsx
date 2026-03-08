@@ -232,6 +232,22 @@ export function PartyTrendChart({
 
   if (!config || data.length === 0 || lines.length === 0) return null;
 
+  // Show majority reference line at 76 only when in mandates mode and
+  // at least one series actually reaches a high enough value to make it relevant
+  const maxDataValue =
+    isMandates
+      ? Math.max(
+          0,
+          ...data.flatMap((point) =>
+            lines.map((l) => {
+              const v = point[l.key];
+              return typeof v === "number" ? v : 0;
+            }),
+          ),
+        )
+      : 0;
+  const showMajorityLine = isMandates && maxDataValue >= 50;
+
   const formatMonthHeader = (label: ReactNode): ReactNode => {
     if (label === undefined || label === null) return "";
     const monthKey =
@@ -266,8 +282,12 @@ export function PartyTrendChart({
           xAxisScale="linear"
           xAxisTickFormatter={isIndividualMode ? formatXAsDay : formatXAsMonth}
           connectNulls={!isIndividualMode}
-          referenceLineY={isMandates ? undefined : 5}
-          referenceLineLabel={isMandates ? undefined : "5 % (volebné kvórum)"}
+          referenceLineY={isMandates ? (showMajorityLine ? 76 : undefined) : 5}
+          referenceLineLabel={
+            isMandates
+              ? (showMajorityLine ? "Väčšina (76)" : undefined)
+              : "5 % (volebné kvórum)"
+          }
           valueFormatter={isMandates ? (v) => String(Math.round(v)) : undefined}
           onPointClick={handlePointClick}
         />
