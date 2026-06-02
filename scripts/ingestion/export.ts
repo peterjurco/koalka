@@ -80,21 +80,24 @@ export async function exportPolls(
       existingById.set(p.id, p);
     }
     const until = options.processedDataUntil;
-    // Verified: keep only if not replaced by this run (same id in runPollsWithIds)
-    const verified = existing.filter(
-      (p) => p.fieldworkEnd <= until && !runIds.has(p.id)
-    );
+    // Verified polls are kept as-is regardless of whether this run re-fetched them.
+    const verified = existing.filter((p) => p.fieldworkEnd <= until);
+    const verifiedIds = new Set(verified.map((p) => p.id));
     const existingNotVerified = existing.filter((p) => p.fieldworkEnd > until);
     const existingToKeep = existingNotVerified.filter((p) => !runIds.has(p.id));
-    // Merge run polls with existing: keep manual edits (party results only in existing), parsed data wins when present
-    const runMerged = runPollsWithIds.map((p) => {
-      const ex = existingById.get(p.id);
-      if (!ex?.results) return p;
-      return {
-        ...p,
-        results: { ...ex.results, ...p.results },
-      };
-    });
+    // Only merge/update polls that are not already verified.
+    const runMerged = runPollsWithIds
+      .filter((p) => !verifiedIds.has(p.id))
+      .map((p) => {
+        const ex = existingById.get(p.id);
+        if (!ex) return p;
+        return {
+          ...p,
+          results: ex.results ? { ...ex.results, ...p.results } : p.results,
+          ...(ex.metadata != null && p.metadata == null ? { metadata: ex.metadata } : {}),
+          ...(ex.methodology != null && p.methodology == null ? { methodology: ex.methodology } : {}),
+        };
+      });
     finalPolls = [...verified, ...existingToKeep, ...runMerged];
   } else {
     finalPolls = runPollsWithIds;

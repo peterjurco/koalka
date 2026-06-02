@@ -4380,5 +4380,124 @@
         "madarska_aliancia": 0
       }
     }
+  },
+  {
+    "id": "sk-ako-2026-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-03-10",
+    "fieldworkEnd": "2026-03-18",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/03/ag.AKO_VOLEBNE-PREF-MAREC-2026-tlacova-sprava.pdf",
+    "results": {
+      "ps": 20.1,
+      "smer": 17.1,
+      "hlas": 8.7,
+      "olano": 8.6,
+      "republika": 8.6,
+      "sas": 7.7,
+      "kdh": 7.2,
+      "demokrati": 5.8,
+      "sns": 4.8,
+      "madarska_aliancia": 4.1,
+      "sme_rodina": 3.9,
+      "za_ludi": 0.3
+    }
+  },
+  {
+    "id": "sk-focus-2026-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Focus",
+    "fieldworkStart": "2026-03-20",
+    "fieldworkEnd": "2026-03-27",
+    "sampleSize": 1038,
+    "sourceUrl": "https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-marec-2026/",
+    "results": {
+      "ps": 19.1,
+      "smer": 17.1,
+      "republika": 10.6,
+      "olano": 8.5,
+      "hlas": 8.2,
+      "sas": 7.1,
+      "kdh": 6.4,
+      "demokrati": 5.4,
+      "sns": 4.4,
+      "madarska_aliancia": 3.9,
+      "sme_rodina": 3.6,
+      "za_ludi": 1
+    }
+  },
+  {
+    "id": "sk-ako-2026-04",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-04-08",
+    "fieldworkEnd": "2026-04-17",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/04/ag.AKO_VOLEBNE-PREF-APRIL-2026-tlacova-sprava-MUSTRA.pdf",
+    "results": {
+      "ps": 20.8,
+      "smer": 17.8,
+      "hlas": 8.9,
+      "sas": 8.2,
+      "republika": 8,
+      "olano": 7.7,
+      "kdh": 7.6,
+      "demokrati": 6,
+      "sns": 4.9,
+      "madarska_aliancia": 4.7,
+      "sme_rodina": 2.8,
+      "lsns": 0.4
+    }
+  },
+  {
+    "id": "sk-focus-2026-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Focus",
+    "fieldworkStart": "2026-05-05",
+    "fieldworkEnd": "2026-05-11",
+    "sampleSize": 1017,
+    "sourceUrl": "https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-maj-2026/",
+    "results": {
+      "ps": 18.3,
+      "smer": 18.1,
+      "republika": 9.7,
+      "olano": 9.6,
+      "hlas": 8.4,
+      "kdh": 7.5,
+      "sas": 7.2,
+      "demokrati": 5.2,
+      "sns": 4.5,
+      "madarska_aliancia": 3.8,
+      "sme_rodina": 3.1,
+      "za_ludi": 0.9
+    }
+  },
+  {
+    "id": "sk-ako-2026-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-05-14",
+    "fieldworkEnd": "2026-05-21",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/06/ag.AKO_VOLEBNE-PREF-MAJ-2026-tlacova-sprava.pdf",
+    "results": {
+      "ps": 19.7,
+      "smer": 18.9,
+      "republika": 9.1,
+      "hlas": 8.9,
+      "sas": 8.6,
+      "olano": 8.2,
+      "kdh": 7.9,
+      "demokrati": 5.1,
+      "sns": 4.8,
+      "madarska_aliancia": 4,
+      "sme_rodina": 2.2
+    }
   }
 ]
