@@ -24,11 +24,41 @@ jobs:
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_USER: ${{ secrets.SFTP_USER }}
-          SSHPASS: ${{ secrets.SFTP_PASS }}
+          SFTP_PASS: ${{ secrets.SFTP_PASS }}
         run: |
-          sudo apt-get install -y lftp sshpass
-          lftp -u "$SFTP_USER,placeholder" "sftp://$SFTP_HOST" <<'LFTP'
-          set sftp:connect-program "sshpass -e ssh -a -x -o StrictHostKeyChecking=no"
-          mirror --reverse --delete --verbose dist/ /peterjur.co/web/koalka/
-          bye
-          LFTP
+          pip install paramiko
+          python3 - <<'EOF'
+          import os, paramiko, pathlib
+
+          host     = os.environ['SFTP_HOST']
+          user     = os.environ['SFTP_USER']
+          password = os.environ['SFTP_PASS']
+          remote_base = '/peterjur.co/web/koalka'
+          local_base  = pathlib.Path('dist')
+
+          transport = paramiko.Transport((host, 22))
+          transport.connect(username=user, password=password)
+          sftp = paramiko.SFTPClient.from_transport(transport)
+
+          def ensure_dir(path):
+              try:
+                  sftp.stat(path)
+              except FileNotFoundError:
+                  sftp.mkdir(path)
+
+          def upload_dir(local, remote):
+              ensure_dir(remote)
+              for item in sorted(local.iterdir()):
+                  r = f"{remote}/{item.name}"
+                  if item.is_dir():
+                      upload_dir(item, r)
+                  else:
+                      print(f"  {item} -> {r}")
+                      sftp.put(str(item), r)
+
+          print(f"Uploading dist/ to {remote_base} ...")
+          upload_dir(local_base, remote_base)
+          sftp.close()
+          transport.close()
+          print("Done.")
+          EOF
