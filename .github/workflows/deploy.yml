@@ -26,40 +26,41 @@ jobs:
           SFTP_USER: ${{ secrets.SFTP_USER }}
           SFTP_PASS: ${{ secrets.SFTP_PASS }}
         run: |
-          pip install paramiko
+          sudo apt-get install -y sshpass
           python3 - <<'EOF'
-          import os, paramiko, pathlib
+          import os, pathlib, subprocess, tempfile, sys
 
-          host     = os.environ['SFTP_HOST']
-          user     = os.environ['SFTP_USER']
-          password = os.environ['SFTP_PASS']
+          host        = os.environ['SFTP_HOST']
+          user        = os.environ['SFTP_USER']
+          password    = os.environ['SFTP_PASS']
           remote_base = '/peterjur.co/web/koalka'
           local_base  = pathlib.Path('dist')
 
-          client = paramiko.SSHClient()
-          client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-          client.connect(host, username=user, password=password)
-          sftp = client.open_sftp()
-
-          def ensure_dir(path):
-              try:
-                  sftp.stat(path)
-              except FileNotFoundError:
-                  sftp.mkdir(path)
-
-          def upload_dir(local, remote):
-              ensure_dir(remote)
-              for item in sorted(local.iterdir()):
-                  r = f"{remote}/{item.name}"
+          lines = []
+          def build_commands(local_path, remote_path):
+              lines.append(f'-mkdir {remote_path}')
+              for item in sorted(local_path.iterdir()):
+                  r = f"{remote_path}/{item.name}"
                   if item.is_dir():
-                      upload_dir(item, r)
+                      build_commands(item, r)
                   else:
-                      print(f"  {item} -> {r}")
-                      sftp.put(str(item), r)
+                      lines.append(f'put {item} {r}')
 
-          print(f"Uploading dist/ to {remote_base} ...")
-          upload_dir(local_base, remote_base)
-          sftp.close()
-          client.close()
-          print("Done.")
+          build_commands(local_base, remote_base)
+          print(f"Queued {len(lines)} sftp commands")
+
+          with tempfile.NamedTemporaryFile(mode='w', suffix='.sftp', delete=False) as f:
+              f.write('\n'.join(lines) + '\n')
+              batch_file = f.name
+
+          env = dict(os.environ, SSHPASS=password)
+          result = subprocess.run(
+              ['sshpass', '-e', 'sftp',
+               '-o', 'StrictHostKeyChecking=no',
+               '-b', batch_file,
+               f'{user}@{host}'],
+              env=env,
+          )
+          os.unlink(batch_file)
+          sys.exit(result.returncode)
           EOF
