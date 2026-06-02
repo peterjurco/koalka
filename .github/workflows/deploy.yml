@@ -20,26 +20,15 @@ jobs:
 
       - run: npm run build
 
-      - name: Test SSH connection
-        env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_USER: ${{ secrets.SFTP_USER }}
-          SFTP_PASS: ${{ secrets.SFTP_PASS }}
-        run: |
-          sudo apt-get install -y sshpass
-          sshpass -p "$SFTP_PASS" ssh -v -o StrictHostKeyChecking=no -o BatchMode=no "$SFTP_USER@$SFTP_HOST" exit 2>&1 || true
-
       - name: Deploy via SFTP
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_USER: ${{ secrets.SFTP_USER }}
-          SFTP_PASS: ${{ secrets.SFTP_PASS }}
+          SSHPASS: ${{ secrets.SFTP_PASS }}
         run: |
-          sudo apt-get install -y lftp
-          lftp -u "$SFTP_USER,$SFTP_PASS" "sftp://$SFTP_HOST" <<'LFTP'
-          set sftp:auto-confirm yes
-          set net:max-retries 3
-          set net:reconnect-interval-base 5
+          sudo apt-get install -y lftp sshpass
+          lftp -u "$SFTP_USER,placeholder" "sftp://$SFTP_HOST" <<'LFTP'
+          set sftp:connect-program "sshpass -e ssh -a -x -o StrictHostKeyChecking=no"
           mirror --reverse --delete --verbose dist/ /peterjur.co/web/koalka/
           bye
           LFTP
