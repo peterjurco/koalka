@@ -28,7 +28,7 @@ jobs:
         run: |
           sudo apt-get install -y sshpass
           python3 - <<'EOF'
-          import os, pathlib, subprocess, tempfile, sys
+          import os, pathlib, subprocess, sys
 
           host        = os.environ['SFTP_HOST']
           user        = os.environ['SFTP_USER']
@@ -57,10 +57,10 @@ jobs:
           result = subprocess.run(
               ['sshpass', '-e', 'sftp',
                '-o', 'StrictHostKeyChecking=no',
-               '-b', batch_file,
                f'{user}@{host}'],
+              input='\n'.join(lines),
+              text=True,
               env=env,
           )
-          os.unlink(batch_file)
           sys.exit(result.returncode)
           EOF
