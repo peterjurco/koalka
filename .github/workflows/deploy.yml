@@ -33,22 +33,16 @@ jobs:
           host        = os.environ['SFTP_HOST']
           user        = os.environ['SFTP_USER']
           password    = os.environ['SFTP_PASS']
-          remote_base = '/peterjur.co/web/koalka'
-          local_base  = pathlib.Path('dist')
+          local_base = pathlib.Path('dist')
 
-          # Probe: show pwd and top-level ls to confirm correct SFTP root
-          subprocess.run(
-              ['sshpass', '-e', 'sftp', '-o', 'StrictHostKeyChecking=no', f'{user}@{host}'],
-              input='pwd\nls', text=True, env=dict(os.environ, SSHPASS=password),
-          )
-
-          # Collect unique dirs (shallowest first) and all put commands separately
+          # Collect unique dirs (shallowest first) and all put commands
+          # SFTP chroot is the koalka dir itself, so remote root is /
           dirs = []
           puts = []
           seen_dirs = set()
 
           def collect(local_path, remote_path):
-              if remote_path not in seen_dirs:
+              if remote_path and remote_path not in seen_dirs:
                   dirs.append(remote_path)
                   seen_dirs.add(remote_path)
               for item in sorted(local_path.iterdir()):
@@ -58,7 +52,7 @@ jobs:
                   else:
                       puts.append(f'put {item} {r}')
 
-          collect(local_base, remote_base)
+          collect(local_base, '')
 
           # Create dirs first (without -, so errors are visible), then upload files
           mkdir_cmds = '\n'.join(f'mkdir {d}' for d in dirs)
