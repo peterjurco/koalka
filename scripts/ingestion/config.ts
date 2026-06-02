@@ -49,11 +49,25 @@ export const PIPELINE_CONFIG = {
        * Ipsos.com pages that contain PDF links.
        * Hub page: 6 most recent PDFs (rolling).
        * Archive article: 12 PDFs covering May 2023 – Feb 2024.
-       * Gap Mar 2024 – Aug 2025: add individual ipsos.com/sk-sk article URLs as they are discovered.
        */
       listUrls: [
         "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii",
         "https://www.ipsos.com/sk-sk/februar-2024-volebny-model-volebne-preferencie-slovakov",
+      ],
+      /**
+       * Direct PDF URLs for gap months (Mar 2024 – Aug 2025) that have no article page.
+       * These are the only ones publicly accessible for this period.
+       * Missing: Mar–Apr 2024, Aug–Dec 2024, Feb 2025, Apr 2025, Jun–Aug 2025.
+       */
+      directPdfUrls: [
+        // Jul 2024 fieldwork (Jun 26–Jul 1)
+        "https://www.ipsos.com/sites/default/files/ct/news/documents/2024-07/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%202.7.%202024.pdf",
+        // Jan 2025 fieldwork
+        "https://www.ipsos.com/sites/default/files/ct/news/documents/2025-01/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2020.1.2025%20(002).pdf",
+        // Mar 2025 fieldwork
+        "https://www.ipsos.com/sites/default/files/ct/news/documents/2025-03/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2016.3.2025.pdf",
+        // May 2025 fieldwork
+        "https://www.ipsos.com/sites/default/files/ct/news/documents/2025-05/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2019.%205.%202025.pdf",
       ],
     },
     Focus: {

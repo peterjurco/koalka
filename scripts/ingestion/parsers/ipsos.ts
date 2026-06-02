@@ -11,13 +11,22 @@ const AGENCY = 'Ipsos' as const;
  */
 const IPSOS_DATE_RE = /v\s+dňoch\s+(\d{1,2})\.\s*(\d{1,2})\.\s+až\s+(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/;
 
-function extractIpsosDateRange(text: string): { start: string; end: string } | null {
+function extractIpsosDateRange(
+  text: string,
+  urlYear?: number | null,
+): { start: string; end: string } | null {
   const m = text.replace(/\s+/g, ' ').match(IPSOS_DATE_RE);
   if (!m) return null;
   const [, sd, sm, ed, em, y] = m;
+  let year = y;
+  // Guard against year typos in the PDF (e.g. Jan 2025 PDF says "17. 1. 2024" — off by 1).
+  // If the URL path year is exactly 1 ahead of the parsed year, trust the URL.
+  if (urlYear != null && urlYear - parseInt(y) === 1) {
+    year = String(urlYear);
+  }
   return {
-    start: `${y}-${sm.padStart(2, '0')}-${sd.padStart(2, '0')}`,
-    end:   `${y}-${em.padStart(2, '0')}-${ed.padStart(2, '0')}`,
+    start: `${year}-${sm.padStart(2, '0')}-${sd.padStart(2, '0')}`,
+    end:   `${year}-${em.padStart(2, '0')}-${ed.padStart(2, '0')}`,
   };
 }
 
@@ -84,7 +93,9 @@ export function parseIpsos(docs: FetchedDocument[], options?: ParseOptions | nul
 
     const text = doc.pdfText;
     const sampleSize = extractSampleSize(text);
-    const dateRange = extractIpsosDateRange(text);
+    const urlYearMatch = doc.url.match(/\/(\d{4})-\d{2}\//);
+    const urlYear = urlYearMatch ? parseInt(urlYearMatch[1]) : null;
+    const dateRange = extractIpsosDateRange(text, urlYear);
     const results = extractResultsFromPdfText(text);
 
     if (!sampleSize || sampleSize <= 0) {

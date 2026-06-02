@@ -51,6 +51,14 @@ export async function fetchIpsos(options?: FetchOptions | null): Promise<Fetched
     await delay(PIPELINE_CONFIG.fetchDelayMs);
   }
 
+  // Direct PDF URLs (gap months with no article page)
+  for (const directUrl of PIPELINE_CONFIG.sources.Ipsos.directPdfUrls) {
+    const monthKey = getMonthKeyFromIpsosUrl(directUrl);
+    if (urlInDateRange(monthKey, options)) {
+      pdfUrls.add(directUrl);
+    }
+  }
+
   for (const pdfUrl of pdfUrls) {
     try {
       const pdfBuffer = await fetchBuffer(pdfUrl);
