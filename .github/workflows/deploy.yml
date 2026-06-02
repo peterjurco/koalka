@@ -20,6 +20,15 @@ jobs:
 
       - run: npm run build
 
+      - name: Test SSH connection
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASS: ${{ secrets.SFTP_PASS }}
+        run: |
+          sudo apt-get install -y sshpass
+          sshpass -p "$SFTP_PASS" ssh -v -o StrictHostKeyChecking=no -o BatchMode=no "$SFTP_USER@$SFTP_HOST" exit 2>&1 || true
+
       - name: Deploy via SFTP
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
