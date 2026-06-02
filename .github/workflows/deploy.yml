@@ -49,10 +49,6 @@ jobs:
           build_commands(local_base, remote_base)
           print(f"Queued {len(lines)} sftp commands")
 
-          with tempfile.NamedTemporaryFile(mode='w', suffix='.sftp', delete=False) as f:
-              f.write('\n'.join(lines) + '\n')
-              batch_file = f.name
-
           env = dict(os.environ, SSHPASS=password)
           result = subprocess.run(
               ['sshpass', '-e', 'sftp',
