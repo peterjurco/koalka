@@ -45,8 +45,16 @@ export const PIPELINE_CONFIG = {
       listUrls: ["https://www.nms-mr.com/"],
     },
     Ipsos: {
-      /** Denník N: add URLs of articles that contain Ipsos poll tables (full results + sample size). E.g. search "Ipsos prieskum" on dennikn.sk and add article URLs. */
-      listUrls: ["https://dennikn.sk/minuta/3591461"],
+      /**
+       * Ipsos.com pages that contain PDF links.
+       * Hub page: 6 most recent PDFs (rolling).
+       * Archive article: 12 PDFs covering May 2023 – Feb 2024.
+       * Gap Mar 2024 – Aug 2025: add individual ipsos.com/sk-sk article URLs as they are discovered.
+       */
+      listUrls: [
+        "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii",
+        "https://www.ipsos.com/sk-sk/februar-2024-volebny-model-volebne-preferencie-slovakov",
+      ],
     },
     Focus: {
       /** Focus press centrum: list of "Volebné preferencie politických strán" is scraped from here; report pages are fetched from links. */

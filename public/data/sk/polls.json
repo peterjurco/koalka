@@ -2046,6 +2046,30 @@
     }
   },
   {
+    "id": "sk-ipsos-2023-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-05-16",
+    "fieldworkEnd": "2023-05-19",
+    "sampleSize": 1004,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-05/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2022.05.2023.pdf",
+    "results": {
+      "smer": 16.9,
+      "hlas": 15.6,
+      "ps": 13.3,
+      "republika": 9.1,
+      "sme_rodina": 7.5,
+      "sas": 6.1,
+      "kdh": 5.2,
+      "madarska_aliancia": 3.8,
+      "sns": 3.8,
+      "demokrati": 3.4,
+      "za_ludi": 2.2,
+      "lsns": 1.8
+    }
+  },
+  {
     "id": "sk-focus-2023-05",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2127,6 +2151,31 @@
         "za_ludi": 0,
         "madarska_aliancia": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2023-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-06-12",
+    "fieldworkEnd": "2023-06-16",
+    "sampleSize": 1001,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-07/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2019.06.2023.pdf",
+    "results": {
+      "smer": 18.9,
+      "ps": 15.5,
+      "hlas": 14.8,
+      "republika": 8.3,
+      "sas": 7.2,
+      "sme_rodina": 7.2,
+      "olano": 6.4,
+      "kdh": 5.6,
+      "sns": 4.3,
+      "demokrati": 4,
+      "madarska_aliancia": 3.1,
+      "lsns": 1.9,
+      "za_ludi": 0.8
     }
   },
   {
@@ -2212,6 +2261,30 @@
     }
   },
   {
+    "id": "sk-ipsos-2023-07-17",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-07-17",
+    "fieldworkEnd": "2023-07-21",
+    "sampleSize": 1005,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-07/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2024.07.2023_0.pdf",
+    "results": {
+      "smer": 19.4,
+      "ps": 15.9,
+      "hlas": 14.9,
+      "republika": 8.6,
+      "olano": 7,
+      "sme_rodina": 6.4,
+      "kdh": 5.9,
+      "sas": 5,
+      "sns": 5,
+      "madarska_aliancia": 3.5,
+      "lsns": 2.6,
+      "demokrati": 2.1
+    }
+  },
+  {
     "id": "sk-focus-2023-07",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2289,6 +2362,30 @@
         "demokrati": 0,
         "madarska_aliancia": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2023-07-26",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-07-26",
+    "fieldworkEnd": "2023-08-01",
+    "sampleSize": 1001,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-08/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2005.08.2023.pdf",
+    "results": {
+      "smer": 20.3,
+      "ps": 16.9,
+      "hlas": 13.4,
+      "republika": 8.8,
+      "olano": 7.9,
+      "sas": 6.7,
+      "sme_rodina": 5.6,
+      "kdh": 5.4,
+      "sns": 5.2,
+      "demokrati": 2.6,
+      "madarska_aliancia": 2.2,
+      "lsns": 2.2
     }
   },
   {
@@ -2372,6 +2469,30 @@
     }
   },
   {
+    "id": "sk-ipsos-2023-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-08-10",
+    "fieldworkEnd": "2023-08-14",
+    "sampleSize": 1003,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-08/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2017.8.2023.pdf",
+    "results": {
+      "smer": 19.7,
+      "ps": 16.9,
+      "hlas": 13.3,
+      "republika": 7.9,
+      "olano": 7.7,
+      "sas": 5.7,
+      "sme_rodina": 5.5,
+      "kdh": 6.2,
+      "sns": 5.1,
+      "demokrati": 2.9,
+      "madarska_aliancia": 3.6,
+      "lsns": 2.9
+    }
+  },
+  {
     "id": "sk-ako-2023-09-05",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2452,6 +2573,29 @@
     }
   },
   {
+    "id": "sk-ipsos-2023-09-15",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-09-15",
+    "fieldworkEnd": "2023-09-19",
+    "sampleSize": 1026,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-09/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2021.9.2023.pdf",
+    "results": {
+      "smer": 20.3,
+      "ps": 17.2,
+      "hlas": 13.1,
+      "republika": 8.6,
+      "olano": 8.2,
+      "sas": 6.1,
+      "sme_rodina": 4.2,
+      "sns": 5.6,
+      "madarska_aliancia": 4,
+      "demokrati": 3.4,
+      "lsns": 2.6
+    }
+  },
+  {
     "id": "sk-ako-2023-09-20",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2529,6 +2673,53 @@
         "lsns": 0,
         "demokrati": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2023-09-22",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-09-22",
+    "fieldworkEnd": "2023-09-25",
+    "sampleSize": 1000,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-09/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2027.9.2023.pdf",
+    "results": {
+      "smer": 20.6,
+      "ps": 19.8,
+      "hlas": 11.9,
+      "olano": 8.2,
+      "republika": 7.6,
+      "sas": 7,
+      "kdh": 5.9,
+      "sns": 5.7,
+      "sme_rodina": 4,
+      "madarska_aliancia": 3.4,
+      "demokrati": 3.3,
+      "lsns": 1.6
+    }
+  },
+  {
+    "id": "sk-ipsos-2023-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-11-02",
+    "fieldworkEnd": "2023-11-07",
+    "sampleSize": 1021,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-11/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%209.11.2023.pdf",
+    "results": {
+      "smer": 24,
+      "ps": 19.1,
+      "hlas": 15.1,
+      "sas": 6.3,
+      "kdh": 5.8,
+      "republika": 5.8,
+      "sns": 5.1,
+      "madarska_aliancia": 4.4,
+      "demokrati": 3.1,
+      "sme_rodina": 2.3,
+      "lsns": 1.1
     }
   },
   {
@@ -2650,6 +2841,29 @@
     }
   },
   {
+    "id": "sk-ipsos-2023-12",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2023-12-13",
+    "fieldworkEnd": "2023-12-18",
+    "sampleSize": 1048,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2023-12/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2020.%2012.%202023.pdf",
+    "results": {
+      "smer": 24.1,
+      "ps": 19.4,
+      "hlas": 15.7,
+      "sas": 7.1,
+      "kdh": 6.4,
+      "republika": 5.2,
+      "sns": 4.8,
+      "madarska_aliancia": 4,
+      "demokrati": 3.6,
+      "sme_rodina": 2.7,
+      "lsns": 0.8
+    }
+  },
+  {
     "id": "sk-ako-2024-01",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2730,6 +2944,29 @@
     }
   },
   {
+    "id": "sk-ipsos-2024-01",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-01-22",
+    "fieldworkEnd": "2024-01-25",
+    "sampleSize": 1022,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2024-01/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2026.%201.%202024.pdf",
+    "results": {
+      "smer": 24.5,
+      "ps": 20.6,
+      "hlas": 15.4,
+      "sas": 6.6,
+      "kdh": 6.6,
+      "republika": 5.1,
+      "sns": 4.3,
+      "madarska_aliancia": 4,
+      "demokrati": 3,
+      "sme_rodina": 2.4,
+      "lsns": 1.6
+    }
+  },
+  {
     "id": "sk-ako-2024-02",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2805,6 +3042,29 @@
         "demokrati": 0,
         "madarska_aliancia": 9
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2024-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-02-16",
+    "fieldworkEnd": "2024-02-21",
+    "sampleSize": 1028,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2024-02/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2023.%202.%202024.pdf",
+    "results": {
+      "smer": 22.7,
+      "ps": 21.3,
+      "hlas": 16.5,
+      "kdh": 6.7,
+      "sas": 6.4,
+      "republika": 5.2,
+      "sns": 4.2,
+      "madarska_aliancia": 3.4,
+      "sme_rodina": 3.2,
+      "demokrati": 2.4,
+      "lsns": 1.6
     }
   },
   {
@@ -4070,6 +4330,31 @@
     }
   },
   {
+    "id": "sk-ipsos-2025-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2025-09-17",
+    "fieldworkEnd": "2025-09-21",
+    "sampleSize": 1053,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/text-block/2025-10/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2024.%209.%202025.pdf",
+    "results": {
+      "ps": 22.8,
+      "smer": 18.4,
+      "republika": 10.9,
+      "hlas": 8.3,
+      "sas": 7.7,
+      "olano": 7.3,
+      "kdh": 6.8,
+      "demokrati": 4.4,
+      "sme_rodina": 3.6,
+      "sns": 3.5,
+      "madarska_aliancia": 3.5,
+      "za_ludi": 1.3,
+      "lsns": 0.7
+    }
+  },
+  {
     "id": "sk-ako-2025-10",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4145,6 +4430,31 @@
         "madarska_aliancia": 0,
         "za_ludi": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2025-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2025-10-15",
+    "fieldworkEnd": "2025-10-20",
+    "sampleSize": 1020,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/text-block/2025-10/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2023.%2010.%202025.pdf",
+    "results": {
+      "ps": 21.6,
+      "smer": 18.5,
+      "republika": 10,
+      "hlas": 9.1,
+      "olano": 7.8,
+      "sas": 7.3,
+      "kdh": 6.5,
+      "demokrati": 5.4,
+      "sns": 3.6,
+      "sme_rodina": 3.4,
+      "madarska_aliancia": 3.4,
+      "za_ludi": 1.2,
+      "lsns": 0.9
     }
   },
   {
@@ -4226,6 +4536,30 @@
     }
   },
   {
+    "id": "sk-ipsos-2025-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2025-11-24",
+    "fieldworkEnd": "2025-11-28",
+    "sampleSize": 1018,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/text-block/2026-01/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%201.%2012.%202025.pdf",
+    "results": {
+      "ps": 23.6,
+      "smer": 17.8,
+      "republika": 10.7,
+      "olano": 9.5,
+      "hlas": 7.8,
+      "sas": 6.7,
+      "kdh": 5.5,
+      "demokrati": 5.1,
+      "madarska_aliancia": 3.7,
+      "sme_rodina": 2.8,
+      "sns": 2.2,
+      "za_ludi": 1
+    }
+  },
+  {
     "id": "sk-focus-2025-12",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4301,6 +4635,30 @@
         "demokrati": 11,
         "madarska_aliancia": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-01",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-01-15",
+    "fieldworkEnd": "2026-01-20",
+    "sampleSize": 1034,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-01/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2023.%201.%202026.pdf",
+    "results": {
+      "ps": 20.5,
+      "smer": 17.6,
+      "republika": 12.3,
+      "sas": 8.4,
+      "olano": 8.3,
+      "hlas": 7.3,
+      "kdh": 6.8,
+      "demokrati": 5.2,
+      "madarska_aliancia": 3.5,
+      "sme_rodina": 2.4,
+      "sns": 2.4,
+      "za_ludi": 1.1
     }
   },
   {
@@ -4382,6 +4740,30 @@
     }
   },
   {
+    "id": "sk-ipsos-2026-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-02-16",
+    "fieldworkEnd": "2026-02-20",
+    "sampleSize": 1037,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2023.%202.%202026.pdf",
+    "results": {
+      "ps": 18.8,
+      "smer": 18.4,
+      "republika": 11.7,
+      "olano": 8.8,
+      "sas": 8.4,
+      "hlas": 7.4,
+      "demokrati": 6.2,
+      "kdh": 6,
+      "madarska_aliancia": 4.7,
+      "sns": 2.8,
+      "sme_rodina": 2.5,
+      "za_ludi": 1.1
+    }
+  },
+  {
     "id": "sk-ako-2026-03",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4403,6 +4785,30 @@
       "madarska_aliancia": 4.1,
       "sme_rodina": 3.9,
       "za_ludi": 0.3
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-03-16",
+    "fieldworkEnd": "2026-03-19",
+    "sampleSize": 1008,
+    "sourceUrl": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-03/IPSOS%20-%20Tla%C4%8Dov%C3%A1%20spr%C3%A1va%20-%20Reprezentat%C3%ADvny%20prieskum%20politick%C3%BDch%20preferenci%C3%AD%2023.%203.%202026.pdf",
+    "results": {
+      "ps": 20.6,
+      "smer": 20,
+      "republika": 11.3,
+      "hlas": 8.2,
+      "olano": 7.9,
+      "sas": 7.2,
+      "kdh": 6.3,
+      "demokrati": 6,
+      "madarska_aliancia": 4.3,
+      "sns": 2.4,
+      "sme_rodina": 2.2,
+      "za_ludi": 1.1
     }
   },
   {

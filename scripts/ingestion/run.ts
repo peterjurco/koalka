@@ -119,11 +119,12 @@ async function main(): Promise<void> {
     agencies.has("Focus") ? fetchFocus(fetchOptions) : Promise.resolve([]),
     agencies.has("AKO") ? fetchAKO(fetchOptions) : Promise.resolve([]),
     agencies.has("NMS") ? fetchNMS() : Promise.resolve([]),
-    agencies.has("Ipsos") ? fetchIpsos() : Promise.resolve([]),
+    agencies.has("Ipsos") ? fetchIpsos(fetchOptions) : Promise.resolve([]),
   ]);
 
   if (agencies.has("AKO")) await extractPdfText(akoDocs);
   if (agencies.has("Focus")) await extractPdfText(focusDocs);
+  if (agencies.has("Ipsos")) await extractPdfText(ipsosDocs);
 
   console.log("Parsing...");
   const parseOpts = verbose ? { verbose: true as const } : undefined;
