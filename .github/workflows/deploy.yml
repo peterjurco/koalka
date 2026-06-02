@@ -36,6 +36,12 @@ jobs:
           remote_base = '/peterjur.co/web/koalka'
           local_base  = pathlib.Path('dist')
 
+          # Probe: show pwd and top-level ls to confirm correct SFTP root
+          subprocess.run(
+              ['sshpass', '-e', 'sftp', '-o', 'StrictHostKeyChecking=no', f'{user}@{host}'],
+              input='pwd\nls', text=True, env=dict(os.environ, SSHPASS=password),
+          )
+
           # Collect unique dirs (shallowest first) and all put commands separately
           dirs = []
           puts = []
