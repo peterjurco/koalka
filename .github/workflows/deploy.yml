@@ -36,9 +36,10 @@ jobs:
           remote_base = '/peterjur.co/web/koalka'
           local_base  = pathlib.Path('dist')
 
-          transport = paramiko.Transport((host, 22))
-          transport.connect(username=user, password=password)
-          sftp = paramiko.SFTPClient.from_transport(transport)
+          client = paramiko.SSHClient()
+          client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+          client.connect(host, username=user, password=password)
+          sftp = client.open_sftp()
 
           def ensure_dir(path):
               try:
@@ -59,6 +60,6 @@ jobs:
           print(f"Uploading dist/ to {remote_base} ...")
           upload_dir(local_base, remote_base)
           sftp.close()
-          transport.close()
+          client.close()
           print("Done.")
           EOF
