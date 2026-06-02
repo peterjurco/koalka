@@ -21,12 +21,16 @@ jobs:
       - run: npm run build
 
       - name: Deploy via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASS: ${{ secrets.SFTP_PASS }}
         run: |
           sudo apt-get install -y lftp
-          lftp -c "
-            set sftp:auto-confirm yes
-            set net:max-retries 3
-            set net:reconnect-interval-base 5
-            open sftp://${{ secrets.SFTP_USER }}:${{ secrets.SFTP_PASS }}@${{ secrets.SFTP_HOST }}
-            mirror --reverse --delete --verbose dist/ /peterjur.co/web/koalka/
-          "
+          lftp -u "$SFTP_USER,$SFTP_PASS" "sftp://$SFTP_HOST" <<'LFTP'
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          mirror --reverse --delete --verbose dist/ /peterjur.co/web/koalka/
+          bye
+          LFTP
