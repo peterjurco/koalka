@@ -2067,6 +2067,22 @@
       "demokrati": 3.4,
       "za_ludi": 2.2,
       "lsns": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "hlas": 32,
+        "ps": 27,
+        "republika": 19,
+        "sme_rodina": 15,
+        "sas": 12,
+        "kdh": 11,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "demokrati": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2176,6 +2192,23 @@
       "madarska_aliancia": 3.1,
       "lsns": 1.9,
       "za_ludi": 0.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "ps": 28,
+        "hlas": 26,
+        "republika": 15,
+        "sas": 13,
+        "sme_rodina": 13,
+        "olano": 11,
+        "kdh": 10,
+        "sns": 0,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -2282,6 +2315,22 @@
       "madarska_aliancia": 3.5,
       "lsns": 2.6,
       "demokrati": 2.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 33,
+        "ps": 27,
+        "hlas": 25,
+        "republika": 15,
+        "olano": 12,
+        "sme_rodina": 11,
+        "kdh": 10,
+        "sas": 9,
+        "sns": 8,
+        "madarska_aliancia": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -2386,6 +2435,22 @@
       "demokrati": 2.6,
       "madarska_aliancia": 2.2,
       "lsns": 2.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "ps": 28,
+        "hlas": 22,
+        "republika": 15,
+        "olano": 13,
+        "sas": 11,
+        "sme_rodina": 9,
+        "kdh": 9,
+        "sns": 9,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2490,6 +2555,22 @@
       "demokrati": 2.9,
       "madarska_aliancia": 3.6,
       "lsns": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 34,
+        "ps": 29,
+        "hlas": 23,
+        "republika": 13,
+        "olano": 13,
+        "sas": 10,
+        "sme_rodina": 9,
+        "kdh": 10,
+        "sns": 9,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2593,6 +2674,21 @@
       "madarska_aliancia": 4,
       "demokrati": 3.4,
       "lsns": 2.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 39,
+        "ps": 33,
+        "hlas": 25,
+        "republika": 16,
+        "olano": 15,
+        "sas": 11,
+        "sme_rodina": 0,
+        "sns": 11,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2697,6 +2793,22 @@
       "madarska_aliancia": 3.4,
       "demokrati": 3.3,
       "lsns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 36,
+        "ps": 34,
+        "hlas": 21,
+        "olano": 14,
+        "republika": 13,
+        "sas": 12,
+        "kdh": 10,
+        "sns": 10,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2720,6 +2832,21 @@
       "demokrati": 3.1,
       "sme_rodina": 2.3,
       "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 44,
+        "ps": 35,
+        "hlas": 28,
+        "sas": 12,
+        "kdh": 11,
+        "republika": 11,
+        "sns": 9,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2861,6 +2988,21 @@
       "demokrati": 3.6,
       "sme_rodina": 2.7,
       "lsns": 0.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 47,
+        "ps": 37,
+        "hlas": 30,
+        "sas": 14,
+        "kdh": 12,
+        "republika": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -2965,6 +3107,22 @@
       "sme_rodina": 2.4,
       "lsns": 1.6,
       "olano": 5.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 44,
+        "ps": 37,
+        "hlas": 27,
+        "sas": 12,
+        "kdh": 12,
+        "republika": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "olano": 9
+      }
     }
   },
   {
@@ -3066,6 +3224,21 @@
       "sme_rodina": 3.2,
       "demokrati": 2.4,
       "lsns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 43,
+        "ps": 41,
+        "hlas": 31,
+        "kdh": 13,
+        "sas": 12,
+        "republika": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "demokrati": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -3127,6 +3300,21 @@
       "madarska_aliancia": 3.6,
       "sme_rodina": 3.1,
       "demokrati": 2.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 42,
+        "ps": 37,
+        "hlas": 30,
+        "sas": 11,
+        "kdh": 11,
+        "olano": 10,
+        "republika": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "demokrati": 0
+      }
     }
   },
   {
@@ -3150,6 +3338,21 @@
       "sns": 4.1,
       "demokrati": 3.8,
       "sme_rodina": 3
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 40,
+        "ps": 37,
+        "hlas": 30,
+        "sas": 12,
+        "kdh": 11,
+        "olano": 11,
+        "republika": 9,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "demokrati": 0,
+        "sme_rodina": 0
+      }
     }
   },
   {
@@ -3404,6 +3607,20 @@
       "madarska_aliancia": 4.3,
       "sns": 3.1,
       "olano": 4.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 47,
+        "ps": 42,
+        "hlas": 25,
+        "republika": 13,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "olano": 0
+      }
     }
   },
   {
@@ -3499,14 +3716,29 @@
       "smer": 25.5,
       "ps": 21.6,
       "hlas": 11.9,
-      "sas": 7.0,
+      "sas": 7,
       "republika": 6.3,
-      "kdh": 6.0,
+      "kdh": 6,
       "demokrati": 5.1,
       "olano": 4.9,
       "madarska_aliancia": 4.9,
       "sns": 3.4,
-      "sme_rodina": 2.0
+      "sme_rodina": 2
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 46,
+        "ps": 39,
+        "hlas": 21,
+        "sas": 13,
+        "republika": 11,
+        "kdh": 11,
+        "demokrati": 9,
+        "olano": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0
+      }
     }
   },
   {
@@ -3642,10 +3874,25 @@
       "kdh": 6.9,
       "sas": 6.2,
       "demokrati": 4.4,
-      "madarska_aliancia": 4.0,
+      "madarska_aliancia": 4,
       "olano": 3.6,
-      "sme_rodina": 3.0,
+      "sme_rodina": 3,
       "sns": 2.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 43,
+        "smer": 42,
+        "hlas": 25,
+        "republika": 15,
+        "kdh": 13,
+        "sas": 12,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "olano": 0,
+        "sme_rodina": 0,
+        "sns": 0
+      }
     }
   },
   {
@@ -3830,6 +4077,22 @@
       "sme_rodina": 2.8,
       "sns": 2,
       "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 40,
+        "hlas": 20,
+        "republika": 14,
+        "kdh": 13,
+        "sas": 11,
+        "olano": 10,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -3977,6 +4240,23 @@
       "sns": 2,
       "za_ludi": 1.1,
       "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 38,
+        "ps": 36,
+        "hlas": 21,
+        "kdh": 13,
+        "republika": 13,
+        "sas": 11,
+        "olano": 10,
+        "demokrati": 8,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -4162,6 +4442,23 @@
       "sns": 3,
       "za_ludi": 1.3,
       "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 37,
+        "republika": 17,
+        "hlas": 16,
+        "kdh": 14,
+        "olano": 13,
+        "sas": 12,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -4277,6 +4574,44 @@
         "sme_rodina": 0,
         "demokrati": 0,
         "madarska_aliancia": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ipsos-2025-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2025-06-16",
+    "fieldworkEnd": "2025-06-19",
+    "sampleSize": 1004,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 21.7,
+      "smer": 19.7,
+      "hlas": 10.3,
+      "republika": 9.9,
+      "olano": 7.3,
+      "kdh": 6.3,
+      "sas": 6.1,
+      "demokrati": 4.5,
+      "madarska_aliancia": 4.3,
+      "sme_rodina": 3.1,
+      "sns": 2.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 37,
+        "hlas": 19,
+        "republika": 18,
+        "olano": 13,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0
       }
     }
   },
@@ -4439,6 +4774,44 @@
     }
   },
   {
+    "id": "sk-ipsos-2025-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2025-08-15",
+    "fieldworkEnd": "2025-08-19",
+    "sampleSize": 1072,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 22.5,
+      "smer": 20,
+      "republika": 10.3,
+      "hlas": 9.8,
+      "olano": 7.5,
+      "sas": 7.1,
+      "kdh": 6,
+      "demokrati": 5.2,
+      "madarska_aliancia": 3.6,
+      "sns": 2.7,
+      "sme_rodina": 2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 34,
+        "republika": 17,
+        "hlas": 17,
+        "olano": 13,
+        "sas": 12,
+        "kdh": 10,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2025-09",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4541,6 +4914,23 @@
       "madarska_aliancia": 3.5,
       "za_ludi": 1.3,
       "lsns": 0.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 34,
+        "republika": 20,
+        "hlas": 15,
+        "sas": 14,
+        "olano": 13,
+        "kdh": 12,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -4644,6 +5034,23 @@
       "madarska_aliancia": 3.4,
       "za_ludi": 1.2,
       "lsns": 0.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 32,
+        "republika": 17,
+        "hlas": 16,
+        "olano": 14,
+        "sas": 13,
+        "kdh": 11,
+        "demokrati": 9,
+        "sns": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
     }
   },
   {
@@ -4746,6 +5153,22 @@
       "sme_rodina": 2.8,
       "sns": 2.2,
       "za_ludi": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 31,
+        "republika": 19,
+        "olano": 16,
+        "hlas": 13,
+        "sas": 12,
+        "kdh": 9,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -4848,6 +5271,22 @@
       "sme_rodina": 2.4,
       "sns": 2.4,
       "za_ludi": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 31,
+        "republika": 21,
+        "sas": 14,
+        "olano": 14,
+        "hlas": 13,
+        "kdh": 12,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -4950,6 +5389,22 @@
       "sns": 2.8,
       "sme_rodina": 2.5,
       "za_ludi": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 33,
+        "smer": 32,
+        "republika": 21,
+        "olano": 15,
+        "sas": 15,
+        "hlas": 13,
+        "demokrati": 11,
+        "kdh": 10,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -4974,6 +5429,22 @@
       "madarska_aliancia": 4.1,
       "sme_rodina": 3.9,
       "za_ludi": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 31,
+        "hlas": 16,
+        "olano": 15,
+        "republika": 15,
+        "sas": 14,
+        "kdh": 13,
+        "demokrati": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -4998,6 +5469,22 @@
       "sns": 2.4,
       "sme_rodina": 2.2,
       "za_ludi": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 34,
+        "republika": 19,
+        "hlas": 14,
+        "olano": 14,
+        "sas": 12,
+        "kdh": 11,
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -5022,6 +5509,22 @@
       "madarska_aliancia": 3.9,
       "sme_rodina": 3.6,
       "za_ludi": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 35,
+        "smer": 31,
+        "republika": 19,
+        "olano": 15,
+        "hlas": 15,
+        "sas": 13,
+        "kdh": 12,
+        "demokrati": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -5046,6 +5549,60 @@
       "madarska_aliancia": 4.7,
       "sme_rodina": 2.8,
       "lsns": 0.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 31,
+        "hlas": 16,
+        "sas": 14,
+        "republika": 14,
+        "olano": 14,
+        "kdh": 13,
+        "demokrati": 11,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-04",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-04-17",
+    "fieldworkEnd": "2026-04-22",
+    "sampleSize": 1046,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 19.2,
+      "smer": 17.4,
+      "republika": 11.1,
+      "olano": 9.4,
+      "sas": 8.3,
+      "kdh": 7.1,
+      "hlas": 6.8,
+      "demokrati": 6,
+      "madarska_aliancia": 4,
+      "sns": 3.2,
+      "sme_rodina": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 31,
+        "republika": 20,
+        "olano": 16,
+        "sas": 15,
+        "kdh": 12,
+        "hlas": 12,
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0
+      }
     }
   },
   {
@@ -5070,6 +5627,22 @@
       "madarska_aliancia": 3.8,
       "sme_rodina": 3.1,
       "za_ludi": 0.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 33,
+        "smer": 33,
+        "republika": 17,
+        "olano": 17,
+        "hlas": 15,
+        "kdh": 13,
+        "sas": 13,
+        "demokrati": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
     }
   },
   {
@@ -5093,6 +5666,61 @@
       "sns": 4.8,
       "madarska_aliancia": 4,
       "sme_rodina": 2.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 33,
+        "republika": 16,
+        "hlas": 15,
+        "sas": 15,
+        "olano": 14,
+        "kdh": 14,
+        "demokrati": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-05-15",
+    "fieldworkEnd": "2026-05-20",
+    "sampleSize": 1009,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 19.7,
+      "smer": 19.1,
+      "republika": 11.2,
+      "hlas": 8.3,
+      "sas": 8.2,
+      "olano": 7.8,
+      "kdh": 5.9,
+      "demokrati": 4.7,
+      "madarska_aliancia": 3.2,
+      "sme_rodina": 3.1,
+      "sns": 2.7,
+      "za_ludi": 2.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 36,
+        "republika": 21,
+        "hlas": 15,
+        "sas": 15,
+        "olano": 15,
+        "kdh": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0
+      }
     }
   }
 ]
