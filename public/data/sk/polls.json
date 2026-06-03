@@ -3153,6 +3153,52 @@
     }
   },
   {
+    "id": "sk-ipsos-2024-03-12",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-03-12",
+    "fieldworkEnd": "2024-03-16",
+    "sampleSize": 1038,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "smer": 23.4,
+      "ps": 20.8,
+      "hlas": 17.1,
+      "sas": 6.3,
+      "kdh": 6.2,
+      "olano": 5.6,
+      "republika": 5.3,
+      "sns": 4.2,
+      "madarska_aliancia": 3.6,
+      "sme_rodina": 3.1,
+      "demokrati": 2.6
+    }
+  },
+  {
+    "id": "sk-ipsos-2024-03-16",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-03-16",
+    "fieldworkEnd": "2024-03-19",
+    "sampleSize": 1009,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "smer": 21.6,
+      "ps": 20.2,
+      "hlas": 16.3,
+      "sas": 6.7,
+      "kdh": 6.2,
+      "olano": 5.8,
+      "republika": 5,
+      "madarska_aliancia": 4.6,
+      "sns": 4.1,
+      "demokrati": 3.8,
+      "sme_rodina": 3
+    }
+  },
+  {
     "id": "sk-focus-2024-03",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -3403,8 +3449,7 @@
       "demokrati": 4.7,
       "madarska_aliancia": 4.3,
       "sns": 3.1,
-      "sme_rodina": 1.8,
-      "lsns": 0.9
+      "olano": 4.1
     }
   },
   {
@@ -3485,6 +3530,27 @@
         "demokrati": 0,
         "madarska_aliancia": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2024-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-09-06",
+    "fieldworkEnd": "2024-09-10",
+    "sampleSize": 1000,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "smer": 25.5,
+      "ps": 21.6,
+      "hlas": 11.9,
+      "sas": 7.0,
+      "republika": 6.3,
+      "kdh": 6.0,
+      "demokrati": 5.1,
+      "olano": 4.9,
+      "madarska_aliancia": 4.9
     }
   },
   {
@@ -3601,6 +3667,29 @@
         "demokrati": 0,
         "madarska_aliancia": 0
       }
+    }
+  },
+  {
+    "id": "sk-ipsos-2024-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2024-10-27",
+    "fieldworkEnd": "2024-11-01",
+    "sampleSize": 1003,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 22.6,
+      "smer": 21.9,
+      "hlas": 12.8,
+      "republika": 7.7,
+      "kdh": 6.9,
+      "sas": 6.2,
+      "demokrati": 4.4,
+      "madarska_aliancia": 4.0,
+      "olano": 3.6,
+      "sme_rodina": 3.0,
+      "sns": 2.4
     }
   },
   {
