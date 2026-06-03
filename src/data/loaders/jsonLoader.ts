@@ -7,7 +7,8 @@ export async function loadPollsFromJson(
 ): Promise<Poll[]> {
   const base = import.meta.env.BASE_URL ?? '/'
   const path = `${base}data/${countryId}/polls.json`
-  const res = await fetch(path)
+  // no-cache: always revalidate — gets 304 if unchanged, fresh data if updated
+  const res = await fetch(path, { cache: 'no-cache' })
   if (!res.ok) throw new Error(`Failed to load polls: ${path}`)
   const data = (await res.json()) as Poll[]
   return data.filter((p) => p.countryId === countryId && p.electionId === electionId)
