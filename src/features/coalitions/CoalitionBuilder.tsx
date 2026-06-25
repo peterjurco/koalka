@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { TrashIcon } from '../../icons/TrashIcon.tsx';
 import type { Party } from '../../data/types.ts';
 import type { CoalitionResult } from '../../core/coalition/types.ts';
@@ -10,11 +10,14 @@ interface Props {
   parties: Party[];
   onAdd: (coalition: SavedCoalition) => void;
   onRemove: (id: string) => void;
+  onReorder: (fromIndex: number, toIndex: number) => void;
 }
 
-export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd, onRemove }: Props) {
+export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd, onRemove, onReorder }: Props) {
   const [isAdding, setIsAdding] = useState(false);
   const [draftPartyIds, setDraftPartyIds] = useState<string[]>([]);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+  const dragIndex = useRef<number | null>(null);
 
   const partyById = new Map(parties.map((p) => [p.id, p]));
   const sortedParties = [...parties].sort((a, b) => a.order - b.order);
@@ -57,6 +60,7 @@ export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd,
         <table className="coalition-table">
           <thead>
             <tr>
+              <th className="coalition-th coalition-th--drag" />
               <th className="coalition-th coalition-th--name">Koalícia</th>
               <th className="coalition-th coalition-th--seats">Mandáty</th>
               <th className="coalition-th coalition-th--majority">Väčšina (76)</th>
@@ -72,7 +76,25 @@ export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd,
               const toConstitutional = seats !== null ? 90 - seats : null;
 
               return (
-                <tr key={coalition.id} className="coalition-row">
+                <tr
+                  key={coalition.id}
+                  className={`coalition-row${dragOverIndex === i ? ' coalition-row--drag-over' : ''}`}
+                  draggable
+                  onDragStart={() => { dragIndex.current = i; }}
+                  onDragOver={(e) => { e.preventDefault(); setDragOverIndex(i); }}
+                  onDragLeave={() => setDragOverIndex(null)}
+                  onDrop={() => {
+                    if (dragIndex.current !== null && dragIndex.current !== i) {
+                      onReorder(dragIndex.current, i);
+                    }
+                    dragIndex.current = null;
+                    setDragOverIndex(null);
+                  }}
+                  onDragEnd={() => { dragIndex.current = null; setDragOverIndex(null); }}
+                >
+                  <td className="coalition-td coalition-td--drag">
+                    <span className="coalition-drag-handle" title="Presunúť">⠿</span>
+                  </td>
                   <td className="coalition-td coalition-td--name">
                     <div className="coalition-party-chips">
                       {coalition.partyIds.map((pid, j) => {

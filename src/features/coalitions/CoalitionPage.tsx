@@ -130,6 +130,14 @@ export function CoalitionPage() {
         parties={config.parties}
         onAdd={(coalition) => setSavedCoalitions((prev) => [...prev, coalition])}
         onRemove={(id) => setSavedCoalitions((prev) => prev.filter((c) => c.id !== id))}
+        onReorder={(from, to) =>
+          setSavedCoalitions((prev) => {
+            const next = [...prev];
+            const [moved] = next.splice(from, 1);
+            next.splice(to, 0, moved);
+            return next;
+          })
+        }
       />
     </div>
   );

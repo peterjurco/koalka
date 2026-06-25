@@ -1403,6 +1403,10 @@ body {
   text-align: center;
 }
 
+.coalition-th--drag {
+  width: 1.5rem;
+}
+
 .coalition-th--remove {
   width: 2rem;
 }
@@ -1416,6 +1420,28 @@ body {
   .coalition-row td {
     border-top-color: rgba(0, 0, 0, 0.05);
   }
+}
+
+.coalition-td--drag {
+  width: 1.5rem;
+  cursor: grab;
+  text-align: center;
+}
+
+.coalition-drag-handle {
+  opacity: 0.3;
+  font-size: 1rem;
+  user-select: none;
+  display: inline-block;
+  transition: opacity 0.15s;
+}
+
+.coalition-row:hover .coalition-drag-handle {
+  opacity: 0.7;
+}
+
+.coalition-row--drag-over td {
+  border-top: 2px solid #646cff;
 }
 
 .coalition-td--name {
