@@ -5722,5 +5722,45 @@
         "za_ludi": 0
       }
     }
+  },
+  {
+    "id": "sk-ipsos-2026-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-06-16",
+    "fieldworkEnd": "2026-06-20",
+    "sampleSize": 1009,
+    "sourceUrl": "https://dennikn.sk",
+    "results": {
+      "ps": 20.2,
+      "smer": 19,
+      "republika": 10,
+      "sas": 8.8,
+      "olano": 7.3,
+      "hlas": 6.8,
+      "kdh": 6.5,
+      "demokrati": 5.1,
+      "madarska_aliancia": 4.7,
+      "sns": 3.4,
+      "sme_rodina": 2.8,
+      "pravo_na_pravdu": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 34,
+        "republika": 18,
+        "sas": 16,
+        "olano": 13,
+        "hlas": 12,
+        "kdh": 11,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0
+      }
+    }
   }
 ]

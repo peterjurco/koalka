@@ -105,5 +105,14 @@
     "color": "#e65100",
     "order": 13,
     "visibleByDefault": false
+  },
+  {
+    "id": "pravo_na_pravdu",
+    "name": "Právo na pravdu",
+    "shortName": "Právo na pravdu",
+    "color": "#7986cb",
+    "order": 14,
+    "visibleByDefault": false,
+    "start": "2026-01-01"
   }
 ]
