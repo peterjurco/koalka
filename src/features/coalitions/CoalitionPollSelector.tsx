@@ -4,6 +4,8 @@ interface Props {
   polls: Poll[];
   selectedPollId: string | null;
   onSelectPoll: (pollId: string) => void;
+  isEditing?: boolean;
+  onToggleEdit?: () => void;
 }
 
 function formatPollDate(dateStr: string): string {
@@ -14,7 +16,7 @@ function formatPollDate(dateStr: string): string {
   });
 }
 
-export function CoalitionPollSelector({ polls, selectedPollId, onSelectPoll }: Props) {
+export function CoalitionPollSelector({ polls, selectedPollId, onSelectPoll, isEditing, onToggleEdit }: Props) {
   if (polls.length === 0) return null;
 
   const agencies = [...new Set(polls.map((p) => p.agency))].sort();
@@ -46,7 +48,7 @@ export function CoalitionPollSelector({ polls, selectedPollId, onSelectPoll }: P
 
   return (
     <div className="polls-toolbar">
-      <div className="polls-toolbar-row">
+      <div className="polls-toolbar-row polls-toolbar-row--with-edit">
         <label className="polls-toolbar-label">
           Agentúra
           <select
@@ -82,6 +84,15 @@ export function CoalitionPollSelector({ polls, selectedPollId, onSelectPoll }: P
             <span>{newestPoll ? formatPollDate(newestPoll.fieldworkEnd) : ''}</span>
           </div>
         </div>
+        {onToggleEdit && (
+          <button
+            type="button"
+            className={`polls-toolbar-edit-btn${isEditing ? ' polls-toolbar-edit-btn--active' : ''}`}
+            onClick={onToggleEdit}
+          >
+            {isEditing ? 'Zavrieť editor' : 'Upraviť'}
+          </button>
+        )}
       </div>
     </div>
   );

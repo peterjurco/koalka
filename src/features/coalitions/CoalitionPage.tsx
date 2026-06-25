@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { allocateSeats } from '../../core/allocation/index.ts';
 import { buildCoalition } from '../../core/coalition/coalitionBuilder.ts';
 import type { CoalitionResult } from '../../core/coalition/types.ts';
+import type { PartyId } from '../../data/types.ts';
 import { useStore } from '../../state/store.ts';
 import { CoalitionBuilder } from './CoalitionBuilder.tsx';
 import { CoalitionChart } from './CoalitionChart.tsx';
 import { CoalitionPollSelector } from './CoalitionPollSelector.tsx';
+import { PollEditor } from './PollEditor.tsx';
 import {
   DEFAULT_COALITIONS,
   loadCoalitionStorage,
@@ -18,6 +21,8 @@ export function CoalitionPage() {
 
   const [selectedPollId, setSelectedPollId] = useState<string | null>(null);
   const [savedCoalitions, setSavedCoalitions] = useState<SavedCoalition[]>(DEFAULT_COALITIONS);
+  const [showEditor, setShowEditor] = useState(false);
+  const [overrideVoteShare, setOverrideVoteShare] = useState<Record<PartyId, number> | null>(null);
 
   // Initialize from localStorage once polls are available (only when selectedPollId is still null)
   useEffect(() => {
@@ -53,24 +58,67 @@ export function CoalitionPage() {
   if (!config) return null;
 
   const selectedPoll = polls.find((p) => p.id === selectedPollId) ?? null;
+  const effectiveVoteShare = overrideVoteShare ?? selectedPoll?.results ?? {};
 
   const coalitionResults: Array<CoalitionResult | null> = savedCoalitions.map((coalition) => {
     if (!selectedPoll || coalition.partyIds.length === 0) return null;
     return buildCoalition({
-      voteShare: selectedPoll.results,
+      voteShare: effectiveVoteShare,
       partyIds: coalition.partyIds,
       totalSeats: config.rules.totalSeats,
       thresholdPercent: config.rules.thresholdPercent,
     });
   });
 
+  const perPartySeatAllocation = selectedPoll
+    ? allocateSeats(effectiveVoteShare, config.rules.totalSeats, config.rules.thresholdPercent)
+    : {};
+
+  const handleSelectPoll = (pollId: string) => {
+    setSelectedPollId(pollId);
+    setOverrideVoteShare(null);
+  };
+
+  const handleToggleEditor = () => {
+    if (!showEditor) {
+      setOverrideVoteShare(selectedPoll ? { ...selectedPoll.results } : null);
+    }
+    setShowEditor((prev) => !prev);
+  };
+
+  const handleEditorClose = () => {
+    setShowEditor(false);
+    setOverrideVoteShare(null);
+  };
+
+  const handleEditorChange = (partyId: PartyId, value: number) => {
+    setOverrideVoteShare((prev) => ({ ...(prev ?? selectedPoll?.results ?? {}), [partyId]: value }));
+  };
+
+  const handleEditorReset = () => {
+    setOverrideVoteShare(selectedPoll ? { ...selectedPoll.results } : null);
+  };
+
   return (
     <div className="coalition-page">
       <CoalitionPollSelector
         polls={polls}
         selectedPollId={selectedPollId}
-        onSelectPoll={setSelectedPollId}
+        onSelectPoll={handleSelectPoll}
+        isEditing={showEditor}
+        onToggleEdit={handleToggleEditor}
       />
+      {showEditor && selectedPoll && (
+        <PollEditor
+          voteShare={effectiveVoteShare}
+          originalVoteShare={selectedPoll.results}
+          seatAllocation={perPartySeatAllocation}
+          parties={config.parties}
+          onChange={handleEditorChange}
+          onClose={handleEditorClose}
+          onReset={handleEditorReset}
+        />
+      )}
       <CoalitionChart
         coalitions={savedCoalitions}
         coalitionResults={coalitionResults}
