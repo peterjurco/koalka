@@ -115,7 +115,7 @@ export function PollEditor({
         <div className="poll-editor-header-actions">
           {isModified && (
             <button type="button" className="poll-editor-btn poll-editor-btn--reset" onClick={onReset}>
-              Zahodiť zmeny
+              Reset
             </button>
           )}
           <button type="button" className="poll-editor-btn poll-editor-btn--close" onClick={onClose}>
