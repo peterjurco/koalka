@@ -5724,6 +5724,46 @@
     }
   },
   {
+    "id": "sk-ako-2026-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-06-09",
+    "fieldworkEnd": "2026-06-18",
+    "sampleSize": 1000,
+    "sourceUrl": "https://joj24.noviny.sk/prieskumy/1226226-volebny-prieskum-joj-24-ps-by-zostavilo-vladu-smeru-by-nestacila-ani-republika",
+    "results": {
+      "ps": 20,
+      "smer": 18.6,
+      "republika": 9.5,
+      "hlas": 8.6,
+      "sas": 8.4,
+      "kdh": 8,
+      "olano": 7.3,
+      "demokrati": 6.2,
+      "sns": 4.9,
+      "madarska_aliancia": 3.2,
+      "sme_rodina": 2.5,
+      "pravo_na_pravdu": 2.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 35,
+        "smer": 32,
+        "republika": 16,
+        "hlas": 15,
+        "sas": 14,
+        "kdh": 14,
+        "olano": 13,
+        "demokrati": 11,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0
+      }
+    }
+  },
+  {
     "id": "sk-ipsos-2026-06",
     "countryId": "sk",
     "electionId": "sk-2024",
