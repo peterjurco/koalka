@@ -1921,17 +1921,6 @@ body {
   .poll-editor-slider {
     grid-column: 1 / -1;
     grid-row: 2;
-    height: 28px;
-    cursor: pointer;
-  }
-
-  .poll-editor-slider::-webkit-slider-thumb {
-    width: 24px;
-    height: 24px;
-  }
-
-  .poll-editor-slider::-webkit-slider-runnable-track {
-    height: 5px;
   }
 
   .poll-editor-name {
