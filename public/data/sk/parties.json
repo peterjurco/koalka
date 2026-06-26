@@ -120,5 +120,15 @@
     "order": 14,
     "visibleByDefault": false,
     "start": "2026-01-01"
+  },
+  {
+    "id": "strana_vidieka",
+    "name": "Strana vidieka",
+    "shortName": "Strana vidieka",
+    "abbr": "SV",
+    "color": "#7D9B3E",
+    "order": 15,
+    "visibleByDefault": false,
+    "start": "2026-06-01"
   }
 ]
