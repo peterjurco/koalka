@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Party, PartyId } from '../../data/types.ts';
+import { useIsMobile } from '../../utils/useMediaQuery.ts';
 
 interface RowProps {
   partyId: PartyId;
@@ -40,6 +41,23 @@ function PollEditorRow({ partyId, pct, original, seats, party, sliderMax, onChan
         <span className="poll-editor-dot" style={{ backgroundColor: party?.color ?? '#888' }} />
         <span className="poll-editor-name">{party?.shortName ?? partyId}</span>
       </div>
+      <div className="poll-editor-row-right">
+        <input
+          type="number"
+          className={`poll-editor-input${changed ? ' poll-editor-input--changed' : ''}`}
+          min={0}
+          max={100}
+          step={0.1}
+          value={str}
+          onFocus={() => { focused.current = true; }}
+          onBlur={() => { focused.current = false; setStr(pct.toFixed(1)); }}
+          onChange={handleInputChange}
+        />
+        <span className="poll-editor-pct-symbol">%</span>
+        <span className={`poll-editor-seat-count${seats > 0 ? '' : ' poll-editor-seat-count--zero'}`}>
+          {seats}
+        </span>
+      </div>
       <input
         type="range"
         className="poll-editor-slider"
@@ -49,26 +67,6 @@ function PollEditorRow({ partyId, pct, original, seats, party, sliderMax, onChan
         value={pct}
         onChange={handleSliderChange}
       />
-      <input
-        type="number"
-        className={`poll-editor-input${changed ? ' poll-editor-input--changed' : ''}`}
-        min={0}
-        max={100}
-        step={0.1}
-        value={str}
-        onFocus={() => {
-          focused.current = true;
-        }}
-        onBlur={() => {
-          focused.current = false;
-          setStr(pct.toFixed(1));
-        }}
-        onChange={handleInputChange}
-      />
-      <span className="poll-editor-pct-symbol">%</span>
-      <span className={`poll-editor-seat-count${seats > 0 ? '' : ' poll-editor-seat-count--zero'}`}>
-        {seats}
-      </span>
     </div>
   );
 }
@@ -92,8 +90,18 @@ export function PollEditor({
   onClose,
   onReset,
 }: Props) {
+  const isMobile = useIsMobile();
   const partyById = new Map(parties.map((p) => [p.id, p]));
-  const sortedEntries = Object.entries(voteShare).sort(([, a], [, b]) => b - a);
+
+  // Freeze the display order so rows don't jump while dragging a slider.
+  const stableOrderRef = useRef<PartyId[] | null>(null);
+  if (!stableOrderRef.current) {
+    stableOrderRef.current = Object.entries(voteShare)
+      .sort(([, a], [, b]) => b - a)
+      .map(([id]) => id as PartyId);
+  }
+  const stableOrder = stableOrderRef.current;
+
   const maxPct = Math.max(...Object.values(voteShare));
   const sliderMax = Math.max(40, Math.ceil(maxPct / 5) * 5 + 5);
   const isModified = Object.entries(voteShare).some(
@@ -115,26 +123,31 @@ export function PollEditor({
           </button>
         </div>
       </div>
-      <div className="poll-editor-col-header">
-        <span />
-        <span />
-        <span className="poll-editor-col-label">%</span>
-        <span />
-        <span className="poll-editor-col-label">Mandáty</span>
-      </div>
+      {!isMobile && (
+        <div className="poll-editor-col-header">
+          <span />
+          <span />
+          <span className="poll-editor-col-label">%</span>
+          <span />
+          <span className="poll-editor-col-label">Mandáty</span>
+        </div>
+      )}
       <div className="poll-editor-list">
-        {sortedEntries.map(([partyId, pct]) => (
-          <PollEditorRow
-            key={partyId}
-            partyId={partyId}
-            pct={pct}
-            original={originalVoteShare[partyId] ?? pct}
-            seats={seatAllocation[partyId] ?? 0}
-            party={partyById.get(partyId)}
-            sliderMax={sliderMax}
-            onChange={onChange}
-          />
-        ))}
+        {stableOrder.map((partyId) => {
+          const pct = voteShare[partyId] ?? 0;
+          return (
+            <PollEditorRow
+              key={partyId}
+              partyId={partyId}
+              pct={pct}
+              original={originalVoteShare[partyId] ?? pct}
+              seats={seatAllocation[partyId] ?? 0}
+              party={partyById.get(partyId)}
+              sliderMax={sliderMax}
+              onChange={onChange}
+            />
+          );
+        })}
       </div>
     </div>
   );
