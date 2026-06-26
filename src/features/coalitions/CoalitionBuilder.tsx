@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { TrashIcon } from '../../icons/TrashIcon.tsx';
 import type { Party } from '../../data/types.ts';
 import type { CoalitionResult } from '../../core/coalition/types.ts';
+import { useIsMobile } from '../../utils/useMediaQuery.ts';
 import type { SavedCoalition } from './coalitionStorage.ts';
 
 interface Props {
@@ -13,7 +14,45 @@ interface Props {
   onReorder: (fromIndex: number, toIndex: number) => void;
 }
 
+/** Coloured party chips (e.g. "SaS + KDH + Demokrati"), shared by table & cards. */
+function PartyChips({
+  partyIds,
+  partyById,
+}: {
+  partyIds: string[];
+  partyById: Map<string, Party>;
+}) {
+  return (
+    <div className="coalition-party-chips">
+      {partyIds.map((pid, j) => {
+        const party = partyById.get(pid);
+        return (
+          <span key={pid} className="coalition-party-chip">
+            <span
+              className="coalition-party-dot"
+              style={{ backgroundColor: party?.color ?? '#888' }}
+            />
+            <span>{party?.shortName ?? pid}</span>
+            {j < partyIds.length - 1 && <span className="coalition-chip-plus">+</span>}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Majority indicator: green ✓ when reached, otherwise how many seats short. */
+function MajorityBadge({ short }: { short: number | null }) {
+  if (short === null) return <span className="coalition-td--loading">–</span>;
+  return short <= 0 ? (
+    <span className="coalition-majority-yes">✓</span>
+  ) : (
+    <span className="coalition-majority-no">−{short}</span>
+  );
+}
+
 export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd, onRemove, onReorder }: Props) {
+  const isMobile = useIsMobile();
   const [isAdding, setIsAdding] = useState(false);
   const [draftPartyIds, setDraftPartyIds] = useState<string[]>([]);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
@@ -56,7 +95,55 @@ export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd,
 
       {coalitions.length === 0 ? (
         <p className="coalition-empty-hint">Zatiaľ žiadna koalícia. Pridajte pomocou tlačidla +.</p>
+      ) : isMobile ? (
+        /* --- Mobile: card list, no horizontal scroll --- */
+        <ul className="coalition-card-list">
+          {coalitions.map((coalition, i) => {
+            const result = coalitionResults[i] ?? null;
+            const seats = result?.totalSeats ?? null;
+            const toMajority = seats !== null ? 76 - seats : null;
+            const toConstitutional = seats !== null ? 90 - seats : null;
+
+            return (
+              <li key={coalition.id} className="coalition-card">
+                <div className="coalition-card-top">
+                  <PartyChips partyIds={coalition.partyIds} partyById={partyById} />
+                  <button
+                    type="button"
+                    className="trendy-sum-remove"
+                    onClick={() => onRemove(coalition.id)}
+                    title="Odstrániť koalíciu"
+                    aria-label="Odstrániť koalíciu"
+                  >
+                    <TrashIcon />
+                  </button>
+                </div>
+                <div className="coalition-card-stats">
+                  <div className="coalition-card-stat coalition-card-stat--seats">
+                    <span className="coalition-card-stat-value">
+                      {seats !== null ? seats : '–'}
+                    </span>
+                    <span className="coalition-card-stat-label">mandátov</span>
+                  </div>
+                  <div className="coalition-card-stat">
+                    <span className="coalition-card-stat-value">
+                      <MajorityBadge short={toMajority} />
+                    </span>
+                    <span className="coalition-card-stat-label">Väčšina (76)</span>
+                  </div>
+                  <div className="coalition-card-stat">
+                    <span className="coalition-card-stat-value">
+                      <MajorityBadge short={toConstitutional} />
+                    </span>
+                    <span className="coalition-card-stat-label">Úst. (90)</span>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       ) : (
+        /* --- Desktop: sortable table --- */
         <table className="coalition-table">
           <thead>
             <tr>
@@ -96,23 +183,7 @@ export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd,
                     <span className="coalition-drag-handle" title="Presunúť">⠿</span>
                   </td>
                   <td className="coalition-td coalition-td--name">
-                    <div className="coalition-party-chips">
-                      {coalition.partyIds.map((pid, j) => {
-                        const party = partyById.get(pid);
-                        return (
-                          <span key={pid} className="coalition-party-chip">
-                            <span
-                              className="coalition-party-dot"
-                              style={{ backgroundColor: party?.color ?? '#888' }}
-                            />
-                            <span>{party?.shortName ?? pid}</span>
-                            {j < coalition.partyIds.length - 1 && (
-                              <span className="coalition-chip-plus">+</span>
-                            )}
-                          </span>
-                        );
-                      })}
-                    </div>
+                    <PartyChips partyIds={coalition.partyIds} partyById={partyById} />
                   </td>
                   <td className="coalition-td coalition-td--seats">
                     {seats !== null ? (
@@ -122,26 +193,10 @@ export function CoalitionBuilder({ coalitions, coalitionResults, parties, onAdd,
                     )}
                   </td>
                   <td className="coalition-td coalition-td--majority">
-                    {toMajority !== null ? (
-                      toMajority <= 0 ? (
-                        <span className="coalition-majority-yes">✓</span>
-                      ) : (
-                        <span className="coalition-majority-no">−{toMajority}</span>
-                      )
-                    ) : (
-                      <span className="coalition-td--loading">–</span>
-                    )}
+                    <MajorityBadge short={toMajority} />
                   </td>
                   <td className="coalition-td coalition-td--majority">
-                    {toConstitutional !== null ? (
-                      toConstitutional <= 0 ? (
-                        <span className="coalition-majority-yes">✓</span>
-                      ) : (
-                        <span className="coalition-majority-no">−{toConstitutional}</span>
-                      )
-                    ) : (
-                      <span className="coalition-td--loading">–</span>
-                    )}
+                    <MajorityBadge short={toConstitutional} />
                   </td>
                   <td className="coalition-td coalition-td--remove">
                     <button

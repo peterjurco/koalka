@@ -40,7 +40,10 @@ function App() {
     <div className={`app ${page === "trendy" ? "app--trendy-full" : ""}`}>
       <header className="app-header">
         <div className="app-header-top">
-          <h1>🐨 Koalka</h1>
+          <div className="app-header-brand">
+            <h1>🐨 Koalka</h1>
+            <p className="tagline">Koaličná kalkulačka</p>
+          </div>
           <nav className="app-nav" aria-label="Hlavná navigácia">
             <button
               type="button"
@@ -58,7 +61,6 @@ function App() {
             </button>
           </nav>
         </div>
-        <p className="tagline">Koaličná kalkulačka</p>
       </header>
 
       <main className="app-main">

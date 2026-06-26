@@ -10,6 +10,7 @@ import {
 } from 'recharts';
 import type { Party } from '../../data/types.ts';
 import type { CoalitionResult } from '../../core/coalition/types.ts';
+import { useIsMobile } from '../../utils/useMediaQuery.ts';
 import type { SavedCoalition } from './coalitionStorage.ts';
 
 interface Props {
@@ -62,7 +63,41 @@ function CoalitionTooltip({
 
 type ChartRow = Record<string, string | number>;
 
+/** Renders a party's abbreviation centred inside its stacked bar segment. */
+function makeBarLabel(name: string) {
+  // recharts' bar-label callback props aren't cleanly exported; read loosely.
+  return function BarSegmentLabel(props: {
+    x?: string | number;
+    y?: string | number;
+    width?: string | number;
+    height?: string | number;
+    value?: string | number | null;
+  }) {
+    const x = Number(props.x ?? 0);
+    const y = Number(props.y ?? 0);
+    const width = Number(props.width ?? 0);
+    const height = Number(props.height ?? 0);
+    const value = Number(props.value ?? 0);
+    // Skip empty segments and ones too short to fit any text.
+    if (!value || value <= 0 || height < 9) return null;
+    return (
+      <text
+        x={x + width / 2}
+        y={y + height / 2}
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize={9}
+        style={{ fill: '#000', pointerEvents: 'none' }}
+      >
+        {name}
+      </text>
+    );
+  };
+}
+
 export function CoalitionChart({ coalitions, coalitionResults, parties }: Props) {
+  const isMobile = useIsMobile();
+
   if (coalitions.length === 0) {
     return (
       <div className="coalition-chart-empty">
@@ -89,37 +124,37 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
     return row;
   });
 
-  const longestLabel = coalitions.reduce((max, c) => {
-    const len = c.partyIds.map((id) => partyById.get(id)?.shortName ?? id).join('+').length;
-    return Math.max(max, len);
-  }, 0);
-  const yAxisWidth = Math.min(260, Math.max(140, longestLabel * 7 + 16));
+  // Y-axis tops out at 100 (keeps both majority lines comfortably in view) but
+  // stretches in steps of 10 — up to the 150-seat parliament — if a coalition
+  // climbs higher than that.
+  const maxSeats = Math.max(0, ...coalitionResults.map((r) => r?.totalSeats ?? 0));
+  const domainMax = maxSeats <= 100 ? 100 : Math.min(150, Math.ceil(maxSeats / 10) * 10);
+  const baseTicks = [0, 30, 60, 76, 90, 120, 150].filter((t) => t <= domainMax);
+  const yTicks = baseTicks.includes(domainMax) ? baseTicks : [...baseTicks, domainMax];
 
-  const chartHeight = coalitions.length * 52 + 80;
+  // Columns are identified by the abbreviations inside each segment and the
+  // cards below, so the x-axis needs no labels — keep just the baseline.
+  const chartHeight = isMobile ? 300 : 360;
 
   return (
     <div className="coalition-chart-container">
       <ResponsiveContainer width="100%" height={chartHeight}>
         <BarChart
-          layout="vertical"
           data={data}
-          margin={{ top: 8, right: 32, bottom: 8, left: 8 }}
-          barCategoryGap="30%"
+          margin={{ top: 24, right: 12, bottom: 8, left: 0 }}
+          barCategoryGap="22%"
         >
-          <CartesianGrid horizontal={false} strokeOpacity={0.12} />
-          <XAxis
-            type="number"
-            domain={[0, 150]}
-            ticks={[0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150]}
-            tick={{ fontSize: 11 }}
-          />
+          <CartesianGrid vertical={false} strokeOpacity={0.12} />
+          <XAxis type="category" dataKey="label" tick={false} height={8} />
           <YAxis
-            type="category"
-            dataKey="label"
-            width={yAxisWidth}
+            type="number"
+            domain={[0, domainMax]}
+            ticks={yTicks}
             tick={{ fontSize: 11 }}
+            width={32}
           />
           <Tooltip
+            cursor={{ fillOpacity: 0.08 }}
             content={(props) => (
               <CoalitionTooltip
                 active={props.active}
@@ -130,30 +165,16 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
             )}
           />
           <ReferenceLine
-            x={76}
+            y={76}
             stroke="#f59e0b"
             strokeDasharray="5 3"
             strokeWidth={2}
-            label={{
-              value: 'Väčšina (76)',
-              position: 'insideTopRight',
-              fontSize: 10,
-              fill: '#f59e0b',
-              dy: -2,
-            }}
           />
           <ReferenceLine
-            x={90}
+            y={90}
             stroke="#f87171"
             strokeDasharray="5 3"
             strokeWidth={2}
-            label={{
-              value: 'Úst. väčšina (90)',
-              position: 'insideTopRight',
-              fontSize: 10,
-              fill: '#f87171',
-              dy: -2,
-            }}
           />
           {allPartyIds.map((pid) => (
             <Bar
@@ -163,6 +184,11 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
               fill={partyById.get(pid)?.color ?? '#888'}
               isAnimationActive={false}
               radius={0}
+              label={
+                makeBarLabel(
+                  partyById.get(pid)?.abbr ?? partyById.get(pid)?.shortName ?? pid,
+                ) as never
+              }
             />
           ))}
         </BarChart>

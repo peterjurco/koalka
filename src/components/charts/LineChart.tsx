@@ -9,7 +9,15 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import type { ReactNode, SVGProps } from "react";
 import type { SeriesPoint } from "./chartTypes.ts";
+
+type ChartMargin = {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+};
 
 export interface LineChartProps {
   data: SeriesPoint[];
@@ -18,11 +26,15 @@ export interface LineChartProps {
   height?: number;
   yAxisLabel?: string;
   /** Format the x-axis value shown as tooltip header (e.g. month). Receives label (string or number when x is numeric). */
-  tooltipLabelFormatter?: (label: React.ReactNode) => React.ReactNode;
+  tooltipLabelFormatter?: (label: ReactNode) => ReactNode;
   /** 'category' = equal spacing (default); 'linear' = proportional to x values (e.g. time) */
   xAxisScale?: "category" | "linear";
   /** Format numeric x-axis ticks when xAxisScale is 'linear' */
   xAxisTickFormatter?: (value: number) => string;
+  yAxisTickFormatter?: (value: number) => string;
+  yAxisWidth?: number;
+  chartMargin?: ChartMargin;
+  axisTickStyle?: SVGProps<SVGTextElement>;
   /** If false, null/undefined values in series create gaps in the line (default true for category, false for linear) */
   connectNulls?: boolean;
   /** Optional horizontal reference line (e.g. electoral threshold at 5%) */
@@ -32,6 +44,8 @@ export interface LineChartProps {
   valueFormatter?: (value: number) => string;
   /** Called when user clicks a data point; receives the full SeriesPoint payload */
   onPointClick?: (point: SeriesPoint) => void;
+  /** Show a marker dot on every data point (default true). Disable on dense/small charts. */
+  showDots?: boolean;
 }
 
 export function LineChart({
@@ -43,11 +57,16 @@ export function LineChart({
   tooltipLabelFormatter,
   xAxisScale = "category",
   xAxisTickFormatter,
+  yAxisTickFormatter,
+  yAxisWidth,
+  chartMargin,
+  axisTickStyle,
   connectNulls,
   referenceLineY,
   referenceLineLabel,
   valueFormatter,
   onPointClick,
+  showDots = true,
 }: LineChartProps) {
   function handleChartClick(chartData: unknown) {
     const d = chartData as { activeIndex?: string | number } | null;
@@ -61,12 +80,13 @@ export function LineChart({
   const shouldConnectNulls = connectNulls ?? !isLinear;
   const formatValue = valueFormatter ?? ((v: number) => `${v.toFixed(1)}%`);
   const labelStyle = { fill: "var(--chart-label-fill, #fff)" };
+  const tickStyle = { ...labelStyle, ...axisTickStyle };
 
   return (
     <ResponsiveContainer width="100%" height={height}>
       <RechartsLineChart
         data={data}
-        margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+        margin={chartMargin ?? { top: 5, right: 20, left: 0, bottom: 5 }}
         style={onPointClick ? { cursor: "pointer" } : undefined}
         onClick={onPointClick ? handleChartClick : undefined}
       >
@@ -77,13 +97,17 @@ export function LineChart({
             stroke="var(--reference-line-stroke, #ef4444)"
             strokeWidth={2}
             strokeDasharray="6 3"
-            label={{
-              value: referenceLineLabel ?? `${referenceLineY}%`,
-              position: "insideTopRight",
-              fill: "var(--reference-line-stroke, #ef4444)",
-              fontWeight: 600,
-              fontSize: 12,
-            }}
+            label={
+              referenceLineLabel
+                ? {
+                    value: referenceLineLabel,
+                    position: "insideTopRight",
+                    fill: "var(--reference-line-stroke, #ef4444)",
+                    fontWeight: 600,
+                    fontSize: 12,
+                  }
+                : undefined
+            }
           />
         )}
         <XAxis
@@ -93,9 +117,11 @@ export function LineChart({
           tickFormatter={
             isLinear && xAxisTickFormatter ? xAxisTickFormatter : undefined
           }
-          tick={labelStyle}
+          tick={tickStyle}
         />
         <YAxis
+          width={yAxisWidth}
+          tickFormatter={yAxisTickFormatter}
           label={
             yAxisLabel
               ? {
@@ -106,7 +132,7 @@ export function LineChart({
                 }
               : undefined
           }
-          tick={labelStyle}
+          tick={tickStyle}
         />
         <Tooltip
           labelFormatter={tooltipLabelFormatter}
@@ -134,7 +160,8 @@ export function LineChart({
             name={name ?? key}
             stroke={color}
             strokeWidth={2}
-            dot={{ r: 3 }}
+            dot={showDots ? { r: 3 } : false}
+            activeDot={{ r: 5 }}
             connectNulls={shouldConnectNulls}
           />
         ))}

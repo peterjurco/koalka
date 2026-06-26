@@ -41,10 +41,8 @@ export function PollsToolbar() {
     filters,
     setFilters,
     setElection,
-    setTrendValueMode,
     countryId,
     electionId,
-    trendValueMode,
   } = useStore();
 
   const monthOptions = getMonthOptions(polls);
@@ -142,32 +140,6 @@ export function PollsToolbar() {
           >
             Celý rozsah
           </button>
-        </div>
-
-        <div
-          className="polls-toolbar-trend-toggle"
-          role="group"
-          aria-label="Zobrazenie trendu"
-        >
-          <span className="polls-toolbar-toggle-label">Trend</span>
-          <div className="trend-toggle">
-            <button
-              type="button"
-              className={`trend-toggle-btn${trendValueMode === "results" ? " trend-toggle-btn--active" : ""}`}
-              onClick={() => setTrendValueMode("results")}
-              aria-pressed={trendValueMode === "results"}
-            >
-              %
-            </button>
-            <button
-              type="button"
-              className={`trend-toggle-btn${trendValueMode === "seatProjection" ? " trend-toggle-btn--active" : ""}`}
-              onClick={() => setTrendValueMode("seatProjection")}
-              aria-pressed={trendValueMode === "seatProjection"}
-            >
-              Mandáty
-            </button>
-          </div>
         </div>
       </div>
     </div>

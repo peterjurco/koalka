@@ -59,6 +59,7 @@
     "id": "republika",
     "name": "REPUBLIKA",
     "shortName": "Republika",
+    "abbr": "REP",
     "color": "#b5651d",
     "order": 8,
     "visibleByDefault": false,
@@ -77,6 +78,7 @@
     "id": "sme_rodina",
     "name": "SME RODINA",
     "shortName": "Sme rodina",
+    "abbr": "SME",
     "color": "#522e92",
     "order": 10,
     "visibleByDefault": false
@@ -85,6 +87,7 @@
     "id": "demokrati",
     "name": "Demokrati",
     "shortName": "Demokrati",
+    "abbr": "DEM",
     "color": "#1565c0",
     "start": "2023-03-01",
     "order": 11,
@@ -94,6 +97,7 @@
     "id": "madarska_aliancia",
     "name": "Maďarská aliancia",
     "shortName": "Aliancia",
+    "abbr": "ALI",
     "color": "#006400",
     "order": 12,
     "visibleByDefault": false
@@ -102,6 +106,7 @@
     "id": "za_ludi",
     "name": "Za ľudí",
     "shortName": "Za Ľudí",
+    "abbr": "ZĽ",
     "color": "#e65100",
     "order": 13,
     "visibleByDefault": false
@@ -110,6 +115,7 @@
     "id": "pravo_na_pravdu",
     "name": "Právo na pravdu",
     "shortName": "Právo na pravdu",
+    "abbr": "PNP",
     "color": "#7986cb",
     "order": 14,
     "visibleByDefault": false,

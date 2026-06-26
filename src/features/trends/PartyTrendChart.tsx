@@ -4,6 +4,7 @@ import { LineChart } from "../../components/charts/LineChart.tsx";
 import { Card } from "../../components/ui/Card.tsx";
 import type { PartyId } from "../../data/types.ts";
 import { useStore } from "../../state/store.ts";
+import { useIsMobile } from "../../utils/useMediaQuery.ts";
 import { PollDetailModal } from "./PollDetailModal.tsx";
 import type { PartySum } from "./trendyStorage.ts";
 import { getSumColor } from "./trendyStorage.ts";
@@ -60,6 +61,10 @@ function formatXAsDay(x: number): string {
   });
 }
 
+function formatMobileYAxisTick(value: number): string {
+  return value === 0 ? "" : String(value);
+}
+
 // ---------------------------------------------------------------------------
 
 export interface PartyTrendChartProps {
@@ -75,6 +80,8 @@ export function PartyTrendChart({
 }: PartyTrendChartProps) {
   const { filteredMonthlyAggregates, filteredPolls, filters, config, trendValueMode } =
     useStore();
+  const setTrendValueMode = useStore((state) => state.setTrendValueMode);
+  const isMobile = useIsMobile();
   const isMandates = trendValueMode === "seatProjection";
   const isIndividualMode = filters.agency !== null && filters.agency !== "";
 
@@ -271,23 +278,55 @@ export function PartyTrendChart({
 
   return (
     <>
-      <Card title="Trendy strán">
+      <Card className="trendy-chart-card">
+        <div className="trendy-chart-header">
+          <h2 className="card-title">Trendy strán</h2>
+          <div
+            className="trend-toggle"
+            role="group"
+            aria-label="Zobrazenie trendu"
+          >
+            <button
+              type="button"
+              className={`trend-toggle-btn${trendValueMode === "results" ? " trend-toggle-btn--active" : ""}`}
+              onClick={() => setTrendValueMode("results")}
+              aria-pressed={trendValueMode === "results"}
+            >
+              %
+            </button>
+            <button
+              type="button"
+              className={`trend-toggle-btn${trendValueMode === "seatProjection" ? " trend-toggle-btn--active" : ""}`}
+              onClick={() => setTrendValueMode("seatProjection")}
+              aria-pressed={trendValueMode === "seatProjection"}
+            >
+              Mandáty
+            </button>
+          </div>
+        </div>
         <LineChart
           data={data}
           xKey="x"
           lines={lines}
-          height={640}
-          yAxisLabel={isMandates ? "Mandáty" : "%"}
-          tooltipLabelFormatter={isIndividualMode ? formatDayHeader : formatMonthHeader}
+          height={isMobile ? 340 : 640}
+          showDots={!isMobile}
+          chartMargin={
+            isMobile ? { top: 5, right: 4, left: -8, bottom: 0 } : undefined
+          }
+          yAxisWidth={isMobile ? 28 : undefined}
+          axisTickStyle={
+            isMobile
+              ? { fill: "var(--chart-axis-tick-fill)", fontSize: 11 }
+              : undefined
+          }
+          yAxisTickFormatter={isMobile ? formatMobileYAxisTick : undefined}
+          tooltipLabelFormatter={
+            isIndividualMode ? formatDayHeader : formatMonthHeader
+          }
           xAxisScale="linear"
           xAxisTickFormatter={isIndividualMode ? formatXAsDay : formatXAsMonth}
           connectNulls={!isIndividualMode}
           referenceLineY={isMandates ? (showMajorityLine ? 76 : undefined) : 5}
-          referenceLineLabel={
-            isMandates
-              ? (showMajorityLine ? "Väčšina (76)" : undefined)
-              : "5 % (volebné kvórum)"
-          }
           valueFormatter={isMandates ? (v) => String(Math.round(v)) : undefined}
           onPointClick={handlePointClick}
         />

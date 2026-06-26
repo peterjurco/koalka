@@ -47,7 +47,15 @@ body {
 }
 
 .app-header h1 {
-  margin: 0 0 0.5rem;
+  margin: 0;
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.85rem;
+  min-width: 0;
 }
 
 .app-nav {
@@ -93,9 +101,10 @@ body {
 }
 
 .app-header .tagline {
-  opacity: 0.9;
-  font-size: 1.2rem;
-  margin-top: 0;
+  opacity: 0.7;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 .app-header .election-name {
@@ -207,6 +216,28 @@ body {
   gap: 2rem;
   padding: 1.5rem;
   padding-top: 0;
+}
+
+.trendy-chart-card {
+  --chart-axis-tick-fill: rgba(255, 255, 255, 0.58);
+}
+
+.trendy-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.trendy-chart-header .card-title {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .trendy-chart-card {
+    --chart-axis-tick-fill: rgba(0, 0, 0, 0.55);
+  }
 }
 
 .trendy-sidebar-section {
@@ -960,6 +991,7 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   opacity: 0.95;
+  white-space: nowrap;
 }
 
 .poll-slider {
@@ -1514,6 +1546,84 @@ body {
   margin: 0 0.05rem;
 }
 
+/* Coalition cards (mobile layout) */
+.coalition-card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.coalition-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.coalition-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.coalition-card-top .coalition-party-chips {
+  gap: 0.15rem 0.35rem;
+}
+
+.coalition-card-top .trendy-sum-remove {
+  flex-shrink: 0;
+}
+
+.coalition-card-stats {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.coalition-card-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0.25rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.coalition-card-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.coalition-card-stat--seats .coalition-card-stat-value {
+  color: #a78bfa;
+}
+
+.coalition-card-stat-label {
+  font-size: 0.68rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+@media (prefers-color-scheme: light) {
+  .coalition-card {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.02);
+  }
+  .coalition-card-stat {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
 .month-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -1559,5 +1669,221 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Prevent accidental horizontal overflow on small screens */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ========================================================================
+   Responsive: tablet and below
+   ======================================================================== */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .app-header {
+    margin-bottom: 1.25rem;
+  }
+
+  /* Logo + tagline together on top, nav as a full-width segmented control below */
+  .app-header-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .app-header .tagline {
+    font-size: 1rem;
+  }
+
+  .app-nav {
+    width: 100%;
+    gap: 3px;
+    padding: 3px;
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.14);
+  }
+
+  .app-nav-link {
+    flex: 1;
+    text-align: center;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.95rem;
+    border-radius: 7px;
+  }
+
+  .app-nav-link.active {
+    background: #646cff;
+    color: #fff;
+    border-color: transparent;
+  }
+
+  /* --- Trendy page: chart first, controls below --- */
+  .app.app--trendy-full .app-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .trendy-layout {
+    flex-direction: column;
+  }
+
+  /* Reorder: chart card → filters toolbar → party toggles */
+  .trendy-content {
+    order: 1;
+  }
+
+  .trendy-sidebar {
+    order: 2;
+  }
+
+  .trendy-content > .card {
+    order: -1;
+  }
+
+  .trendy-sidebar {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+  }
+
+  .trendy-content {
+    padding: 1rem 0.25rem;
+    gap: 1.25rem;
+  }
+
+  /* Let the trend chart use as much width as possible */
+  .trendy-content > .trendy-chart-card {
+    padding: 0.85rem 0.15rem 0.7rem;
+  }
+
+  .trendy-chart-header {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+
+  .trendy-chart-card .trend-toggle-btn {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  /* Party toggles become compact wrapping chips to save vertical space */
+  .trendy-party-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .trendy-party-toggle {
+    padding: 0.4rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+  }
+
+  /* --- Polls toolbar: stacked, full-width controls --- */
+  .polls-toolbar {
+    padding: 1rem;
+  }
+
+  .polls-toolbar-row {
+    gap: 0.85rem;
+  }
+
+  .polls-toolbar-label {
+    flex: 1 1 100%;
+  }
+
+  .polls-toolbar-select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .polls-toolbar-date-group {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .polls-toolbar-date-group .polls-toolbar-label {
+    flex: 1 1 8rem;
+  }
+
+  /* --- Coalition poll selector --- */
+  .polls-toolbar-row--with-edit {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .poll-slider-wrapper {
+    max-width: none;
+    min-width: 0;
+  }
+
+  .polls-toolbar-edit-btn {
+    align-self: flex-start;
+  }
+
+  /* Charts get a touch more breathing room */
+  .coalition-chart-container {
+    padding: 1rem 0.25rem 0.5rem;
+  }
+}
+
+/* ========================================================================
+   Responsive: small phones
+   ======================================================================== */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .app-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-nav {
+    width: 100%;
+  }
+
+  .app-nav-link {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Tighten the poll editor grid so the slider keeps usable width */
+  .poll-editor {
+    padding: 1rem 0.85rem 1rem;
+  }
+
+  .poll-editor-col-header,
+  .poll-editor-row {
+    grid-template-columns: 84px 1fr 48px 10px 40px;
+    gap: 0 0.35rem;
+  }
+
+  .poll-editor-name {
+    font-size: 0.8rem;
+  }
+
+  .poll-editor-input {
+    font-size: 0.8rem;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-btn {
+    width: 100%;
   }
 }

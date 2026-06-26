@@ -6,6 +6,8 @@ export interface Party {
   id: PartyId;
   name: string;
   shortName: string;
+  /** Compact 2–4 char abbreviation for tight spaces (e.g. chart labels). Falls back to shortName. */
+  abbr?: string;
   color: string;
   order: number;
   /** Whether the party is shown in the trend chart by default (default true if omitted) */
