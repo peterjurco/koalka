@@ -5790,18 +5790,56 @@
     },
     "metadata": {
       "seatProjection": {
-        "ps": 37,
+        "ps": 36,
         "smer": 34,
         "republika": 18,
         "sas": 16,
         "olano": 13,
         "hlas": 12,
-        "kdh": 11,
+        "kdh": 12,
         "demokrati": 9,
         "madarska_aliancia": 0,
         "sns": 0,
         "sme_rodina": 0,
         "pravo_na_pravdu": 0
+      }
+    }
+  },
+  {
+    "id": "sk-focus-2026-06",
+    "agency": "Focus",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "fieldworkStart": "2026-06-22",
+    "fieldworkEnd": "2026-06-29",
+    "sampleSize": 1027,
+    "sourceUrl": "https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-jun-2026/",
+    "results": {
+      "ps": 18.1,
+      "smer": 17.7,
+      "republika": 11.6,
+      "olano": 9,
+      "hlas": 8,
+      "sas": 7,
+      "kdh": 6.7,
+      "demokrati": 4.8,
+      "sns": 4.2,
+      "madarska_aliancia": 3.9,
+      "sme_rodina": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 35,
+        "smer": 34,
+        "republika": 22,
+        "olano": 17,
+        "hlas": 15,
+        "sas": 14,
+        "kdh": 13,
+        "demokrati": 0,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0
       }
     }
   }
