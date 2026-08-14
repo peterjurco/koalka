@@ -5770,9 +5770,9 @@
     "countryId": "sk",
     "electionId": "sk-2024",
     "agency": "Ipsos",
-    "fieldworkStart": "2026-06-16",
-    "fieldworkEnd": "2026-06-20",
-    "sampleSize": 1009,
+    "fieldworkStart": "2026-06-17",
+    "fieldworkEnd": "2026-06-23",
+    "sampleSize": 1035,
     "sourceUrl": "https://dennikn.sk",
     "results": {
       "ps": 20.2,
@@ -5840,6 +5840,50 @@
         "sns": 0,
         "madarska_aliancia": 0,
         "sme_rodina": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ako-2026-07",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-07-08",
+    "fieldworkEnd": "2026-07-14",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/07/ag.AKO_VOLEBNE-PREF-JUL-2026-tlacova-sprava.pdf",
+    "results": {
+      "ps": 20.8,
+      "smer": 17.3,
+      "republika": 9.7,
+      "sas": 8.8,
+      "hlas": 8.5,
+      "olano": 8,
+      "kdh": 7.7,
+      "demokrati": 5.8,
+      "sns": 4.8,
+      "madarska_aliancia": 2.8,
+      "pravo_na_pravdu": 2.8,
+      "sme_rodina": 2.2,
+      "strana_vidieka": 0.3,
+      "lsns": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 35,
+        "smer": 31,
+        "republika": 17,
+        "sas": 15,
+        "hlas": 15,
+        "olano": 14,
+        "kdh": 13,
+        "demokrati": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0,
+        "strana_vidieka": 0,
+        "lsns": 0
       }
     }
   }
