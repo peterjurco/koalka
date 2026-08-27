@@ -2490,6 +2490,14 @@ git commit -m "Assign ids to new polls without renaming existing ones"
 
 ## Task 15: Merge
 
+Added during Task 14's review: `assignPollId` trusts its caller to keep `takenIds`
+accurate, and nothing in the codebase asserts id uniqueness on the final array before it's
+written to disk. Given a duplicate id can silently corrupt or misattribute a real visitor's
+saved coalition (`src/features/coalitions/coalitionStorage.ts` looks up a poll by id from
+localStorage), `mergePolls` adds one cheap safety net: a final invariant check that throws
+rather than writing a `polls.json` with a duplicate id, independent of whether the
+`takenIds` bookkeeping above it was done correctly. This is Step 3b below.
+
 **Files:**
 - Create: `scripts/agent/merge.ts`
 - Test: `scripts/agent/merge.test.ts`
@@ -2576,6 +2584,18 @@ describe('mergePolls', () => {
     const result = mergePolls(existing, [first, second], {});
     expect(result.added.map((p) => p.id)).toEqual(['sk-ako-2026-08', 'sk-ako-2026-08-20']);
   });
+
+  it('throws rather than write a duplicate id, even if id assignment is ever wrong', () => {
+    // Simulates the exact failure mode assignPollId's caller contract depends on: two
+    // incoming polls that would end up with the same id. mergePolls's own bookkeeping
+    // prevents this in practice (see the "same month" test above) — this test pins the
+    // safety net that exists independently of that bookkeeping ever staying correct.
+    const corrupted: NormalizedPoll[] = [
+      ...existing,
+      poll({ id: 'sk-ako-2026-07', fieldworkStart: '2026-08-01', fieldworkEnd: '2026-08-05' }),
+    ];
+    expect(() => mergePolls(corrupted, [], {})).toThrow(/duplicate id/i);
+  });
 });
 ```
 
@@ -2651,6 +2671,17 @@ export function mergePolls(
     a.fieldworkStart.localeCompare(b.fieldworkStart),
   );
 
+  // Safety net, independent of the takenIds/seenKeys bookkeeping above: never write a
+  // polls.json with a duplicate id. A duplicate id is looked up by
+  // coalitionStorage.ts from a visitor's localStorage — writing one out would silently
+  // corrupt or misattribute a real saved coalition, so this fails loudly instead.
+  const idCounts = new Map<string, number>();
+  for (const p of polls) idCounts.set(p.id, (idCounts.get(p.id) ?? 0) + 1);
+  const duplicateId = [...idCounts.entries()].find(([, count]) => count > 1)?.[0];
+  if (duplicateId != null) {
+    throw new Error(`mergePolls produced a duplicate id: ${duplicateId}`);
+  }
+
   return { polls, added, rejected };
 }
 ```
@@ -2658,7 +2689,7 @@ export function mergePolls(
 - [ ] **Step 4: Run the test**
 
 Run: `npx vitest run scripts/agent/merge.test.ts`
-Expected: PASS, 7 tests.
+Expected: PASS, 8 tests.
 
 - [ ] **Step 5: Commit**
 
