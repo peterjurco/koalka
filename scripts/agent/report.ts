@@ -9,8 +9,12 @@ function addedSection(leads: readonly LeadReport[]): string[] {
   const lines = ['## Added', ''];
   for (const lead of added) {
     const e = lead.extraction;
+    const detail =
+      e == null
+        ? 'extraction missing'
+        : `fieldwork ${e.fieldworkStart} to ${e.fieldworkEnd}, n=${e.sampleSize}`;
     lines.push(
-      `- **${lead.pollId ?? '(no id)'}** — ${lead.agency}, fieldwork ${e?.fieldworkStart} to ${e?.fieldworkEnd}, n=${e?.sampleSize}`,
+      `- **${lead.pollId ?? '(no id)'}** — ${lead.agency}, ${detail}`,
       `  - source: ${lead.url}`,
       `  - found via: ${lead.discoveredBy}`,
     );
@@ -49,6 +53,10 @@ function attentionSection(report: AgentRunReport): string[] {
 
     if (lead.outcome !== 'added') {
       items.push(`- ${lead.outcome}: ${lead.reason}`);
+    } else if (lead.extraction == null) {
+      items.push(
+        '- internal inconsistency: marked as added but has no extraction data — this indicates a bug in the pipeline, not a data problem; investigate before trusting anything else in this report.',
+      );
     }
 
     if (items.length > 0) {

@@ -113,6 +113,15 @@ describe('renderPrBody', () => {
     expect(body).toContain('Ipsos');
   });
 
+  it('flags an internal inconsistency when a lead is added but has no extraction', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [{ ...cleanLead, outcome: 'added', extraction: null, pollId: null }],
+    });
+    expect(body).not.toMatch(/nothing needs your attention/i);
+    expect(body).toMatch(/internal inconsistency|marked as added but has no extraction|bug in the pipeline/i);
+  });
+
   it('includes the model notes when the model flagged something', () => {
     const body = renderPrBody({
       ...base,
