@@ -77,6 +77,17 @@ describe('extractPoll', () => {
     expect(fake.parseJson).not.toHaveBeenCalled();
   });
 
+  it('errors instead of crashing when the model returns a malformed shape', async () => {
+    const result = await extractPoll({
+      docText: 'text',
+      url: 'https://ako.sk/pref.pdf',
+      agency: 'AKO',
+      client: client({ ...extraction, results: undefined }),
+      model: 'test-model',
+    });
+    expect('error' in result).toBe(true);
+  });
+
   it('errors when the empty-document guard trips', async () => {
     const result = await extractPoll({
       docText: '   ',

@@ -33,8 +33,12 @@ Rules:
 - Put anything ambiguous in notes: a value you could not read, two candidate tables, a
   missing date, a party label split across lines. Use an empty string when nothing was
   ambiguous. Never resolve an ambiguity by guessing or by picking the more plausible-looking
-  reading — describe it in notes instead and leave the field as best you can determine, or
-  omit it if you cannot determine it at all.`;
+  reading. fieldworkStart, fieldworkEnd and sampleSize are required fields with no way to
+  leave them blank — if you cannot determine one of them with confidence, describing the
+  ambiguity in notes is itself the correct response; do not also pick between candidate
+  readings to fill the field. Omitting a value entirely is for results only: it is fine, and
+  preferred over guessing, to leave out a party's row when that party's number cannot be
+  determined — the array may end up shorter than the number of parties actually printed.`;
 
 export interface ExtractParams {
   docText: string;
@@ -78,12 +82,18 @@ export async function extractPoll({
 
   if (parsed == null) return { error: 'model returned no structured output' };
 
-  if (parsed.results.length < 3) {
-    return { error: `extraction needs at least 3 parties (got ${parsed.results.length})` };
+  const shape = ExtractionSchema.safeParse(parsed);
+  if (!shape.success) {
+    return { error: `extraction has an invalid shape: ${shape.error.message}` };
   }
-  if (!Number.isFinite(parsed.sampleSize) || parsed.sampleSize <= 0) {
-    return { error: `extraction has invalid sampleSize: ${parsed.sampleSize}` };
+  const extraction = shape.data;
+
+  if (extraction.results.length < 3) {
+    return { error: `extraction needs at least 3 parties (got ${extraction.results.length})` };
+  }
+  if (!Number.isFinite(extraction.sampleSize) || extraction.sampleSize <= 0) {
+    return { error: `extraction has invalid sampleSize: ${extraction.sampleSize}` };
   }
 
-  return { extraction: parsed };
+  return { extraction };
 }
