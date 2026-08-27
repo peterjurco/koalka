@@ -127,6 +127,14 @@ describe('parseAggregatorRows against the real Wikipedia table shape', () => {
     });
   });
 
+  it('surfaces header labels that resolve to neither a known field nor a party slug', () => {
+    const { unresolvedColumns } = parseAggregatorRows(REAL_EXCERPT, ['AKO']);
+    const headers = unresolvedColumns.map((c) => c.header);
+    expect(headers).toEqual(
+      expect.arrayContaining(['HungarianAlliance', 'Democrats', 'We Are Family']),
+    );
+  });
+
   it('skips a row whose party columns are merged into one cell instead of guessing which party it belongs to', () => {
     const { rows, skipped } = parseAggregatorRows(REAL_EXCERPT, ['AKO']);
     expect(rows.some((r) => r.fieldworkStart === '2024-10-08')).toBe(false);

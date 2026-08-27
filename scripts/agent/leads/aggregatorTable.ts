@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import type { Element } from 'domhandler';
 import { resolvePartySlug } from '../../ingestion/normalize/index.ts';
 import type { AggregatorRow } from '../types.ts';
 import { parseFieldworkRange } from './dateRange.ts';
@@ -6,6 +7,15 @@ import { parseFieldworkRange } from './dateRange.ts';
 export interface AggregatorParseResult {
   rows: AggregatorRow[];
   skipped: { text: string; reason: string }[];
+  /**
+   * Distinct header texts (deduplicated across all tables on the page) that were
+   * neither recognised as agency/fieldwork/sample nor resolved to a party slug — e.g.
+   * an English-language column label this page uses that resolvePartySlug doesn't know
+   * about. Unlike a fully unparseable row, a single unresolved column doesn't stop the
+   * row from being parsed — it just silently drops that one value from `results`. This
+   * is where that otherwise-invisible gap gets surfaced.
+   */
+  unresolvedColumns: { header: string }[];
 }
 
 /** A raw header/data cell, with its colspan so grouped columns can be expanded. */
@@ -23,6 +33,8 @@ interface ColumnMap {
   parties: Map<number, string>;
   /** Total expanded column count a fully-populated data row is expected to occupy. */
   width: number;
+  /** Header texts that resolved to neither a known field nor a party slug. */
+  unresolvedHeaders: string[];
 }
 
 const AGENCY_HEADER = /polling firm|pollster|agency|agent/i;
@@ -40,7 +52,7 @@ function cellText(text: string): string {
   return text.replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
-function rawCellsOf($: cheerio.CheerioAPI, tr: cheerio.Element): RawCell[] {
+function rawCellsOf($: cheerio.CheerioAPI, tr: Element): RawCell[] {
   return $(tr)
     .find('th,td')
     .toArray()
@@ -101,6 +113,7 @@ function readHeader(headerRow: RawCell[], subHeaderRow: string[]): ColumnMap | n
     sample: null,
     parties: new Map(),
     width: expanded.length,
+    unresolvedHeaders: [],
   };
 
   expanded.forEach((col, index) => {
@@ -118,11 +131,20 @@ function readHeader(headerRow: RawCell[], subHeaderRow: string[]): ColumnMap | n
     }
     // A grouped column's own sub-label (e.g. "ZĽ") is tried first; only the first
     // member of the group falls back to the group's own label (e.g. "OĽaNO and
-    // Friends") — that first slot is where MediaWiki puts the group's headline figure,
-    // with any other real parties bundled into the group appearing in later slots.
+    // Friends"). This fallback-to-first-slot behavior is an *observed* pattern on the
+    // current live page, not a guaranteed MediaWiki convention: as of 2026-08-27 it was
+    // checked against all 4 occurrences of a grouped header on the page and held every
+    // time, but there is no runtime safeguard here — if the page's structure changes,
+    // or a future coalition grouping orders its sub-columns differently, this could
+    // silently misassign a value to the wrong party. Re-verify against the live page if
+    // a new grouped header appears or values here start looking wrong.
     let slug = resolvePartySlug(col.text);
     if (slug == null && col.isFirstOfGroup) slug = resolvePartySlug(col.groupText);
-    if (slug != null) map.parties.set(index, slug);
+    if (slug != null) {
+      map.parties.set(index, slug);
+    } else if (col.text !== '') {
+      map.unresolvedHeaders.push(col.text);
+    }
   });
 
   if (map.agency < 0 || map.fieldwork < 0 || map.parties.size === 0) return null;
@@ -141,6 +163,7 @@ export function parseAggregatorRows(
   const $ = cheerio.load(html);
   const rows: AggregatorRow[] = [];
   const skipped: { text: string; reason: string }[] = [];
+  const unresolvedHeaders = new Set<string>();
 
   $('table').each((_, table) => {
     const trs = $(table).find('tr').toArray();
@@ -150,6 +173,7 @@ export function parseAggregatorRows(
     const subHeaderRow = trs.length > 1 ? rawCellsOf($, trs[1]!).map((c) => c.text) : [];
     const columns = readHeader(headerRow, subHeaderRow);
     if (columns == null) return;
+    for (const header of columns.unresolvedHeaders) unresolvedHeaders.add(header);
 
     for (const tr of trs.slice(1)) {
       const rawCells = rawCellsOf($, tr);
@@ -212,5 +236,9 @@ export function parseAggregatorRows(
     }
   });
 
-  return { rows, skipped };
+  return {
+    rows,
+    skipped,
+    unresolvedColumns: [...unresolvedHeaders].map((header) => ({ header })),
+  };
 }
