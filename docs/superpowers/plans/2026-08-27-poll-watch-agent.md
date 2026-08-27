@@ -64,6 +64,7 @@ Tests run with `npm test` (`vitest run`). Vitest picks up `scripts/**/*.test.ts`
 | `scripts/agent/leads/triage.ts` | Model-triage harvested links into leads |
 | `scripts/agent/extract.ts` | Model extraction of one document into an `Extraction` |
 | `scripts/agent/fetchDocument.ts` | Fetch a lead URL as text (HTML or PDF) |
+| `scripts/agent/resolveDocument.ts` | Follow a report page to its linked PDF/CSV when it has no table |
 | `scripts/agent/crosscheck.ts` | Diff an extraction against an aggregator row |
 | `scripts/agent/ids.ts` | Assign a poll id without renaming existing polls |
 | `scripts/agent/merge.ts` | Merge new polls into the existing array |
@@ -2200,6 +2201,191 @@ git commit -m "Fetch lead documents as text (HTML or PDF)"
 
 ---
 
+## Task 13b: Follow a report page to its linked PDF/CSV
+
+Discovered during Task 13's review: the existing deterministic pipeline's Focus fetcher
+(`scripts/ingestion/fetchers/focus.ts`) does a **two-hop** fetch — list page → report page
+→ PDF or CSV — because a Focus report page frequently has no data table of its own; the
+real numbers are only in a linked "Tlačová správa" PDF or a "Stiahnuť údaje" CSV. Confirmed
+against the live site during review: recent Focus report pages contain zero `<table>`
+elements and the poll percentages only appear in the linked PDF.
+
+`scripts/agent/leads/links.ts` (Task 9) and `scripts/agent/leads/triage.ts` (Task 11) are
+single-hop by design — the triaged lead URL is fetched directly. Without this task, a
+triaged Focus lead would almost always be a report page with no extractable numbers, and
+`extractPoll` would report "no text" or an ambiguous document every week — a silent,
+agency-specific failure that would be easy to miss for a while, since the AKO and Ipsos
+paths (confirmed single-hop: their list pages link PDFs directly) would keep working fine.
+
+This task adds one hop, decided by structure rather than by hardcoding Focus's page markup:
+if a fetched HTML lead has no `<table>` and links to exactly one PDF or CSV, follow it. An
+ambiguous page (no such link, or more than one) is used as-is — consistent with this
+project's "report rather than guess" design — rather than guessing which link is the real
+release.
+
+**Files:**
+- Create: `scripts/agent/resolveDocument.ts`
+- Test: `scripts/agent/resolveDocument.test.ts`
+
+- [ ] **Step 1: Write the failing test**
+
+Create `scripts/agent/resolveDocument.test.ts`:
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { decideReportPageAction } from './resolveDocument.ts';
+
+describe('decideReportPageAction', () => {
+  it('uses the page as-is when it already has a table', () => {
+    const html = '<body><table><tr><td>PS</td><td>20,8</td></tr></table></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('follows a single PDF link when the page has no table', () => {
+    const html = '<body><a href="/tlacova-sprava.pdf">Tlačová správa</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'follow',
+      url: 'https://example.sk/tlacova-sprava.pdf',
+    });
+  });
+
+  it('follows a single CSV link when the page has no table', () => {
+    const html = '<body><a href="/data.csv">Stiahnuť údaje</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'follow',
+      url: 'https://example.sk/data.csv',
+    });
+  });
+
+  it('uses the page as-is when there is no table and no PDF/CSV link', () => {
+    const html = '<body><p>No data here.</p></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('uses the page as-is when multiple PDF/CSV links make the choice ambiguous', () => {
+    const html = '<body><a href="/a.pdf">A</a><a href="/b.pdf">B</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('treats even an empty table as having its own data structure, never overriding it', () => {
+    const html = '<body><table></table><a href="/x.pdf">X</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+});
+```
+
+- [ ] **Step 2: Run it and watch it fail**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: FAIL — cannot find module `./resolveDocument.ts`.
+
+- [ ] **Step 3: Implement**
+
+Create `scripts/agent/resolveDocument.ts`:
+
+```typescript
+import * as cheerio from 'cheerio';
+import { fetchText } from '../ingestion/fetch/shared.ts';
+import { fetchDocument, type FetchedDoc } from './fetchDocument.ts';
+import { harvestLinks } from './leads/links.ts';
+
+export type ReportPageDecision =
+  | { action: 'use-as-is' }
+  | { action: 'follow'; url: string };
+
+/**
+ * Decide whether a fetched HTML report page already contains its own poll data (a table)
+ * or should be followed to a linked PDF/CSV release instead. Mirrors what the existing
+ * deterministic Focus fetcher does (scripts/ingestion/fetchers/focus.ts): follow only when
+ * there is no table AND exactly one PDF/CSV link. An ambiguous page (none, or more than
+ * one) is used as-is rather than guessed at — extraction will then report it found no
+ * usable data, which surfaces in the PR rather than silently picking the wrong link.
+ */
+export function decideReportPageAction(html: string, baseUrl: string): ReportPageDecision {
+  const $ = cheerio.load(html);
+  if ($('table').length > 0) return { action: 'use-as-is' };
+
+  const candidates = harvestLinks(html, baseUrl).filter((link) =>
+    /\.(pdf|csv)(\?|$)/i.test(link.url),
+  );
+  if (candidates.length !== 1) return { action: 'use-as-is' };
+
+  return { action: 'follow', url: candidates[0]!.url };
+}
+
+/**
+ * Fetch a lead URL, following one hop to a linked PDF/CSV when the page itself has no
+ * table. Falls back to the originally fetched document on any error along the way — a
+ * lead is never lost just because the follow-up hop failed.
+ */
+export async function resolveLeadDocument(url: string): Promise<FetchedDoc> {
+  const initial = await fetchDocument(url);
+  if (initial.kind !== 'html') return initial;
+
+  let html: string;
+  try {
+    html = await fetchText(url);
+  } catch {
+    return initial;
+  }
+
+  const decision = decideReportPageAction(html, url);
+  if (decision.action === 'use-as-is') return initial;
+
+  try {
+    return await fetchDocument(decision.url);
+  } catch {
+    return initial;
+  }
+}
+```
+
+- [ ] **Step 4: Run the test**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: PASS, 6 tests.
+
+- [ ] **Step 5: Live-check against the real Focus report page**
+
+```bash
+npx tsx -e "
+import { decideReportPageAction } from './scripts/agent/resolveDocument.ts';
+import { fetchText } from './scripts/ingestion/fetch/shared.ts';
+const html = await fetchText('https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-jun-2026/');
+console.log(decideReportPageAction(html, 'https://www.focus-research.sk/'));
+"
+```
+
+(Adjust the URL to whatever the current latest Focus report page actually is — check
+`https://www.focus-research.sk/press-centrum/` for the real slug if the one above 404s.)
+
+Expected: `{ action: 'follow', url: '...pdf' }` (or a CSV URL). If it prints
+`{ action: 'use-as-is' }`, read the fetched HTML and check whether the page actually has a
+table (in which case `use-as-is` is correct) or whether the PDF/CSV link uses a pattern
+`decideReportPageAction`'s regex doesn't catch — widen the regex if so, and add a
+regression test using a small inline excerpt of the real link markup.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add scripts/agent/resolveDocument.ts scripts/agent/resolveDocument.test.ts
+git commit -m "Follow a report page to its linked PDF/CSV when it has no table"
+```
+
+**Note for Task 18:** `run.ts`'s `processLead` must call `resolveLeadDocument(lead.url)`,
+not `fetchDocument(lead.url)` directly — the orchestration code below has been written
+with this already in mind.
+
+---
+
 ## Task 14: Poll id assignment
 
 Ids must be stable. `src/features/coalitions/coalitionStorage.ts` persists a `pollId` in the visitor's localStorage, so renaming an existing poll's id silently breaks a saved coalition. This assigner therefore only ever names *new* polls and treats every existing id as taken.
@@ -2918,7 +3104,7 @@ import { createModelClient, type ModelClient } from './claude.ts';
 import { AGENT_AGENCIES, AGENT_CONFIG, type AgentAgency } from './config.ts';
 import { crossCheck } from './crosscheck.ts';
 import { extractPoll } from './extract.ts';
-import { fetchDocument } from './fetchDocument.ts';
+import { resolveLeadDocument } from './resolveDocument.ts';
 import { checkGrounding } from './grounding.ts';
 import { parseAggregatorRows } from './leads/aggregatorTable.ts';
 import { harvestLinks } from './leads/links.ts';
@@ -3055,7 +3241,7 @@ async function processLead(
 
   let document;
   try {
-    document = await fetchDocument(lead.url);
+    document = await resolveLeadDocument(lead.url);
   } catch (error) {
     report.reason = shortFetchError(error);
     return { report, poll: null };
