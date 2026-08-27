@@ -1,5 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
-import { isFatalApiError, withRetry } from './claude.ts';
+
+const AnthropicMock = vi.fn();
+vi.mock('@anthropic-ai/sdk', () => ({ default: AnthropicMock }));
+
+const { isFatalApiError, withRetry, createModelClient } = await import('./claude.ts');
 
 function httpError(status: number): Error {
   return Object.assign(new Error(`HTTP ${status}`), { status });
@@ -49,5 +53,14 @@ describe('withRetry', () => {
     const fn = vi.fn().mockRejectedValue(httpError(400));
     await expect(withRetry(fn, { baseDelayMs: 0 })).rejects.toThrow('HTTP 400');
     expect(fn).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('createModelClient', () => {
+  it('disables the SDK client\'s own retries by default, so withRetry is the sole retry layer', () => {
+    AnthropicMock.mockClear();
+    createModelClient();
+    expect(AnthropicMock).toHaveBeenCalledTimes(1);
+    expect(AnthropicMock).toHaveBeenCalledWith({ maxRetries: 0 });
   });
 });

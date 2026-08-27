@@ -55,8 +55,13 @@ export interface ModelClient {
 /**
  * Anthropic-backed ModelClient. Credentials come from ANTHROPIC_API_KEY in the
  * environment; the SDK reads it itself.
+ *
+ * maxRetries: 0 disables the SDK's own internal retries — withRetry above is the
+ * sole retry layer. Without this, the two layers stack (withRetry's 3 attempts each
+ * triggering up to 3 SDK-internal attempts) into up to 9 real HTTP calls with two
+ * independently-compounding exponential backoffs. Do not remove this as "redundant".
  */
-export function createModelClient(client: Anthropic = new Anthropic()): ModelClient {
+export function createModelClient(client: Anthropic = new Anthropic({ maxRetries: 0 })): ModelClient {
   return {
     async parseJson<T>({
       model,
