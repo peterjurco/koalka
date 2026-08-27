@@ -1,0 +1,13 @@
+{
+  "name": "koalka",
+  "compatibility_date": "2026-08-27",
+  "assets": {
+    "directory": "./dist"
+  },
+  // Two patterns: "/koalka/*" does not match a bare "/koalka".
+  // "*peterjur.co" (no dot) covers the apex and all subdomains.
+  "routes": [
+    { "pattern": "*peterjur.co/koalka", "zone_name": "peterjur.co" },
+    { "pattern": "*peterjur.co/koalka/*", "zone_name": "peterjur.co" }
+  ]
+}
