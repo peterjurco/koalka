@@ -3381,6 +3381,30 @@ git commit -m "Drop NMS: configured for years, never produced a poll"
 
 **Files:**
 - Create: `.github/workflows/poll-watch.yml`
+- Modify: `.gitignore`
+
+- [ ] **Step 0: Stop .gitignore from swallowing the run report**
+
+`.gitignore` line 2 is a bare `logs`, which matches any directory named `logs` anywhere in
+the tree — it is why `scripts/ingestion/logs/` has never been tracked. Left alone, the
+workflow's `git add scripts/agent/logs` would silently add nothing and the PR would arrive
+with no report, which is the one artifact the review depends on. A negation cannot rescue
+a file whose parent directory is excluded, so the directory itself must be un-ignored.
+
+Add immediately after the `logs` line in `.gitignore`:
+
+```gitignore
+!scripts/agent/logs/
+!scripts/agent/logs/**
+```
+
+Verify:
+
+```bash
+git check-ignore -v scripts/agent/logs/pr-body.md; echo "exit: $?"
+```
+Expected: exit `1` and no output — meaning the path is **not** ignored. (`git check-ignore`
+exits 1 when nothing matches.)
 
 - [ ] **Step 1: Add the repository secret**
 
