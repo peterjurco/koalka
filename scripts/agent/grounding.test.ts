@@ -83,4 +83,24 @@ describe('checkGrounding', () => {
     expect(result.grounded).toBe(false);
     expect(result.reason).toMatch(/party name not found/i);
   });
+
+  it('grounds a party name split across a few blank lines (realistic PDF table padding)', () => {
+    // A slightly larger, but still realistic, whitespace-only gap than a single blank
+    // line: a few stacked line breaks, as PDF extraction sometimes produces between
+    // wrapped table rows. This must still match.
+    const doc = 'Strana\n\n\n\nvidieka 0,3 %';
+    const [result] = checkGrounding(doc, [{ party: 'Strana vidieka', percent: 0.3 }]);
+    expect(result.grounded).toBe(true);
+  });
+
+  it('does not bridge an arbitrarily long whitespace run to a word from an unrelated mention', () => {
+    // Regression test for the unbounded `\s+` in the word-joining regex: "Progresivne"
+    // here is followed by hundreds of characters of blank lines (a page-break / footer
+    // artifact) before "Slovensko" reappears — but that "Slovensko" belongs to a wholly
+    // unrelated GDP sentence, not to "Progresivne Slovensko" the party. The 20,8 next to
+    // it is a GDP figure, not this party's poll number, and must not be grounded as one.
+    const doc = 'Progresivne' + '\n'.repeat(300) + 'Slovensko ma HDP 20,8 % rocne';
+    const [result] = checkGrounding(doc, [{ party: 'Progresivne Slovensko', percent: 20.8 }]);
+    expect(result.grounded).toBe(false);
+  });
 });

@@ -25,6 +25,18 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/**
+ * Max whitespace characters allowed to bridge two words of a party name in the search
+ * regex below. Must comfortably cover realistic PDF-extraction artifacts — a line wrap,
+ * a blank line, or a couple of stacked blank lines with ragged table padding — while
+ * staying far short of a gap that could plausibly separate two unrelated mentions in a
+ * document (e.g. a page break or the space between sections, which run to hundreds of
+ * characters). 24 covers roughly six blank lines' worth of `\n`, well beyond anything a
+ * single wrapped/padded name should produce, with a wide margin under real cross-section
+ * gaps.
+ */
+const MAX_NAME_WORD_GAP = 24;
+
 /** Every way an agency might print this number: 17.8, 17,8, and for integers also 8,0. */
 function numberVariants(value: number): string[] {
   const plain = String(value);
@@ -69,12 +81,16 @@ export function checkGrounding(
     // across a run of whitespace in the source — a blank line or ragged column
     // padding inside a PDF-extracted table — won't match as an exact substring even
     // though it's the same name. Search with a regex instead: split the (already
-    // folded) name on whitespace and let any run of whitespace in the document
-    // bridge the words. This keeps the whitespace tolerance scoped to name matching
-    // only — the window check below still uses true character distance from the
-    // actual matched span, not the original needle's length.
+    // folded) name on whitespace and let a *bounded* run of whitespace in the
+    // document bridge the words (see MAX_NAME_WORD_GAP). Bounding it matters: an
+    // unbounded `\s+` here previously let two words from two unrelated mentions,
+    // separated by an arbitrarily long blank-line run, get treated as one match —
+    // silently grounding a value that belongs to different text entirely. This keeps
+    // the whitespace tolerance scoped to name matching only — the window check below
+    // still uses true character distance from the actual matched span, not the
+    // original needle's length.
     const words = needle.split(' ').filter((word) => word.length > 0);
-    const pattern = words.map(escapeRegExp).join('\\s+');
+    const pattern = words.map(escapeRegExp).join(`\\s{1,${MAX_NAME_WORD_GAP}}`);
     const match = pattern.length > 0 ? new RegExp(pattern).exec(doc) : null;
 
     if (!match) {
