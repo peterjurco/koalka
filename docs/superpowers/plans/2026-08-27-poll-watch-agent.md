@@ -1633,7 +1633,7 @@ export function createModelClient(client: Anthropic = new Anthropic()): ModelCli
 - [ ] **Step 4: Run the test**
 
 Run: `npx vitest run scripts/agent/claude.test.ts`
-Expected: PASS, 9 tests.
+Expected: PASS, 8 tests.
 
 - [ ] **Step 5: Type-check**
 
