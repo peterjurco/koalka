@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "ingest": "tsx scripts/ingestion/run.ts",
+    "ingest:agent": "tsx scripts/agent/run.ts",
     "mandates": "tsx scripts/addSeatProjections.ts",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -20,6 +21,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.121.0",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
