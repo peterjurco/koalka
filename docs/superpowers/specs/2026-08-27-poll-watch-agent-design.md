@@ -78,23 +78,28 @@ Weekly, Monday 06:00 UTC, plus manual dispatch.
 5. **Ground** — for each `(party, value)` pair, verify the number appears in the source
    text near that party's name, handling `17,8`, `17.8` and `17,8 %`. Pure string
    matching, no second model call. A hallucinated digit is not in the document.
-   Grounding failure is a **PR flag, not a hard block** — some agencies publish values
-   only inside chart images, where verbatim matching cannot succeed.
+   Grounding failure is a **PR flag, not a hard block**: the poll is still ingested and
+   the failing pairs are listed in the PR's "needs your attention" section. Some agencies
+   publish values only inside chart images, where verbatim matching cannot succeed, so a
+   hard block would stall those agencies permanently.
 
 6. **Normalize → validate** — the existing `scripts/ingestion/normalize` and
    `scripts/ingestion/validate` stages, unchanged.
 
 7. **Cross-check** — where an aggregator row exists for the same poll, diff fieldwork
-   dates, sample size, and per-party values. Mismatches are recorded as warnings.
+   dates, sample size, and per-party values. Tolerance: party values within 0.1 pp are
+   equal, dates and sample size must match exactly. Mismatches are recorded as warnings,
+   never blocks — the aggregator is secondhand and can itself be wrong or stale.
 
 8. **Merge** — insert into `polls.json`, honouring `processedDataUntil` and never
    overwriting an existing poll; re-sort by `fieldworkStart`. Then recompute
    `metadata.seatProjection` for the new polls using the existing Hagenbach-Bischoff
    allocation in `src/core/allocation/`.
 
-9. **Report + PR** — write `scripts/ingestion/logs/agent-run-YYYY-MM-DD.json`, commit to
-   branch `polls/auto-YYYY-MM-DD`, open a PR whose body is rendered *from the report* by
-   deterministic code, not written by the model.
+9. **Report + PR** — write `scripts/agent/logs/agent-run-YYYY-MM-DD.json`, commit to
+   branch `polls/auto-YYYY-Www` (ISO week, so a manual run in the same week updates the
+   scheduled run's PR instead of opening a second one), open a PR whose body is rendered
+   *from the report* by deterministic code, not written by the model.
 
 ## Modules
 
@@ -175,8 +180,8 @@ is added later, these PRs will need a PAT or app token for it to run.
   the working tree untouched.
 - Anthropic API errors retry three times with backoff, then fail the job. A failed Action
   emails the maintainer, distinguishing "the agent is broken" from "no new polls".
-- Re-running in the same week reuses the branch and force-updates it rather than opening a
-  second PR.
+- Re-running in the same ISO week reuses branch `polls/auto-YYYY-Www` and force-updates
+  it rather than opening a second PR. An existing open PR for that branch is reused.
 - The job never pushes to `main` and has no path that could.
 
 ## Testing
