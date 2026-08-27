@@ -119,9 +119,12 @@ export and types unchanged.
 | `claude.ts` | Anthropic SDK wrapper — model ids, retries, structured output | no |
 | `run.ts` | orchestration only, no logic | no |
 
-**Models:** Sonnet 5 (`claude-sonnet-5`) for extraction, Haiku 4.5
-(`claude-haiku-4-5-20251001`) for link triage. At roughly three polls a month the cost is
-negligible; Sonnet is the right tier for reading a table.
+**Models:** Opus 5 (`claude-opus-5`) for extraction, Haiku 4.5 (`claude-haiku-4-5`) for
+link triage, both set in one config constant. Extraction accuracy is the entire point of
+this design and the volume is roughly three documents a month, so the cost difference
+between tiers is a few cents a year — not a reason to run the accuracy-critical step on a
+smaller model. Triage is low-stakes and its output is filtered against the harvested link
+list, so Haiku is the right tier there.
 
 **CLI:** `npm run ingest:agent`, with `--dry-run` (everything except writing and opening
 the PR), `--agency=`, and `--since=` for debugging.
@@ -186,8 +189,11 @@ is added later, these PRs will need a PAT or app token for it to run.
 
 ## Testing
 
-Vitest is already configured. Fixtures in `scripts/agent/__fixtures__/`: a real AKO PDF
-text dump, a Focus report page, an Ipsos PDF text dump, a Wikipedia table snapshot.
+Vitest is already configured. Fixtures are written inline in the test files — a few
+representative lines of PDF text, a small HTML table — so the suite is fast, deterministic
+and readable. Parsers that face a live page (the aggregator table, agency link pages) get
+one additional check against a freshly fetched snapshot during implementation, and any
+structural difference found there becomes an inline regression test.
 
 Unit tests:
 
@@ -202,5 +208,8 @@ Unit tests:
   dedupes on `(agency, fieldworkStart, fieldworkEnd)`, keeps sort order.
 - `report` — renders unmapped parties, grounding failures and mismatches into the body.
 
-`extract` is tested against the fixtures with a mocked Claude client returning canned
-responses. One live test exercising the real API, skipped by default.
+`extract` and `triage` are tested with a fake `ModelClient` returning canned responses,
+including a hallucinated URL that must be filtered out. The real API is exercised once
+during implementation by a `--dry-run --since=` replay over polls already in the file: the
+extracted values must match what is already there, which tests extraction and grounding
+end to end against real documents without adding a flaky networked test to the suite.
