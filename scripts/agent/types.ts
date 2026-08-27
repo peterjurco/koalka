@@ -73,5 +73,11 @@ export interface AgentRunReport {
   watermarks: Record<string, string | null>;
   leadCount: number;
   leads: LeadReport[];
+  /**
+   * Polls the aggregator lists for a watched agency, newer than the watermark, that no
+   * agency-site lead matched. The agent does not chase these — it reports them so a human
+   * can add the poll by hand.
+   */
+  aggregatorGaps: AggregatorRow[];
   addedPolls: NormalizedPoll[];
 }
