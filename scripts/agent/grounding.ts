@@ -63,9 +63,21 @@ export function checkGrounding(
 
   return results.map(({ party, percent }) => {
     const needle = fold(party);
-    const at = doc.indexOf(needle);
+    // `doc.indexOf(needle)` would require exact whitespace equality between the
+    // party name and its occurrence in the document. But `fold()` deliberately no
+    // longer collapses whitespace runs (see its docstring), so a party name split
+    // across a run of whitespace in the source — a blank line or ragged column
+    // padding inside a PDF-extracted table — won't match as an exact substring even
+    // though it's the same name. Search with a regex instead: split the (already
+    // folded) name on whitespace and let any run of whitespace in the document
+    // bridge the words. This keeps the whitespace tolerance scoped to name matching
+    // only — the window check below still uses true character distance from the
+    // actual matched span, not the original needle's length.
+    const words = needle.split(' ').filter((word) => word.length > 0);
+    const pattern = words.map(escapeRegExp).join('\\s+');
+    const match = pattern.length > 0 ? new RegExp(pattern).exec(doc) : null;
 
-    if (at < 0) {
+    if (!match) {
       return {
         party,
         value: percent,
@@ -74,9 +86,10 @@ export function checkGrounding(
       };
     }
 
+    const at = match.index;
     const slice = doc.slice(
       Math.max(0, at - window),
-      at + needle.length + window,
+      at + match[0].length + window,
     );
 
     return numberAppears(slice, percent)

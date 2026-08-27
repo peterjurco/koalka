@@ -68,4 +68,19 @@ describe('checkGrounding', () => {
     const [result] = checkGrounding(doc, [{ party: 'Demokrati', percent: 42.1 }], 160);
     expect(result.grounded).toBe(false);
   });
+
+  it('grounds a party name split across a run of whitespace (e.g. a blank line in a PDF-extracted table)', () => {
+    const doc = 'Strana\n\nvidieka 0,3 %';
+    const [result] = checkGrounding(doc, [{ party: 'Strana vidieka', percent: 0.3 }]);
+    expect(result.grounded).toBe(true);
+  });
+
+  it('does not cross-match word fragments of two different party names separated by real text', () => {
+    // "Strana" ends one party's name and "vidieka" starts an unrelated one further down —
+    // a whitespace-only regex must not bridge the non-whitespace text between them.
+    const doc = 'Strana zelenych 4,2 %\nSloboda a vidieka 3,1 %';
+    const [result] = checkGrounding(doc, [{ party: 'Strana vidieka', percent: 0.3 }]);
+    expect(result.grounded).toBe(false);
+    expect(result.reason).toMatch(/party name not found/i);
+  });
 });
