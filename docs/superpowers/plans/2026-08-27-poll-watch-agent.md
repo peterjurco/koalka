@@ -3382,7 +3382,20 @@ async function main(): Promise<void> {
   }
 
   const aggregatorRows = await findAggregatorRows(watermarks);
-  let leads = siteLeads;
+
+  // Leads are not deduped upstream: findSiteLeads runs triage independently per list
+  // page, so the same release (e.g. linked from both an agency's homepage and its press
+  // page) can surface as two Lead entries with an identical url. The report-attribution
+  // lookups below (merged.rejected and merged.added, both keyed by r.url ===
+  // poll.sourceUrl) assume url is unique per lead — a duplicate would make Array.find
+  // match the wrong report. Dedupe here, keeping the first occurrence, so that
+  // assumption actually holds.
+  const seenLeadUrls = new Set<string>();
+  let leads = siteLeads.filter((lead) => {
+    if (seenLeadUrls.has(lead.url)) return false;
+    seenLeadUrls.add(lead.url);
+    return true;
+  });
 
   if (leads.length > AGENT_CONFIG.maxLeadsPerRun) {
     log(
