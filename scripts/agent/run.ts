@@ -91,13 +91,19 @@ async function findSiteLeads(
     const links = harvestLinks(html, listUrl);
     debug(`${agency}: ${links.length} links on ${listUrl}`);
 
-    const triaged = await triageLinks({
-      agency,
-      watermark,
-      links,
-      client,
-      model: AGENT_CONFIG.models.triage,
-    });
+    let triaged;
+    try {
+      triaged = await triageLinks({
+        agency,
+        watermark,
+        links,
+        client,
+        model: AGENT_CONFIG.models.triage,
+      });
+    } catch (error) {
+      log(`  ${agency}: triage failed for ${listUrl} — ${shortFetchError(error)}`);
+      continue;
+    }
 
     for (const candidate of triaged) {
       leads.push({
@@ -115,6 +121,7 @@ async function findSiteLeads(
 /** Aggregator rows newer than their agency's watermark. */
 async function findAggregatorRows(
   watermarks: Record<string, string | null>,
+  agencies: readonly AgentAgency[],
 ): Promise<AggregatorRow[]> {
   let html: string;
   try {
@@ -124,7 +131,7 @@ async function findAggregatorRows(
     return [];
   }
 
-  const { rows, skipped } = parseAggregatorRows(html, AGENT_AGENCIES);
+  const { rows, skipped } = parseAggregatorRows(html, agencies);
   if (skipped.length > 0) debug(`aggregator: ${skipped.length} unparseable rows`);
 
   return rows.filter((row) => {
@@ -162,13 +169,19 @@ async function processLead(
     return { report, poll: null };
   }
 
-  const extracted = await extractPoll({
-    docText: document.text,
-    url: lead.url,
-    agency: lead.agency,
-    client,
-    model: AGENT_CONFIG.models.extraction,
-  });
+  let extracted;
+  try {
+    extracted = await extractPoll({
+      docText: document.text,
+      url: lead.url,
+      agency: lead.agency,
+      client,
+      model: AGENT_CONFIG.models.extraction,
+    });
+  } catch (error) {
+    report.reason = `extraction failed: ${shortFetchError(error)}`;
+    return { report, poll: null };
+  }
 
   if ('error' in extracted) {
     report.reason = extracted.error;
@@ -265,7 +278,7 @@ async function main(): Promise<void> {
     siteLeads.push(...(await findSiteLeads(agency, watermarks[agency] ?? null, client)));
   }
 
-  const aggregatorRows = await findAggregatorRows(watermarks);
+  const aggregatorRows = await findAggregatorRows(watermarks, agencies);
 
   // Leads are not deduped upstream: findSiteLeads runs triage independently per list
   // page, so the same release (e.g. linked from both an agency's homepage and its press
