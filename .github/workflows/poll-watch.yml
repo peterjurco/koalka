@@ -18,6 +18,9 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # Assignee management (gh pr create --assignee) goes through the Issues API even for
+  # pull requests, so pull-requests: write alone isn't enough — needs issues: write too.
+  issues: write
 
 concurrency:
   group: poll-watch
