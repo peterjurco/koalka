@@ -1,6 +1,6 @@
 import type { NormalizedPoll, PollAgency, SkipReason } from '../types.ts';
 
-const AGENCIES: PollAgency[] = ['Focus', 'AKO', 'Ipsos', 'NMS'];
+const AGENCIES: PollAgency[] = ['Focus', 'AKO', 'Ipsos'];
 const YYYY_MM_DD = /^\d{4}-\d{2}-\d{2}$/;
 
 export interface ValidationOptions {

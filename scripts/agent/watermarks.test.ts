@@ -21,7 +21,7 @@ describe('computeWatermarks', () => {
 
   it('ignores agencies that are not being watched', () => {
     const result = computeWatermarks(
-      [...polls, { agency: 'NMS', fieldworkEnd: '2026-08-01' }],
+      [...polls, { agency: 'Other', fieldworkEnd: '2026-08-01' }],
       ['AKO', 'Focus', 'Ipsos'],
     );
     expect(Object.keys(result).sort()).toEqual(['AKO', 'Focus', 'Ipsos']);

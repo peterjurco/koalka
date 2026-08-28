@@ -1,6 +1,6 @@
 # Slovak Parliamentary Polls Ingestion Pipeline
 
-Reproducible pipeline: **fetch → parse → normalize → validate → export**. Produces one JSON file of Slovak parliamentary opinion polls (2020–present) from Focus, AKO, Ipsos, and NMS.
+Reproducible pipeline: **fetch → parse → normalize → validate → export**. Produces one JSON file of Slovak parliamentary opinion polls (2020–present) from Focus, AKO, and Ipsos.
 
 ## Run
 
@@ -66,7 +66,6 @@ Each agency expects **pages the pipeline can fetch** that contain (or link to) *
 | Agency | What to use | Example / notes |
 |--------|-------------|------------------|
 | **AKO** | Official archive page that **lists PDFs** of monthly polls. The pipeline fetches this HTML; the parser can be extended to discover `href="*.pdf"` and fetch each PDF. PDFs are usually under `ako.sk/wp-content/uploads/.../ag.AKO_VOLEBNE_PREF_*.pdf`. | `https://ako.sk/referencie/prieskumy-volebnych-preferencii/` |
-| **NMS** | NMS Market Research = **nms-mr.com** (not nms.sk). Use a blog/news/category URL if they publish poll releases with full tables; otherwise use a **media URL** that republishes NMS results with sample size. | `https://www.nms-mr.com/` (replace with actual blog or article list if you find one) |
 | **Ipsos** | **Denník N** often publishes Ipsos polls. There is no single “tag” page that works; use **direct URLs of articles** that contain the Ipsos poll table and sample size. Add more URLs to include more months. | Search “Ipsos prieskum” on dennikn.sk and add the article URLs to `listUrls`. |
 | **Focus** | **focus-research.sk** press centrum: the fetcher loads the list page and collects all "Volebné preferencie politických strán" report URLs (parliamentary only; excludes presidential). Each report page is fetched; if it has no HTML table, the "Tlačová správa" PDF is fetched. CSV from "Stiahnuť údaje" is used when present. | Single list URL: `https://www.focus-research.sk/press-centrum/` |
 
