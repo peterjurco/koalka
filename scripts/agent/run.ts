@@ -118,7 +118,9 @@ async function findSiteLeads(
   return leads;
 }
 
-/** Aggregator rows newer than their agency's watermark. */
+/** Aggregator rows newer than their agency's watermark. Scoped to the (possibly
+ * --agency-filtered) agencies actually being watched this run, so a filtered run's
+ * report doesn't list every historical row for an out-of-scope agency as a "gap". */
 async function findAggregatorRows(
   watermarks: Record<string, string | null>,
   agencies: readonly AgentAgency[],
