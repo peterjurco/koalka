@@ -1,0 +1,86 @@
+name: Poll watch
+
+on:
+  schedule:
+    # Mondays 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      agency:
+        description: 'Limit to one agency (AKO, Focus, Ipsos). Empty = all.'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Do everything except writing polls.json and opening a PR'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: poll-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run the poll watch agent
+        id: agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENCY: ${{ github.event.inputs.agency }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          ARGS=""
+          if [ -n "${AGENCY:-}" ]; then
+            ARGS="$ARGS --agency=$AGENCY"
+          fi
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          npm run ingest:agent -- $ARGS
+
+      - name: Open or update the PR
+        if: steps.agent.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # One branch per ISO week, so a manual re-run updates the scheduled run's PR
+          # instead of opening a second one. The branch is bot-owned; force-push is safe.
+          BRANCH="polls/auto-$(date -u +%G-W%V)"
+
+          git config user.name "poll-watch[bot]"
+          git config user.email "poll-watch@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add public/data/sk/polls.json scripts/agent/logs
+          git commit -F scripts/agent/logs/commit-message.txt
+          git push --force origin "$BRANCH"
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$EXISTING" ]; then
+            gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "$(head -n 1 scripts/agent/logs/commit-message.txt)" \
+              --body-file scripts/agent/logs/pr-body.md \
+              --assignee peterjurco \
+              --reviewer peterjurco
+          else
+            gh pr edit "$EXISTING" --body-file scripts/agent/logs/pr-body.md
+            gh pr comment "$EXISTING" --body "Re-run on $(date -u +%F) updated this PR."
+          fi
