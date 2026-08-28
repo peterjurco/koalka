@@ -3646,10 +3646,12 @@ Add immediately after the `logs` line in `.gitignore`:
 Verify:
 
 ```bash
-git check-ignore -v scripts/agent/logs/pr-body.md; echo "exit: $?"
+git check-ignore scripts/agent/logs/pr-body.md; echo "exit: $?"
 ```
-Expected: exit `1` and no output — meaning the path is **not** ignored. (`git check-ignore`
-exits 1 when nothing matches.)
+Expected: exit `1` and no output — meaning the path is **not** ignored. **Do not add `-v`
+to this check**: on some git versions, `-v` prints the matching pattern (correctly showing
+the negation rule) but still reports exit code `0`, which looks like a failure but isn't —
+the plain (no `-v`) form is the one whose exit code is reliable here.
 
 - [ ] **Step 1: Add the repository secret**
 
