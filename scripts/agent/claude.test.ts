@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { z } from 'zod';
 
 const AnthropicMock = vi.fn();
 vi.mock('@anthropic-ai/sdk', () => ({ default: AnthropicMock }));
@@ -62,5 +63,46 @@ describe('createModelClient', () => {
     createModelClient();
     expect(AnthropicMock).toHaveBeenCalledTimes(1);
     expect(AnthropicMock).toHaveBeenCalledWith({ maxRetries: 0 });
+  });
+});
+
+describe('createModelClient().parseJson request shape', () => {
+  const schema = z.object({ ok: z.boolean() });
+
+  function fakeAnthropicClient(parsedOutput: unknown = { ok: true }) {
+    return {
+      messages: {
+        parse: vi.fn().mockResolvedValue({ parsed_output: parsedOutput }),
+      },
+    } as unknown as import('@anthropic-ai/sdk').default;
+  }
+
+  it('omits output_config.effort entirely when the caller does not pass one', async () => {
+    // Some models (e.g. Haiku 4.5) return a 400 "This model does not support the effort
+    // parameter" if effort is sent at all — a live GitHub Actions run caught this for
+    // real when triage.ts unconditionally passed effort: 'low'.
+    const fakeClient = fakeAnthropicClient();
+    const client = createModelClient(fakeClient);
+
+    await client.parseJson({ model: 'claude-haiku-4-5', system: 's', user: 'u', schema });
+
+    const call = (fakeClient.messages.parse as ReturnType<typeof vi.fn>).mock.calls[0]![0];
+    expect(call.output_config).not.toHaveProperty('effort');
+  });
+
+  it('includes output_config.effort when the caller explicitly passes one', async () => {
+    const fakeClient = fakeAnthropicClient();
+    const client = createModelClient(fakeClient);
+
+    await client.parseJson({
+      model: 'claude-opus-5',
+      system: 's',
+      user: 'u',
+      schema,
+      effort: 'high',
+    });
+
+    const call = (fakeClient.messages.parse as ReturnType<typeof vi.fn>).mock.calls[0]![0];
+    expect(call.output_config.effort).toBe('high');
   });
 });

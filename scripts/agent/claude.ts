@@ -44,6 +44,11 @@ export interface ParseJsonParams<T> {
   user: string;
   schema: z.ZodType<T>;
   maxTokens?: number;
+  /**
+   * Omit for a model that doesn't support the effort parameter at all (e.g. Haiku 4.5) —
+   * sending it anyway returns a 400 "This model does not support the effort parameter."
+   * Only included in the request when explicitly provided.
+   */
   effort?: 'low' | 'medium' | 'high' | 'xhigh' | 'max';
 }
 
@@ -69,7 +74,7 @@ export function createModelClient(client: Anthropic = new Anthropic({ maxRetries
       user,
       schema,
       maxTokens = 16000,
-      effort = 'high',
+      effort,
     }: ParseJsonParams<T>): Promise<T | null> {
       const response = await withRetry(() =>
         client.messages.parse({
@@ -79,7 +84,7 @@ export function createModelClient(client: Anthropic = new Anthropic({ maxRetries
           messages: [{ role: 'user', content: user }],
           output_config: {
             format: zodOutputFormat(schema as never),
-            effort,
+            ...(effort != null ? { effort } : {}),
           },
         }),
       );

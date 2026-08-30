@@ -76,7 +76,8 @@ export async function triageLinks({
     user,
     schema: TriageSchema,
     maxTokens: 2000,
-    effort: 'low',
+    // No effort param: the triage model (Haiku 4.5) doesn't support it at all — sending
+    // it returns a 400 "This model does not support the effort parameter."
   });
 
   if (parsed == null) return [];
