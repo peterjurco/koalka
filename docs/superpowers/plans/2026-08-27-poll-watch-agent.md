@@ -1591,6 +1591,11 @@ export interface ParseJsonParams<T> {
   user: string;
   schema: z.ZodType<T>;
   maxTokens?: number;
+  /**
+   * Omit for a model that doesn't support the effort parameter at all (e.g. Haiku 4.5) —
+   * sending it anyway returns a 400 "This model does not support the effort parameter."
+   * Only included in the request when explicitly provided.
+   */
   effort?: 'low' | 'medium' | 'high' | 'xhigh' | 'max';
 }
 
@@ -1611,7 +1616,7 @@ export function createModelClient(client: Anthropic = new Anthropic()): ModelCli
       user,
       schema,
       maxTokens = 16000,
-      effort = 'high',
+      effort,
     }: ParseJsonParams<T>): Promise<T | null> {
       const response = await withRetry(() =>
         client.messages.parse({
@@ -1621,7 +1626,7 @@ export function createModelClient(client: Anthropic = new Anthropic()): ModelCli
           messages: [{ role: 'user', content: user }],
           output_config: {
             format: zodOutputFormat(schema as never),
-            effort,
+            ...(effort != null ? { effort } : {}),
           },
         }),
       );
@@ -1647,6 +1652,15 @@ Expected: clean. If `zodOutputFormat` rejects the cast, replace `schema as never
 git add scripts/agent/claude.ts scripts/agent/claude.test.ts
 git commit -m "Add Claude client wrapper with retry"
 ```
+
+**Found on the first live run, fixed as a follow-up:** `parseJson` originally defaulted
+`effort` to `'high'` and always included it in `output_config`. Not every model supports
+this parameter — Haiku 4.5 rejects it outright with a 400 ("This model does not support
+the effort parameter"). Fixed so `effort` is only included when the caller explicitly
+passes one (see the `effort` field's doc comment and the conditional spread above, both
+already updated to reflect the fix); `claude.test.ts` gained two tests confirming the key
+is genuinely absent, not just `undefined`, when omitted. `scripts/agent/leads/triage.ts`
+(Task 11, next) was updated to stop passing `effort: 'low'` for exactly this reason.
 
 ---
 
@@ -1830,7 +1844,8 @@ export async function triageLinks({
     user,
     schema: TriageSchema,
     maxTokens: 2000,
-    effort: 'low',
+    // No effort param: the triage model (Haiku 4.5) doesn't support it at all — sending
+    // it returns a 400 "This model does not support the effort parameter."
   });
 
   if (parsed == null) return [];
