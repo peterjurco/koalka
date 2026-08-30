@@ -1,7 +1,7 @@
 import type { PartyId, VoteShare } from '../../src/data/types.ts';
 
 /** Poll agency (Slovak parliamentary polls) */
-export type PollAgency = 'Focus' | 'AKO' | 'Ipsos' | 'NMS';
+export type PollAgency = 'Focus' | 'AKO' | 'Ipsos';
 
 /** Methodology details from agency releases */
 export interface PollMethodology {

@@ -12,15 +12,15 @@ const FOCUS_SLUG_MONTH: Record<string, number> = {
   januar: 1, január: 1, january: 1,
   februar: 2, február: 2, february: 2,
   marec: 3, march: 3,
-  april: 4, apríl: 4, april: 4,
+  april: 4, apríl: 4,
   maj: 5, may: 5,
   jun: 6, jún: 6, june: 6,
   jul: 7, júl: 7, july: 7,
-  august: 8, august: 8,
-  september: 9, september: 9,
+  august: 8,
+  september: 9,
   oktober: 10, október: 10, october: 10,
-  november: 11, november: 11,
-  december: 12, december: 12,
+  november: 11,
+  december: 12,
 };
 
 /** Infer fieldwork start/end from Focus report URL (month-year in path). */

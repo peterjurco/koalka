@@ -16,6 +16,13 @@ Coalition calculator for election polls. MVP focuses on Slovak parliamentary ele
 - Poll data lives in `public/data/sk/` (JSON). Edit `polls.json`, `parties.json`, and `election.json` to add or update data.
 - Optional: use a published Google Sheet (CSV) as the polls source. See `src/data/loaders/sheetsLoader.ts` and `createSheetsPollsLoader()` in `src/config/elections.ts`.
 
+## Automated poll watch
+
+A weekly GitHub Action (`.github/workflows/poll-watch.yml`) checks AKO, Focus and Ipsos for
+polls newer than the latest one on file, extracts them with Claude, verifies each number
+against the source document, and opens a PR for review. It never writes to `main`. See
+`scripts/agent/README.md`.
+
 ## Develop
 
 ```bash

@@ -1,21 +1,27 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { PartyId } from "../../../src/data/types.ts";
 
-/** Canonical party slugs for Slovak NRSR (align with public/data/sk/parties.json) */
-export const CANONICAL_PARTY_SLUGS: PartyId[] = [
-  "smer",
-  "ps",
-  "hlas",
-  "sns",
-  "sas",
-  "kdh",
-  "olano",
-  "republika",
-  "lsns",
-  "sme_rodina",
-  "demokrati",
-  "madarska_aliancia",
-  "za_ludi",
-];
+interface PartyEntry {
+  id: string;
+  name: string;
+  shortName: string;
+  abbr?: string;
+}
+
+const PARTIES_PATH = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "../../../public/data/sk/parties.json",
+);
+
+const PARTIES = JSON.parse(readFileSync(PARTIES_PATH, "utf-8")) as PartyEntry[];
+
+/**
+ * Canonical party slugs, derived from public/data/sk/parties.json so this list can
+ * never drift from the data the app actually renders.
+ */
+export const CANONICAL_PARTY_SLUGS: PartyId[] = PARTIES.map((p) => p.id);
 
 /**
  * Normalize a string for matching: lowercase, replace spaces/dashes with underscore,
@@ -42,6 +48,13 @@ function add(slug: PartyId, ...aliases: string[]): void {
   for (const a of aliases) {
     aliasToSlug.set(normalizeForMatch(a), slug);
   }
+}
+
+// Every party's own id, name, shortName and abbr resolve to itself. Hand-curated
+// aliases below are registered afterwards and take precedence on collision.
+for (const p of PARTIES) {
+  const names = [p.name, p.shortName, ...(p.abbr != null ? [p.abbr] : [])];
+  add(p.id as PartyId, ...names);
 }
 
 add(

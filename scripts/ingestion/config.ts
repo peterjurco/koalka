@@ -40,10 +40,6 @@ export const PIPELINE_CONFIG = {
         "https://ako.sk/referencie/prieskumy-volebnych-preferencii/",
       ],
     },
-    NMS: {
-      /** NMS Market Research (nms-mr.com): add blog/news URL if they publish polls; or leave empty / add media URLs that republish NMS with full table + sample size */
-      listUrls: ["https://www.nms-mr.com/"],
-    },
     Ipsos: {
       /**
        * Ipsos.com pages that contain PDF links.

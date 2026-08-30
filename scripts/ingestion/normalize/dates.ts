@@ -8,17 +8,17 @@ const DD_MM_YYYY = /^(\d{1,2})[./](\d{1,2})[./](\d{4})$/;
 const DD_MM_YY = /^(\d{1,2})[./](\d{1,2})[./](\d{2})$/;
 const MONTH_NAMES: Record<string, number> = {
   january: 1, jan: 1, január: 1, janúar: 1,
-  february: 2, feb: 2, február: 2, február: 2,
+  february: 2, feb: 2, február: 2,
   march: 3, mar: 3, marec: 3,
   april: 4, apr: 4, apríl: 4,
   may: 5, máj: 5, maj: 5,
-  june: 6, jun: 6, jún: 6, jún: 6,
-  july: 7, jul: 7, júl: 7, júl: 7,
-  august: 8, aug: 8, august: 8,
-  september: 9, sep: 9, sept: 9, september: 9,
+  june: 6, jun: 6, jún: 6,
+  july: 7, jul: 7, júl: 7,
+  august: 8, aug: 8,
+  september: 9, sep: 9, sept: 9,
   october: 10, oct: 10, október: 10, okt: 10,
-  november: 11, nov: 11, november: 11,
-  december: 12, dec: 12, december: 12,
+  november: 11, nov: 11,
+  december: 12, dec: 12,
 };
 
 /**

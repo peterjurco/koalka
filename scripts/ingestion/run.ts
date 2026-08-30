@@ -19,10 +19,9 @@ import {
   fetchAKO,
   fetchFocus,
   fetchIpsos,
-  fetchNMS,
 } from "./fetchers/index.ts";
 import { normalizePolls } from "./normalize/index.ts";
-import { parseAKO, parseFocus, parseIpsos, parseNMS } from "./parsers/index.ts";
+import { parseAKO, parseFocus, parseIpsos } from "./parsers/index.ts";
 import type {
   FetchedDocument,
   NormalizedPoll,
@@ -35,7 +34,7 @@ import { validatePolls } from "./validate/index.ts";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "../..");
 
-const ALL_AGENCIES: PollAgency[] = ["Focus", "AKO", "Ipsos", "NMS"];
+const ALL_AGENCIES: PollAgency[] = ["Focus", "AKO", "Ipsos"];
 
 function parseAgencyArg(): Set<PollAgency> | null {
   const arg = process.argv.find(
@@ -115,10 +114,9 @@ async function main(): Promise<void> {
   const allRawPolls: RawPoll[] = [];
 
   console.log("Fetching...");
-  const [focusDocs, akoDocs, nmsDocs, ipsosDocs] = await Promise.all([
+  const [focusDocs, akoDocs, ipsosDocs] = await Promise.all([
     agencies.has("Focus") ? fetchFocus(fetchOptions) : Promise.resolve([]),
     agencies.has("AKO") ? fetchAKO(fetchOptions) : Promise.resolve([]),
-    agencies.has("NMS") ? fetchNMS() : Promise.resolve([]),
     agencies.has("Ipsos") ? fetchIpsos(fetchOptions) : Promise.resolve([]),
   ]);
 
@@ -132,21 +130,17 @@ async function main(): Promise<void> {
   const focusResult = parseFocus(focusDocs, parseOpts);
   if (verbose && akoDocs.length) console.log("AKO:");
   const akoResult = parseAKO(akoDocs, parseOpts);
-  if (verbose && nmsDocs.length) console.log("NMS:");
-  const nmsResult = parseNMS(nmsDocs, parseOpts);
   if (verbose && ipsosDocs.length) console.log("Ipsos:");
   const ipsosResult = parseIpsos(ipsosDocs, parseOpts);
 
   allRawPolls.push(
     ...focusResult.rawPolls,
     ...akoResult.rawPolls,
-    ...nmsResult.rawPolls,
     ...ipsosResult.rawPolls,
   );
   allSkips.push(
     ...focusResult.skips,
     ...akoResult.skips,
-    ...nmsResult.skips,
     ...ipsosResult.skips,
   );
 

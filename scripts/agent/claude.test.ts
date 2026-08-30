@@ -1,0 +1,108 @@
+import { describe, it, expect, vi } from 'vitest';
+import { z } from 'zod';
+
+const AnthropicMock = vi.fn();
+vi.mock('@anthropic-ai/sdk', () => ({ default: AnthropicMock }));
+
+const { isFatalApiError, withRetry, createModelClient } = await import('./claude.ts');
+
+function httpError(status: number): Error {
+  return Object.assign(new Error(`HTTP ${status}`), { status });
+}
+
+describe('isFatalApiError', () => {
+  it('treats a 400 as fatal', () => {
+    expect(isFatalApiError(httpError(400))).toBe(true);
+  });
+
+  it('treats a 429 as retryable', () => {
+    expect(isFatalApiError(httpError(429))).toBe(false);
+  });
+
+  it('treats a 500 as retryable', () => {
+    expect(isFatalApiError(httpError(500))).toBe(false);
+  });
+
+  it('treats a network error with no status as retryable', () => {
+    expect(isFatalApiError(new Error('socket hang up'))).toBe(false);
+  });
+});
+
+describe('withRetry', () => {
+  it('returns the value on first success', async () => {
+    const fn = vi.fn().mockResolvedValue('ok');
+    await expect(withRetry(fn, { baseDelayMs: 0 })).resolves.toBe('ok');
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it('retries a transient failure and then succeeds', async () => {
+    const fn = vi
+      .fn()
+      .mockRejectedValueOnce(httpError(500))
+      .mockResolvedValue('ok');
+    await expect(withRetry(fn, { baseDelayMs: 0 })).resolves.toBe('ok');
+    expect(fn).toHaveBeenCalledTimes(2);
+  });
+
+  it('gives up after the configured number of attempts', async () => {
+    const fn = vi.fn().mockRejectedValue(httpError(500));
+    await expect(withRetry(fn, { attempts: 3, baseDelayMs: 0 })).rejects.toThrow('HTTP 500');
+    expect(fn).toHaveBeenCalledTimes(3);
+  });
+
+  it('does not retry a fatal error', async () => {
+    const fn = vi.fn().mockRejectedValue(httpError(400));
+    await expect(withRetry(fn, { baseDelayMs: 0 })).rejects.toThrow('HTTP 400');
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('createModelClient', () => {
+  it('disables the SDK client\'s own retries by default, so withRetry is the sole retry layer', () => {
+    AnthropicMock.mockClear();
+    createModelClient();
+    expect(AnthropicMock).toHaveBeenCalledTimes(1);
+    expect(AnthropicMock).toHaveBeenCalledWith({ maxRetries: 0 });
+  });
+});
+
+describe('createModelClient().parseJson request shape', () => {
+  const schema = z.object({ ok: z.boolean() });
+
+  function fakeAnthropicClient(parsedOutput: unknown = { ok: true }) {
+    return {
+      messages: {
+        parse: vi.fn().mockResolvedValue({ parsed_output: parsedOutput }),
+      },
+    } as unknown as import('@anthropic-ai/sdk').default;
+  }
+
+  it('omits output_config.effort entirely when the caller does not pass one', async () => {
+    // Some models (e.g. Haiku 4.5) return a 400 "This model does not support the effort
+    // parameter" if effort is sent at all — a live GitHub Actions run caught this for
+    // real when triage.ts unconditionally passed effort: 'low'.
+    const fakeClient = fakeAnthropicClient();
+    const client = createModelClient(fakeClient);
+
+    await client.parseJson({ model: 'claude-haiku-4-5', system: 's', user: 'u', schema });
+
+    const call = (fakeClient.messages.parse as ReturnType<typeof vi.fn>).mock.calls[0]![0];
+    expect(call.output_config).not.toHaveProperty('effort');
+  });
+
+  it('includes output_config.effort when the caller explicitly passes one', async () => {
+    const fakeClient = fakeAnthropicClient();
+    const client = createModelClient(fakeClient);
+
+    await client.parseJson({
+      model: 'claude-opus-5',
+      system: 's',
+      user: 'u',
+      schema,
+      effort: 'high',
+    });
+
+    const call = (fakeClient.messages.parse as ReturnType<typeof vi.fn>).mock.calls[0]![0];
+    expect(call.output_config.effort).toBe('high');
+  });
+});
