@@ -31,7 +31,8 @@ export function harvestLinks(html: string, baseUrl: string): HarvestedLink[] {
 
     resolved.hash = '';
     const url = resolved.href;
-    if (seen.has(url)) return;
+    const existing = seen.get(url);
+    if (existing && existing.text !== '') return;
 
     const text = $(element).text().replace(/\s+/g, ' ').trim().slice(0, MAX_TEXT);
     seen.set(url, { url, text });
