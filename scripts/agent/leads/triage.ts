@@ -31,8 +31,10 @@ export interface TriagedLink {
 const SYSTEM = `You triage links from a Slovak polling agency's website.
 
 Pick only links that plausibly lead to that agency's own release of a NEW national
-parliamentary voting-preference poll ("volebné preferencie", "volebný model", "prieskum
-volebných preferencií") — a PDF press release or a report page.
+parliamentary voting-preference poll — the exact wording varies ("volebné preferencie",
+"volebný model", "prieskum volebných preferencií", or a co-publishing partner's own
+headline like "Volebný PRIESKUM JOJ 24: ...") — a PDF press release, a report page, or an
+article republishing the agency's full result.
 
 Rules:
 - Return only URLs that appear verbatim in the list you were given. Never construct a URL.
