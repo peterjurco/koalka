@@ -65,7 +65,11 @@ export async function triageLinks({
   const user = [
     `Agency: ${agency}`,
     watermark != null
-      ? `Latest poll already collected for this agency ended on ${watermark}. Only pick links likely to be NEWER than that.`
+      ? `Latest poll already collected for this agency ended on ${watermark}. Many of these
+links are old — look for a year and month in the URL or link text (e.g. "/2025/07/",
+"AUGUST-2025", "júl 2025") and compare it to ${watermark}. If a link's own date is clearly
+at or before that, exclude it — don't guess "likely newer" when the date is spelled out
+right there.`
       : `No poll has been collected for this agency yet.`,
     '',
     'Links:',
