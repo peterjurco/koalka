@@ -4248,3 +4248,208 @@ a deterministic date pre-filter: it is pure wasted API cost (a few dollars a mon
 volume), never a correctness issue, and not worth the extra engineering right now. Revisit
 with a deterministic pre-filter (extract year/month from the URL where present, skip
 obviously-stale candidates before triage) if the cost or noise becomes a real problem.
+
+---
+
+## Task 25: Fix the wrong-PDF hop and report noise from rejected leads
+
+Two bugs found from the first real (non-dry) run.
+
+**Bug 1 — `decideReportPageAction` followed an unrelated PDF.** The JOJ24 article
+(`joj24.noviny.sk/prieskumy/...`) has no `<table>` and, elsewhere on the page (a footer
+link), exactly one PDF — a privacy policy
+(`IAB_Slovakia_Kodex_spracuvania_osobnych_udajov_2018.pdf`), completely unrelated to the
+poll. `decideReportPageAction`'s heuristic ("no table + exactly one PDF/CSV link → follow
+it") wrongly decided to follow that PDF, got a 404, and — since a follow-hop failure is
+deliberately not silently swallowed (see Task 13b's review history) — the whole lead
+failed. The real poll data was sitting in the article's own prose the whole time; nothing
+needed to be followed at all.
+
+Two heuristics were tried and rejected before landing on the fix below:
+- Counting `%` signs in the page's own text, to detect "this page already has data" —
+  fails outright: this specific article spells out "percent"/"percentá" as *words*, never
+  using the `%` symbol, so the count is zero even though the page is full of real poll
+  numbers.
+- Requiring the candidate link's URL/text to contain a poll-specific keyword
+  (`prieskum|preferenci|volebn`, the same filter Task 23 uses for sitemaps) — fails the
+  other way: the existing test fixture's generic "Tlačová správa" (a real, valid pattern
+  from Focus's actual site) contains none of those words either, so this would have
+  started rejecting a genuinely valid press-release link.
+
+What actually and reliably distinguishes the two cases is the opposite: **the bad link is
+recognizably legal boilerplate** (a privacy/GDPR/cookie/terms document), a category that is
+narrow and near-universally named the same way across virtually every website regardless
+of language or agency — unlike press-release phrasing, which varies a lot and can't be
+reliably allowlisted. Denylisting boilerplate names fixes the real case, verified against
+the real Focus PDF (unaffected) and the existing test fixtures (unaffected).
+
+**Bug 2 — routine skips clutter "Needs your attention".** A lead that was correctly
+`skipped` because it's not newer than the watermark (an old, already-superseded poll) or
+already in `polls.json` still had its full per-party unmapped/grounding/notes detail
+dumped into the PR's "Needs your attention" section — noise about a poll that was never
+going to be added, competing for attention with genuine problems (a failed lead, or an
+added poll's real caveats). Routine skips (watermark, in-run/existing duplicate, inside the
+verified window) should be dropped from this section entirely; anything else (a validation
+or normalization skip, which could mean a genuinely new poll got dropped for a real reason)
+must still be shown in full, exactly as today — only the three specific, expected,
+already-working-as-intended reasons are suppressed.
+
+**Files:**
+- Modify: `scripts/agent/resolveDocument.ts`, `scripts/agent/resolveDocument.test.ts`
+- Modify: `scripts/agent/report.ts`, `scripts/agent/report.test.ts`
+
+- [ ] **Step 1: Write the failing test for the hop fix**
+
+Add to `scripts/agent/resolveDocument.test.ts`, inside the `describe('decideReportPageAction', ...)` block:
+
+```typescript
+  it('does not follow a privacy/cookie/GDPR/terms document even when it is the only PDF link', () => {
+    const html =
+      '<body><p>Prieskum ukázal, že PS má 21 percent a Smer 17,7 percenta.</p>' +
+      '<a href="/kodex-spracuvania-osobnych-udajov.pdf">Ochrana osobných údajov</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('still follows a real press-release PDF whose text has no poll-specific keyword', () => {
+    // Regression guard: an earlier, rejected fix (requiring a poll keyword in the
+    // candidate link) would have broken this real, valid pattern from Focus's own site.
+    const html = '<body><a href="/tlacova-sprava.pdf">Tlačová správa</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'follow',
+      url: 'https://example.sk/tlacova-sprava.pdf',
+    });
+  });
+```
+
+- [ ] **Step 2: Run it and watch the first new test fail**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: the new "privacy/cookie/GDPR/terms" test FAILS (current code follows the PDF);
+the "real press-release" test passes already (nothing changed yet).
+
+- [ ] **Step 3: Implement the denylist**
+
+In `scripts/agent/resolveDocument.ts`, add above `decideReportPageAction`:
+
+```typescript
+/**
+ * Common boilerplate document names that are never a poll release — privacy/cookie
+ * policies, GDPR notices, terms of service. This category is narrow and named nearly
+ * identically across virtually every website regardless of language or agency, unlike
+ * press-release phrasing, which varies too much to reliably allowlist instead.
+ */
+const BOILERPLATE_DOCUMENT =
+  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn|zasad/i;
+```
+
+Then change the candidate filter inside `decideReportPageAction`:
+
+```typescript
+  const candidates = harvestLinks(html, baseUrl).filter(
+    (link) =>
+      /\.(pdf|csv)(\?|$)/i.test(link.url) &&
+      !BOILERPLATE_DOCUMENT.test(`${link.url} ${link.text}`),
+  );
+```
+
+- [ ] **Step 4: Run the test**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: PASS, all tests (the 6 original + the 2 new = 8).
+
+- [ ] **Step 5: Write the failing test for the report-noise fix**
+
+Add to `scripts/agent/report.test.ts`:
+
+```typescript
+  it('does not mention a lead that was routinely skipped for being older than the watermark', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'not newer than the watermark (2025-07-15 <= 2026-07-14)',
+          unmapped: [{ party: 'Zdravý rozum', percent: 0.2 }],
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).not.toContain('Zdravý rozum');
+    expect(body).not.toContain(cleanLead.url);
+    expect(body).toMatch(/nothing needs your attention/i);
+  });
+
+  it('still shows a lead skipped for a non-routine reason', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'Fewer than 3 parties after slug mapping (unmapped: X, Y, Z)',
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).toContain('Fewer than 3 parties');
+    expect(body).not.toMatch(/nothing needs your attention/i);
+  });
+```
+
+- [ ] **Step 6: Run it and watch the first new test fail**
+
+Run: `npx vitest run scripts/agent/report.test.ts`
+Expected: the "routinely skipped" test FAILS (current code shows it); the "non-routine"
+test passes already.
+
+- [ ] **Step 7: Implement the routine-skip filter**
+
+In `scripts/agent/report.ts`, add near the top of the file:
+
+```typescript
+/**
+ * Skip reasons that mean "working as intended, nothing to review" — these never appear
+ * in "Needs your attention". Anything else, including a skip reason not in this list, is
+ * still shown in full: a real problem must never be silently hidden behind an
+ * unrecognized wording.
+ */
+const ROUTINE_SKIP_REASONS = [
+  'not newer than the watermark',
+  'already in polls.json or earlier in this run',
+  'inside the verified window',
+];
+
+function isRoutineSkip(lead: LeadReport): boolean {
+  return lead.outcome === 'skipped' && ROUTINE_SKIP_REASONS.some((s) => lead.reason.includes(s));
+}
+```
+
+Then, in `attentionSection`, skip routine leads before building each lead's items:
+
+```typescript
+  for (const lead of report.leads) {
+    if (isRoutineSkip(lead)) continue;
+
+    const items: string[] = [];
+```
+
+- [ ] **Step 8: Run the test**
+
+Run: `npx vitest run scripts/agent/report.test.ts`
+Expected: PASS, all tests (the 10 original + the 2 new = 12).
+
+- [ ] **Step 9: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: all clean.
+
+- [ ] **Step 10: Commit**
+
+```bash
+git add scripts/agent/resolveDocument.ts scripts/agent/resolveDocument.test.ts \
+  scripts/agent/report.ts scripts/agent/report.test.ts
+git commit -m "Don't hop to legal-boilerplate PDFs; drop routine skips from PR attention section"
+```
