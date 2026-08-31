@@ -5886,5 +5886,89 @@
         "lsns": 0
       }
     }
+  },
+  {
+    "id": "sk-ako-2026-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-08-06",
+    "fieldworkEnd": "2026-08-14",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/08/ag.AKO_VOLEBNE-PREF-AUGUST-2026-tlacova-sprava-003.pdf",
+    "results": {
+      "ps": 21,
+      "smer": 17.7,
+      "republika": 9.8,
+      "sas": 8.8,
+      "hlas": 8.8,
+      "kdh": 7.8,
+      "olano": 7.7,
+      "sns": 4.7,
+      "demokrati": 4.3,
+      "madarska_aliancia": 2.9,
+      "sme_rodina": 2.7,
+      "lsns": 0.2,
+      "strana_vidieka": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 33,
+        "republika": 18,
+        "sas": 16,
+        "hlas": 16,
+        "kdh": 14,
+        "olano": 14,
+        "sns": 0,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-08-18",
+    "fieldworkEnd": "2026-08-23",
+    "sampleSize": 1061,
+    "sourceUrl": "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026",
+    "results": {
+      "ps": 18.1,
+      "smer": 17.9,
+      "republika": 10.9,
+      "olano": 8.4,
+      "hlas": 8.2,
+      "sas": 8.2,
+      "kdh": 7.3,
+      "demokrati": 4.7,
+      "madarska_aliancia": 3.4,
+      "pravo_na_pravdu": 3.1,
+      "sns": 3,
+      "sme_rodina": 2.8,
+      "za_ludi": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 34,
+        "republika": 21,
+        "olano": 16,
+        "hlas": 16,
+        "sas": 15,
+        "kdh": 14,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0
+      }
+    }
   }
 ]
