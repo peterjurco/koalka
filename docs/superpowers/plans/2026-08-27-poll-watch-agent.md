@@ -4174,3 +4174,65 @@ for the same URL, so the descriptive title was silently dropped — it happened 
 work today only because the URL slug duplicates the headline's key words. Fixed so a
 duplicate URL upgrades to whichever occurrence has non-empty text; verified against the
 live JOJ24 page that the harvested link now carries the real headline, not an empty string.
+
+---
+
+## Task 24: Tighten triage's watermark check
+
+Discovered from a live run: with 4 AKO list URLs (Task 23), a single dry run returned 6
+AKO leads, 5 of them from 2025 — clearly older than the 2026-07-14 watermark, and each
+one's year is spelled out right in its URL (`/2025/07/...JUL-2025...`). Each stale lead
+still costs a full fetch + Opus-5 extraction + grounding pass before the deterministic
+watermark check in `processLead` correctly rejects it — no wrong data reaches `polls.json`
+(that check is a hard, reliable backstop), but it's pure waste. The current instruction
+("Only pick links likely to be NEWER than that") is vague enough that Haiku 4.5 doesn't
+reliably parse and compare the date that's already sitting in the URL.
+
+**Files:**
+- Modify: `scripts/agent/leads/triage.ts`
+
+- [ ] **Step 1: Strengthen the watermark instruction**
+
+In `triageLinks`, replace the `watermark != null` branch of the `user` message:
+
+```typescript
+    watermark != null
+      ? `Latest poll already collected for this agency ended on ${watermark}. Only pick links likely to be NEWER than that.`
+      : `No poll has been collected for this agency yet.`,
+```
+
+with:
+
+```typescript
+    watermark != null
+      ? `Latest poll already collected for this agency ended on ${watermark}. Many of
+these links are old — look for a year and month in the URL or link text (e.g. "/2025/07/",
+"AUGUST-2025", "júl 2025") and compare it to ${watermark}. If a link's own date is clearly
+at or before that, exclude it — don't guess "likely newer" when the date is spelled out
+right there.`
+      : `No poll has been collected for this agency yet.`,
+```
+
+(Collapse this onto however many lines reads well in the actual file — the content matters,
+not the exact line wrapping.)
+
+- [ ] **Step 2: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: clean — this file's existing tests use a fake `ModelClient` and don't assert on
+exact prompt wording, so no test changes are needed or expected.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add scripts/agent/leads/triage.ts
+git commit -m "Tighten triage's watermark check: compare dates, don't just guess newer"
+```
+
+- [ ] **Step 4: Re-verify live**
+
+Trigger a real dry run (`gh workflow run "Poll watch" --ref poll-watch-agent -f
+dry_run=true`) and compare the AKO lead count/dates in the log against the pre-fix run.
+Expected: meaningfully fewer stale (2025-dated) AKO leads than before, with the two
+genuinely new August polls still found. This can't be made deterministic (it's still an
+LLM judgment call) — the goal is a clear reduction, not a guarantee of zero stale leads.
