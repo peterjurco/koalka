@@ -61,6 +61,7 @@ Tests run with `npm test` (`vitest run`). Vitest picks up `scripts/**/*.test.ts`
 | `scripts/agent/leads/dateRange.ts` | Parse aggregator fieldwork ranges (`"1–5 Jul 2026"`) |
 | `scripts/agent/leads/aggregatorTable.ts` | Parse the Wikipedia polling table into rows |
 | `scripts/agent/leads/links.ts` | Harvest links from an agency page (pure) |
+| `scripts/agent/leads/sitemap.ts` | Harvest poll-relevant urls from an XML sitemap (pure) |
 | `scripts/agent/leads/triage.ts` | Model-triage harvested links into leads |
 | `scripts/agent/extract.ts` | Model extraction of one document into an `Extraction` |
 | `scripts/agent/fetchDocument.ts` | Fetch a lead URL as text (HTML or PDF) |
@@ -3934,3 +3935,234 @@ Expected: exactly one `git push --force origin "$BRANCH"`, and `$BRANCH` is only
 - [ ] **Step 5: Report**
 
 State plainly: tests passing, what the dry run found, whether a real run has opened a PR yet, and anything left for the maintainer (the `ANTHROPIC_API_KEY` secret, if it is still missing).
+
+---
+
+## Task 23: Broaden AKO and Ipsos sources
+
+Discovered from a real missed poll: as of 2026-08-30, both AKO and Ipsos had published
+August 2026 polls that the agent never found.
+
+**Ipsos:** `AGENT_CONFIG.listUrls.Ipsos` points at
+`ipsos-dennik-n-prieskum-volebnych-preferencii`, a "hub" page that stopped linking new
+releases after March 2026 even though Ipsos kept publishing monthly — each month gets its
+own dated article (`...-preferencii-august-2026`) that nothing on the hub page links to.
+Ipsos's `sk-sk/sitemap.xml` reliably lists every one of these article pages and is fresh
+(checked live: `lastmod` within the last two weeks).
+
+**AKO:** none of AKO's three configured pages, their RSS feed, or a range of guessed
+filenames turned up an August PDF. Independently confirmed via web search and by reading
+`joj24.noviny.sk/prieskumy` directly: AKO's monthly poll is commissioned for JOJ24
+television, and the TV station publishes the full result (all parties, fieldwork dates,
+sample size, seat projections, TASR-attributed) for free, in prose, before or instead of
+any PDF appearing on ako.sk. This is not a journalist's paraphrase of someone else's
+number — it is AKO's own report, republished by the outlet that commissioned it. That is
+the same trust pattern Ipsos's own primary source already relies on (its URL is literally
+named `ipsos-dennik-n-...` — a co-publication with a media partner). Two general media
+aggregator/tracker sites were also checked and ruled out: `volby.sme.sk` returns
+402/403 to both `curl` and WebFetch (blocked or paywalled at the HTTP level — unusable
+regardless of design preference), and `dennikn.sk`'s poll-tagged articles are paywalled
+past a short teaser (confirmed: hit *"Tento článok je exkluzívnym obsahom pre
+predplatiteľov Denníka N"* two paragraphs into a real article) and mix analysis/commentary
+pieces with actual poll releases — not simply a media-vs-primary trade-off, they are not
+reliably fetchable or complete regardless of source-trust preference.
+
+A sitemap is XML (`<loc>` entries), which `harvestLinks` (built for HTML `<a href>` links)
+does not parse — a small, separate, purpose-built function is needed rather than blurring
+`harvestLinks`'s tested "dumb HTML-only" contract. A sitemap can also list hundreds of
+unrelated pages (Ipsos's sk-sk sitemap has 716 `<loc>` entries; only 48 are
+poll-related) — filtering by the same keywords the triage prompt already looks for keeps
+the candidate list on-topic before it ever reaches the model, rather than paying for and
+diluting a triage call with hundreds of irrelevant shareholder-meeting and other-language
+URLs.
+
+**Files:**
+- Create: `scripts/agent/leads/sitemap.ts`
+- Test: `scripts/agent/leads/sitemap.test.ts`
+- Modify: `scripts/agent/config.ts`, `scripts/agent/run.ts`, `scripts/agent/leads/triage.ts`
+
+- [ ] **Step 1: Write the failing test**
+
+Create `scripts/agent/leads/sitemap.test.ts`:
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { harvestSitemapUrls } from './sitemap.ts';
+
+const XML = `<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.ipsos.com/sk-sk</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/contact</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-jun-2026</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/about-us/group-press-releases</loc></url>
+</urlset>`;
+
+describe('harvestSitemapUrls', () => {
+  it('keeps only poll-relevant urls', () => {
+    const links = harvestSitemapUrls(XML);
+    expect(links.map((l) => l.url)).toEqual([
+      'https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026',
+      'https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-jun-2026',
+    ]);
+  });
+
+  it('gives every entry empty link text', () => {
+    const links = harvestSitemapUrls(XML);
+    expect(links.every((l) => l.text === '')).toBe(true);
+  });
+
+  it('deduplicates repeated urls', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc>https://x.sk/prieskum-a</loc></url><url><loc>https://x.sk/prieskum-a</loc></url></urlset>`);
+    expect(links).toHaveLength(1);
+  });
+
+  it('ignores an empty loc', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc></loc></url><url><loc>https://x.sk/prieskum-b</loc></url></urlset>`);
+    expect(links).toEqual([{ url: 'https://x.sk/prieskum-b', text: '' }]);
+  });
+
+  it('returns an empty array for a sitemap with nothing relevant', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc>https://x.sk/contact</loc></url></urlset>`);
+    expect(links).toEqual([]);
+  });
+
+  it('returns an empty array for malformed xml rather than throwing', () => {
+    expect(() => harvestSitemapUrls('not xml at all')).not.toThrow();
+  });
+});
+```
+
+- [ ] **Step 2: Run it and watch it fail**
+
+Run: `npx vitest run scripts/agent/leads/sitemap.test.ts`
+Expected: FAIL — cannot find module `./sitemap.ts`.
+
+- [ ] **Step 3: Implement**
+
+Create `scripts/agent/leads/sitemap.ts`:
+
+```typescript
+import * as cheerio from 'cheerio';
+import type { HarvestedLink } from './links.ts';
+
+/** Same keywords the triage prompt already looks for — kept in sync deliberately. */
+const RELEVANT = /prieskum|preferenci|volebn/i;
+
+/**
+ * Extract poll-relevant URLs from an XML sitemap (<loc> entries). A sitemap can list
+ * hundreds of unrelated pages (contact, shareholder meetings, other-language content) —
+ * filtering here keeps the candidate list on-topic before it ever reaches the triage
+ * model. Sitemap entries have no link text, so `text` is always empty.
+ */
+export function harvestSitemapUrls(xml: string): HarvestedLink[] {
+  const $ = cheerio.load(xml, { xmlMode: true });
+  const seen = new Map<string, HarvestedLink>();
+
+  $('loc').each((_, el) => {
+    const url = $(el).text().trim();
+    if (url === '' || !RELEVANT.test(url)) return;
+    if (!seen.has(url)) seen.set(url, { url, text: '' });
+  });
+
+  return [...seen.values()];
+}
+```
+
+- [ ] **Step 4: Run the test**
+
+Run: `npx vitest run scripts/agent/leads/sitemap.test.ts`
+Expected: PASS, 6 tests.
+
+- [ ] **Step 5: Update the config**
+
+In `scripts/agent/config.ts`, replace the `listUrls` block:
+
+```typescript
+  listUrls: {
+    AKO: [
+      'https://ako.sk/',
+      'https://ako.sk/o-agenture/tlacove-spravy/',
+      'https://ako.sk/referencie/prieskumy-volebnych-preferencii/',
+      // AKO's monthly poll is commissioned for JOJ24 television, which publishes the
+      // full result (all parties, dates, sample size, seat projections) for free —
+      // sometimes before AKO's own PDF appears on ako.sk at all.
+      'https://joj24.noviny.sk/prieskumy',
+    ],
+    Focus: ['https://www.focus-research.sk/press-centrum/'],
+    // The old hub page (ipsos-dennik-n-prieskum-volebnych-preferencii, no suffix)
+    // stopped linking new monthly articles after March 2026 even though Ipsos kept
+    // publishing — each month gets its own dated article that nothing on the hub page
+    // links to. The sitemap reliably lists every one.
+    Ipsos: ['https://www.ipsos.com/sk-sk/sitemap.xml'],
+  } satisfies Record<AgentAgency, string[]>,
+```
+
+- [ ] **Step 6: Dispatch sitemap vs. HTML in `findSiteLeads`**
+
+In `scripts/agent/run.ts`, import `harvestSitemapUrls` from `./leads/sitemap.ts` alongside
+the existing `harvestLinks` import, and change the link-harvesting line inside
+`findSiteLeads`:
+
+```typescript
+    const links = listUrl.endsWith('.xml')
+      ? harvestSitemapUrls(html)
+      : harvestLinks(html, listUrl);
+```
+
+- [ ] **Step 7: Broaden the triage prompt's example phrasing**
+
+In `scripts/agent/leads/triage.ts`, the `SYSTEM` prompt's first paragraph currently reads:
+
+```
+Pick only links that plausibly lead to that agency's own release of a NEW national
+parliamentary voting-preference poll ("volebné preferencie", "volebný model", "prieskum
+volebných preferencií") — a PDF press release or a report page.
+```
+
+Broaden it to cover a co-published media headline (e.g. AKO's JOJ24 releases are titled
+"Volebný PRIESKUM JOJ 24: ..."), so the model isn't anchored to only the agency's own
+exact phrasing:
+
+```
+Pick only links that plausibly lead to that agency's own release of a NEW national
+parliamentary voting-preference poll — the exact wording varies ("volebné preferencie",
+"volebný model", "prieskum volebných preferencií", or a co-publishing partner's own
+headline like "Volebný PRIESKUM JOJ 24: ...") — a PDF press release, a report page, or an
+article republishing the agency's full result.
+```
+
+- [ ] **Step 8: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: all clean, sitemap.test.ts included (6 new tests).
+
+Live-check against the real sources (this makes real HTTP requests, no API key needed for
+this step — it only exercises the harvesting/filtering layer, not the model):
+
+```bash
+npx tsx -e "
+import { harvestSitemapUrls } from './scripts/agent/leads/sitemap.ts';
+const res = await fetch('https://www.ipsos.com/sk-sk/sitemap.xml');
+const links = harvestSitemapUrls(await res.text());
+console.log(links.length, 'relevant urls, sample:', links.slice(0, 3));
+"
+```
+Expected: a few dozen urls, including one containing `august-2026`.
+
+- [ ] **Step 9: Commit**
+
+```bash
+git add scripts/agent/leads/sitemap.ts scripts/agent/leads/sitemap.test.ts \
+  scripts/agent/config.ts scripts/agent/run.ts scripts/agent/leads/triage.ts
+git commit -m "Broaden AKO (JOJ24) and Ipsos (sitemap) sources; support XML sitemap leads"
+```
+
+- [ ] **Step 10: Re-verify live**
+
+Trigger a real dry run (`gh workflow run "Poll watch" --ref poll-watch-agent -f
+dry_run=true`) and confirm the report finds AKO's and Ipsos's August polls this time —
+check the job log for `AKO: https://joj24.noviny.sk/prieskumy/...` and
+`Ipsos: https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026`
+among the leads, and that extraction/grounding succeed for both (no `error`/`failed`
+outcome for either lead in the run's log).
