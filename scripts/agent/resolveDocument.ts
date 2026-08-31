@@ -15,7 +15,7 @@ export type ReportPageDecision =
  * press-release phrasing, which varies too much to reliably allowlist instead.
  */
 const BOILERPLATE_DOCUMENT =
-  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn|zasad/i;
+  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn/i;
 
 /**
  * Decide whether a fetched HTML report page already contains its own poll data (a table)

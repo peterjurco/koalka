@@ -4341,7 +4341,7 @@ In `scripts/agent/resolveDocument.ts`, add above `decideReportPageAction`:
  * press-release phrasing, which varies too much to reliably allowlist instead.
  */
 const BOILERPLATE_DOCUMENT =
-  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn|zasad/i;
+  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn/i;
 ```
 
 Then change the candidate filter inside `decideReportPageAction`:
@@ -4453,3 +4453,13 @@ git add scripts/agent/resolveDocument.ts scripts/agent/resolveDocument.test.ts \
   scripts/agent/report.ts scripts/agent/report.test.ts
 git commit -m "Don't hop to legal-boilerplate PDFs; drop routine skips from PR attention section"
 ```
+
+**Narrowed on review:** the original regex also included `zasad` (from Slovak "zásady" —
+policy/principles), meant to catch a "zásady ochrany osobných údajov"-style privacy notice.
+Review found this term unnecessarily broad — a real poll-release headline slugified as,
+say, "zasadny-obrat-v-prieskume.pdf" ("major shift in the poll") could plausibly collide
+with it, and if that were the page's sole PDF link, the fix would wrongly deny-list a
+genuine release. `kodex` was reviewed too and kept: its own false-positive case ("Volebný
+kódex", the Electoral Code) is harmless even when it fires, since that document is never
+the poll release either way. `zasad` was removed; the confirmed bug (the AKO/JOJ24 privacy
+PDF) still matches independently via `kodex`, `osobn.{0,4}udaj` and `ochran.{0,4}osobn`.
