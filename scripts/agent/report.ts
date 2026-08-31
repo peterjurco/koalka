@@ -2,6 +2,22 @@ import type { AgentRunReport, LeadReport } from './types.ts';
 
 const MAINTAINER = '@peterjurco';
 
+/**
+ * Skip reasons that mean "working as intended, nothing to review" — these never appear
+ * in "Needs your attention". Anything else, including a skip reason not in this list, is
+ * still shown in full: a real problem must never be silently hidden behind an
+ * unrecognized wording.
+ */
+const ROUTINE_SKIP_REASONS = [
+  'not newer than the watermark',
+  'already in polls.json or earlier in this run',
+  'inside the verified window',
+];
+
+function isRoutineSkip(lead: LeadReport): boolean {
+  return lead.outcome === 'skipped' && ROUTINE_SKIP_REASONS.some((s) => lead.reason.includes(s));
+}
+
 function addedSection(leads: readonly LeadReport[]): string[] {
   const added = leads.filter((lead) => lead.outcome === 'added');
   if (added.length === 0) return ['## Added', '', 'No polls added.'];
@@ -27,6 +43,8 @@ function attentionSection(report: AgentRunReport): string[] {
   let any = false;
 
   for (const lead of report.leads) {
+    if (isRoutineSkip(lead)) continue;
+
     const items: string[] = [];
 
     for (const party of lead.unmapped) {

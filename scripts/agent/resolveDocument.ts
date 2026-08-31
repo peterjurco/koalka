@@ -9,6 +9,15 @@ export type ReportPageDecision =
   | { action: 'follow'; url: string };
 
 /**
+ * Common boilerplate document names that are never a poll release — privacy/cookie
+ * policies, GDPR notices, terms of service. This category is narrow and named nearly
+ * identically across virtually every website regardless of language or agency, unlike
+ * press-release phrasing, which varies too much to reliably allowlist instead.
+ */
+const BOILERPLATE_DOCUMENT =
+  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn|zasad/i;
+
+/**
  * Decide whether a fetched HTML report page already contains its own poll data (a table)
  * or should be followed to a linked PDF/CSV release instead. Mirrors what the existing
  * deterministic Focus fetcher does (scripts/ingestion/fetchers/focus.ts): follow only when
@@ -20,8 +29,10 @@ export function decideReportPageAction(html: string, baseUrl: string): ReportPag
   const $ = cheerio.load(html);
   if ($('table').length > 0) return { action: 'use-as-is' };
 
-  const candidates = harvestLinks(html, baseUrl).filter((link) =>
-    /\.(pdf|csv)(\?|$)/i.test(link.url),
+  const candidates = harvestLinks(html, baseUrl).filter(
+    (link) =>
+      /\.(pdf|csv)(\?|$)/i.test(link.url) &&
+      !BOILERPLATE_DOCUMENT.test(`${link.url} ${link.text}`),
   );
   if (candidates.length !== 1) return { action: 'use-as-is' };
 

@@ -45,6 +45,25 @@ describe('decideReportPageAction', () => {
       action: 'use-as-is',
     });
   });
+
+  it('does not follow a privacy/cookie/GDPR/terms document even when it is the only PDF link', () => {
+    const html =
+      '<body><p>Prieskum ukázal, že PS má 21 percent a Smer 17,7 percenta.</p>' +
+      '<a href="/kodex-spracuvania-osobnych-udajov.pdf">Ochrana osobných údajov</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('still follows a real press-release PDF whose text has no poll-specific keyword', () => {
+    // Regression guard: an earlier, rejected fix (requiring a poll keyword in the
+    // candidate link) would have broken this real, valid pattern from Focus's own site.
+    const html = '<body><a href="/tlacova-sprava.pdf">Tlačová správa</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'follow',
+      url: 'https://example.sk/tlacova-sprava.pdf',
+    });
+  });
 });
 
 /** Minimal Response-like stub covering exactly what fetchWithDelay/fetchDocument touch. */

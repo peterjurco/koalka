@@ -134,4 +134,38 @@ describe('renderPrBody', () => {
     });
     expect(body).toContain('Two tables present');
   });
+
+  it('does not mention a lead that was routinely skipped for being older than the watermark', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'not newer than the watermark (2025-07-15 <= 2026-07-14)',
+          unmapped: [{ party: 'Zdravý rozum', percent: 0.2 }],
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).not.toContain('Zdravý rozum');
+    expect(body).not.toContain(cleanLead.url);
+    expect(body).toMatch(/nothing needs your attention/i);
+  });
+
+  it('still shows a lead skipped for a non-routine reason', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'Fewer than 3 parties after slug mapping (unmapped: X, Y, Z)',
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).toContain('Fewer than 3 parties');
+    expect(body).not.toMatch(/nothing needs your attention/i);
+  });
 });
