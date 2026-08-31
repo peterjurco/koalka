@@ -13,9 +13,17 @@ export const AGENT_CONFIG = {
       'https://ako.sk/',
       'https://ako.sk/o-agenture/tlacove-spravy/',
       'https://ako.sk/referencie/prieskumy-volebnych-preferencii/',
+      // AKO's monthly poll is commissioned for JOJ24 television, which publishes the
+      // full result (all parties, dates, sample size, seat projections) for free —
+      // sometimes before AKO's own PDF appears on ako.sk at all.
+      'https://joj24.noviny.sk/prieskumy',
     ],
     Focus: ['https://www.focus-research.sk/press-centrum/'],
-    Ipsos: ['https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii'],
+    // The old hub page (ipsos-dennik-n-prieskum-volebnych-preferencii, no suffix)
+    // stopped linking new monthly articles after March 2026 even though Ipsos kept
+    // publishing — each month gets its own dated article that nothing on the hub page
+    // links to. The sitemap reliably lists every one.
+    Ipsos: ['https://www.ipsos.com/sk-sk/sitemap.xml'],
   } satisfies Record<AgentAgency, string[]>,
 
   /** Cross-check index. Used to find leads and to verify extracted numbers — never as the source of truth. */

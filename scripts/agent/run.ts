@@ -23,6 +23,7 @@ import { resolveLeadDocument } from './resolveDocument.ts';
 import { checkGrounding } from './grounding.ts';
 import { parseAggregatorRows } from './leads/aggregatorTable.ts';
 import { harvestLinks } from './leads/links.ts';
+import { harvestSitemapUrls } from './leads/sitemap.ts';
 import { triageLinks } from './leads/triage.ts';
 import { mergePolls } from './merge.ts';
 import { renderCommitMessage, renderPrBody } from './report.ts';
@@ -88,7 +89,9 @@ async function findSiteLeads(
       continue;
     }
 
-    const links = harvestLinks(html, listUrl);
+    const links = listUrl.endsWith('.xml')
+      ? harvestSitemapUrls(html)
+      : harvestLinks(html, listUrl);
     debug(`${agency}: ${links.length} links on ${listUrl}`);
 
     let triaged;

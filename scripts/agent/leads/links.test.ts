@@ -45,4 +45,16 @@ describe('harvestLinks', () => {
   it('returns an empty array for a page with no links', () => {
     expect(harvestLinks('<p>nič</p>', 'https://ako.sk/')).toEqual([]);
   });
+
+  it('prefers non-empty text when an earlier duplicate had no text (JOJ24-style image+headline links)', () => {
+    const joj24Html = `
+      <html><body>
+        <a class="img" href="/prieskumy/volebny-prieskum-2026"><img src="thumb.jpg" /></a>
+        <h3 class="title"><a href="/prieskumy/volebny-prieskum-2026">Volebný prieskum: something</a></h3>
+      </body></html>
+    `;
+    const links = harvestLinks(joj24Html, 'https://joj24.noviny.sk/prieskumy');
+    const link = links.find((l) => l.url === 'https://joj24.noviny.sk/prieskumy/volebny-prieskum-2026');
+    expect(link?.text).toBe('Volebný prieskum: something');
+  });
 });

@@ -31,8 +31,10 @@ export interface TriagedLink {
 const SYSTEM = `You triage links from a Slovak polling agency's website.
 
 Pick only links that plausibly lead to that agency's own release of a NEW national
-parliamentary voting-preference poll ("volebné preferencie", "volebný model", "prieskum
-volebných preferencií") — a PDF press release or a report page.
+parliamentary voting-preference poll — the exact wording varies ("volebné preferencie",
+"volebný model", "prieskum volebných preferencií", or a co-publishing partner's own
+headline like "Volebný PRIESKUM JOJ 24: ...") — a PDF press release, a report page, or an
+article republishing the agency's full result.
 
 Rules:
 - Return only URLs that appear verbatim in the list you were given. Never construct a URL.
@@ -63,7 +65,11 @@ export async function triageLinks({
   const user = [
     `Agency: ${agency}`,
     watermark != null
-      ? `Latest poll already collected for this agency ended on ${watermark}. Only pick links likely to be NEWER than that.`
+      ? `Latest poll already collected for this agency ended on ${watermark}. Many of these
+links are old — look for a year and month in the URL or link text (e.g. "/2025/07/",
+"AUGUST-2025", "júl 2025") and compare it to ${watermark}. If a link's own date is clearly
+at or before that, exclude it — don't guess "likely newer" when the date is spelled out
+right there.`
       : `No poll has been collected for this agency yet.`,
     '',
     'Links:',

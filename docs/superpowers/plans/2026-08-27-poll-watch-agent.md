@@ -61,6 +61,7 @@ Tests run with `npm test` (`vitest run`). Vitest picks up `scripts/**/*.test.ts`
 | `scripts/agent/leads/dateRange.ts` | Parse aggregator fieldwork ranges (`"1–5 Jul 2026"`) |
 | `scripts/agent/leads/aggregatorTable.ts` | Parse the Wikipedia polling table into rows |
 | `scripts/agent/leads/links.ts` | Harvest links from an agency page (pure) |
+| `scripts/agent/leads/sitemap.ts` | Harvest poll-relevant urls from an XML sitemap (pure) |
 | `scripts/agent/leads/triage.ts` | Model-triage harvested links into leads |
 | `scripts/agent/extract.ts` | Model extraction of one document into an `Extraction` |
 | `scripts/agent/fetchDocument.ts` | Fetch a lead URL as text (HTML or PDF) |
@@ -3934,3 +3935,531 @@ Expected: exactly one `git push --force origin "$BRANCH"`, and `$BRANCH` is only
 - [ ] **Step 5: Report**
 
 State plainly: tests passing, what the dry run found, whether a real run has opened a PR yet, and anything left for the maintainer (the `ANTHROPIC_API_KEY` secret, if it is still missing).
+
+---
+
+## Task 23: Broaden AKO and Ipsos sources
+
+Discovered from a real missed poll: as of 2026-08-30, both AKO and Ipsos had published
+August 2026 polls that the agent never found.
+
+**Ipsos:** `AGENT_CONFIG.listUrls.Ipsos` points at
+`ipsos-dennik-n-prieskum-volebnych-preferencii`, a "hub" page that stopped linking new
+releases after March 2026 even though Ipsos kept publishing monthly — each month gets its
+own dated article (`...-preferencii-august-2026`) that nothing on the hub page links to.
+Ipsos's `sk-sk/sitemap.xml` reliably lists every one of these article pages and is fresh
+(checked live: `lastmod` within the last two weeks).
+
+**AKO:** none of AKO's three configured pages, their RSS feed, or a range of guessed
+filenames turned up an August PDF. Independently confirmed via web search and by reading
+`joj24.noviny.sk/prieskumy` directly: AKO's monthly poll is commissioned for JOJ24
+television, and the TV station publishes the full result (all parties, fieldwork dates,
+sample size, seat projections, TASR-attributed) for free, in prose, before or instead of
+any PDF appearing on ako.sk. This is not a journalist's paraphrase of someone else's
+number — it is AKO's own report, republished by the outlet that commissioned it. That is
+the same trust pattern Ipsos's own primary source already relies on (its URL is literally
+named `ipsos-dennik-n-...` — a co-publication with a media partner). Two general media
+aggregator/tracker sites were also checked and ruled out: `volby.sme.sk` returns
+402/403 to both `curl` and WebFetch (blocked or paywalled at the HTTP level — unusable
+regardless of design preference), and `dennikn.sk`'s poll-tagged articles are paywalled
+past a short teaser (confirmed: hit *"Tento článok je exkluzívnym obsahom pre
+predplatiteľov Denníka N"* two paragraphs into a real article) and mix analysis/commentary
+pieces with actual poll releases — not simply a media-vs-primary trade-off, they are not
+reliably fetchable or complete regardless of source-trust preference.
+
+A sitemap is XML (`<loc>` entries), which `harvestLinks` (built for HTML `<a href>` links)
+does not parse — a small, separate, purpose-built function is needed rather than blurring
+`harvestLinks`'s tested "dumb HTML-only" contract. A sitemap can also list hundreds of
+unrelated pages (Ipsos's sk-sk sitemap has 716 `<loc>` entries; only 48 are
+poll-related) — filtering by the same keywords the triage prompt already looks for keeps
+the candidate list on-topic before it ever reaches the model, rather than paying for and
+diluting a triage call with hundreds of irrelevant shareholder-meeting and other-language
+URLs.
+
+**Files:**
+- Create: `scripts/agent/leads/sitemap.ts`
+- Test: `scripts/agent/leads/sitemap.test.ts`
+- Modify: `scripts/agent/config.ts`, `scripts/agent/run.ts`, `scripts/agent/leads/triage.ts`
+
+- [ ] **Step 1: Write the failing test**
+
+Create `scripts/agent/leads/sitemap.test.ts`:
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { harvestSitemapUrls } from './sitemap.ts';
+
+const XML = `<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.ipsos.com/sk-sk</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/contact</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-jun-2026</loc></url>
+  <url><loc>https://www.ipsos.com/sk-sk/about-us/group-press-releases</loc></url>
+</urlset>`;
+
+describe('harvestSitemapUrls', () => {
+  it('keeps only poll-relevant urls', () => {
+    const links = harvestSitemapUrls(XML);
+    expect(links.map((l) => l.url)).toEqual([
+      'https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026',
+      'https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-jun-2026',
+    ]);
+  });
+
+  it('gives every entry empty link text', () => {
+    const links = harvestSitemapUrls(XML);
+    expect(links.every((l) => l.text === '')).toBe(true);
+  });
+
+  it('deduplicates repeated urls', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc>https://x.sk/prieskum-a</loc></url><url><loc>https://x.sk/prieskum-a</loc></url></urlset>`);
+    expect(links).toHaveLength(1);
+  });
+
+  it('ignores an empty loc', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc></loc></url><url><loc>https://x.sk/prieskum-b</loc></url></urlset>`);
+    expect(links).toEqual([{ url: 'https://x.sk/prieskum-b', text: '' }]);
+  });
+
+  it('returns an empty array for a sitemap with nothing relevant', () => {
+    const links = harvestSitemapUrls(`<urlset><url><loc>https://x.sk/contact</loc></url></urlset>`);
+    expect(links).toEqual([]);
+  });
+
+  it('returns an empty array for malformed xml rather than throwing', () => {
+    expect(() => harvestSitemapUrls('not xml at all')).not.toThrow();
+  });
+});
+```
+
+- [ ] **Step 2: Run it and watch it fail**
+
+Run: `npx vitest run scripts/agent/leads/sitemap.test.ts`
+Expected: FAIL — cannot find module `./sitemap.ts`.
+
+- [ ] **Step 3: Implement**
+
+Create `scripts/agent/leads/sitemap.ts`:
+
+```typescript
+import * as cheerio from 'cheerio';
+import type { HarvestedLink } from './links.ts';
+
+/** Same keywords the triage prompt already looks for — kept in sync deliberately. */
+const RELEVANT = /prieskum|preferenci|volebn/i;
+
+/**
+ * Extract poll-relevant URLs from an XML sitemap (<loc> entries). A sitemap can list
+ * hundreds of unrelated pages (contact, shareholder meetings, other-language content) —
+ * filtering here keeps the candidate list on-topic before it ever reaches the triage
+ * model. Sitemap entries have no link text, so `text` is always empty.
+ */
+export function harvestSitemapUrls(xml: string): HarvestedLink[] {
+  const $ = cheerio.load(xml, { xmlMode: true });
+  const seen = new Map<string, HarvestedLink>();
+
+  $('loc').each((_, el) => {
+    const url = $(el).text().trim();
+    if (url === '' || !RELEVANT.test(url)) return;
+    if (!seen.has(url)) seen.set(url, { url, text: '' });
+  });
+
+  return [...seen.values()];
+}
+```
+
+- [ ] **Step 4: Run the test**
+
+Run: `npx vitest run scripts/agent/leads/sitemap.test.ts`
+Expected: PASS, 6 tests.
+
+- [ ] **Step 5: Update the config**
+
+In `scripts/agent/config.ts`, replace the `listUrls` block:
+
+```typescript
+  listUrls: {
+    AKO: [
+      'https://ako.sk/',
+      'https://ako.sk/o-agenture/tlacove-spravy/',
+      'https://ako.sk/referencie/prieskumy-volebnych-preferencii/',
+      // AKO's monthly poll is commissioned for JOJ24 television, which publishes the
+      // full result (all parties, dates, sample size, seat projections) for free —
+      // sometimes before AKO's own PDF appears on ako.sk at all.
+      'https://joj24.noviny.sk/prieskumy',
+    ],
+    Focus: ['https://www.focus-research.sk/press-centrum/'],
+    // The old hub page (ipsos-dennik-n-prieskum-volebnych-preferencii, no suffix)
+    // stopped linking new monthly articles after March 2026 even though Ipsos kept
+    // publishing — each month gets its own dated article that nothing on the hub page
+    // links to. The sitemap reliably lists every one.
+    Ipsos: ['https://www.ipsos.com/sk-sk/sitemap.xml'],
+  } satisfies Record<AgentAgency, string[]>,
+```
+
+- [ ] **Step 6: Dispatch sitemap vs. HTML in `findSiteLeads`**
+
+In `scripts/agent/run.ts`, import `harvestSitemapUrls` from `./leads/sitemap.ts` alongside
+the existing `harvestLinks` import, and change the link-harvesting line inside
+`findSiteLeads`:
+
+```typescript
+    const links = listUrl.endsWith('.xml')
+      ? harvestSitemapUrls(html)
+      : harvestLinks(html, listUrl);
+```
+
+- [ ] **Step 7: Broaden the triage prompt's example phrasing**
+
+In `scripts/agent/leads/triage.ts`, the `SYSTEM` prompt's first paragraph currently reads:
+
+```
+Pick only links that plausibly lead to that agency's own release of a NEW national
+parliamentary voting-preference poll ("volebné preferencie", "volebný model", "prieskum
+volebných preferencií") — a PDF press release or a report page.
+```
+
+Broaden it to cover a co-published media headline (e.g. AKO's JOJ24 releases are titled
+"Volebný PRIESKUM JOJ 24: ..."), so the model isn't anchored to only the agency's own
+exact phrasing:
+
+```
+Pick only links that plausibly lead to that agency's own release of a NEW national
+parliamentary voting-preference poll — the exact wording varies ("volebné preferencie",
+"volebný model", "prieskum volebných preferencií", or a co-publishing partner's own
+headline like "Volebný PRIESKUM JOJ 24: ...") — a PDF press release, a report page, or an
+article republishing the agency's full result.
+```
+
+- [ ] **Step 8: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: all clean, sitemap.test.ts included (6 new tests).
+
+Live-check against the real sources (this makes real HTTP requests, no API key needed for
+this step — it only exercises the harvesting/filtering layer, not the model):
+
+```bash
+npx tsx -e "
+import { harvestSitemapUrls } from './scripts/agent/leads/sitemap.ts';
+const res = await fetch('https://www.ipsos.com/sk-sk/sitemap.xml');
+const links = harvestSitemapUrls(await res.text());
+console.log(links.length, 'relevant urls, sample:', links.slice(0, 3));
+"
+```
+Expected: a few dozen urls, including one containing `august-2026`.
+
+- [ ] **Step 9: Commit**
+
+```bash
+git add scripts/agent/leads/sitemap.ts scripts/agent/leads/sitemap.test.ts \
+  scripts/agent/config.ts scripts/agent/run.ts scripts/agent/leads/triage.ts
+git commit -m "Broaden AKO (JOJ24) and Ipsos (sitemap) sources; support XML sitemap leads"
+```
+
+- [ ] **Step 10: Re-verify live**
+
+Trigger a real dry run (`gh workflow run "Poll watch" --ref poll-watch-agent -f
+dry_run=true`) and confirm the report finds AKO's and Ipsos's August polls this time —
+check the job log for `AKO: https://joj24.noviny.sk/prieskumy/...` and
+`Ipsos: https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026`
+among the leads, and that extraction/grounding succeed for both (no `error`/`failed`
+outcome for either lead in the run's log).
+
+**Found on review, fixed as a follow-up:** `harvestLinks` (Task 9) kept whichever
+occurrence of a duplicate URL it saw first, even if that occurrence had empty anchor text.
+JOJ24's article listings put an image-wrapper `<a>` (no text) before the headline `<a>`
+for the same URL, so the descriptive title was silently dropped — it happened to still
+work today only because the URL slug duplicates the headline's key words. Fixed so a
+duplicate URL upgrades to whichever occurrence has non-empty text; verified against the
+live JOJ24 page that the harvested link now carries the real headline, not an empty string.
+
+---
+
+## Task 24: Tighten triage's watermark check
+
+Discovered from a live run: with 4 AKO list URLs (Task 23), a single dry run returned 6
+AKO leads, 5 of them from 2025 — clearly older than the 2026-07-14 watermark, and each
+one's year is spelled out right in its URL (`/2025/07/...JUL-2025...`). Each stale lead
+still costs a full fetch + Opus-5 extraction + grounding pass before the deterministic
+watermark check in `processLead` correctly rejects it — no wrong data reaches `polls.json`
+(that check is a hard, reliable backstop), but it's pure waste. The current instruction
+("Only pick links likely to be NEWER than that") is vague enough that Haiku 4.5 doesn't
+reliably parse and compare the date that's already sitting in the URL.
+
+**Files:**
+- Modify: `scripts/agent/leads/triage.ts`
+
+- [ ] **Step 1: Strengthen the watermark instruction**
+
+In `triageLinks`, replace the `watermark != null` branch of the `user` message:
+
+```typescript
+    watermark != null
+      ? `Latest poll already collected for this agency ended on ${watermark}. Only pick links likely to be NEWER than that.`
+      : `No poll has been collected for this agency yet.`,
+```
+
+with:
+
+```typescript
+    watermark != null
+      ? `Latest poll already collected for this agency ended on ${watermark}. Many of
+these links are old — look for a year and month in the URL or link text (e.g. "/2025/07/",
+"AUGUST-2025", "júl 2025") and compare it to ${watermark}. If a link's own date is clearly
+at or before that, exclude it — don't guess "likely newer" when the date is spelled out
+right there.`
+      : `No poll has been collected for this agency yet.`,
+```
+
+(Collapse this onto however many lines reads well in the actual file — the content matters,
+not the exact line wrapping.)
+
+- [ ] **Step 2: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: clean — this file's existing tests use a fake `ModelClient` and don't assert on
+exact prompt wording, so no test changes are needed or expected.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add scripts/agent/leads/triage.ts
+git commit -m "Tighten triage's watermark check: compare dates, don't just guess newer"
+```
+
+- [ ] **Step 4: Re-verify live**
+
+Trigger a real dry run (`gh workflow run "Poll watch" --ref poll-watch-agent -f
+dry_run=true`) and compare the AKO lead count/dates in the log against the pre-fix run.
+Expected: meaningfully fewer stale (2025-dated) AKO leads than before, with the two
+genuinely new August polls still found. This can't be made deterministic (it's still an
+LLM judgment call) — the goal is a clear reduction, not a guarantee of zero stale leads.
+
+**Outcome, verified live:** the wording change did NOT reduce stale leads. A clean 23-minute
+A/B dry-run comparison (identical live pages, no other code changes) showed the exact same
+5 stale 2025-dated AKO PDFs triaged before and after — Haiku 4.5 is not reliably applying
+this instruction even with the year spelled out in the URL. The two genuinely new polls
+(AKO and Ipsos, August 2026) were still found correctly in both runs, and no wrong data
+reached `polls.json` either way — the deterministic watermark check in `processLead` is
+and remains the real safety net. The maintainer chose to leave this as-is rather than build
+a deterministic date pre-filter: it is pure wasted API cost (a few dollars a month at this
+volume), never a correctness issue, and not worth the extra engineering right now. Revisit
+with a deterministic pre-filter (extract year/month from the URL where present, skip
+obviously-stale candidates before triage) if the cost or noise becomes a real problem.
+
+---
+
+## Task 25: Fix the wrong-PDF hop and report noise from rejected leads
+
+Two bugs found from the first real (non-dry) run.
+
+**Bug 1 — `decideReportPageAction` followed an unrelated PDF.** The JOJ24 article
+(`joj24.noviny.sk/prieskumy/...`) has no `<table>` and, elsewhere on the page (a footer
+link), exactly one PDF — a privacy policy
+(`IAB_Slovakia_Kodex_spracuvania_osobnych_udajov_2018.pdf`), completely unrelated to the
+poll. `decideReportPageAction`'s heuristic ("no table + exactly one PDF/CSV link → follow
+it") wrongly decided to follow that PDF, got a 404, and — since a follow-hop failure is
+deliberately not silently swallowed (see Task 13b's review history) — the whole lead
+failed. The real poll data was sitting in the article's own prose the whole time; nothing
+needed to be followed at all.
+
+Two heuristics were tried and rejected before landing on the fix below:
+- Counting `%` signs in the page's own text, to detect "this page already has data" —
+  fails outright: this specific article spells out "percent"/"percentá" as *words*, never
+  using the `%` symbol, so the count is zero even though the page is full of real poll
+  numbers.
+- Requiring the candidate link's URL/text to contain a poll-specific keyword
+  (`prieskum|preferenci|volebn`, the same filter Task 23 uses for sitemaps) — fails the
+  other way: the existing test fixture's generic "Tlačová správa" (a real, valid pattern
+  from Focus's actual site) contains none of those words either, so this would have
+  started rejecting a genuinely valid press-release link.
+
+What actually and reliably distinguishes the two cases is the opposite: **the bad link is
+recognizably legal boilerplate** (a privacy/GDPR/cookie/terms document), a category that is
+narrow and near-universally named the same way across virtually every website regardless
+of language or agency — unlike press-release phrasing, which varies a lot and can't be
+reliably allowlisted. Denylisting boilerplate names fixes the real case, verified against
+the real Focus PDF (unaffected) and the existing test fixtures (unaffected).
+
+**Bug 2 — routine skips clutter "Needs your attention".** A lead that was correctly
+`skipped` because it's not newer than the watermark (an old, already-superseded poll) or
+already in `polls.json` still had its full per-party unmapped/grounding/notes detail
+dumped into the PR's "Needs your attention" section — noise about a poll that was never
+going to be added, competing for attention with genuine problems (a failed lead, or an
+added poll's real caveats). Routine skips (watermark, in-run/existing duplicate, inside the
+verified window) should be dropped from this section entirely; anything else (a validation
+or normalization skip, which could mean a genuinely new poll got dropped for a real reason)
+must still be shown in full, exactly as today — only the three specific, expected,
+already-working-as-intended reasons are suppressed.
+
+**Files:**
+- Modify: `scripts/agent/resolveDocument.ts`, `scripts/agent/resolveDocument.test.ts`
+- Modify: `scripts/agent/report.ts`, `scripts/agent/report.test.ts`
+
+- [ ] **Step 1: Write the failing test for the hop fix**
+
+Add to `scripts/agent/resolveDocument.test.ts`, inside the `describe('decideReportPageAction', ...)` block:
+
+```typescript
+  it('does not follow a privacy/cookie/GDPR/terms document even when it is the only PDF link', () => {
+    const html =
+      '<body><p>Prieskum ukázal, že PS má 21 percent a Smer 17,7 percenta.</p>' +
+      '<a href="/kodex-spracuvania-osobnych-udajov.pdf">Ochrana osobných údajov</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
+  it('still follows a real press-release PDF whose text has no poll-specific keyword', () => {
+    // Regression guard: an earlier, rejected fix (requiring a poll keyword in the
+    // candidate link) would have broken this real, valid pattern from Focus's own site.
+    const html = '<body><a href="/tlacova-sprava.pdf">Tlačová správa</a></body>';
+    expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
+      action: 'follow',
+      url: 'https://example.sk/tlacova-sprava.pdf',
+    });
+  });
+```
+
+- [ ] **Step 2: Run it and watch the first new test fail**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: the new "privacy/cookie/GDPR/terms" test FAILS (current code follows the PDF);
+the "real press-release" test passes already (nothing changed yet).
+
+- [ ] **Step 3: Implement the denylist**
+
+In `scripts/agent/resolveDocument.ts`, add above `decideReportPageAction`:
+
+```typescript
+/**
+ * Common boilerplate document names that are never a poll release — privacy/cookie
+ * policies, GDPR notices, terms of service. This category is narrow and named nearly
+ * identically across virtually every website regardless of language or agency, unlike
+ * press-release phrasing, which varies too much to reliably allowlist instead.
+ */
+const BOILERPLATE_DOCUMENT =
+  /privacy|cookie|gdpr|terms.{0,3}(of.{0,3})?(service|use)|kodex|osobn.{0,4}udaj|ochran.{0,4}osobn/i;
+```
+
+Then change the candidate filter inside `decideReportPageAction`:
+
+```typescript
+  const candidates = harvestLinks(html, baseUrl).filter(
+    (link) =>
+      /\.(pdf|csv)(\?|$)/i.test(link.url) &&
+      !BOILERPLATE_DOCUMENT.test(`${link.url} ${link.text}`),
+  );
+```
+
+- [ ] **Step 4: Run the test**
+
+Run: `npx vitest run scripts/agent/resolveDocument.test.ts`
+Expected: PASS, all tests (the 6 original + the 2 new = 8).
+
+- [ ] **Step 5: Write the failing test for the report-noise fix**
+
+Add to `scripts/agent/report.test.ts`:
+
+```typescript
+  it('does not mention a lead that was routinely skipped for being older than the watermark', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'not newer than the watermark (2025-07-15 <= 2026-07-14)',
+          unmapped: [{ party: 'Zdravý rozum', percent: 0.2 }],
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).not.toContain('Zdravý rozum');
+    expect(body).not.toContain(cleanLead.url);
+    expect(body).toMatch(/nothing needs your attention/i);
+  });
+
+  it('still shows a lead skipped for a non-routine reason', () => {
+    const body = renderPrBody({
+      ...base,
+      leads: [
+        {
+          ...cleanLead,
+          outcome: 'skipped',
+          reason: 'Fewer than 3 parties after slug mapping (unmapped: X, Y, Z)',
+          pollId: null,
+        },
+      ],
+    });
+    expect(body).toContain('Fewer than 3 parties');
+    expect(body).not.toMatch(/nothing needs your attention/i);
+  });
+```
+
+- [ ] **Step 6: Run it and watch the first new test fail**
+
+Run: `npx vitest run scripts/agent/report.test.ts`
+Expected: the "routinely skipped" test FAILS (current code shows it); the "non-routine"
+test passes already.
+
+- [ ] **Step 7: Implement the routine-skip filter**
+
+In `scripts/agent/report.ts`, add near the top of the file:
+
+```typescript
+/**
+ * Skip reasons that mean "working as intended, nothing to review" — these never appear
+ * in "Needs your attention". Anything else, including a skip reason not in this list, is
+ * still shown in full: a real problem must never be silently hidden behind an
+ * unrecognized wording.
+ */
+const ROUTINE_SKIP_REASONS = [
+  'not newer than the watermark',
+  'already in polls.json or earlier in this run',
+  'inside the verified window',
+];
+
+function isRoutineSkip(lead: LeadReport): boolean {
+  return lead.outcome === 'skipped' && ROUTINE_SKIP_REASONS.some((s) => lead.reason.includes(s));
+}
+```
+
+Then, in `attentionSection`, skip routine leads before building each lead's items:
+
+```typescript
+  for (const lead of report.leads) {
+    if (isRoutineSkip(lead)) continue;
+
+    const items: string[] = [];
+```
+
+- [ ] **Step 8: Run the test**
+
+Run: `npx vitest run scripts/agent/report.test.ts`
+Expected: PASS, all tests (the 10 original + the 2 new = 12).
+
+- [ ] **Step 9: Verify**
+
+Run: `npm test && npx tsc -b`
+Expected: all clean.
+
+- [ ] **Step 10: Commit**
+
+```bash
+git add scripts/agent/resolveDocument.ts scripts/agent/resolveDocument.test.ts \
+  scripts/agent/report.ts scripts/agent/report.test.ts
+git commit -m "Don't hop to legal-boilerplate PDFs; drop routine skips from PR attention section"
+```
+
+**Narrowed on review:** the original regex also included `zasad` (from Slovak "zásady" —
+policy/principles), meant to catch a "zásady ochrany osobných údajov"-style privacy notice.
+Review found this term unnecessarily broad — a real poll-release headline slugified as,
+say, "zasadny-obrat-v-prieskume.pdf" ("major shift in the poll") could plausibly collide
+with it, and if that were the page's sole PDF link, the fix would wrongly deny-list a
+genuine release. `kodex` was reviewed too and kept: its own false-positive case ("Volebný
+kódex", the Electoral Code) is harmless even when it fires, since that document is never
+the poll release either way. `zasad` was removed; the confirmed bug (the AKO/JOJ24 privacy
+PDF) still matches independently via `kodex`, `osobn.{0,4}udaj` and `ochran.{0,4}osobn`.
