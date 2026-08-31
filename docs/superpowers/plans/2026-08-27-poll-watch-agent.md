@@ -4236,3 +4236,15 @@ dry_run=true`) and compare the AKO lead count/dates in the log against the pre-f
 Expected: meaningfully fewer stale (2025-dated) AKO leads than before, with the two
 genuinely new August polls still found. This can't be made deterministic (it's still an
 LLM judgment call) — the goal is a clear reduction, not a guarantee of zero stale leads.
+
+**Outcome, verified live:** the wording change did NOT reduce stale leads. A clean 23-minute
+A/B dry-run comparison (identical live pages, no other code changes) showed the exact same
+5 stale 2025-dated AKO PDFs triaged before and after — Haiku 4.5 is not reliably applying
+this instruction even with the year spelled out in the URL. The two genuinely new polls
+(AKO and Ipsos, August 2026) were still found correctly in both runs, and no wrong data
+reached `polls.json` either way — the deterministic watermark check in `processLead` is
+and remains the real safety net. The maintainer chose to leave this as-is rather than build
+a deterministic date pre-filter: it is pure wasted API cost (a few dollars a month at this
+volume), never a correctness issue, and not worth the extra engineering right now. Revisit
+with a deterministic pre-filter (extract year/month from the URL where present, skip
+obviously-stale candidates before triage) if the cost or noise becomes a real problem.
