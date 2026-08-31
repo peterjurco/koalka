@@ -4166,3 +4166,11 @@ check the job log for `AKO: https://joj24.noviny.sk/prieskumy/...` and
 `Ipsos: https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-august-2026`
 among the leads, and that extraction/grounding succeed for both (no `error`/`failed`
 outcome for either lead in the run's log).
+
+**Found on review, fixed as a follow-up:** `harvestLinks` (Task 9) kept whichever
+occurrence of a duplicate URL it saw first, even if that occurrence had empty anchor text.
+JOJ24's article listings put an image-wrapper `<a>` (no text) before the headline `<a>`
+for the same URL, so the descriptive title was silently dropped — it happened to still
+work today only because the URL slug duplicates the headline's key words. Fixed so a
+duplicate URL upgrades to whichever occurrence has non-empty text; verified against the
+live JOJ24 page that the harvested link now carries the real headline, not an empty string.
