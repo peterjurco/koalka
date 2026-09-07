@@ -2,6 +2,8 @@
 
 Coalition calculator for election polls. MVP focuses on Slovak parliamentary elections.
 
+![Koalka coalition view](docs/screenshot.webp)
+
 ## Features
 
 - **Individual poll results** by agency and date
@@ -12,6 +14,8 @@ Coalition calculator for election polls. MVP focuses on Slovak parliamentary ele
 - **Coalition builder** – majority check based on calculated seats
 
 ## Data
+
+Polling numbers are the work of the agencies that conducted the surveys — **[AKO](https://ako.sk)**, **[Focus](https://www.focus-research.sk)** and **[Ipsos](https://www.ipsos.com)** — and are reproduced here from their published press releases (occasionally via the outlet that first reported them). Every poll in `polls.json` carries a `sourceUrl` pointing back to the original. Koalka is an independent project, not affiliated with or endorsed by any of these agencies; seat counts and coalition figures are Koalka's own calculations, not the agencies'.
 
 - Poll data lives in `public/data/sk/` (JSON). Edit `polls.json`, `parties.json`, and `election.json` to add or update data.
 - Optional: use a published Google Sheet (CSV) as the polls source. See `src/data/loaders/sheetsLoader.ts` and `createSheetsPollsLoader()` in `src/config/elections.ts`.
