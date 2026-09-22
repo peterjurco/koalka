@@ -118,3 +118,21 @@ export function checkGrounding(
         };
   });
 }
+
+/**
+ * Whether the document actually names the agency the lead was filed under.
+ *
+ * A single media page can carry several agencies' polls — STVR's tag page lists Focus,
+ * AKO, Ipsos, NMS and SANEP side by side — and the agency is taken from the lead, never
+ * read out of the document. So a mis-triaged link would be ingested under the wrong
+ * agency's name with numbers that are real and therefore pass every other check. This is
+ * the one guard that catches it.
+ *
+ * Case-sensitive on purpose: "AKO" the agency is always written in caps, while "ako" is
+ * an extremely common Slovak word ("as", "how") that would match anything. The trailing
+ * letters allow Slovak declension — "prieskum Focusu", "agentúry Focus".
+ */
+export function mentionsAgency(docText: string, agency: string): boolean {
+  const forms = new Set([agency, agency.toUpperCase()]);
+  return [...forms].some((form) => new RegExp(`\\b${form}\\p{L}*`, 'u').test(docText));
+}
