@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkGrounding, numberAppears } from './grounding.ts';
+import { checkGrounding, mentionsAgency, numberAppears } from './grounding.ts';
 
 const DOC = `
 Volebné preferencie politických strán, júl 2026
@@ -102,5 +102,37 @@ describe('checkGrounding', () => {
     const doc = 'Progresivne' + '\n'.repeat(300) + 'Slovensko ma HDP 20,8 % rocne';
     const [result] = checkGrounding(doc, [{ party: 'Progresivne Slovensko', percent: 20.8 }]);
     expect(result.grounded).toBe(false);
+  });
+});
+
+describe('mentionsAgency', () => {
+  it('matches the agency named plainly', () => {
+    expect(mentionsAgency('Vyplýva to z prieskumu agentúry Focus pre portál 360tka.', 'Focus')).toBe(true);
+  });
+
+  it('matches a Slovak declined form', () => {
+    expect(mentionsAgency('Septembrový prieskum Focusu: Smer-SD a PS by získali...', 'Focus')).toBe(true);
+  });
+
+  it('matches an all-caps rendering', () => {
+    expect(mentionsAgency('PRIESKUM AGENTÚRY FOCUS PRE 360TKA', 'Focus')).toBe(true);
+  });
+
+  it('rejects another agency\'s article filed under this agency', () => {
+    // The case this guard exists for: STVR's tag page lists several agencies, so a
+    // mis-triaged link would otherwise be ingested as a Focus poll with real AKO numbers.
+    const akoArticle = 'Prieskum agentúry AKO pre televíziu JOJ 24: PS si drží náskok pred Smerom-SD.';
+    expect(mentionsAgency(akoArticle, 'Focus')).toBe(false);
+    expect(mentionsAgency(akoArticle, 'AKO')).toBe(true);
+  });
+
+  it('does not treat the common Slovak word "ako" as the agency AKO', () => {
+    // "ako" means "as"/"how" and appears in almost any Slovak text — a case-insensitive
+    // match here would make the guard pass on literally everything.
+    expect(mentionsAgency('Prieskum Focusu ukázal, ako by voliči hlasovali.', 'AKO')).toBe(false);
+  });
+
+  it('does not match an agency name embedded in a longer word', () => {
+    expect(mentionsAgency('Konferencia o mediaFocuse a marketingu', 'Focus')).toBe(false);
   });
 });

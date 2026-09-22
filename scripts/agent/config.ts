@@ -18,7 +18,16 @@ export const AGENT_CONFIG = {
       // sometimes before AKO's own PDF appears on ako.sk at all.
       'https://joj24.noviny.sk/prieskumy',
     ],
-    Focus: ['https://www.focus-research.sk/press-centrum/'],
+    Focus: [
+      'https://www.focus-research.sk/press-centrum/',
+      // focus-research.sk has refused every connection from the CI runners since at least
+      // 2026-09-07 (UND_ERR_CONNECT_TIMEOUT on the TCP connect, while the same URL loads
+      // fine from a laptop) — so Focus polls went unnoticed for months. STVR republishes
+      // each monthly Focus release in full text, and its tag page also carries AKO and
+      // Ipsos, making it a general fallback rather than a Focus-only patch. Note the tag
+      // page mixes agencies, which is what the agency guard in run.ts protects against.
+      'https://spravy.stvr.sk/tag/prieskum/',
+    ],
     // The old hub page (ipsos-dennik-n-prieskum-volebnych-preferencii, no suffix)
     // stopped linking new monthly articles after March 2026 even though Ipsos kept
     // publishing — each month gets its own dated article that nothing on the hub page
@@ -43,8 +52,16 @@ export const AGENT_CONFIG = {
   /** Characters either side of a party name searched for its percentage. */
   groundingWindow: 160,
 
-  /** Safety valve: a run that suddenly finds dozens of leads is a bug, not a windfall. */
-  maxLeadsPerRun: 12,
+  /**
+   * Safety valve: a run that suddenly finds dozens of leads is a bug, not a windfall.
+   * Raised from 12 when the STVR page was added: leads are collected agency by agency in
+   * AGENT_AGENCIES order and the overflow is cut from the end, so a noisy early agency
+   * starves a later one. The 2026-09-21 run already produced 11 leads (10 of them AKO),
+   * which left Ipsos one slot from being dropped entirely before this source existed.
+   * Triage returns at most 5 per list page, so 7 pages can yield 35 — this stays a valve
+   * against a runaway bug without being reachable in normal operation.
+   */
+  maxLeadsPerRun: 20,
 
   /** Documents longer than this are reported, never silently truncated. */
   maxDocChars: 200_000,

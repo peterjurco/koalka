@@ -41,6 +41,10 @@ Rules:
 - Exclude presidential, regional, municipal and European election polling.
 - Exclude anything that is not a poll release: contact pages, about pages, services,
   methodology, general news.
+- Some list pages are news sections carrying SEVERAL agencies' polls side by side (Focus,
+  AKO, Ipsos, NMS, SANEP, "štátny prieskum"). Pick a link only when the URL or its text
+  names the agency you were asked about; if it names a different agency, exclude it, and
+  if it names none at all, exclude it rather than guessing.
 - Prefer the agency's own PDF or report page over a media summary.
 - Return at most 5 candidates, and an empty list when nothing qualifies. An empty list is
   the correct and expected answer most weeks.`;

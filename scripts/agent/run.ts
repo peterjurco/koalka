@@ -20,7 +20,7 @@ import { AGENT_AGENCIES, AGENT_CONFIG, type AgentAgency } from './config.ts';
 import { crossCheck } from './crosscheck.ts';
 import { extractPoll } from './extract.ts';
 import { resolveLeadDocument } from './resolveDocument.ts';
-import { checkGrounding } from './grounding.ts';
+import { checkGrounding, mentionsAgency } from './grounding.ts';
 import { parseAggregatorRows } from './leads/aggregatorTable.ts';
 import { harvestLinks } from './leads/links.ts';
 import { harvestSitemapUrls } from './leads/sitemap.ts';
@@ -171,6 +171,15 @@ async function processLead(
     document = await resolveLeadDocument(lead.url);
   } catch (error) {
     report.reason = shortFetchError(error);
+    return { report, poll: null };
+  }
+
+  // Before spending an extraction call: the agency comes from the lead, not the document,
+  // so a link picked off a page that lists several agencies' polls would otherwise be
+  // filed under the wrong one with numbers that pass every downstream check.
+  if (!mentionsAgency(document.text, lead.agency)) {
+    report.outcome = 'skipped';
+    report.reason = `document never names ${lead.agency} — most likely another agency's poll on a shared page`;
     return { report, poll: null };
   }
 
