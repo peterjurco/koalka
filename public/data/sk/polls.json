@@ -6032,5 +6032,45 @@
         "strana_vidieka": 0
       }
     }
+  },
+  {
+    "id": "sk-ipsos-2026-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-09-18",
+    "fieldworkEnd": "2026-09-22",
+    "sampleSize": 1030,
+    "sourceUrl": "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-september-2026",
+    "results": {
+      "ps": 19,
+      "smer": 16.9,
+      "republika": 12.8,
+      "olano": 10.7,
+      "sas": 8.4,
+      "kdh": 7,
+      "hlas": 6.6,
+      "demokrati": 5.5,
+      "madarska_aliancia": 3.9,
+      "pravo_na_pravdu": 2.2,
+      "sns": 2.2,
+      "sme_rodina": 2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 33,
+        "smer": 29,
+        "republika": 22,
+        "olano": 19,
+        "sas": 15,
+        "kdh": 12,
+        "hlas": 11,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "sme_rodina": 0
+      }
+    }
   }
 ]
