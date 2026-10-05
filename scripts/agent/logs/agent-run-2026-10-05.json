@@ -1,0 +1,1765 @@
+{
+  "runDate": "2026-10-05",
+  "watermarks": {
+    "AKO": "2026-08-14",
+    "Focus": "2026-09-07",
+    "Ipsos": "2026-09-22"
+  },
+  "leadCount": 11,
+  "leads": [
+    {
+      "agency": "AKO",
+      "url": "https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2026-tlacova-sprava_FINAL.pdf",
+      "discoveredBy": "site",
+      "label": "AKO's own PDF press release for September 2026 national parliamentary voting preferences, dated after the cutoff of 2026-08-14",
+      "outcome": "added",
+      "reason": "",
+      "extraction": {
+        "fieldworkStart": "2026-09-10",
+        "fieldworkEnd": "2026-09-21",
+        "sampleSize": 2000,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 18.9
+          },
+          {
+            "party": "SMER - sociálna demokracia",
+            "percent": 17.1
+          },
+          {
+            "party": "Republika",
+            "percent": 9.7
+          },
+          {
+            "party": "HLAS - sociálna demokracia",
+            "percent": 8.6
+          },
+          {
+            "party": "HNUTIE SLOVENSKO",
+            "percent": 8.1
+          },
+          {
+            "party": "SaS (Sloboda a solidarita)",
+            "percent": 8.1
+          },
+          {
+            "party": "KDH (Kresťanskodemokratické hnutie)",
+            "percent": 6.9
+          },
+          {
+            "party": "SNS (Slovenská národná strana)",
+            "percent": 4.8
+          },
+          {
+            "party": "Demokrati",
+            "percent": 4.4
+          },
+          {
+            "party": "Magyar Szövetség - Maďarská aliancia",
+            "percent": 3.3
+          },
+          {
+            "party": "SME RODINA",
+            "percent": 3.2
+          },
+          {
+            "party": "Právo na pravdu (PRAVDA)",
+            "percent": 2.7
+          },
+          {
+            "party": "Ostatné strany *",
+            "percent": 4.2
+          },
+          {
+            "party": "ĽSNS",
+            "percent": 0.7
+          },
+          {
+            "party": "Spravodlivosť",
+            "percent": 0.6
+          },
+          {
+            "party": "KSS",
+            "percent": 0.6
+          },
+          {
+            "party": "Za ľudí",
+            "percent": 0.5
+          },
+          {
+            "party": "STRANA VIDIEKA",
+            "percent": 0.2
+          },
+          {
+            "party": "Slovenské Hnutie Obrody",
+            "percent": 0.2
+          },
+          {
+            "party": "MAĎARSKÉ FÓRUM",
+            "percent": 0.2
+          },
+          {
+            "party": "Karma",
+            "percent": 0.2
+          },
+          {
+            "party": "Vlastenecký blok",
+            "percent": 0.2
+          },
+          {
+            "party": "SDKÚ-DS",
+            "percent": 0.1
+          },
+          {
+            "party": "My Slovensko",
+            "percent": 0.1
+          },
+          {
+            "party": "Konzervatívci - KÚ",
+            "percent": 0.1
+          },
+          {
+            "party": "Bratia Slovenska",
+            "percent": 0.1
+          },
+          {
+            "party": "Pirátska strana – Slovensko",
+            "percent": 0.1
+          },
+          {
+            "party": "Spoločne občania Slovenska",
+            "percent": 0.1
+          },
+          {
+            "party": "Most - Híd 2023",
+            "percent": 0.1
+          },
+          {
+            "party": "Princíp",
+            "percent": 0.1
+          }
+        ],
+        "notes": "The release announces the September 2026 poll; the August 2026 column was ignored. The 'Ostatné strany *' row (4,2 %) is a summary row whose components are itemised in the footnote; both the aggregate and the individual sub-parties are listed above."
+      },
+      "unmapped": [
+        {
+          "party": "Právo na pravdu (PRAVDA)",
+          "percent": 2.7
+        },
+        {
+          "party": "Ostatné strany *",
+          "percent": 4.2
+        },
+        {
+          "party": "Spravodlivosť",
+          "percent": 0.6
+        },
+        {
+          "party": "KSS",
+          "percent": 0.6
+        },
+        {
+          "party": "Slovenské Hnutie Obrody",
+          "percent": 0.2
+        },
+        {
+          "party": "MAĎARSKÉ FÓRUM",
+          "percent": 0.2
+        },
+        {
+          "party": "Karma",
+          "percent": 0.2
+        },
+        {
+          "party": "Vlastenecký blok",
+          "percent": 0.2
+        },
+        {
+          "party": "SDKÚ-DS",
+          "percent": 0.1
+        },
+        {
+          "party": "My Slovensko",
+          "percent": 0.1
+        },
+        {
+          "party": "Konzervatívci - KÚ",
+          "percent": 0.1
+        },
+        {
+          "party": "Bratia Slovenska",
+          "percent": 0.1
+        },
+        {
+          "party": "Pirátska strana – Slovensko",
+          "percent": 0.1
+        },
+        {
+          "party": "Spoločne občania Slovenska",
+          "percent": 0.1
+        },
+        {
+          "party": "Most - Híd 2023",
+          "percent": 0.1
+        },
+        {
+          "party": "Princíp",
+          "percent": 0.1
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 18.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SMER - sociálna demokracia",
+          "value": 17.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 9.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HLAS - sociálna demokracia",
+          "value": 8.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HNUTIE SLOVENSKO",
+          "value": 8.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SaS (Sloboda a solidarita)",
+          "value": 8.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH (Kresťanskodemokratické hnutie)",
+          "value": 6.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS (Slovenská národná strana)",
+          "value": 4.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 4.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Magyar Szövetség - Maďarská aliancia",
+          "value": 3.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SME RODINA",
+          "value": 3.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Právo na pravdu (PRAVDA)",
+          "value": 2.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Ostatné strany *",
+          "value": 4.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "ĽSNS",
+          "value": 0.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Spravodlivosť",
+          "value": 0.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KSS",
+          "value": 0.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Za ľudí",
+          "value": 0.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "STRANA VIDIEKA",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Slovenské Hnutie Obrody",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "MAĎARSKÉ FÓRUM",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Karma",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Vlastenecký blok",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SDKÚ-DS",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "My Slovensko",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Konzervatívci - KÚ",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Bratia Slovenska",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Pirátska strana – Slovensko",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Spoločne občania Slovenska",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Most - Híd 2023",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Princíp",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": "sk-ako-2026-09"
+    },
+    {
+      "agency": "AKO",
+      "url": "https://ako.sk/wp-content/uploads/2026/07/ag.AKO_VOLEBNE-PREF-JUL-2026-tlacova-sprava.pdf",
+      "discoveredBy": "site",
+      "label": "AKO's own PDF press release for July 2026 national parliamentary voting preferences, dated after the cutoff of 2026-08-14",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2026-07-14 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2026-07-08",
+        "fieldworkEnd": "2026-07-14",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 20.8
+          },
+          {
+            "party": "SMER - sociálna demokracia",
+            "percent": 17.3
+          },
+          {
+            "party": "Republika",
+            "percent": 9.7
+          },
+          {
+            "party": "SaS (Sloboda a solidarita)",
+            "percent": 8.8
+          },
+          {
+            "party": "HLAS - sociálna demokracia",
+            "percent": 8.5
+          },
+          {
+            "party": "HNUTIE SLOVENSKO",
+            "percent": 8
+          },
+          {
+            "party": "KDH (Kresťanskodemokratické hnutie)",
+            "percent": 7.7
+          },
+          {
+            "party": "Demokrati",
+            "percent": 5.8
+          },
+          {
+            "party": "SNS (Slovenská národná strana)",
+            "percent": 4.8
+          },
+          {
+            "party": "Magyar Szövetség - Maďarská aliancia",
+            "percent": 2.8
+          },
+          {
+            "party": "Právo na pravdu (PRAVDA)",
+            "percent": 2.8
+          },
+          {
+            "party": "SME RODINA",
+            "percent": 2.2
+          },
+          {
+            "party": "Strana vidieka",
+            "percent": 0.3
+          },
+          {
+            "party": "Komunistická strana Slovenska (KSS)",
+            "percent": 0.2
+          },
+          {
+            "party": "Kotlebovci - ĽSNS",
+            "percent": 0.2
+          },
+          {
+            "party": "Spravodlivosť",
+            "percent": 0.1
+          }
+        ],
+        "notes": ""
+      },
+      "unmapped": [
+        {
+          "party": "Právo na pravdu (PRAVDA)",
+          "percent": 2.8
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "percent": 0.2
+        },
+        {
+          "party": "Spravodlivosť",
+          "percent": 0.1
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 20.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SMER - sociálna demokracia",
+          "value": 17.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 9.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SaS (Sloboda a solidarita)",
+          "value": 8.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HLAS - sociálna demokracia",
+          "value": 8.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HNUTIE SLOVENSKO",
+          "value": 8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH (Kresťanskodemokratické hnutie)",
+          "value": 7.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 5.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS (Slovenská národná strana)",
+          "value": 4.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Magyar Szövetség - Maďarská aliancia",
+          "value": 2.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Právo na pravdu (PRAVDA)",
+          "value": 2.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SME RODINA",
+          "value": 2.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Strana vidieka",
+          "value": 0.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Kotlebovci - ĽSNS",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Spravodlivosť",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://ako.sk/wp-content/uploads/2025/07/ag.AKO_VOLEBNE-PREF-JUL-2025-tlacova-sprava.pdf",
+      "discoveredBy": "site",
+      "label": "PDF press release titled 'VOLEBNÉ PREFERENCIE JÚL 2025' – dated July 2025, newer than the 2026-08-14 cutoff",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2025-07-15 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2025-07-08",
+        "fieldworkEnd": "2025-07-15",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 22.1
+          },
+          {
+            "party": "SMER - sociálna demokracia",
+            "percent": 19.4
+          },
+          {
+            "party": "HLAS - sociálna demokracia",
+            "percent": 12.4
+          },
+          {
+            "party": "SLOVENSKO",
+            "percent": 8.3
+          },
+          {
+            "party": "Republika",
+            "percent": 8
+          },
+          {
+            "party": "SaS (Sloboda a solidarita)",
+            "percent": 7.5
+          },
+          {
+            "party": "KDH (Kresťanskodemokratické hnutie)",
+            "percent": 6.6
+          },
+          {
+            "party": "SNS (Slovenská národná strana)",
+            "percent": 4.2
+          },
+          {
+            "party": "Demokrati",
+            "percent": 4.1
+          },
+          {
+            "party": "Magyar Szövetség - Maďarská aliancia",
+            "percent": 3.5
+          },
+          {
+            "party": "SME RODINA",
+            "percent": 2.6
+          },
+          {
+            "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+            "percent": 0.7
+          },
+          {
+            "party": "Kotlebovci - ĽSNS",
+            "percent": 0.4
+          },
+          {
+            "party": "Zdravý rozum",
+            "percent": 0.2
+          }
+        ],
+        "notes": "The document contains two percentage columns (JÚL 2025 and JÚN 2025); only the JÚL 2025 column (the announced poll) was transcribed. The confidence interval for 'Zdravý rozum' is printed as '0,0 0,4' without a dash, unlike the other rows; this does not affect the reported percentage."
+      },
+      "unmapped": [
+        {
+          "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+          "percent": 0.7
+        },
+        {
+          "party": "Zdravý rozum",
+          "percent": 0.2
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 22.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SMER - sociálna demokracia",
+          "value": 19.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HLAS - sociálna demokracia",
+          "value": 12.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SLOVENSKO",
+          "value": 8.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SaS (Sloboda a solidarita)",
+          "value": 7.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH (Kresťanskodemokratické hnutie)",
+          "value": 6.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS (Slovenská národná strana)",
+          "value": 4.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 4.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Magyar Szövetség - Maďarská aliancia",
+          "value": 3.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SME RODINA",
+          "value": 2.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+          "value": 0.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Kotlebovci - ĽSNS",
+          "value": 0.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Zdravý rozum",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://ako.sk/wp-content/uploads/2025/06/ag.AKO_VOLEBNE-PREF-JUN-2025-tlacova-sprava-.pdf",
+      "discoveredBy": "site",
+      "label": "PDF press release titled 'VOLEBNÉ PREFERENCIE JÚN 2025' – dated June 2025, newer than the 2026-08-14 cutoff",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2025-06-19 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2025-06-11",
+        "fieldworkEnd": "2025-06-19",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 22.5
+          },
+          {
+            "party": "SMER - sociálna demokracia",
+            "percent": 19.3
+          },
+          {
+            "party": "HLAS - sociálna demokracia",
+            "percent": 12.1
+          },
+          {
+            "party": "Republika",
+            "percent": 8.1
+          },
+          {
+            "party": "SLOVENSKO",
+            "percent": 8
+          },
+          {
+            "party": "SaS (Sloboda a solidarita)",
+            "percent": 7.3
+          },
+          {
+            "party": "KDH (Kresťanskodemokratické hnutie)",
+            "percent": 6.9
+          },
+          {
+            "party": "Demokrati",
+            "percent": 4.8
+          },
+          {
+            "party": "SNS (Slovenská národná strana)",
+            "percent": 4.1
+          },
+          {
+            "party": "Magyar Szövetség - Maďarská aliancia",
+            "percent": 3.4
+          },
+          {
+            "party": "SME RODINA",
+            "percent": 2.7
+          },
+          {
+            "party": "Pirátska strana – Slovensko",
+            "percent": 0.3
+          },
+          {
+            "party": "Komunistická strana Slovenska (KSS)",
+            "percent": 0.3
+          },
+          {
+            "party": "MOST–HÍD 2023",
+            "percent": 0.1
+          },
+          {
+            "party": "Národná koalícia/Nezávislí kandidáti",
+            "percent": 0.1
+          }
+        ],
+        "notes": ""
+      },
+      "unmapped": [
+        {
+          "party": "Pirátska strana – Slovensko",
+          "percent": 0.3
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "percent": 0.3
+        },
+        {
+          "party": "MOST–HÍD 2023",
+          "percent": 0.1
+        },
+        {
+          "party": "Národná koalícia/Nezávislí kandidáti",
+          "percent": 0.1
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 22.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SMER - sociálna demokracia",
+          "value": 19.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HLAS - sociálna demokracia",
+          "value": 12.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 8.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SLOVENSKO",
+          "value": 8,
+          "grounded": false,
+          "reason": "value 8 not found near \"SLOVENSKO\" in source text"
+        },
+        {
+          "party": "SaS (Sloboda a solidarita)",
+          "value": 7.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH (Kresťanskodemokratické hnutie)",
+          "value": 6.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 4.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS (Slovenská národná strana)",
+          "value": 4.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Magyar Szövetség - Maďarská aliancia",
+          "value": 3.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SME RODINA",
+          "value": 2.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Pirátska strana – Slovensko",
+          "value": 0.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "value": 0.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "MOST–HÍD 2023",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Národná koalícia/Nezávislí kandidáti",
+          "value": 0.1,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://ako.sk/wp-content/uploads/2025/06/ag.AKO_VOLEBNE-PREF-MAJ-2025-tlacova-sprava.pdf",
+      "discoveredBy": "site",
+      "label": "PDF press release titled 'VOLEBNÉ PREFERENCIE MÁJ 2025' – dated May 2025, newer than the 2026-08-14 cutoff",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2025-05-26 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2025-05-19",
+        "fieldworkEnd": "2025-05-26",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 21.5
+          },
+          {
+            "party": "SMER - sociálna demokracia",
+            "percent": 19
+          },
+          {
+            "party": "HLAS - sociálna demokracia",
+            "percent": 12.1
+          },
+          {
+            "party": "SLOVENSKO",
+            "percent": 8.8
+          },
+          {
+            "party": "KDH (Kresťanskodemokratické hnutie)",
+            "percent": 7.8
+          },
+          {
+            "party": "Republika",
+            "percent": 7.3
+          },
+          {
+            "party": "SaS (Sloboda a Solidarita)",
+            "percent": 7.2
+          },
+          {
+            "party": "Demokrati",
+            "percent": 4.5
+          },
+          {
+            "party": "SNS (Slovenská národná strana)",
+            "percent": 4.2
+          },
+          {
+            "party": "Magyar Szövetség - Maďarská aliancia",
+            "percent": 3.5
+          },
+          {
+            "party": "SME RODINA",
+            "percent": 3
+          },
+          {
+            "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+            "percent": 0.7
+          },
+          {
+            "party": "Komunistická strana Slovenska (KSS)",
+            "percent": 0.2
+          },
+          {
+            "party": "ZDRAVÝ ROZUM",
+            "percent": 0.2
+          }
+        ],
+        "notes": ""
+      },
+      "unmapped": [
+        {
+          "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+          "percent": 0.7
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "percent": 0.2
+        },
+        {
+          "party": "ZDRAVÝ ROZUM",
+          "percent": 0.2
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 21.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SMER - sociálna demokracia",
+          "value": 19,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "HLAS - sociálna demokracia",
+          "value": 12.1,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SLOVENSKO",
+          "value": 8.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH (Kresťanskodemokratické hnutie)",
+          "value": 7.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 7.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SaS (Sloboda a Solidarita)",
+          "value": 7.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 4.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS (Slovenská národná strana)",
+          "value": 4.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Magyar Szövetség - Maďarská aliancia",
+          "value": 3.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SME RODINA",
+          "value": 3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "NÁRODNÁ KOALÍCIA/ NEZÁVISLÍ KANDIDÁTI",
+          "value": 0.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Komunistická strana Slovenska (KSS)",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "ZDRAVÝ ROZUM",
+          "value": 0.2,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://joj24.noviny.sk/prieskumy/1266317-kde-ma-lunter-najsilnejsiu-podporu-a-kde-suja-prieskum-joj-24-odhalil-velke-rozdiely-medzi-okresmi",
+      "discoveredBy": "site",
+      "label": "Contains 'Prieskum JOJ 24' in the headline, appears to be a regional polling article from JOJ 24",
+      "outcome": "failed",
+      "reason": "extraction has invalid sampleSize: 0",
+      "extraction": null,
+      "unmapped": [],
+      "grounding": [],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://joj24.noviny.sk/prieskumy/1251886-volebny-prieskum-joj-24-republika-je-uz-tretia-sns-aj-demokrati-mimo-parlamentu",
+      "discoveredBy": "site",
+      "label": "Explicitly titled 'Volebný PRIESKUM JOJ 24' with national parliamentary voting preferences (Republika, SNS, Demokrati mentioned)",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2026-08-14 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2026-08-06",
+        "fieldworkEnd": "2026-08-14",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "Progresívnemu Slovensku",
+            "percent": 21
+          },
+          {
+            "party": "Smer-SD",
+            "percent": 17.7
+          },
+          {
+            "party": "Republika",
+            "percent": 9.8
+          },
+          {
+            "party": "SaS",
+            "percent": 8.8
+          },
+          {
+            "party": "Hlas-SD",
+            "percent": 8.8
+          },
+          {
+            "party": "KDH",
+            "percent": 7.8
+          },
+          {
+            "party": "Hnutie Slovensko",
+            "percent": 7.7
+          },
+          {
+            "party": "SNS",
+            "percent": 4.7
+          },
+          {
+            "party": "Demokrati",
+            "percent": 4.3
+          },
+          {
+            "party": "Maďarská aliancia",
+            "percent": 2.9
+          },
+          {
+            "party": "Právo na pravdu",
+            "percent": 2.9
+          },
+          {
+            "party": "Sme rodina",
+            "percent": 2.7
+          }
+        ],
+        "notes": "Výsledky sú uvedené len v texte článku, nie v tabuľke. Názov prvej strany je v texte v datíve ('Progresívnemu Slovensku') – prepísané verbatim."
+      },
+      "unmapped": [
+        {
+          "party": "Progresívnemu Slovensku",
+          "percent": 21
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívnemu Slovensku",
+          "value": 21,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Smer-SD",
+          "value": 17.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 9.8,
+          "grounded": false,
+          "reason": "value 9.8 not found near \"Republika\" in source text"
+        },
+        {
+          "party": "SaS",
+          "value": 8.8,
+          "grounded": false,
+          "reason": "value 8.8 not found near \"SaS\" in source text"
+        },
+        {
+          "party": "Hlas-SD",
+          "value": 8.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH",
+          "value": 7.8,
+          "grounded": false,
+          "reason": "value 7.8 not found near \"KDH\" in source text"
+        },
+        {
+          "party": "Hnutie Slovensko",
+          "value": 7.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS",
+          "value": 4.7,
+          "grounded": false,
+          "reason": "value 4.7 not found near \"SNS\" in source text"
+        },
+        {
+          "party": "Demokrati",
+          "value": 4.3,
+          "grounded": false,
+          "reason": "value 4.3 not found near \"Demokrati\" in source text"
+        },
+        {
+          "party": "Maďarská aliancia",
+          "value": 2.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Právo na pravdu",
+          "value": 2.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Sme rodina",
+          "value": 2.7,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://joj24.noviny.sk/prieskumy/1243553-prieskum-joj24-ukazal-akym-instituciam-slovaci-najviac-veria-vlada-a-parlament-sa-prepadli-na-uplne-dno",
+      "discoveredBy": "site",
+      "label": "Contains 'Prieskum JOJ24' and references parliamentary/institutional polling by JOJ 24",
+      "outcome": "failed",
+      "reason": "extraction needs at least 3 parties (got 0)",
+      "extraction": null,
+      "unmapped": [],
+      "grounding": [],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "AKO",
+      "url": "https://joj24.noviny.sk/prieskumy/1238034-prieskum-joj-24-republika-je-uz-tretia-smer-straca-sns-stale-pred-branami-parlamentu",
+      "discoveredBy": "site",
+      "label": "Titled 'Prieskum JOJ 24' with national parliamentary preferences (Republika, Smer, SNS mentioned)",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2026-07-14 <= 2026-08-14)",
+      "extraction": {
+        "fieldworkStart": "2026-07-08",
+        "fieldworkEnd": "2026-07-14",
+        "sampleSize": 1000,
+        "results": [
+          {
+            "party": "PS",
+            "percent": 20.8
+          },
+          {
+            "party": "Smer-SD",
+            "percent": 17.3
+          },
+          {
+            "party": "Republika",
+            "percent": 9.7
+          },
+          {
+            "party": "SaS",
+            "percent": 8.8
+          },
+          {
+            "party": "Hlas-SD",
+            "percent": 8.5
+          },
+          {
+            "party": "Hnutie Slovensko",
+            "percent": 8
+          },
+          {
+            "party": "KDH",
+            "percent": 7.7
+          },
+          {
+            "party": "Demokrati",
+            "percent": 5.8
+          },
+          {
+            "party": "SNS",
+            "percent": 4.8
+          },
+          {
+            "party": "Maďarská aliancia",
+            "percent": 2.8
+          },
+          {
+            "party": "Právo na pravdu",
+            "percent": 2.8
+          },
+          {
+            "party": "Sme rodina",
+            "percent": 2.2
+          }
+        ],
+        "notes": "Two sample figures are printed: the total survey sample was 1 000 respondents, while the electoral model is based on 653 respondents who named a party and declared participation. sampleSize is given as the total sample (1 000). The percentages were read from the running text; the article refers to a table ('Poradie strán podľa júlového prieskumu JOJ 24 je teda takéto:') and to graphics of breakdowns by gender, age, education and region, but none of these tables/images are present in the text available. Hnutie Slovensko is printed as '8 percent' (8), not '8,0 %'."
+      },
+      "unmapped": [],
+      "grounding": [
+        {
+          "party": "PS",
+          "value": 20.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Smer-SD",
+          "value": 17.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 9.7,
+          "grounded": false,
+          "reason": "value 9.7 not found near \"Republika\" in source text"
+        },
+        {
+          "party": "SaS",
+          "value": 8.8,
+          "grounded": false,
+          "reason": "value 8.8 not found near \"SaS\" in source text"
+        },
+        {
+          "party": "Hlas-SD",
+          "value": 8.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Hnutie Slovensko",
+          "value": 8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH",
+          "value": 7.7,
+          "grounded": false,
+          "reason": "value 7.7 not found near \"KDH\" in source text"
+        },
+        {
+          "party": "Demokrati",
+          "value": 5.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS",
+          "value": 4.8,
+          "grounded": false,
+          "reason": "value 4.8 not found near \"SNS\" in source text"
+        },
+        {
+          "party": "Maďarská aliancia",
+          "value": 2.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Právo na pravdu",
+          "value": 2.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Sme rodina",
+          "value": 2.2,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "Focus",
+      "url": "https://spravy.stvr.sk/2026/09/novy-prieskum-focusu-smer-sd-a-ps-by-ziskali-rovnaky-pocet-hlasov-do-parlamentu-by-sa-dostalo-osem-stran/",
+      "discoveredBy": "site",
+      "label": "Focus poll from September 2026 (after the reference date of 2026-09-07), explicitly named in URL and headline as 'prieskum Focusu' about national parliamentary voting preferences",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2026-09-07 <= 2026-09-07)",
+      "extraction": {
+        "fieldworkStart": "2026-09-01",
+        "fieldworkEnd": "2026-09-07",
+        "sampleSize": 1012,
+        "results": [
+          {
+            "party": "Smer-SD",
+            "percent": 17.3
+          },
+          {
+            "party": "Progresívne Slovensko (PS)",
+            "percent": 17.3
+          },
+          {
+            "party": "Republika",
+            "percent": 12.4
+          },
+          {
+            "party": "Slovensko",
+            "percent": 8.9
+          },
+          {
+            "party": "Hlas-SD",
+            "percent": 8.4
+          },
+          {
+            "party": "SaS",
+            "percent": 7.5
+          },
+          {
+            "party": "KDH",
+            "percent": 6.4
+          },
+          {
+            "party": "Demokrati",
+            "percent": 5
+          },
+          {
+            "party": "SNS",
+            "percent": 4
+          },
+          {
+            "party": "Aliancia",
+            "percent": 3.8
+          },
+          {
+            "party": "Smer Rodina",
+            "percent": 3.2
+          }
+        ],
+        "notes": "Text-only release (no table). Demokrati's result is printed as words ('so ziskom piatich percent voličov') and SNS as words ('štyri percentá'); transcribed as 5 and 4. Aliancia and Smer Rodina are printed with a space after the decimal comma ('3, 8 percenta', '3, 2 percenta'), read as 3.8 and 3.2. The party labelled 'Smer Rodina' in the source is likely a misprint of 'Sme Rodina' but is copied verbatim. The PS label appears as 'hnutie Progresívne Slovensko (PS)' and elsewhere simply as 'PS'; 'Slovensko' appears as 'hnutie Slovensko'. Fieldwork year is not stated explicitly ('od 1. do 7. septembra'); 2026 taken from the article's publication path/copyright."
+      },
+      "unmapped": [
+        {
+          "party": "Progresívne Slovensko (PS)",
+          "percent": 17.3
+        },
+        {
+          "party": "Smer Rodina",
+          "percent": 3.2
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Smer-SD",
+          "value": 17.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Progresívne Slovensko (PS)",
+          "value": 17.3,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 12.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Slovensko",
+          "value": 8.9,
+          "grounded": false,
+          "reason": "value 8.9 not found near \"Slovensko\" in source text"
+        },
+        {
+          "party": "Hlas-SD",
+          "value": 8.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SaS",
+          "value": 7.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH",
+          "value": 6.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 5,
+          "grounded": false,
+          "reason": "value 5 not found near \"Demokrati\" in source text"
+        },
+        {
+          "party": "SNS",
+          "value": 4,
+          "grounded": false,
+          "reason": "value 4 not found near \"SNS\" in source text"
+        },
+        {
+          "party": "Aliancia",
+          "value": 3.8,
+          "grounded": false,
+          "reason": "value 3.8 not found near \"Aliancia\" in source text"
+        },
+        {
+          "party": "Smer Rodina",
+          "value": 3.2,
+          "grounded": false,
+          "reason": "value 3.2 not found near \"Smer Rodina\" in source text"
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    },
+    {
+      "agency": "Ipsos",
+      "url": "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-september-2026",
+      "discoveredBy": "site",
+      "label": "National parliamentary voting preferences poll (volebných preferencií) dated September 2026, which matches or is after the latest collected poll date of 2026-09-22.",
+      "outcome": "skipped",
+      "reason": "not newer than the watermark (2026-09-22 <= 2026-09-22)",
+      "extraction": {
+        "fieldworkStart": "2026-09-18",
+        "fieldworkEnd": "2026-09-22",
+        "sampleSize": 1030,
+        "results": [
+          {
+            "party": "Progresívne Slovensko",
+            "percent": 19
+          },
+          {
+            "party": "Smer – SD",
+            "percent": 16.9
+          },
+          {
+            "party": "Republika",
+            "percent": 12.8
+          },
+          {
+            "party": "Hnutie Slovensko",
+            "percent": 10.7
+          },
+          {
+            "party": "Sloboda a Solidarita",
+            "percent": 8.4
+          },
+          {
+            "party": "KDH",
+            "percent": 7
+          },
+          {
+            "party": "Hlas - SD",
+            "percent": 6.6
+          },
+          {
+            "party": "Demokrati",
+            "percent": 5.5
+          },
+          {
+            "party": "Maďarská aliancia",
+            "percent": 3.9
+          },
+          {
+            "party": "Právo na Pravdu",
+            "percent": 2.2
+          },
+          {
+            "party": "SNS",
+            "percent": 2.2
+          },
+          {
+            "party": "*Sme rodina a Sulíkovci",
+            "percent": 2
+          },
+          {
+            "party": "Iné strany",
+            "percent": 2.9
+          }
+        ],
+        "notes": "The party label \"*Sme rodina a Sulíkovci\" is printed with a leading asterisk referring to a footnote stating the June and August 2026 figures relate to the period before the party's renaming."
+      },
+      "unmapped": [
+        {
+          "party": "*Sme rodina a Sulíkovci",
+          "percent": 2
+        },
+        {
+          "party": "Iné strany",
+          "percent": 2.9
+        }
+      ],
+      "grounding": [
+        {
+          "party": "Progresívne Slovensko",
+          "value": 19,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Smer – SD",
+          "value": 16.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Republika",
+          "value": 12.8,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Hnutie Slovensko",
+          "value": 10.7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Sloboda a Solidarita",
+          "value": 8.4,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "KDH",
+          "value": 7,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Hlas - SD",
+          "value": 6.6,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Demokrati",
+          "value": 5.5,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Maďarská aliancia",
+          "value": 3.9,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Právo na Pravdu",
+          "value": 2.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "SNS",
+          "value": 2.2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "*Sme rodina a Sulíkovci",
+          "value": 2,
+          "grounded": true,
+          "reason": ""
+        },
+        {
+          "party": "Iné strany",
+          "value": 2.9,
+          "grounded": true,
+          "reason": ""
+        }
+      ],
+      "mismatches": [],
+      "pollId": null
+    }
+  ],
+  "aggregatorGaps": [],
+  "addedPolls": [
+    {
+      "id": "sk-ako-2026-09",
+      "countryId": "sk",
+      "electionId": "sk-2024",
+      "agency": "AKO",
+      "fieldworkStart": "2026-09-10",
+      "fieldworkEnd": "2026-09-21",
+      "sampleSize": 2000,
+      "sourceUrl": "https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2026-tlacova-sprava_FINAL.pdf",
+      "results": {
+        "ps": 18.9,
+        "smer": 17.1,
+        "republika": 9.7,
+        "hlas": 8.6,
+        "olano": 8.1,
+        "sas": 8.1,
+        "kdh": 6.9,
+        "sns": 4.8,
+        "demokrati": 4.4,
+        "madarska_aliancia": 3.3,
+        "sme_rodina": 3.2,
+        "lsns": 0.7,
+        "za_ludi": 0.5,
+        "strana_vidieka": 0.2
+      }
+    }
+  ]
+}

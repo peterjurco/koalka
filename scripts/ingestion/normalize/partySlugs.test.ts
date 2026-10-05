@@ -20,6 +20,7 @@ describe('resolvePartySlug', () => {
     expect(resolvePartySlug('Hnutie Slovensko')).toBe('olano');
     expect(resolvePartySlug('Szövetség')).toBe('madarska_aliancia');
     expect(resolvePartySlug('Progresívne Slovensko')).toBe('ps');
+    expect(resolvePartySlug('Právo na pravdu (PRAVDA)')).toBe('pravo_na_pravdu');
   });
 
   it('returns null for a genuinely unknown party', () => {
