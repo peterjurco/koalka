@@ -183,6 +183,8 @@ add(
   "Za ludí",
 );
 
+add("pravo_na_pravdu", "Právo na pravdu (PRAVDA)", "PRAVDA");
+
 /** Strip leading numbers (e.g. "3 Progresívne Slovensko" → "Progresívne Slovensko"). */
 function stripLeadingNumber(s: string): string {
   return s.replace(/^\s*\d+\s*\.?\s*/, "").trim();
