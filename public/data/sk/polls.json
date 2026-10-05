@@ -6034,6 +6034,50 @@
     }
   },
   {
+    "id": "sk-ako-2026-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-09-10",
+    "fieldworkEnd": "2026-09-21",
+    "sampleSize": 2000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2026-tlacova-sprava_FINAL.pdf",
+    "results": {
+      "ps": 18.9,
+      "smer": 17.1,
+      "republika": 9.7,
+      "hlas": 8.6,
+      "olano": 8.1,
+      "sas": 8.1,
+      "kdh": 6.9,
+      "sns": 4.8,
+      "demokrati": 4.4,
+      "madarska_aliancia": 3.3,
+      "sme_rodina": 3.2,
+      "lsns": 0.7,
+      "za_ludi": 0.5,
+      "strana_vidieka": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 33,
+        "republika": 19,
+        "hlas": 16,
+        "olano": 16,
+        "sas": 16,
+        "kdh": 13,
+        "sns": 0,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "za_ludi": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ipsos-2026-09",
     "countryId": "sk",
     "electionId": "sk-2024",
