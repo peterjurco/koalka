@@ -1,42 +1,32 @@
-Automated poll watch run of 2026-10-05.
+Automated poll watch run of 2026-10-23.
 
-Watermarks at start: AKO 2026-08-14, Focus 2026-09-07, Ipsos 2026-09-22. Leads examined: 11.
+Watermarks at start: AKO 2026-09-21, Focus 2026-09-07, Ipsos 2026-09-22. Leads examined: 13.
 
 ## Added
 
-- **sk-ako-2026-09** — AKO, fieldwork 2026-09-10 to 2026-09-21, n=2000
-  - source: https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2026-tlacova-sprava_FINAL.pdf
+- **sk-focus-2026-10** — Focus, fieldwork 2026-10-12 to 2026-10-19, n=1017
+  - source: https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-oktober-2026/
+  - found via: site
+- **sk-ipsos-2026-10** — Ipsos, fieldwork 2026-10-15 to 2026-10-19, n=1032
+  - source: https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-oktober-2026
   - found via: site
 
 ## Needs your attention
 
-### AKO — https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-SEPTEMBER-2026-tlacova-sprava_FINAL.pdf
+### AKO — https://joj24.noviny.sk/prieskumy
 
-- `Právo na pravdu (PRAVDA)` at 2.7% is not in parties.json — the poll was ingested without it.
-- `Ostatné strany *` at 4.2% is not in parties.json — the poll was ingested without it.
-- `Spravodlivosť` at 0.6% is not in parties.json — the poll was ingested without it.
-- `KSS` at 0.6% is not in parties.json — the poll was ingested without it.
-- `Slovenské Hnutie Obrody` at 0.2% is not in parties.json — the poll was ingested without it.
-- `MAĎARSKÉ FÓRUM` at 0.2% is not in parties.json — the poll was ingested without it.
-- `Karma` at 0.2% is not in parties.json — the poll was ingested without it.
-- `Vlastenecký blok` at 0.2% is not in parties.json — the poll was ingested without it.
-- `SDKÚ-DS` at 0.1% is not in parties.json — the poll was ingested without it.
-- `My Slovensko` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Konzervatívci - KÚ` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Bratia Slovenska` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Pirátska strana – Slovensko` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Spoločne občania Slovenska` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Most - Híd 2023` at 0.1% is not in parties.json — the poll was ingested without it.
-- `Princíp` at 0.1% is not in parties.json — the poll was ingested without it.
-- model notes: The release announces the September 2026 poll; the August 2026 column was ignored. The 'Ostatné strany *' row (4,2 %) is a summary row whose components are itemised in the footnote; both the aggregate and the individual sub-parties are listed above.
+- skipped: document never names AKO — most likely another agency's poll on a shared page
 
-### AKO — https://joj24.noviny.sk/prieskumy/1266317-kde-ma-lunter-najsilnejsiu-podporu-a-kde-suja-prieskum-joj-24-odhalil-velke-rozdiely-medzi-okresmi
+### Focus — https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-oktober-2026/
 
-- failed: extraction has invalid sampleSize: 0
+- `Konzervatívci - Kresťanská únia` at 0.3% is not in parties.json — the poll was ingested without it.
+- `iná strana` at 0.3% is not in parties.json — the poll was ingested without it.
+- model notes: The rows 'Konzervatívci - Kresťanská únia' and 'iná strana' print no 95% confidence interval, only '0,3% - 0,4%'; read as October 2026 = 0,3% and September 2026 = 0,4%, consistent with the other rows' column order. The trend column for september 2026 was ignored as instructed.
 
-### AKO — https://joj24.noviny.sk/prieskumy/1243553-prieskum-joj24-ukazal-akym-instituciam-slovaci-najviac-veria-vlada-a-parlament-sa-prepadli-na-uplne-dno
+### Ipsos — https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-oktober-2026
 
-- failed: extraction needs at least 3 parties (got 0)
+- `Iné strany` at 2.2% is not in parties.json — the poll was ingested without it.
+- model notes: Party label "*Sme rodina" is printed with an asterisk referring to a footnote: in September 2026 the party was presented to respondents as "Sme rodina a Sulíkovci", while in August and October it was listed as "Sme rodina".
 
 
 ---
