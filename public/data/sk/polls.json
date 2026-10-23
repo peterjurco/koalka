@@ -6124,5 +6124,91 @@
         "sme_rodina": 0
       }
     }
+  },
+  {
+    "id": "sk-focus-2026-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Focus",
+    "fieldworkStart": "2026-10-12",
+    "fieldworkEnd": "2026-10-19",
+    "sampleSize": 1017,
+    "sourceUrl": "https://www.focus-research.sk/archiv/volebne-preferencie-politickych-stran-oktober-2026/",
+    "results": {
+      "ps": 17.4,
+      "smer": 17,
+      "republika": 11.3,
+      "olano": 9.7,
+      "hlas": 8.5,
+      "kdh": 6.4,
+      "sas": 6.3,
+      "demokrati": 5.8,
+      "madarska_aliancia": 4.4,
+      "sme_rodina": 4.3,
+      "sns": 3.5,
+      "pravo_na_pravdu": 2.7,
+      "za_ludi": 1.1,
+      "strana_vidieka": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 32,
+        "smer": 31,
+        "republika": 21,
+        "olano": 18,
+        "hlas": 15,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "pravo_na_pravdu": 0,
+        "za_ludi": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
+    "id": "sk-ipsos-2026-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-10-15",
+    "fieldworkEnd": "2026-10-19",
+    "sampleSize": 1032,
+    "sourceUrl": "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-oktober-2026",
+    "results": {
+      "ps": 18.6,
+      "smer": 18.4,
+      "republika": 10.8,
+      "olano": 10,
+      "sas": 8.1,
+      "kdh": 7.3,
+      "hlas": 6.6,
+      "demokrati": 5.3,
+      "madarska_aliancia": 3.4,
+      "pravo_na_pravdu": 3.3,
+      "sme_rodina": 2.4,
+      "sns": 2,
+      "za_ludi": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 33,
+        "smer": 32,
+        "republika": 19,
+        "olano": 18,
+        "sas": 14,
+        "kdh": 13,
+        "hlas": 12,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0
+      }
+    }
   }
 ]
