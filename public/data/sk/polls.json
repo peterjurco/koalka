@@ -6210,5 +6210,49 @@
         "za_ludi": 0
       }
     }
+  },
+  {
+    "id": "sk-ako-2026-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "AKO",
+    "fieldworkStart": "2026-10-21",
+    "fieldworkEnd": "2026-10-28",
+    "sampleSize": 1000,
+    "sourceUrl": "https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-OKTOBER-2026-tlacova-sprava.pdf",
+    "results": {
+      "ps": 19.1,
+      "smer": 16.6,
+      "republika": 10.4,
+      "olano": 9.9,
+      "sas": 8.6,
+      "hlas": 8.2,
+      "kdh": 7.3,
+      "demokrati": 5.1,
+      "sns": 4.5,
+      "madarska_aliancia": 4.4,
+      "pravo_na_pravdu": 2.9,
+      "sme_rodina": 2.1,
+      "lsns": 0.5,
+      "strana_vidieka": 0.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 29,
+        "republika": 18,
+        "olano": 18,
+        "sas": 15,
+        "hlas": 14,
+        "kdh": 13,
+        "demokrati": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
   }
 ]
