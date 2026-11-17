@@ -136,3 +136,20 @@ describe('mentionsAgency', () => {
     expect(mentionsAgency('Konferencia o mediaFocuse a marketingu', 'Focus')).toBe(false);
   });
 });
+
+describe('checkGrounding across several mentions', () => {
+  it('grounds a value that sits next to a later mention of the party, not the first', () => {
+    const text =
+      'Republika klesla o 1,2 p.b. a odstup od Smeru sa zväčšil. ' +
+      'x'.repeat(400) +
+      '\nNovember 2026 | Republika | 13,0%';
+    const [result] = checkGrounding(text, [{ party: 'Republika', percent: 13 }]);
+    expect(result?.grounded).toBe(true);
+  });
+
+  it('still fails when no mention has the value nearby', () => {
+    const text = 'Republika 12,1 ' + 'x'.repeat(400) + ' Republika 14,2';
+    const [result] = checkGrounding(text, [{ party: 'Republika', percent: 13 }]);
+    expect(result?.grounded).toBe(false);
+  });
+});
