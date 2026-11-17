@@ -34,9 +34,15 @@ export const AGENT_CONFIG = {
     // links to. The sitemap reliably lists every one.
     Ipsos: ['https://www.ipsos.com/sk-sk/sitemap.xml'],
     // NMS Market Research has no deterministic fetcher in scripts/ingestion/ — the agent is
-    // the only thing watching it. STVR's tag page republishes NMS releases alongside other
-    // agencies; the agency guard in run.ts keeps those apart.
-    NMS: ['https://nms.global/sk/', 'https://spravy.stvr.sk/tag/prieskum/'],
+    // the only thing watching it. Each month gets its own "volebny-model-<month>-<year>"
+    // article; the volebne-prieskumy page links the recent ones and post-sitemap.xml lists
+    // all of them. STVR's tag page also republishes NMS releases alongside other agencies;
+    // the agency guard in run.ts keeps those apart.
+    NMS: [
+      'https://nms.global/sk/volebne-prieskumy/',
+      'https://nms.global/post-sitemap.xml',
+      'https://spravy.stvr.sk/tag/prieskum/',
+    ],
   } satisfies Record<AgentAgency, string[]>,
 
   /** Cross-check index. Used to find leads and to verify extracted numbers — never as the source of truth. */
@@ -62,7 +68,7 @@ export const AGENT_CONFIG = {
    * AGENT_AGENCIES order and the overflow is cut from the end, so a noisy early agency
    * starves a later one. The 2026-09-21 run already produced 11 leads (10 of them AKO),
    * which left Ipsos one slot from being dropped entirely before this source existed.
-   * Triage returns at most 5 per list page, so 9 pages can yield 45 — this stays a valve
+   * Triage returns at most 5 per list page, so 10 pages can yield 50 — this stays a valve
    * against a runaway bug without being reachable in normal operation.
    */
   maxLeadsPerRun: 20,
