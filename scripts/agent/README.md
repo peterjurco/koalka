@@ -1,6 +1,6 @@
 # Poll watch agent
 
-Weekly job that looks for a new poll from **AKO, Focus or Ipsos**, extracts it with Claude,
+Weekly job that looks for a new poll from **AKO, Focus, Ipsos or NMS**, extracts it with Claude,
 verifies it against the source text, and opens a PR. It never merges, never pushes to
 `main`, and never decides anything ambiguous — ambiguity goes in the PR body for a human.
 
@@ -15,6 +15,13 @@ npm run ingest:agent -- --agency=AKO --since=2026-05-01 # replay a window for de
 Needs `ANTHROPIC_API_KEY` in the environment. In CI it comes from the repository secret of
 the same name.
 
+To see what the model would be given for one release — no API key needed:
+
+```bash
+npm run agent:doc -- https://nms.global/sk/volebny-model-november-2026/               # whole document
+npm run agent:doc -- https://nms.global/sk/volebny-model-november-2026/ --charts-only # just the chart data
+```
+
 ## What a run does
 
 1. **Watermark** — the latest `fieldworkEnd` per agency in `polls.json`. Nothing older is
@@ -24,7 +31,11 @@ the same name.
    against the harvested list, so an invented URL cannot become a lead.
 3. **Resolve** — a fetched HTML lead with no data table of its own (Focus's report pages
    usually have none) is followed one hop to its linked PDF/CSV before extraction, mirroring
-   what the older `scripts/ingestion/` pipeline already does for Focus.
+   what the older `scripts/ingestion/` pipeline already does for Focus. A page that embeds
+   Flourish charts (NMS publishes its full results only there) gets each chart's data
+   fetched from public.flourish.studio and appended as plain-text tables (`flourish.ts`);
+   charts of core voters, voter potential and voter flows are left out, since they are not
+   vote shares.
 4. **Extract** — each resolved document (HTML or PDF) is read by the model into fieldwork
    dates, sample size and **verbatim** party labels with percentages.
 5. **Ground** — every extracted number must appear in the source text near its party name.
