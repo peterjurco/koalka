@@ -72,7 +72,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        Prieskumy: AKO, Focus, Ipsos. Prepočet na mandáty a koalície je
+        Prieskumy: AKO, Focus, Ipsos, NMS. Prepočet na mandáty a koalície je
         vlastný výpočet Koalky.
       </footer>
     </div>

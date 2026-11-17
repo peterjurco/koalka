@@ -1,6 +1,6 @@
 # Poll watch agent
 
-Weekly job that looks for a new poll from **AKO, Focus or Ipsos**, extracts it with Claude,
+Weekly job that looks for a new poll from **AKO, Focus, Ipsos or NMS**, extracts it with Claude,
 verifies it against the source text, and opens a PR. It never merges, never pushes to
 `main`, and never decides anything ambiguous — ambiguity goes in the PR body for a human.
 

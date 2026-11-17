@@ -22,7 +22,7 @@ export interface Party {
 export type VoteShare = Record<PartyId, number>;
 
 /** Poll agency (Slovak parliamentary polls) */
-export type PollAgency = 'Focus' | 'AKO' | 'Ipsos';
+export type PollAgency = 'Focus' | 'AKO' | 'Ipsos' | 'NMS';
 
 /** Methodology details (optional fields from agency releases) */
 export interface PollMethodology {
