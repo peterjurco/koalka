@@ -2,7 +2,9 @@
 
 Coalition calculator for election polls. MVP focuses on Slovak parliamentary elections.
 
-![Koalka coalition view](docs/screenshot.webp)
+**Live app: [peterjur.co/koalka](https://peterjur.co/koalka/)**
+
+[![Koalka coalition view](docs/screenshot.webp)](https://peterjur.co/koalka/)
 
 ## Features
 
