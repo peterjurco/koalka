@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import { PDFParse } from 'pdf-parse';
 import { fetchWithDelay } from '../ingestion/fetch/shared.ts';
 import { fetchDocument, htmlToText, looksLikePdf, type FetchedDoc } from './fetchDocument.ts';
+import { fetchFlourishText, findFlourishIds } from './flourish.ts';
 import { harvestLinks } from './leads/links.ts';
 
 export type ReportPageDecision =
@@ -82,7 +83,18 @@ export async function resolveLeadDocument(url: string): Promise<FetchedDoc> {
   if (html == null) return initial; // not HTML (e.g. already a PDF) — nothing to resolve
 
   const decision = decideReportPageAction(html, url);
-  if (decision.action === 'use-as-is') return initial;
+  if (decision.action === 'use-as-is') return withFlourishCharts(initial, html);
 
   return fetchDocument(decision.url);
+}
+
+/**
+ * Append the page's embedded Flourish chart data (see flourish.ts) to its text. Pages
+ * without Flourish embeds are returned unchanged, without any extra request.
+ */
+async function withFlourishCharts(doc: FetchedDoc, html: string): Promise<FetchedDoc> {
+  if (findFlourishIds(html).length === 0) return doc;
+  const { text } = await fetchFlourishText(html);
+  if (text === '') return doc;
+  return { ...doc, text: `${doc.text}\n\n--- Údaje z grafov na stránke (Flourish) ---\n${text}` };
 }

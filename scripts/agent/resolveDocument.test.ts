@@ -133,3 +133,49 @@ describe('resolveLeadDocument', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
+
+describe('resolveLeadDocument with Flourish charts', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('appends the chart data of a page that embeds Flourish charts', async () => {
+    const url = 'https://nms.global/sk/volebny-model-november-2026/';
+    const html =
+      '<body><p>NMS: PS by vyhralo s 19,2 percenta.</p>' +
+      '<div class="flourish-embed" data-src="visualisation/111"></div></body>';
+    const chart = {
+      name: 'nms_Volebný model_november 2026',
+      data: { data: [['Mesiac', 'Strana', 'Percentá'], ['November 2026', 'SNS', '1,90%']] },
+    };
+    const fetchMock = vi.fn().mockImplementation(async (input: string) => {
+      if (input === url) return fakeResponse({ body: html });
+      if (input === 'https://public.flourish.studio/visualisation/111/visualisation.json') {
+        return { ...fakeResponse({}), json: async () => chart } as unknown as Response;
+      }
+      throw new Error(`unexpected fetch: ${input}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const doc = await resolveLeadDocument(url);
+
+    expect(doc.url).toBe(url);
+    expect(doc.text).toContain('PS by vyhralo s 19,2 percenta');
+    expect(doc.text).toContain('November 2026 | SNS | 1,9%');
+  });
+
+  it('keeps the article text when a chart fails to load', async () => {
+    const url = 'https://nms.global/sk/x/';
+    const html = '<body><p>Text</p><div data-src="visualisation/222"></div></body>';
+    const fetchMock = vi.fn().mockImplementation(async (input: string) =>
+      input === url ? fakeResponse({ body: html }) : fakeResponse({ ok: false, status: 404 }),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+
+    const doc = await resolveLeadDocument(url);
+
+    expect(doc.text).toBe('Text');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});

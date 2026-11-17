@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "ingest": "tsx scripts/ingestion/run.ts",
     "ingest:agent": "tsx scripts/agent/run.ts",
+    "agent:doc": "tsx scripts/agent/showDocument.ts",
     "mandates": "tsx scripts/addSeatProjections.ts",
     "test": "vitest run",
     "test:watch": "vitest"
