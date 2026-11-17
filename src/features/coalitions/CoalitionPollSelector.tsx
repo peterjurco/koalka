@@ -78,6 +78,11 @@ export function CoalitionPollSelector({ polls, selectedPollId, onSelectPoll, isE
             max={pollsForAgency.length - 1}
             value={sliderIndex}
             onChange={handleSliderChange}
+            style={
+              {
+                '--fill': `${pollsForAgency.length > 1 ? (sliderIndex / (pollsForAgency.length - 1)) * 100 : 100}%`,
+              } as React.CSSProperties
+            }
           />
           <div className="poll-slider-bounds">
             <span>{oldestPoll ? formatPollDate(oldestPoll.fieldworkEnd) : ''}</span>

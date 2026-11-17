@@ -37,12 +37,15 @@ function App() {
   }
 
   return (
-    <div className={`app ${page === "trendy" ? "app--trendy-full" : ""}`}>
+    <div className="app">
       <header className="app-header">
         <div className="app-header-top">
           <div className="app-header-brand">
-            <h1>🐨 Koalka</h1>
-            <p className="tagline">Koaličná kalkulačka</p>
+            <img className="app-logo" src={`${import.meta.env.BASE_URL}favicon-96x96.png`} alt="" />
+            <div className="app-header-titles">
+              <h1>Koalka</h1>
+              <p className="tagline">Koaličná kalkulačka</p>
+            </div>
           </div>
           <nav className="app-nav" aria-label="Hlavná navigácia">
             <button
@@ -67,6 +70,11 @@ function App() {
         {page === "trendy" && <TrendyPage />}
         {page === "koalicie" && <CoalitionPage />}
       </main>
+
+      <footer className="app-footer">
+        Prieskumy: AKO, Focus, Ipsos. Prepočet na mandáty a koalície je
+        vlastný výpočet Koalky.
+      </footer>
     </div>
   );
 }

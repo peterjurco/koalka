@@ -79,8 +79,8 @@ export function LineChart({
   const isLinear = xAxisScale === "linear";
   const shouldConnectNulls = connectNulls ?? !isLinear;
   const formatValue = valueFormatter ?? ((v: number) => `${v.toFixed(1)}%`);
-  const labelStyle = { fill: "var(--chart-label-fill, #fff)" };
-  const tickStyle = { ...labelStyle, ...axisTickStyle };
+  const labelStyle = { fill: "var(--chart-label-fill, #888)" };
+  const tickStyle = { ...labelStyle, fontSize: 12, ...axisTickStyle };
 
   return (
     <ResponsiveContainer width="100%" height={height}>
@@ -90,13 +90,13 @@ export function LineChart({
         style={onPointClick ? { cursor: "pointer" } : undefined}
         onClick={onPointClick ? handleChartClick : undefined}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid vertical={false} stroke="var(--chart-grid, #eee)" />
         {referenceLineY != null && (
           <ReferenceLine
             y={referenceLineY}
             stroke="var(--reference-line-stroke, #ef4444)"
-            strokeWidth={2}
-            strokeDasharray="6 3"
+            strokeWidth={1.5}
+            strokeDasharray="4 4"
             label={
               referenceLineLabel
                 ? {
@@ -118,6 +118,10 @@ export function LineChart({
             isLinear && xAxisTickFormatter ? xAxisTickFormatter : undefined
           }
           tick={tickStyle}
+          tickLine={false}
+          axisLine={{ stroke: "var(--chart-axis, #ccc)" }}
+          tickMargin={8}
+          minTickGap={24}
         />
         <YAxis
           width={yAxisWidth}
@@ -133,8 +137,11 @@ export function LineChart({
               : undefined
           }
           tick={tickStyle}
+          tickLine={false}
+          axisLine={false}
         />
         <Tooltip
+          cursor={{ stroke: "var(--chart-axis, #ccc)", strokeWidth: 1 }}
           labelFormatter={tooltipLabelFormatter}
           formatter={(value: number | undefined) =>
             value != null ? formatValue(value) : ""
@@ -142,7 +149,7 @@ export function LineChart({
           contentStyle={{
             backgroundColor: "var(--tooltip-bg, #fff)",
             border: "1px solid var(--border, #ccc)",
-            borderRadius: 4,
+            borderRadius: 10,
           }}
           labelStyle={{
             color: "var(--tooltip-fg, #333)",
@@ -151,7 +158,14 @@ export function LineChart({
           }}
           itemStyle={{ color: "var(--tooltip-fg, #333)" }}
         />
-        <Legend wrapperStyle={labelStyle} formatter={(value) => <span style={labelStyle}>{value}</span>} />
+        <Legend
+          iconType="circle"
+          iconSize={8}
+          wrapperStyle={labelStyle}
+          formatter={(value) => (
+            <span style={{ color: "var(--text, #333)" }}>{value}</span>
+          )}
+        />
         {lines.map(({ key, color, name }) => (
           <Line
             key={key}
@@ -160,8 +174,12 @@ export function LineChart({
             name={name ?? key}
             stroke={color}
             strokeWidth={2}
-            dot={showDots ? { r: 3 } : false}
-            activeDot={{ r: 5 }}
+            dot={
+              showDots
+                ? { r: 2.5, strokeWidth: 1.5, fill: "var(--surface, #fff)" }
+                : false
+            }
+            activeDot={{ r: 5, strokeWidth: 2, stroke: "var(--surface, #fff)" }}
             connectNulls={shouldConnectNulls}
           />
         ))}
