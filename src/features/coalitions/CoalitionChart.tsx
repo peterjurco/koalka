@@ -32,7 +32,7 @@ function CoalitionTooltip({
   partyById,
 }: {
   active?: boolean;
-  payload?: TooltipPayloadEntry[];
+  payload?: readonly TooltipPayloadEntry[];
   label?: string;
   partyById: Map<string, Party>;
 }) {
@@ -180,7 +180,7 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
             content={(props) => (
               <CoalitionTooltip
                 active={props.active}
-                payload={props.payload as TooltipPayloadEntry[]}
+                payload={props.payload as unknown as readonly TooltipPayloadEntry[]}
                 label={props.label as string}
                 partyById={partyById}
               />
