@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import { PDFParse } from 'pdf-parse';
 import { fetchWithDelay } from '../ingestion/fetch/shared.ts';
 import { fetchDocument, htmlToText, looksLikePdf, type FetchedDoc } from './fetchDocument.ts';
+import { fetchFlourishText, findFlourishIds } from './flourish.ts';
 import { harvestLinks } from './leads/links.ts';
 
 export type ReportPageDecision =
@@ -21,13 +22,17 @@ const BOILERPLATE_DOCUMENT =
  * Decide whether a fetched HTML report page already contains its own poll data (a table)
  * or should be followed to a linked PDF/CSV release instead. Mirrors what the existing
  * deterministic Focus fetcher does (scripts/ingestion/fetchers/focus.ts): follow only when
- * there is no table AND exactly one PDF/CSV link. An ambiguous page (none, or more than
+ * there is no table (HTML table or embedded Flourish charts) AND exactly one PDF/CSV
+ * link. An ambiguous page (none, or more than
  * one) is used as-is rather than guessed at — extraction will then report it found no
  * usable data, which surfaces in the PR rather than silently picking the wrong link.
  */
 export function decideReportPageAction(html: string, baseUrl: string): ReportPageDecision {
   const $ = cheerio.load(html);
-  if ($('table').length > 0) return { action: 'use-as-is' };
+  // Embedded Flourish charts are the page's own data table too (see flourish.ts) — NMS
+  // pages carry them, and an older one also links a single summary PDF that would
+  // otherwise be followed instead of reading the full chart data.
+  if ($('table').length > 0 || findFlourishIds(html).length > 0) return { action: 'use-as-is' };
 
   const candidates = harvestLinks(html, baseUrl).filter(
     (link) =>
@@ -82,7 +87,18 @@ export async function resolveLeadDocument(url: string): Promise<FetchedDoc> {
   if (html == null) return initial; // not HTML (e.g. already a PDF) — nothing to resolve
 
   const decision = decideReportPageAction(html, url);
-  if (decision.action === 'use-as-is') return initial;
+  if (decision.action === 'use-as-is') return withFlourishCharts(initial, html);
 
   return fetchDocument(decision.url);
+}
+
+/**
+ * Append the page's embedded Flourish chart data (see flourish.ts) to its text. Pages
+ * without Flourish embeds are returned unchanged, without any extra request.
+ */
+async function withFlourishCharts(doc: FetchedDoc, html: string): Promise<FetchedDoc> {
+  if (findFlourishIds(html).length === 0) return doc;
+  const { text } = await fetchFlourishText(html);
+  if (text === '') return doc;
+  return { ...doc, text: `${doc.text}\n\n--- Údaje z grafov na stránke (Flourish) ---\n${text}` };
 }

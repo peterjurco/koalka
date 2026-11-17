@@ -66,6 +66,12 @@ function PollEditorRow({ partyId, pct, original, seats, party, sliderMax, onChan
         step={0.1}
         value={pct}
         onChange={handleSliderChange}
+        style={
+          {
+            '--track': party?.color,
+            '--fill': `${sliderMax > 0 ? Math.min(100, (pct / sliderMax) * 100) : 0}%`,
+          } as React.CSSProperties
+        }
       />
     </div>
   );

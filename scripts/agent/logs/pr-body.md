@@ -1,6 +1,6 @@
-Automated poll watch run of 2026-11-02.
+Automated poll watch run of 2026-11-09.
 
-Watermarks at start: AKO 2026-09-21, Focus 2026-10-19, Ipsos 2026-10-19. Leads examined: 11.
+Watermarks at start: AKO 2026-09-21, Focus 2026-10-19, Ipsos 2026-10-19. Leads examined: 12.
 
 ## Added
 
@@ -12,7 +12,7 @@ Watermarks at start: AKO 2026-09-21, Focus 2026-10-19, Ipsos 2026-10-19. Leads e
 
 ### AKO — https://ako.sk/wp-content/uploads/2026/10/ag.AKO_VOLEBNE-PREF-OKTOBER-2026-tlacova-sprava.pdf
 
-- model notes: Row 'Ostatné strany' is printed as '-' in the October 2026 column (only a September 2026 value of 3,3% is given), so no October value could be determined and the row is omitted. The table also contains a September 2026 column, which was not used.
+- model notes: Riadok "Ostatné strany" má v stĺpci OKTÓBER 2026 uvedené "-" (žiadna hodnota), preto nie je zahrnutý vo výsledkoch; hodnota 3,3 % pri tomto riadku patrí stĺpcu SEPTEMBER 2026.
 
 
 ---

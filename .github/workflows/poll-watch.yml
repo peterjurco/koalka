@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       agency:
-        description: 'Limit to one agency (AKO, Focus, Ipsos). Empty = all.'
+        description: 'Limit to one agency (AKO, Focus, Ipsos, NMS). Empty = all.'
         required: false
         default: ''
       dry_run:

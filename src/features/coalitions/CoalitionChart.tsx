@@ -63,8 +63,21 @@ function CoalitionTooltip({
 
 type ChartRow = Record<string, string | number>;
 
+/** Black or white, whichever reads better on the given hex background. */
+function labelColorFor(hex: string | undefined): string {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex ?? '');
+  if (!m) return '#fff';
+  const n = parseInt(m[1], 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((c) => {
+    const v = c / 255;
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+  });
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luminance > 0.22 ? 'rgba(0,0,0,0.82)' : '#fff';
+}
+
 /** Renders a party's abbreviation centred inside its stacked bar segment. */
-function makeBarLabel(name: string) {
+function makeBarLabel(name: string, fill: string) {
   // recharts' bar-label callback props aren't cleanly exported; read loosely.
   return function BarSegmentLabel(props: {
     x?: string | number;
@@ -79,15 +92,16 @@ function makeBarLabel(name: string) {
     const height = Number(props.height ?? 0);
     const value = Number(props.value ?? 0);
     // Skip empty segments and ones too short to fit any text.
-    if (!value || value <= 0 || height < 9) return null;
+    if (!value || value <= 0 || height < 14) return null;
     return (
       <text
         x={x + width / 2}
         y={y + height / 2}
         textAnchor="middle"
         dominantBaseline="central"
-        fontSize={9}
-        style={{ fill: '#000', pointerEvents: 'none' }}
+        fontSize={10}
+        fontWeight={600}
+        style={{ fill, pointerEvents: 'none', letterSpacing: '0.02em' }}
       >
         {name}
       </text>
@@ -144,17 +158,25 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
           margin={{ top: 24, right: 12, bottom: 8, left: 0 }}
           barCategoryGap="22%"
         >
-          <CartesianGrid vertical={false} strokeOpacity={0.12} />
-          <XAxis type="category" dataKey="label" tick={false} height={8} />
+          <CartesianGrid vertical={false} stroke="var(--chart-grid)" />
+          <XAxis
+            type="category"
+            dataKey="label"
+            tick={false}
+            height={8}
+            axisLine={{ stroke: 'var(--chart-axis)' }}
+          />
           <YAxis
             type="number"
             domain={[0, domainMax]}
             ticks={yTicks}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 11, fill: 'var(--chart-axis-tick-fill)' }}
+            tickLine={false}
+            axisLine={false}
             width={32}
           />
           <Tooltip
-            cursor={{ fillOpacity: 0.08 }}
+            cursor={{ fill: 'var(--surface-2)', fillOpacity: 0.7 }}
             content={(props) => (
               <CoalitionTooltip
                 active={props.active}
@@ -166,15 +188,27 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
           />
           <ReferenceLine
             y={76}
-            stroke="#f59e0b"
-            strokeDasharray="5 3"
-            strokeWidth={2}
+            stroke="var(--majority-line)"
+            strokeDasharray="4 4"
+            strokeWidth={1.5}
+            label={{
+              value: 'Väčšina',
+              position: 'insideTopRight',
+              fill: 'var(--majority-line)',
+              className: 'coalition-ref-label',
+            }}
           />
           <ReferenceLine
             y={90}
-            stroke="#f87171"
-            strokeDasharray="5 3"
-            strokeWidth={2}
+            stroke="var(--reference-line-stroke)"
+            strokeDasharray="4 4"
+            strokeWidth={1.5}
+            label={{
+              value: 'Ústavná väčšina',
+              position: 'insideTopRight',
+              fill: 'var(--reference-line-stroke)',
+              className: 'coalition-ref-label',
+            }}
           />
           {allPartyIds.map((pid) => (
             <Bar
@@ -184,9 +218,13 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
               fill={partyById.get(pid)?.color ?? '#888'}
               isAnimationActive={false}
               radius={0}
+              stroke="var(--surface)"
+              strokeWidth={1.5}
+              maxBarSize={140}
               label={
                 makeBarLabel(
                   partyById.get(pid)?.abbr ?? partyById.get(pid)?.shortName ?? pid,
+                  labelColorFor(partyById.get(pid)?.color),
                 ) as never
               }
             />
