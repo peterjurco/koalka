@@ -22,13 +22,17 @@ const BOILERPLATE_DOCUMENT =
  * Decide whether a fetched HTML report page already contains its own poll data (a table)
  * or should be followed to a linked PDF/CSV release instead. Mirrors what the existing
  * deterministic Focus fetcher does (scripts/ingestion/fetchers/focus.ts): follow only when
- * there is no table AND exactly one PDF/CSV link. An ambiguous page (none, or more than
+ * there is no table (HTML table or embedded Flourish charts) AND exactly one PDF/CSV
+ * link. An ambiguous page (none, or more than
  * one) is used as-is rather than guessed at — extraction will then report it found no
  * usable data, which surfaces in the PR rather than silently picking the wrong link.
  */
 export function decideReportPageAction(html: string, baseUrl: string): ReportPageDecision {
   const $ = cheerio.load(html);
-  if ($('table').length > 0) return { action: 'use-as-is' };
+  // Embedded Flourish charts are the page's own data table too (see flourish.ts) — NMS
+  // pages carry them, and an older one also links a single summary PDF that would
+  // otherwise be followed instead of reading the full chart data.
+  if ($('table').length > 0 || findFlourishIds(html).length > 0) return { action: 'use-as-is' };
 
   const candidates = harvestLinks(html, baseUrl).filter(
     (link) =>

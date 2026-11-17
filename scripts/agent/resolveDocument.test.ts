@@ -25,6 +25,15 @@ describe('decideReportPageAction', () => {
     });
   });
 
+  it('uses the page as-is when it embeds Flourish charts, even with a single PDF link', () => {
+    const html =
+      '<body><div data-src="visualisation/13705125"></div>' +
+      '<a href="/nms_Volebny-model-maj_2023-05-25.pdf">PDF</a></body>';
+    expect(decideReportPageAction(html, 'https://nms.global/sk/x/')).toEqual({
+      action: 'use-as-is',
+    });
+  });
+
   it('uses the page as-is when there is no table and no PDF/CSV link', () => {
     const html = '<body><p>No data here.</p></body>';
     expect(decideReportPageAction(html, 'https://example.sk/report/')).toEqual({
