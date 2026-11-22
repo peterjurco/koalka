@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { allocateSeats } from '../../core/allocation/index.ts';
 import { buildCoalition } from '../../core/coalition/coalitionBuilder.ts';
+import { makeThresholdFn } from '../../core/coalition/electoralLists.ts';
 import type { CoalitionResult } from '../../core/coalition/types.ts';
 import type { PartyId } from '../../data/types.ts';
 import { useStore } from '../../state/store.ts';
@@ -60,18 +61,21 @@ export function CoalitionPage() {
   const selectedPoll = polls.find((p) => p.id === selectedPollId) ?? null;
   const effectiveVoteShare = overrideVoteShare ?? selectedPoll?.results ?? {};
 
+  const threshold = makeThresholdFn(config.parties, config.rules);
+
   const coalitionResults: Array<CoalitionResult | null> = savedCoalitions.map((coalition) => {
     if (!selectedPoll || coalition.partyIds.length === 0) return null;
     return buildCoalition({
       voteShare: effectiveVoteShare,
       partyIds: coalition.partyIds,
       totalSeats: config.rules.totalSeats,
-      thresholdPercent: config.rules.thresholdPercent,
+      thresholdPercent: threshold,
+      parties: config.parties,
     });
   });
 
   const perPartySeatAllocation = selectedPoll
-    ? allocateSeats(effectiveVoteShare, config.rules.totalSeats, config.rules.thresholdPercent)
+    ? allocateSeats(effectiveVoteShare, config.rules.totalSeats, threshold)
     : {};
 
   const handleSelectPoll = (pollId: string) => {
@@ -128,8 +132,18 @@ export function CoalitionPage() {
         coalitions={savedCoalitions}
         coalitionResults={coalitionResults}
         parties={config.parties}
+        rules={config.rules}
         onAdd={(coalition) => setSavedCoalitions((prev) => [...prev, coalition])}
         onRemove={(id) => setSavedCoalitions((prev) => prev.filter((c) => c.id !== id))}
+        onAddParties={(id, partyIds) =>
+          setSavedCoalitions((prev) =>
+            prev.map((c) =>
+              c.id === id
+                ? { ...c, partyIds: [...c.partyIds, ...partyIds.filter((p) => !c.partyIds.includes(p))] }
+                : c,
+            ),
+          )
+        }
         onReorder={(from, to) =>
           setSavedCoalitions((prev) => {
             const next = [...prev];

@@ -28,12 +28,14 @@ import { triageLinks } from './leads/triage.ts';
 import { mergePolls } from './merge.ts';
 import { renderCommitMessage, renderPrBody } from './report.ts';
 import { withSeatProjection, type ElectionRules } from './seats.ts';
+import type { Party } from '../../src/data/types.ts';
 import type { AggregatorRow, AgentRunReport, Lead, LeadReport } from './types.ts';
 import { computeWatermarks } from './watermarks.ts';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const POLLS_PATH = join(REPO_ROOT, 'public/data/sk/polls.json');
 const ELECTION_PATH = join(REPO_ROOT, 'public/data/sk/election.json');
+const PARTIES_PATH = join(REPO_ROOT, 'public/data/sk/parties.json');
 const LOG_DIR = join(REPO_ROOT, 'scripts/agent/logs');
 
 function flagValue(name: string): string | null {
@@ -273,6 +275,7 @@ async function main(): Promise<void> {
 
   const existingPolls = await readJson<NormalizedPoll[]>(POLLS_PATH);
   const rules = await readJson<ElectionRules>(ELECTION_PATH);
+  const parties = await readJson<Party[]>(PARTIES_PATH);
 
   const watermarks = computeWatermarks(existingPolls, agencies);
   if (sinceOverride != null) {
@@ -349,7 +352,7 @@ async function main(): Promise<void> {
 
   const withSeats = merged.polls.map((poll) =>
     merged.added.some((added) => added.id === poll.id)
-      ? withSeatProjection(poll, rules)
+      ? withSeatProjection(poll, rules, parties)
       : poll,
   );
 

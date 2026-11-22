@@ -30,6 +30,8 @@ export interface TrendyStorage {
   visiblePartyIds: string[];
   customSums: PartySum[];
   visibleSumIds: string[];
+  /** Party ids that existed when this was saved — tells new parties from ones the user hid */
+  knownPartyIds?: string[];
 }
 
 const STORAGE_PREFIX = "koalka-trendy-";

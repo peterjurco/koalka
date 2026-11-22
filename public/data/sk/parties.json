@@ -16,6 +16,20 @@
     "visibleByDefault": true
   },
   {
+    "id": "ps_demokrati",
+    "name": "Progresívne Slovensko a Demokrati",
+    "shortName": "PS + Demokrati",
+    "abbr": "PS+D",
+    "color": "#1e3f8f",
+    "order": 2.5,
+    "visibleByDefault": true,
+    "start": "2026-11",
+    "members": [
+      "ps",
+      "demokrati"
+    ]
+  },
+  {
     "id": "hlas",
     "name": "HLAS-SD",
     "shortName": "HLAS",

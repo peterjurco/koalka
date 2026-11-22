@@ -1,4 +1,5 @@
 import { allocateSeats } from '../allocation/index.ts'
+import { resolveSelection } from './electoralLists.ts'
 import type { CoalitionInput, CoalitionResult } from './types.ts'
 
 /**
@@ -11,12 +12,16 @@ export function buildCoalition(input: CoalitionInput): CoalitionResult {
     partyIds,
     totalSeats,
     thresholdPercent,
+    parties,
     majorityThreshold = Math.floor(totalSeats / 2) + 1,
   } = input
 
-  const set = new Set(partyIds)
+  const { subjects, blocked } = parties
+    ? resolveSelection(partyIds, voteShare, parties)
+    : { subjects: [...partyIds], blocked: [] }
+
   let totalVotePercent = 0
-  for (const id of partyIds) {
+  for (const id of subjects) {
     totalVotePercent += voteShare[id] ?? 0
   }
 
@@ -28,18 +33,19 @@ export function buildCoalition(input: CoalitionInput): CoalitionResult {
   )
 
   let totalSeatsForCoalition = 0
-  for (const id of set) {
+  for (const id of subjects) {
     totalSeatsForCoalition += perPartySeats[id] ?? 0
   }
 
   const majority = totalSeatsForCoalition >= majorityThreshold
 
   return {
-    partyIds: [...partyIds],
+    partyIds: subjects,
     totalVotePercent,
     totalSeats: totalSeatsForCoalition,
     majority,
     perPartySeats,
     majorityThreshold,
+    blocked,
   }
 }

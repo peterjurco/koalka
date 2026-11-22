@@ -2,7 +2,8 @@ import { useMemo, useState, useCallback, type ReactNode } from "react";
 import type { SeriesPoint } from "../../components/charts/chartTypes.ts";
 import { LineChart } from "../../components/charts/LineChart.tsx";
 import { Card } from "../../components/ui/Card.tsx";
-import type { PartyId } from "../../data/types.ts";
+import type { Party, PartyId } from "../../data/types.ts";
+import { resolveSelection } from "../../core/coalition/electoralLists.ts";
 import { useStore } from "../../state/store.ts";
 import { useIsMobile } from "../../utils/useMediaQuery.ts";
 import { PollDetailModal } from "./PollDetailModal.tsx";
@@ -63,6 +64,22 @@ function formatXAsDay(x: number): string {
 
 function formatMobileYAxisTick(value: number): string {
   return value === 0 ? "" : String(value);
+}
+
+/**
+ * Value of a custom sum line at one point. Parties on a joint electoral list are replaced
+ * by the list when every member is in the sum. When only some are (PS + KDH without
+ * Demokrati in a poll reporting "PS + Demokrati"), the sum cannot be computed and the
+ * point is left empty instead of plunging by the list's share.
+ */
+function sumValue(
+  partyIds: PartyId[],
+  values: Record<PartyId, number>,
+  parties: Party[],
+): number | null {
+  const { subjects, blocked } = resolveSelection(partyIds, values, parties);
+  if (blocked.length > 0) return null;
+  return subjects.reduce((s, id) => s + (values[id] ?? 0), 0);
 }
 
 // ---------------------------------------------------------------------------
@@ -139,9 +156,7 @@ export function PartyTrendChart({
             beforeStart || afterEnd ? null : (values[party.id] ?? null);
         }
         for (const sum of sumList) {
-          let value = 0;
-          for (const pid of sum.partyIds) value += values[pid] ?? 0;
-          point[sum.id] = value;
+          point[sum.id] = sumValue(sum.partyIds, values, parties);
         }
         return point;
       });
@@ -168,17 +183,13 @@ export function PartyTrendChart({
         for (const party of partyList) {
           const beforeStart = party.start != null && monthKey < party.start;
           const afterEnd = party.end != null && monthKey > party.end;
+          // A party no poll reported this month is "not measured", not 0 % — e.g. PS in a
+          // month where every agency already polls the joint PS + Demokrati list.
           point[party.id] =
-            beforeStart || afterEnd ? null : m ? (m.results[party.id] ?? 0) : null;
+            beforeStart || afterEnd ? null : (m?.results[party.id] ?? null);
         }
         for (const sum of sumList) {
-          if (m) {
-            let value = 0;
-            for (const pid of sum.partyIds) value += m.results[pid] ?? 0;
-            point[sum.id] = value;
-          } else {
-            point[sum.id] = null;
-          }
+          point[sum.id] = m ? sumValue(sum.partyIds, m.results, parties) : null;
         }
         return point;
       },
@@ -336,7 +347,7 @@ export function PartyTrendChart({
         <PollDetailModal
           polls={modalPolls}
           parties={config.parties}
-          thresholdPercent={config.rules.thresholdPercent}
+          rules={config.rules}
           trendValueMode={trendValueMode}
           title={modalTitle}
           onClose={() => setModalPolls([])}

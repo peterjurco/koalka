@@ -6254,5 +6254,45 @@
         "strana_vidieka": 0
       }
     }
+  },
+  {
+    "id": "sk-ipsos-2026-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Ipsos",
+    "fieldworkStart": "2026-11-16",
+    "fieldworkEnd": "2026-11-20",
+    "sampleSize": 1030,
+    "sourceUrl": "https://www.pravda.sk/spravy/domace/clanok/2083561-prvy-prieskum-po-spojeni-ps-a-demokratov-je-na-svete-ako-zamiesala-nova-koalicia-politickymi-kartami",
+    "methodology": {
+      "mode": "online",
+      "client": "Denník N"
+    },
+    "results": {
+      "ps_demokrati": 24.1,
+      "smer": 17.2,
+      "republika": 12.3,
+      "olano": 10.8,
+      "sas": 8.5,
+      "kdh": 6.9,
+      "hlas": 6.8,
+      "madarska_aliancia": 4.3,
+      "pravo_na_pravdu": 2.4,
+      "sme_rodina": 2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps_demokrati": 42,
+        "smer": 30,
+        "republika": 21,
+        "olano": 19,
+        "sas": 14,
+        "kdh": 12,
+        "hlas": 12,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0
+      }
+    }
   }
 ]
