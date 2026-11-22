@@ -9,7 +9,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { ReactNode, SVGProps } from "react";
+import type { TextProps } from "recharts";
+import type { ReactNode } from "react";
 import type { SeriesPoint } from "./chartTypes.ts";
 
 type ChartMargin = {
@@ -34,7 +35,7 @@ export interface LineChartProps {
   yAxisTickFormatter?: (value: number) => string;
   yAxisWidth?: number;
   chartMargin?: ChartMargin;
-  axisTickStyle?: SVGProps<SVGTextElement>;
+  axisTickStyle?: TextProps;
   /** If false, null/undefined values in series create gaps in the line (default true for category, false for linear) */
   connectNulls?: boolean;
   /** Optional horizontal reference line (e.g. electoral threshold at 5%) */
@@ -143,8 +144,8 @@ export function LineChart({
         <Tooltip
           cursor={{ stroke: "var(--chart-axis, #ccc)", strokeWidth: 1 }}
           labelFormatter={tooltipLabelFormatter}
-          formatter={(value: number | undefined) =>
-            value != null ? formatValue(value) : ""
+          formatter={(value) =>
+            typeof value === "number" ? formatValue(value) : ""
           }
           contentStyle={{
             backgroundColor: "var(--tooltip-bg, #fff)",

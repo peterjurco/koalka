@@ -91,9 +91,14 @@ export function checkGrounding(
     // original needle's length.
     const words = needle.split(' ').filter((word) => word.length > 0);
     const pattern = words.map(escapeRegExp).join(`\\s{1,${MAX_NAME_WORD_GAP}}`);
-    const match = pattern.length > 0 ? new RegExp(pattern).exec(doc) : null;
+    // Every mention counts, not just the first: a release often names a party in its
+    // prose (headline, commentary, with a change or another month's figure) well before
+    // the results table, and an embedded-chart table (flourish.ts) always comes last.
+    // Checking only the first mention flagged those as ungrounded even though the value
+    // sits next to the party's name in the table. Each window is still bounded.
+    const matches = pattern.length > 0 ? [...doc.matchAll(new RegExp(pattern, 'g'))] : [];
 
-    if (!match) {
+    if (matches.length === 0) {
       return {
         party,
         value: percent,
@@ -102,13 +107,13 @@ export function checkGrounding(
       };
     }
 
-    const at = match.index;
-    const slice = doc.slice(
-      Math.max(0, at - window),
-      at + match[0].length + window,
-    );
+    const nearAnyMention = matches.some((match) => {
+      const at = match.index;
+      const slice = doc.slice(Math.max(0, at - window), at + match[0].length + window);
+      return numberAppears(slice, percent);
+    });
 
-    return numberAppears(slice, percent)
+    return nearAnyMention
       ? { party, value: percent, grounded: true, reason: '' }
       : {
           party,

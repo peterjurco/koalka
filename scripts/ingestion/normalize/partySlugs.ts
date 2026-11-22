@@ -64,6 +64,7 @@ add(
   "smer_sd",
   "smer_sssd",
   "SMER-SSD",
+  "SMER - SSD", // NMS 2023
   "SMER – SD",
   "Smer-SD",
   "SMER-SD",
@@ -185,6 +186,8 @@ add(
   "Szövetség - Magyarok. Nemzetiségek. Regiók /Aliancia - Maďari. Národnosti.",
   "Regióny", // last line of the three-line block when % is on same line
   "/Aliancia - Maďari. Národnosti. Regióny", // AKO Aug 2023: second line when break is after "Regiók"
+  "Magyar Szövetség", // NMS
+  "SZÖVETSÉG | ALIANCIA", // NMS
 );
 add(
   "za_ludi",

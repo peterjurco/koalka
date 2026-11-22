@@ -1920,6 +1920,48 @@
     }
   },
   {
+    "id": "sk-nms-2023-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-03-28",
+    "fieldworkEnd": "2023-04-02",
+    "sampleSize": 1008,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-april-2023/",
+    "results": {
+      "smer": 22.4,
+      "hlas": 14.2,
+      "ps": 12.8,
+      "republika": 9.9,
+      "kdh": 6.3,
+      "sme_rodina": 5.7,
+      "olano": 5.2,
+      "sas": 5.1,
+      "demokrati": 3,
+      "madarska_aliancia": 3,
+      "sns": 2.4,
+      "za_ludi": 2,
+      "lsns": 1.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 41,
+        "hlas": 26,
+        "ps": 24,
+        "republika": 18,
+        "kdh": 12,
+        "sme_rodina": 10,
+        "olano": 10,
+        "sas": 9,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2023-04",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -1999,6 +2041,48 @@
         "lsns": 0,
         "demokrati": 0,
         "madarska_aliancia": 0,
+        "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2023-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-05-03",
+    "fieldworkEnd": "2023-05-17",
+    "sampleSize": 1233,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-maj-2023/",
+    "results": {
+      "smer": 21.3,
+      "ps": 14.2,
+      "hlas": 14,
+      "republika": 8.7,
+      "olano": 7.3,
+      "sas": 6.2,
+      "sme_rodina": 5.9,
+      "kdh": 5.5,
+      "sns": 3.1,
+      "demokrati": 2.7,
+      "madarska_aliancia": 2.6,
+      "lsns": 1.7,
+      "za_ludi": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 38,
+        "ps": 26,
+        "hlas": 25,
+        "republika": 16,
+        "olano": 13,
+        "sas": 11,
+        "sme_rodina": 11,
+        "kdh": 10,
+        "sns": 0,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0,
         "za_ludi": 0
       }
     }
@@ -2128,6 +2212,48 @@
     }
   },
   {
+    "id": "sk-nms-2023-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-06-02",
+    "fieldworkEnd": "2023-06-08",
+    "sampleSize": 1446,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-jun-2023/",
+    "results": {
+      "smer": 19.6,
+      "ps": 15.2,
+      "hlas": 14.1,
+      "republika": 9.4,
+      "sme_rodina": 6.8,
+      "olano": 6.3,
+      "kdh": 6,
+      "sas": 4.7,
+      "sns": 3.9,
+      "madarska_aliancia": 3.4,
+      "lsns": 3.1,
+      "demokrati": 1.8,
+      "za_ludi": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 38,
+        "ps": 30,
+        "hlas": 27,
+        "republika": 18,
+        "sme_rodina": 13,
+        "olano": 12,
+        "kdh": 12,
+        "sas": 0,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0,
+        "demokrati": 0,
+        "za_ludi": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2023-06",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2250,6 +2376,46 @@
         "demokrati": 0,
         "madarska_aliancia": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2023-07",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-07-04",
+    "fieldworkEnd": "2023-07-09",
+    "sampleSize": 1413,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-jul-2023/",
+    "results": {
+      "smer": 20.6,
+      "ps": 15.6,
+      "hlas": 11.4,
+      "republika": 10.4,
+      "olano": 6.9,
+      "kdh": 5.7,
+      "sme_rodina": 5.3,
+      "sas": 4.7,
+      "sns": 4.6,
+      "madarska_aliancia": 3.4,
+      "lsns": 2.9,
+      "demokrati": 2.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 41,
+        "ps": 31,
+        "hlas": 22,
+        "republika": 21,
+        "olano": 14,
+        "kdh": 11,
+        "sme_rodina": 10,
+        "sas": 0,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0,
+        "demokrati": 0
       }
     }
   },
@@ -2454,6 +2620,46 @@
     }
   },
   {
+    "id": "sk-nms-2023-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-08-01",
+    "fieldworkEnd": "2023-08-07",
+    "sampleSize": 1416,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-august-2023/",
+    "results": {
+      "smer": 23.3,
+      "ps": 17,
+      "hlas": 11.5,
+      "republika": 7.5,
+      "olano": 6.3,
+      "sns": 6,
+      "sme_rodina": 5.6,
+      "kdh": 5,
+      "sas": 4.5,
+      "madarska_aliancia": 3,
+      "lsns": 2.8,
+      "demokrati": 2.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 43,
+        "ps": 31,
+        "hlas": 21,
+        "republika": 14,
+        "olano": 11,
+        "sns": 11,
+        "sme_rodina": 10,
+        "kdh": 9,
+        "sas": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0,
+        "demokrati": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2023-08",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2614,6 +2820,46 @@
     }
   },
   {
+    "id": "sk-nms-2023-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-09-05",
+    "fieldworkEnd": "2023-09-10",
+    "sampleSize": 1410,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-september-2023/",
+    "results": {
+      "smer": 22,
+      "ps": 18.1,
+      "hlas": 11.4,
+      "republika": 8.3,
+      "sns": 7.3,
+      "olano": 6.1,
+      "sme_rodina": 5.8,
+      "kdh": 4.7,
+      "sas": 4.2,
+      "demokrati": 3.8,
+      "madarska_aliancia": 3.2,
+      "lsns": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 42,
+        "ps": 34,
+        "hlas": 22,
+        "republika": 16,
+        "sns": 14,
+        "olano": 11,
+        "sme_rodina": 11,
+        "kdh": 0,
+        "sas": 0,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-focus-2023-09-06",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -2728,6 +2974,46 @@
         "lsns": 0,
         "demokrati": 0,
         "madarska_aliancia": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2023-09-21",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2023-09-21",
+    "fieldworkEnd": "2023-09-24",
+    "sampleSize": 1411,
+    "sourceUrl": "https://nms.global/sk/predvolebny-prieskum-september-2023-2-kolo/",
+    "results": {
+      "ps": 19.7,
+      "smer": 19.4,
+      "hlas": 10.5,
+      "olano": 9.5,
+      "republika": 8.5,
+      "sas": 5.7,
+      "kdh": 5.4,
+      "sns": 5.4,
+      "sme_rodina": 5.2,
+      "madarska_aliancia": 3.1,
+      "demokrati": 2.3,
+      "lsns": 1.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 33,
+        "smer": 33,
+        "hlas": 18,
+        "olano": 16,
+        "republika": 14,
+        "sas": 9,
+        "kdh": 9,
+        "sns": 9,
+        "sme_rodina": 9,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "lsns": 0
       }
     }
   },
@@ -3006,6 +3292,46 @@
     }
   },
   {
+    "id": "sk-nms-2024-01",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-01-10",
+    "fieldworkEnd": "2024-01-14",
+    "sampleSize": 1030,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-januar-2024/",
+    "results": {
+      "smer": 22.3,
+      "ps": 21.1,
+      "hlas": 14.7,
+      "sas": 6.9,
+      "kdh": 6.8,
+      "republika": 6.5,
+      "olano": 6,
+      "sns": 4.5,
+      "madarska_aliancia": 3.4,
+      "sme_rodina": 3.3,
+      "demokrati": 3.1,
+      "lsns": 0.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "smer": 40,
+        "ps": 38,
+        "hlas": 26,
+        "sas": 12,
+        "kdh": 12,
+        "republika": 11,
+        "olano": 11,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "demokrati": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2024-01",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -3200,6 +3526,46 @@
         "lsns": 0,
         "demokrati": 0,
         "madarska_aliancia": 9
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2024-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-02-14",
+    "fieldworkEnd": "2024-02-18",
+    "sampleSize": 1022,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-februar-2024/",
+    "results": {
+      "ps": 22,
+      "smer": 21,
+      "hlas": 16.9,
+      "kdh": 7.2,
+      "olano": 6,
+      "republika": 5.8,
+      "sas": 5.7,
+      "sns": 4.2,
+      "sme_rodina": 3.6,
+      "madarska_aliancia": 3.3,
+      "demokrati": 2.5,
+      "lsns": 1.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 37,
+        "hlas": 30,
+        "kdh": 13,
+        "olano": 11,
+        "republika": 10,
+        "sas": 10,
+        "sns": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "lsns": 0
       }
     }
   },
@@ -3512,6 +3878,86 @@
     }
   },
   {
+    "id": "sk-nms-2024-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-05-09",
+    "fieldworkEnd": "2024-05-13",
+    "sampleSize": 1020,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-maj-2024/",
+    "results": {
+      "ps": 23.1,
+      "smer": 20.9,
+      "hlas": 14.9,
+      "republika": 7.9,
+      "sas": 6.6,
+      "olano": 5.5,
+      "kdh": 5.4,
+      "sns": 3.7,
+      "madarska_aliancia": 3.5,
+      "demokrati": 3.4,
+      "sme_rodina": 3.2,
+      "lsns": 0.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 37,
+        "hlas": 27,
+        "republika": 14,
+        "sas": 12,
+        "olano": 10,
+        "kdh": 9,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2024-05-30",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-05-30",
+    "fieldworkEnd": "2024-06-03",
+    "sampleSize": 1020,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-jun-2024-vo-volbach-by-zvitazilo-progresivne-slovensko/",
+    "results": {
+      "ps": 23.7,
+      "smer": 22.4,
+      "hlas": 15.8,
+      "republika": 7.4,
+      "sas": 5.6,
+      "kdh": 5.6,
+      "sns": 4.5,
+      "madarska_aliancia": 3.5,
+      "olano": 3.4,
+      "sme_rodina": 3,
+      "demokrati": 2.9,
+      "lsns": 0.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 42,
+        "hlas": 30,
+        "republika": 14,
+        "sas": 10,
+        "kdh": 10,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "olano": 0,
+        "sme_rodina": 0,
+        "demokrati": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-focus-2024-06",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -3624,6 +4070,46 @@
     }
   },
   {
+    "id": "sk-nms-2024-07",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-07-04",
+    "fieldworkEnd": "2024-07-08",
+    "sampleSize": 1020,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-jul-2024-o-prvenstvo-bojuje-ps-a-smer/",
+    "results": {
+      "ps": 22.6,
+      "smer": 22.5,
+      "hlas": 13.1,
+      "republika": 7,
+      "kdh": 6,
+      "sas": 5.1,
+      "demokrati": 4.6,
+      "olano": 4.2,
+      "sns": 4.1,
+      "sme_rodina": 3.7,
+      "madarska_aliancia": 3.4,
+      "lsns": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 44,
+        "hlas": 26,
+        "republika": 14,
+        "kdh": 12,
+        "sas": 10,
+        "demokrati": 0,
+        "olano": 0,
+        "sns": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2024-07",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -3700,6 +4186,86 @@
         "sas": 12,
         "demokrati": 0,
         "madarska_aliancia": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2024-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-08-08",
+    "fieldworkEnd": "2024-08-12",
+    "sampleSize": 1044,
+    "sourceUrl": "https://nms.global/sk/stranicky-volebny-model-august-2024-preferencie-ostavaju-stabilne/",
+    "results": {
+      "ps": 23.1,
+      "smer": 22.4,
+      "hlas": 14.3,
+      "republika": 7,
+      "kdh": 6.2,
+      "sas": 5.8,
+      "demokrati": 4.5,
+      "olano": 4.4,
+      "sme_rodina": 3.2,
+      "madarska_aliancia": 3.2,
+      "sns": 3.2,
+      "lsns": 1.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 43,
+        "hlas": 27,
+        "republika": 13,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 0,
+        "olano": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2024-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-09-05",
+    "fieldworkEnd": "2024-09-09",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-september-2024-ps-aj-smer-si-upevnuju-svoju-poziciu-lidrov/",
+    "results": {
+      "ps": 24.5,
+      "smer": 23.9,
+      "hlas": 12.6,
+      "kdh": 6.2,
+      "sas": 6.1,
+      "republika": 6,
+      "olano": 3.9,
+      "sme_rodina": 3.9,
+      "sns": 3.5,
+      "madarska_aliancia": 3.4,
+      "demokrati": 3.3,
+      "lsns": 1.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 47,
+        "smer": 45,
+        "hlas": 24,
+        "kdh": 12,
+        "sas": 11,
+        "republika": 11,
+        "olano": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "lsns": 0
       }
     }
   },
@@ -3814,6 +4380,46 @@
         "olano": 0,
         "demokrati": 8,
         "madarska_aliancia": 9
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2024-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-10-02",
+    "fieldworkEnd": "2024-10-07",
+    "sampleSize": 1000,
+    "sourceUrl": "https://nms.global/sk/volebny-model-oktober-2024-konsolidacny-balicek-meni-preferencie-volicov/",
+    "results": {
+      "ps": 24.4,
+      "smer": 20.5,
+      "hlas": 12,
+      "republika": 7.4,
+      "kdh": 6.9,
+      "sas": 6.2,
+      "olano": 5.2,
+      "demokrati": 5.1,
+      "sme_rodina": 3.9,
+      "madarska_aliancia": 3.6,
+      "sns": 2.9,
+      "lsns": 1.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 35,
+        "hlas": 20,
+        "republika": 13,
+        "kdh": 12,
+        "sas": 10,
+        "olano": 9,
+        "demokrati": 9,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "lsns": 0
       }
     }
   },
@@ -3934,6 +4540,48 @@
     }
   },
   {
+    "id": "sk-nms-2024-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-11-07",
+    "fieldworkEnd": "2024-11-11",
+    "sampleSize": 1000,
+    "sourceUrl": "https://nms.global/sk/volebny-model-november-2024-ps-rastie-smer-klesa-napriek-tomu-by-progresivci-vyskladali-vladu-len-tazko/",
+    "results": {
+      "ps": 25.1,
+      "smer": 19.1,
+      "hlas": 10.8,
+      "republika": 8.7,
+      "kdh": 6.4,
+      "sas": 6,
+      "olano": 4.7,
+      "demokrati": 4.4,
+      "sme_rodina": 4.3,
+      "madarska_aliancia": 3.7,
+      "sns": 3.3,
+      "lsns": 1,
+      "za_ludi": 1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 50,
+        "smer": 38,
+        "hlas": 21,
+        "republika": 17,
+        "kdh": 12,
+        "sas": 12,
+        "olano": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "lsns": 0,
+        "za_ludi": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2024-11",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4014,6 +4662,48 @@
     }
   },
   {
+    "id": "sk-nms-2024-12",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2024-12-04",
+    "fieldworkEnd": "2024-12-09",
+    "sampleSize": 1000,
+    "sourceUrl": "https://nms.global/sk/volebny-model-december-2024-zmeny-sa-deju-na-5-hranici/",
+    "results": {
+      "ps": 24.8,
+      "smer": 19.1,
+      "hlas": 10.7,
+      "republika": 9.5,
+      "olano": 6.5,
+      "kdh": 5.5,
+      "sas": 4.8,
+      "demokrati": 3.9,
+      "sme_rodina": 3.4,
+      "madarska_aliancia": 3.2,
+      "sns": 2.9,
+      "za_ludi": 2.9,
+      "lsns": 1.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 49,
+        "smer": 38,
+        "hlas": 21,
+        "republika": 18,
+        "olano": 13,
+        "kdh": 11,
+        "sas": 0,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2024-12",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4052,6 +4742,48 @@
         "demokrati": 0,
         "madarska_aliancia": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-01",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-01-09",
+    "fieldworkEnd": "2025-01-13",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-januar-2025-sucasna-koalicia-by-vladu-nezlozila-nepomohli-by-ani-hlasy-z-republiky/",
+    "results": {
+      "ps": 23.9,
+      "smer": 18.4,
+      "hlas": 11.5,
+      "republika": 8.9,
+      "sas": 6.7,
+      "olano": 6.3,
+      "kdh": 5.9,
+      "demokrati": 4,
+      "sme_rodina": 3.6,
+      "madarska_aliancia": 3.4,
+      "za_ludi": 2.3,
+      "sns": 2.1,
+      "lsns": 1.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 34,
+        "hlas": 21,
+        "republika": 16,
+        "sas": 12,
+        "olano": 12,
+        "kdh": 11,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0
       }
     }
   },
@@ -4178,6 +4910,48 @@
     }
   },
   {
+    "id": "sk-nms-2025-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-02-05",
+    "fieldworkEnd": "2025-02-09",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-februar-2025-premier-okrem-rozpoctu-konsoliduje-aj-preferencie-svojej-strany/",
+    "results": {
+      "ps": 24.6,
+      "smer": 22.5,
+      "hlas": 10.5,
+      "republika": 7.4,
+      "kdh": 6.6,
+      "sas": 6.1,
+      "olano": 5.8,
+      "sme_rodina": 4.1,
+      "madarska_aliancia": 3.2,
+      "demokrati": 3,
+      "za_ludi": 2.1,
+      "sns": 1.5,
+      "lsns": 0.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 41,
+        "hlas": 19,
+        "republika": 13,
+        "kdh": 12,
+        "sas": 11,
+        "olano": 10,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "demokrati": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-focus-2025-02",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4214,6 +4988,48 @@
         "demokrati": 0,
         "madarska_aliancia": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-03-05",
+    "fieldworkEnd": "2025-03-09",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-marec-2025-hlas-straca-volicov-najcastejsie-idu-k-smeru-a-medzi-nerozhodnutych/",
+    "results": {
+      "ps": 23.8,
+      "smer": 21.4,
+      "hlas": 8.8,
+      "republika": 8.1,
+      "olano": 6.8,
+      "sas": 6.2,
+      "kdh": 6,
+      "demokrati": 4.1,
+      "sme_rodina": 4.1,
+      "madarska_aliancia": 3.8,
+      "za_ludi": 2.2,
+      "sns": 2,
+      "lsns": 0.8
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 40,
+        "hlas": 16,
+        "republika": 15,
+        "olano": 13,
+        "sas": 11,
+        "kdh": 11,
+        "demokrati": 0,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0
       }
     }
   },
@@ -4340,6 +5156,48 @@
     }
   },
   {
+    "id": "sk-nms-2025-04",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-04-02",
+    "fieldworkEnd": "2025-04-06",
+    "sampleSize": 1005,
+    "sourceUrl": "https://nms.global/sk/volebny-model-april-2025-kym-vlada-riesi-viacero-kriz-mimoparlamentna-opozicia-rastie/",
+    "results": {
+      "ps": 23.2,
+      "smer": 19.9,
+      "republika": 9.2,
+      "hlas": 8.5,
+      "kdh": 6.9,
+      "olano": 6.8,
+      "sas": 6.5,
+      "demokrati": 4.8,
+      "madarska_aliancia": 3.8,
+      "sme_rodina": 3.7,
+      "za_ludi": 2.3,
+      "sns": 1.9,
+      "lsns": 1.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 43,
+        "smer": 37,
+        "republika": 17,
+        "hlas": 16,
+        "kdh": 13,
+        "olano": 12,
+        "sas": 12,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2025-04",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4376,6 +5234,48 @@
         "demokrati": 0,
         "madarska_aliancia": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-04-30",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-04-30",
+    "fieldworkEnd": "2025-05-04",
+    "sampleSize": 1007,
+    "sourceUrl": "https://nms.global/sk/volebny-model-maj-2025-hladina-je-pokojna-v-dialke-sa-crta-suboj-o-sklamanych-volicov/",
+    "results": {
+      "ps": 22.8,
+      "smer": 20.6,
+      "hlas": 8.9,
+      "republika": 8.8,
+      "olano": 7.7,
+      "kdh": 6.4,
+      "sas": 6.1,
+      "demokrati": 4.8,
+      "madarska_aliancia": 4,
+      "sme_rodina": 3.5,
+      "sns": 2.3,
+      "za_ludi": 1.5,
+      "lsns": 1.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 42,
+        "smer": 38,
+        "hlas": 17,
+        "republika": 16,
+        "olano": 14,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
       }
     }
   },
@@ -4540,6 +5440,48 @@
     }
   },
   {
+    "id": "sk-nms-2025-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-06-04",
+    "fieldworkEnd": "2025-06-08",
+    "sampleSize": 1003,
+    "sourceUrl": "https://nms.global/sk/volebny-model-jun-2025-su-demokrati-zakliati/",
+    "results": {
+      "ps": 23,
+      "smer": 19.8,
+      "republika": 9.4,
+      "hlas": 9,
+      "olano": 7.1,
+      "kdh": 6.4,
+      "sas": 5.7,
+      "demokrati": 4.9,
+      "madarska_aliancia": 3.2,
+      "sme_rodina": 3.1,
+      "za_ludi": 3,
+      "sns": 2.5,
+      "lsns": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 43,
+        "smer": 37,
+        "republika": 17,
+        "hlas": 17,
+        "olano": 13,
+        "kdh": 12,
+        "sas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2025-06",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4612,6 +5554,48 @@
         "madarska_aliancia": 0,
         "sme_rodina": 0,
         "sns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-07",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-07-02",
+    "fieldworkEnd": "2025-07-07",
+    "sampleSize": 1009,
+    "sourceUrl": "https://nms.global/sk/volebny-model-jul-2025-lidri-postupne-klesaju-pomoze-spajanie/",
+    "results": {
+      "ps": 20.9,
+      "smer": 18.1,
+      "republika": 10.3,
+      "hlas": 9.7,
+      "olano": 7.1,
+      "sas": 6.7,
+      "kdh": 6.2,
+      "demokrati": 5.2,
+      "madarska_aliancia": 3.9,
+      "sme_rodina": 3.8,
+      "sns": 2.9,
+      "za_ludi": 2.8,
+      "lsns": 1.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 32,
+        "republika": 18,
+        "hlas": 17,
+        "olano": 13,
+        "sas": 12,
+        "kdh": 11,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
       }
     }
   },
@@ -4774,6 +5758,48 @@
     }
   },
   {
+    "id": "sk-nms-2025-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-08-06",
+    "fieldworkEnd": "2025-08-10",
+    "sampleSize": 1000,
+    "sourceUrl": "https://nms.global/sk/volebny-model-august-2025-ako-sa-smer-chyta-do-vlastnej-pasce/",
+    "results": {
+      "ps": 23.9,
+      "smer": 17.4,
+      "republika": 10.4,
+      "hlas": 9.2,
+      "olano": 8.2,
+      "sas": 6.2,
+      "kdh": 6,
+      "demokrati": 4.5,
+      "madarska_aliancia": 3.7,
+      "sme_rodina": 3.4,
+      "sns": 2.7,
+      "za_ludi": 1.8,
+      "lsns": 1.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 32,
+        "republika": 19,
+        "hlas": 17,
+        "olano": 15,
+        "sas": 12,
+        "kdh": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0
+      }
+    }
+  },
+  {
     "id": "sk-ipsos-2025-08",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -4808,6 +5834,50 @@
         "madarska_aliancia": 0,
         "sns": 0,
         "sme_rodina": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-09-03",
+    "fieldworkEnd": "2025-09-07",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-september-2025-jedni-demokrati-leto-nerobia/",
+    "results": {
+      "ps": 22.1,
+      "smer": 20.1,
+      "republika": 10.2,
+      "hlas": 9.5,
+      "olano": 7.1,
+      "sas": 6.1,
+      "kdh": 5.7,
+      "demokrati": 5.5,
+      "madarska_aliancia": 4.1,
+      "sme_rodina": 3.2,
+      "sns": 2,
+      "za_ludi": 1.7,
+      "lsns": 0.8,
+      "strana_vidieka": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 39,
+        "smer": 35,
+        "republika": 18,
+        "hlas": 16,
+        "olano": 12,
+        "sas": 11,
+        "kdh": 10,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -4934,6 +6004,50 @@
     }
   },
   {
+    "id": "sk-nms-2025-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-10-01",
+    "fieldworkEnd": "2025-10-05",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-oktober-2025-bude-to-drahe-ekonomicky-aj-politicky/",
+    "results": {
+      "ps": 24.8,
+      "smer": 17.9,
+      "republika": 11.8,
+      "hlas": 8.3,
+      "olano": 6.4,
+      "sas": 5.9,
+      "kdh": 5.4,
+      "demokrati": 5.2,
+      "madarska_aliancia": 4.4,
+      "sme_rodina": 3.2,
+      "sns": 2,
+      "za_ludi": 1.4,
+      "lsns": 1.2,
+      "strana_vidieka": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 44,
+        "smer": 31,
+        "republika": 21,
+        "hlas": 15,
+        "olano": 11,
+        "sas": 10,
+        "kdh": 9,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2025-10",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5050,6 +6164,52 @@
         "madarska_aliancia": 0,
         "za_ludi": 0,
         "lsns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2025-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-11-05",
+    "fieldworkEnd": "2025-11-09",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-november-2025-prisiel-cas-pre-pravo-na-pravdu/",
+    "results": {
+      "ps": 23.1,
+      "smer": 16.3,
+      "republika": 12.1,
+      "olano": 8.3,
+      "hlas": 7.5,
+      "sas": 6.3,
+      "kdh": 5.4,
+      "demokrati": 5.3,
+      "madarska_aliancia": 4,
+      "sme_rodina": 3.6,
+      "sns": 2.4,
+      "pravo_na_pravdu": 1.6,
+      "lsns": 1.6,
+      "za_ludi": 1.6,
+      "strana_vidieka": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 29,
+        "republika": 22,
+        "olano": 15,
+        "hlas": 13,
+        "sas": 11,
+        "kdh": 10,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "pravo_na_pravdu": 0,
+        "lsns": 0,
+        "za_ludi": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -5172,6 +6332,52 @@
     }
   },
   {
+    "id": "sk-nms-2025-11-28",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2025-11-28",
+    "fieldworkEnd": "2025-12-02",
+    "sampleSize": 1006,
+    "sourceUrl": "https://nms.global/sk/volebny-model-december-2025-smer-aj-nadalej-oslabuje-svojich-koalicnych-partnerov/",
+    "results": {
+      "ps": 22.6,
+      "smer": 18.3,
+      "republika": 11.9,
+      "olano": 7.6,
+      "hlas": 6.5,
+      "sas": 6.3,
+      "demokrati": 5.9,
+      "kdh": 5.3,
+      "sme_rodina": 3.9,
+      "madarska_aliancia": 3.7,
+      "sns": 2.2,
+      "pravo_na_pravdu": 1.8,
+      "za_ludi": 1.5,
+      "lsns": 1.1,
+      "strana_vidieka": 0.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 33,
+        "republika": 21,
+        "olano": 14,
+        "hlas": 12,
+        "sas": 11,
+        "demokrati": 10,
+        "kdh": 9,
+        "sme_rodina": 0,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "pravo_na_pravdu": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-focus-2025-12",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5208,6 +6414,52 @@
         "demokrati": 10,
         "madarska_aliancia": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2026-01",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-01-08",
+    "fieldworkEnd": "2026-01-11",
+    "sampleSize": 1003,
+    "sourceUrl": "https://nms.global/sk/volebny-model-januar-2026-generalka-pred-parlamentnymi-volbami-nas-caka-uz-tento-rok/",
+    "results": {
+      "ps": 20.8,
+      "smer": 17.8,
+      "republika": 12.9,
+      "olano": 7.2,
+      "hlas": 6.5,
+      "kdh": 6.4,
+      "sas": 6,
+      "demokrati": 5.5,
+      "madarska_aliancia": 4.6,
+      "sme_rodina": 3.2,
+      "sns": 2.8,
+      "za_ludi": 2,
+      "lsns": 1.6,
+      "pravo_na_pravdu": 1.5,
+      "strana_vidieka": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 32,
+        "republika": 23,
+        "olano": 13,
+        "hlas": 12,
+        "kdh": 11,
+        "sas": 11,
+        "demokrati": 10,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "pravo_na_pravdu": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -5336,6 +6588,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-02",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-02-04",
+    "fieldworkEnd": "2026-02-08",
+    "sampleSize": 1003,
+    "sourceUrl": "https://nms.global/sk/volebny-model-februar-2026-ako-chybajucich-tisic-hlasov-prekresli-zlozenie-parlamentu/",
+    "results": {
+      "ps": 19.1,
+      "smer": 17.6,
+      "republika": 13.4,
+      "olano": 7.5,
+      "sas": 7.4,
+      "hlas": 6.2,
+      "demokrati": 5.7,
+      "kdh": 4.9,
+      "madarska_aliancia": 4,
+      "sme_rodina": 3.5,
+      "sns": 3,
+      "za_ludi": 2.3,
+      "pravo_na_pravdu": 2,
+      "lsns": 1.7,
+      "strana_vidieka": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 37,
+        "smer": 35,
+        "republika": 26,
+        "olano": 15,
+        "sas": 14,
+        "hlas": 12,
+        "demokrati": 11,
+        "kdh": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "pravo_na_pravdu": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2026-02",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5414,6 +6712,52 @@
         "sme_rodina": 0,
         "za_ludi": 0,
         "pravo_na_pravdu": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2026-03",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-03-04",
+    "fieldworkEnd": "2026-03-09",
+    "sampleSize": 1005,
+    "sourceUrl": "https://nms.global/sk/volebny-model-marec-2026/",
+    "results": {
+      "ps": 21.4,
+      "smer": 16.7,
+      "republika": 13.5,
+      "hlas": 7.6,
+      "sas": 7.6,
+      "olano": 7.1,
+      "demokrati": 5.1,
+      "kdh": 4.8,
+      "madarska_aliancia": 4.2,
+      "sme_rodina": 3.6,
+      "sns": 2.3,
+      "za_ludi": 1.9,
+      "pravo_na_pravdu": 1.6,
+      "lsns": 1.1,
+      "strana_vidieka": 0.3
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 41,
+        "smer": 32,
+        "republika": 26,
+        "hlas": 14,
+        "sas": 14,
+        "olano": 13,
+        "demokrati": 10,
+        "kdh": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "pravo_na_pravdu": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -5584,6 +6928,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-04",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-04-08",
+    "fieldworkEnd": "2026-04-13",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-april-2026/",
+    "results": {
+      "ps": 20.2,
+      "smer": 17.3,
+      "republika": 13.6,
+      "sas": 7.3,
+      "olano": 7.1,
+      "hlas": 7,
+      "demokrati": 5.8,
+      "kdh": 5.3,
+      "madarska_aliancia": 4.2,
+      "sme_rodina": 3.8,
+      "sns": 2.8,
+      "za_ludi": 2.2,
+      "pravo_na_pravdu": 1.6,
+      "lsns": 0.8,
+      "strana_vidieka": 0.2
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 31,
+        "republika": 24,
+        "sas": 13,
+        "olano": 13,
+        "hlas": 13,
+        "demokrati": 10,
+        "kdh": 10,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "pravo_na_pravdu": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ipsos-2026-04",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5664,6 +7054,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-05",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-05-06",
+    "fieldworkEnd": "2026-05-10",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-maj-2026/",
+    "results": {
+      "ps": 19.8,
+      "smer": 17,
+      "republika": 11.8,
+      "olano": 8.2,
+      "sas": 7.5,
+      "hlas": 7.1,
+      "demokrati": 5.9,
+      "kdh": 5.5,
+      "madarska_aliancia": 3.9,
+      "sme_rodina": 3.5,
+      "pravo_na_pravdu": 2.7,
+      "sns": 2.7,
+      "za_ludi": 2.3,
+      "lsns": 1.1,
+      "strana_vidieka": 0.1
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 31,
+        "republika": 21,
+        "olano": 15,
+        "sas": 13,
+        "hlas": 13,
+        "demokrati": 11,
+        "kdh": 10,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2026-05",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5740,6 +7176,52 @@
         "sme_rodina": 0,
         "sns": 0,
         "za_ludi": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2026-06",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-06-03",
+    "fieldworkEnd": "2026-06-08",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-jun-2026/",
+    "results": {
+      "ps": 19.7,
+      "smer": 16.4,
+      "republika": 12.9,
+      "olano": 8.3,
+      "sas": 7.4,
+      "hlas": 7.2,
+      "demokrati": 5.5,
+      "kdh": 4.8,
+      "madarska_aliancia": 4.5,
+      "sme_rodina": 3.1,
+      "za_ludi": 2.9,
+      "pravo_na_pravdu": 2.7,
+      "sns": 2.4,
+      "lsns": 1,
+      "strana_vidieka": 0.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 32,
+        "republika": 25,
+        "olano": 16,
+        "sas": 14,
+        "hlas": 14,
+        "demokrati": 11,
+        "kdh": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -5866,6 +7348,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-07",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-07-01",
+    "fieldworkEnd": "2026-07-06",
+    "sampleSize": 1002,
+    "sourceUrl": "https://nms.global/sk/volebny-model-jul-2026/",
+    "results": {
+      "ps": 18.8,
+      "smer": 15.4,
+      "republika": 12.8,
+      "olano": 9.1,
+      "sas": 8,
+      "hlas": 7.7,
+      "kdh": 5.8,
+      "demokrati": 5.1,
+      "madarska_aliancia": 4.2,
+      "sme_rodina": 3.5,
+      "sns": 2.7,
+      "pravo_na_pravdu": 2.3,
+      "za_ludi": 1.9,
+      "lsns": 0.9,
+      "strana_vidieka": 0.7
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 34,
+        "smer": 28,
+        "republika": 23,
+        "olano": 17,
+        "sas": 15,
+        "hlas": 14,
+        "kdh": 10,
+        "demokrati": 9,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "sns": 0,
+        "pravo_na_pravdu": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2026-07",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -5906,6 +7434,52 @@
         "sme_rodina": 0,
         "strana_vidieka": 0,
         "lsns": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2026-08",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-08-05",
+    "fieldworkEnd": "2026-08-10",
+    "sampleSize": 1001,
+    "sourceUrl": "https://nms.global/sk/volebny-model-august-2026/",
+    "results": {
+      "ps": 19.2,
+      "smer": 16.5,
+      "republika": 13.3,
+      "olano": 8.9,
+      "sas": 7.4,
+      "kdh": 5.9,
+      "hlas": 5.9,
+      "demokrati": 4.6,
+      "madarska_aliancia": 4,
+      "sme_rodina": 3.7,
+      "pravo_na_pravdu": 3.6,
+      "sns": 2.9,
+      "za_ludi": 2.2,
+      "lsns": 0.8,
+      "strana_vidieka": 0.6
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 38,
+        "smer": 32,
+        "republika": 26,
+        "olano": 17,
+        "sas": 14,
+        "kdh": 12,
+        "hlas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -6040,6 +7614,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-09",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-09-02",
+    "fieldworkEnd": "2026-09-07",
+    "sampleSize": 1004,
+    "sourceUrl": "https://nms.global/sk/volebny-model-september-2026/",
+    "results": {
+      "ps": 21.6,
+      "smer": 16.2,
+      "republika": 15.6,
+      "olano": 9,
+      "sas": 6.8,
+      "hlas": 6.4,
+      "kdh": 5.8,
+      "demokrati": 4.8,
+      "madarska_aliancia": 3.1,
+      "sme_rodina": 3,
+      "pravo_na_pravdu": 2.1,
+      "sns": 1.9,
+      "za_ludi": 1.6,
+      "lsns": 1,
+      "strana_vidieka": 0.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 40,
+        "smer": 30,
+        "republika": 29,
+        "olano": 16,
+        "sas": 12,
+        "hlas": 12,
+        "kdh": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0,
+        "sns": 0,
+        "za_ludi": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ako-2026-09",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -6122,6 +7742,52 @@
         "pravo_na_pravdu": 0,
         "sns": 0,
         "sme_rodina": 0
+      }
+    }
+  },
+  {
+    "id": "sk-nms-2026-10",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-10-01",
+    "fieldworkEnd": "2026-10-05",
+    "sampleSize": 1005,
+    "sourceUrl": "https://nms.global/sk/volebny-model-oktober-2026/",
+    "results": {
+      "ps": 19.5,
+      "smer": 17.8,
+      "republika": 14.2,
+      "olano": 9,
+      "sas": 8,
+      "kdh": 6.2,
+      "hlas": 5.9,
+      "demokrati": 4.9,
+      "madarska_aliancia": 3.3,
+      "sme_rodina": 3.1,
+      "pravo_na_pravdu": 2.3,
+      "za_ludi": 1.9,
+      "sns": 1.5,
+      "lsns": 0.9,
+      "strana_vidieka": 0.5
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 33,
+        "republika": 26,
+        "olano": 17,
+        "sas": 15,
+        "kdh": 12,
+        "hlas": 11,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "sme_rodina": 0,
+        "pravo_na_pravdu": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
       }
     }
   },
@@ -6256,6 +7922,52 @@
     }
   },
   {
+    "id": "sk-nms-2026-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "NMS",
+    "fieldworkStart": "2026-11-05",
+    "fieldworkEnd": "2026-11-08",
+    "sampleSize": 1004,
+    "sourceUrl": "https://nms.global/sk/volebny-model-november-2026/",
+    "results": {
+      "ps": 19.2,
+      "smer": 17.9,
+      "republika": 13,
+      "olano": 9.8,
+      "sas": 7.9,
+      "hlas": 7.4,
+      "kdh": 5,
+      "demokrati": 4.9,
+      "madarska_aliancia": 3.1,
+      "pravo_na_pravdu": 3,
+      "sme_rodina": 2.3,
+      "za_ludi": 1.9,
+      "sns": 1.9,
+      "lsns": 1.1,
+      "strana_vidieka": 0.4
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps": 36,
+        "smer": 34,
+        "republika": 24,
+        "olano": 18,
+        "sas": 15,
+        "hlas": 14,
+        "kdh": 9,
+        "demokrati": 0,
+        "madarska_aliancia": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0,
+        "za_ludi": 0,
+        "sns": 0,
+        "lsns": 0,
+        "strana_vidieka": 0
+      }
+    }
+  },
+  {
     "id": "sk-ipsos-2026-11",
     "countryId": "sk",
     "electionId": "sk-2024",
@@ -6263,7 +7975,7 @@
     "fieldworkStart": "2026-11-16",
     "fieldworkEnd": "2026-11-20",
     "sampleSize": 1030,
-    "sourceUrl": "https://www.pravda.sk/spravy/domace/clanok/2083561-prvy-prieskum-po-spojeni-ps-a-demokratov-je-na-svete-ako-zamiesala-nova-koalicia-politickymi-kartami",
+    "sourceUrl": "https://www.ipsos.com/sk-sk/ipsos-dennik-n-prieskum-volebnych-preferencii-november-2026",
     "methodology": {
       "mode": "online",
       "client": "Denník N"
