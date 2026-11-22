@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import type { PartyId } from "../../data/types.ts";
+import type { ElectionRules, PartyId } from "../../data/types.ts";
 import type { Party } from "../../data/types.ts";
+import { ElectoralListBadge } from "../../components/ui/ElectoralListBadge.tsx";
+import { isElectoralList } from "../../core/coalition/electoralLists.ts";
 import { AddSumModal } from "./AddSumModal.tsx";
 import type { PartySum } from "./trendyStorage.ts";
 import { TrashIcon } from "../../icons/TrashIcon.tsx";
@@ -16,13 +18,34 @@ export interface TrendySidebarState {
   visibleSumIds: Set<string>;
 }
 
+/**
+ * A newly added electoral list (e.g. PS + Demokrati) is shown when the saved settings
+ * predate it and any of its member parties is visible; otherwise those lines would just
+ * stop at the announcement and the joint list would stay hidden.
+ */
+function withNewElectoralLists(
+  visible: Set<PartyId>,
+  parties: Party[],
+  knownPartyIds: string[] | undefined,
+): Set<PartyId> {
+  const known = new Set(knownPartyIds ?? []);
+  const next = new Set(visible);
+  for (const p of parties) {
+    if (isElectoralList(p) && !known.has(p.id) && p.members!.some((m) => visible.has(m))) {
+      next.add(p.id);
+    }
+  }
+  return next;
+}
+
 export interface TrendySidebarProps {
   parties: Party[];
+  rules: ElectionRules;
   electionId: string;
   onStateChange: (state: TrendySidebarState) => void;
 }
 
-export function TrendySidebar({ parties, electionId, onStateChange }: TrendySidebarProps) {
+export function TrendySidebar({ parties, rules, electionId, onStateChange }: TrendySidebarProps) {
   const [visiblePartyIds, setVisiblePartyIds] = useState<Set<PartyId>>(new Set());
   const [customSums, setCustomSums] = useState<PartySum[]>([]);
   const [visibleSumIds, setVisibleSumIds] = useState<Set<string>>(new Set());
@@ -35,7 +58,9 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
     hasUserModifiedRef.current = false;
     const stored = loadTrendyStorage(electionId);
     if (stored) {
-      setVisiblePartyIds(new Set(stored.visiblePartyIds));
+      setVisiblePartyIds(
+        withNewElectoralLists(new Set(stored.visiblePartyIds), parties, stored.knownPartyIds),
+      );
       const sumsWithColors = stored.customSums.map((s, i) => ({
         ...s,
         color: s.color ?? getSumColor(i),
@@ -66,8 +91,9 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
       visiblePartyIds: Array.from(visiblePartyIds),
       customSums,
       visibleSumIds: Array.from(visibleSumIds),
+      knownPartyIds: parties.map((p) => p.id),
     });
-  }, [electionId, visiblePartyIds, customSums, visibleSumIds]);
+  }, [electionId, parties, visiblePartyIds, customSums, visibleSumIds]);
 
   const toggleParty = useCallback((id: PartyId) => {
     hasUserModifiedRef.current = true;
@@ -130,6 +156,7 @@ export function TrendySidebar({ parties, electionId, onStateChange }: TrendySide
                     style={{ backgroundColor: p.color }}
                   />
                   <span className="trendy-party-name">{p.shortName}</span>
+                  <ElectoralListBadge party={p} rules={rules} compact />
                 </label>
               </li>
             ))}

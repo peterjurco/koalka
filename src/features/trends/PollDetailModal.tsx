@@ -1,11 +1,13 @@
-import type { Party, Poll } from "../../data/types.ts";
+import type { ElectionRules, Party, Poll } from "../../data/types.ts";
+import { ElectoralListBadge } from "../../components/ui/ElectoralListBadge.tsx";
+import { isElectoralList, thresholdForParty } from "../../core/coalition/electoralLists.ts";
 import type { TrendValueSource } from "../../core/aggregation/index.ts";
 
 interface PollDetailModalProps {
   /** Polls to display — one for individual mode, multiple for aggregate (month) mode */
   polls: Poll[];
   parties: Party[];
-  thresholdPercent: number;
+  rules: ElectionRules;
   trendValueMode: TrendValueSource;
   /** Label for the modal title (e.g. "Január 2025" or "AKO") */
   title: string;
@@ -23,13 +25,13 @@ function formatDate(iso: string): string {
 function PollSection({
   poll,
   parties,
-  thresholdPercent,
+  rules,
   trendValueMode,
   showAgency,
 }: {
   poll: Poll;
   parties: Party[];
-  thresholdPercent: number;
+  rules: ElectionRules;
   trendValueMode: TrendValueSource;
   showAgency: boolean;
 }) {
@@ -53,8 +55,14 @@ function PollSection({
     .filter((r) => r.value > 0 || r.pct > 0)
     .sort((a, b) => b.pct - a.pct);
 
-  const aboveThreshold = sorted.filter((r) => r.pct >= thresholdPercent);
-  const belowThreshold = sorted.filter((r) => r.pct < thresholdPercent);
+  // Electoral lists (PS + Demokrati) need 7 % / 10 %, single parties 5 %.
+  const clears = (r: (typeof sorted)[number]) => r.pct >= thresholdForParty(r.party, rules);
+  const aboveThreshold = sorted.filter(clears);
+  const belowThreshold = sorted.filter((r) => !clears(r));
+  const list = sorted.find((r) => isElectoralList(r.party))?.party;
+  const thresholdLabel = list
+    ? `${rules.thresholdPercent} % strany, ${thresholdForParty(list, rules)} % koalície`
+    : `${rules.thresholdPercent} %`;
 
   return (
     <div className="poll-detail-section">
@@ -101,7 +109,8 @@ function PollSection({
                   className="poll-detail-color"
                   style={{ backgroundColor: r.party?.color ?? "#888" }}
                 />
-                {r.party?.shortName ?? r.id}
+                {r.party?.shortName ?? r.id}{" "}
+                <ElectoralListBadge party={r.party} rules={rules} compact />
               </td>
               <td className="poll-detail-td poll-detail-td--val">
                 {r.pct.toFixed(1)} %
@@ -120,7 +129,7 @@ function PollSection({
                 colSpan={poll.metadata?.seatProjection ? 3 : 2}
                 className="poll-detail-threshold-label"
               >
-                — pod {thresholdPercent} % volebným kvórom —
+                — pod volebným kvórom ({thresholdLabel}) —
               </td>
             </tr>
           )}
@@ -132,7 +141,8 @@ function PollSection({
                   className="poll-detail-color"
                   style={{ backgroundColor: r.party?.color ?? "#888" }}
                 />
-                {r.party?.shortName ?? r.id}
+                {r.party?.shortName ?? r.id}{" "}
+                <ElectoralListBadge party={r.party} rules={rules} compact />
               </td>
               <td className="poll-detail-td poll-detail-td--val">
                 {r.pct.toFixed(1)} %
@@ -169,7 +179,7 @@ function PollSection({
 export function PollDetailModal({
   polls,
   parties,
-  thresholdPercent,
+  rules,
   trendValueMode,
   title,
   onClose,
@@ -232,7 +242,7 @@ export function PollDetailModal({
               key={poll.id}
               poll={poll}
               parties={parties}
-              thresholdPercent={thresholdPercent}
+              rules={rules}
               trendValueMode={trendValueMode}
               showAgency={isAggregate}
             />

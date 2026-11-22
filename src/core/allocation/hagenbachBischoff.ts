@@ -1,12 +1,13 @@
 import type { PartyId } from '../../data/types.ts'
-import type { AllocationOptions, SeatAllocation } from './types.ts'
+import type { AllocationOptions, SeatAllocation, Threshold } from './types.ts'
 
 /**
  * Allocate seats using the Hagenbach-Bischoff quota with largest remainder,
  * as prescribed by Slovak electoral law (zákon č. 180/2014 Z. z., §68).
  *
  * Algorithm:
- *   1. Exclude parties below the threshold.
+ *   1. Exclude parties below the threshold (a number, or a per-party lookup so that
+ *      electoral lists can use 7 % / 10 % while single parties use 5 %).
  *   2. REN (Republikanské číslo) = floor(validVotes / (totalSeats + 1))
  *   3. Each party receives floor(votes / REN) base seats.
  *   4. Remaining seats go to parties with the largest remainders (votes % REN),
@@ -19,14 +20,16 @@ import type { AllocationOptions, SeatAllocation } from './types.ts'
 export function allocateSeats(
   votes: Record<PartyId, number>,
   totalSeats: number,
-  thresholdPercent: number,
+  thresholdPercent: Threshold,
   options?: AllocationOptions
 ): Record<PartyId, number> {
   const asPercentages = options?.asPercentages ?? true
   const entries = Object.entries(votes) as [PartyId, number][]
 
   // 1. Apply threshold
-  const aboveThreshold = entries.filter(([, v]) => v >= thresholdPercent)
+  const thresholdOf =
+    typeof thresholdPercent === 'function' ? thresholdPercent : () => thresholdPercent
+  const aboveThreshold = entries.filter(([id, v]) => v >= thresholdOf(id))
 
   const result: Record<string, number> = {}
   for (const [id] of entries) result[id] = 0

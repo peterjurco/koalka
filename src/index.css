@@ -1721,3 +1721,64 @@ input[type="range"]::-moz-range-thumb {
     width: 100%;
   }
 }
+
+/* Electoral list (volebná koalícia) marker + partial-selection notice */
+.list-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.coalition-list-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.55rem;
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius-sm);
+  background: var(--changed-soft);
+  color: var(--text);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+.coalition-list-notice-btn {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.coalition-list-notice-btn:hover {
+  background: var(--surface-2);
+}
+.modal-party-members {
+  color: var(--text-subtle);
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.coalition-party-chip--excluded {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+.trendy-party-toggle .list-badge {
+  margin-left: -0.3rem;
+}
+.trendy-party-toggle:has(.list-badge) .trendy-party-name {
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

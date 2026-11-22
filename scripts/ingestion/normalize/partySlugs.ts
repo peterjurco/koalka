@@ -148,6 +148,22 @@ add(
 );
 add("sme_rodina", "sme rodina", "SR", "Sme Rodina", "SME RODINA");
 add("demokrati", "Demokrati", "DEM");
+// Joint electoral list announced 15 Nov 2026. Labels vary by agency/outlet.
+add(
+  "ps_demokrati",
+  "PS/Demokrati",
+  "PS / Demokrati",
+  "PS + Demokrati",
+  "PS+Demokrati",
+  "PS a Demokrati",
+  "PS - Demokrati",
+  "PS – Demokrati",
+  "Progresívne Slovensko a Demokrati",
+  "Progresívne Slovensko + Demokrati",
+  "Progresívne Slovensko / Demokrati",
+  "Koalícia PS a Demokrati",
+  "PS+D",
+);
 add(
   "madarska_aliancia",
   "Maďarská aliancia",

@@ -16,6 +16,12 @@ export interface Party {
   start?: string;
   /** If set (YYYY-MM), show this party in the trend chart only up to this month (inclusive) */
   end?: string;
+  /**
+   * Set when this entry is an electoral list (volebná koalícia) of several parties running on
+   * one candidate list, e.g. PS + Demokrati. Polls report it as one number; its threshold is
+   * 7 % (2–3 members) or 10 % (4+). See src/core/coalition/electoralLists.ts.
+   */
+  members?: PartyId[];
 }
 
 /** Vote/share per party (percentages or counts) */
@@ -62,7 +68,12 @@ export interface ElectionRules {
   name: string;
   type: 'parliamentary' | 'european' | string;
   totalSeats: number;
+  /** Threshold for a single party */
   thresholdPercent: number;
+  /** Threshold for an electoral list of 2–3 parties (default 7) */
+  coalitionThresholdPercent?: number;
+  /** Threshold for an electoral list of 4+ parties (default 10) */
+  largeCoalitionThresholdPercent?: number;
   allocationMethod: 'dHondt' | string;
   constituencies?: unknown;
 }

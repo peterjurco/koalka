@@ -122,16 +122,20 @@ export function CoalitionChart({ coalitions, coalitionResults, parties }: Props)
 
   const partyById = new Map(parties.map((p) => [p.id, p]));
 
-  const allPartyIds = [...new Set(coalitions.flatMap((c) => c.partyIds))];
+  // Stack what each coalition counts in this poll: a joint electoral list (PS + Demokrati)
+  // replaces its member parties when the poll reports it.
+  const subjectsOf = (i: number) => coalitionResults[i]?.partyIds ?? coalitions[i].partyIds;
+  const allPartyIds = [...new Set(coalitions.flatMap((_, i) => subjectsOf(i)))];
 
   const data: ChartRow[] = coalitions.map((coalition, i) => {
     const result = coalitionResults[i];
+    const subjects = subjectsOf(i);
     const label = coalition.partyIds
       .map((id) => partyById.get(id)?.shortName ?? id)
       .join('+');
     const row: ChartRow = { label };
     for (const pid of allPartyIds) {
-      row[pid] = coalition.partyIds.includes(pid)
+      row[pid] = subjects.includes(pid)
         ? (result?.perPartySeats[pid] ?? 0)
         : 0;
     }

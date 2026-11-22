@@ -24,6 +24,7 @@ export function TrendyPage() {
     <div className="trendy-layout">
       <TrendySidebar
         parties={config.parties}
+        rules={config.rules}
         electionId={electionId}
         onStateChange={handleSidebarStateChange}
       />

@@ -6,7 +6,7 @@ import type { SeatAllocation } from '../core/allocation/index.ts'
 import { getElectionConfig, getPollsLoader, DEFAULT_COUNTRY_ID, DEFAULT_ELECTION_ID } from '../config/elections.ts'
 import { aggregatePollsByMonth } from '../core/aggregation/index.ts'
 import { allocateSeats } from '../core/allocation/index.ts'
-import { buildCoalition } from '../core/coalition/index.ts'
+import { buildCoalition, makeThresholdFn } from '../core/coalition/index.ts'
 import { parseISODate, getMonthKey } from '../utils/index.ts'
 import { getFiltersFromUrl } from '../utils/urlFilters.ts'
 
@@ -168,11 +168,12 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
       set({ voteSource: source, seatAllocation: null, coalitionResult: null })
       return
     }
-    const { rules } = state.config
+    const { rules, parties } = state.config
+    const threshold = makeThresholdFn(parties, rules)
     const seatAllocation = allocateSeats(
       voteShare,
       rules.totalSeats,
-      rules.thresholdPercent,
+      threshold,
       { asPercentages: true }
     )
     const selected = state.selectedCoalitionPartyIds
@@ -181,7 +182,8 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
           voteShare,
           partyIds: selected,
           totalSeats: rules.totalSeats,
-          thresholdPercent: rules.thresholdPercent,
+          thresholdPercent: threshold,
+          parties,
         })
       : null
     set({ voteSource: source, seatAllocation, coalitionResult })
@@ -194,13 +196,14 @@ export const useStore = create<KoalkaState & KoalkaActions>((set, get) => ({
       set({ selectedCoalitionPartyIds: ids, coalitionResult: null })
       return
     }
-    const { rules } = state.config
+    const { rules, parties } = state.config
     const coalitionResult = ids.length > 0
       ? buildCoalition({
           voteShare,
           partyIds: ids,
           totalSeats: rules.totalSeats,
-          thresholdPercent: rules.thresholdPercent,
+          thresholdPercent: makeThresholdFn(parties, rules),
+          parties,
         })
       : null
     set({ selectedCoalitionPartyIds: ids, coalitionResult })
