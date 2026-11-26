@@ -9,6 +9,7 @@ import { useIsMobile } from "../../utils/useMediaQuery.ts";
 import { PollDetailModal } from "./PollDetailModal.tsx";
 import type { PartySum } from "./trendyStorage.ts";
 import { getSumColor } from "./trendyStorage.ts";
+import { duplicatedParty, sameAsKey } from "./sumDedupe.ts";
 
 // ---------------------------------------------------------------------------
 // Month-based x encoding (aggregate mode): x = year*12 + month
@@ -157,6 +158,7 @@ export function PartyTrendChart({
         }
         for (const sum of sumList) {
           point[sum.id] = sumValue(sum.partyIds, values, parties);
+          point[sameAsKey(sum.id)] = duplicatedParty(sum.partyIds, values, parties, point);
         }
         return point;
       });
@@ -190,6 +192,9 @@ export function PartyTrendChart({
         }
         for (const sum of sumList) {
           point[sum.id] = m ? sumValue(sum.partyIds, m.results, parties) : null;
+          point[sameAsKey(sum.id)] = m
+            ? duplicatedParty(sum.partyIds, m.results, parties, point)
+            : null;
         }
         return point;
       },
@@ -340,6 +345,10 @@ export function PartyTrendChart({
           referenceLineY={isMandates ? (showMajorityLine ? 76 : undefined) : 5}
           valueFormatter={isMandates ? (v) => String(Math.round(v)) : undefined}
           onPointClick={handlePointClick}
+          tooltipDedupeKey={(key, point) => {
+            const same = point[sameAsKey(key)];
+            return typeof same === "string" ? same : key;
+          }}
         />
       </Card>
 

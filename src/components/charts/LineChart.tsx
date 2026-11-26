@@ -47,6 +47,12 @@ export interface LineChartProps {
   onPointClick?: (point: SeriesPoint) => void;
   /** Show a marker dot on every data point (default true). Disable on dense/small charts. */
   showDots?: boolean;
+  /**
+   * Tooltip rows sharing a key are shown once (the first line in `lines` wins). Use it when
+   * two series carry the same number at a point, e.g. a custom sum that is just one party.
+   * Defaults to the series key, i.e. no deduplication.
+   */
+  tooltipDedupeKey?: (dataKey: string, point: SeriesPoint) => string;
 }
 
 export function LineChart({
@@ -68,6 +74,7 @@ export function LineChart({
   valueFormatter,
   onPointClick,
   showDots = true,
+  tooltipDedupeKey,
 }: LineChartProps) {
   function handleChartClick(chartData: unknown) {
     const d = chartData as { activeIndex?: string | number } | null;
@@ -144,6 +151,15 @@ export function LineChart({
         <Tooltip
           cursor={{ stroke: "var(--chart-axis, #ccc)", strokeWidth: 1 }}
           labelFormatter={tooltipLabelFormatter}
+          payloadUniqBy={
+            tooltipDedupeKey
+              ? (entry) =>
+                  tooltipDedupeKey(
+                    String(entry.dataKey),
+                    entry.payload as SeriesPoint,
+                  )
+              : undefined
+          }
           formatter={(value) =>
             typeof value === "number" ? formatValue(value) : ""
           }
