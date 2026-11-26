@@ -8006,5 +8006,46 @@
         "sme_rodina": 0
       }
     }
+  },
+  {
+    "id": "sk-focus-2026-11",
+    "countryId": "sk",
+    "electionId": "sk-2024",
+    "agency": "Focus",
+    "fieldworkStart": "2026-11-16",
+    "fieldworkEnd": "2026-11-21",
+    "sampleSize": 1013,
+    "sourceUrl": "https://spravy.stvr.sk/2026/11/prieskum-focus-vidi-na-cele-koaliciu-ps-a-demokratov-smer-ma-takmer-o-pat-percent-menej/",
+    "methodology": {
+      "client": "360tka"
+    },
+    "results": {
+      "ps_demokrati": 22.2,
+      "smer": 17.3,
+      "republika": 11.2,
+      "olano": 10.4,
+      "hlas": 8.8,
+      "sas": 6.6,
+      "kdh": 6.1,
+      "madarska_aliancia": 4.4,
+      "sns": 3.3,
+      "pravo_na_pravdu": 3.1,
+      "sme_rodina": 2.9
+    },
+    "metadata": {
+      "seatProjection": {
+        "ps_demokrati": 40,
+        "smer": 32,
+        "republika": 20,
+        "olano": 19,
+        "hlas": 16,
+        "sas": 12,
+        "kdh": 11,
+        "madarska_aliancia": 0,
+        "sns": 0,
+        "pravo_na_pravdu": 0,
+        "sme_rodina": 0
+      }
+    }
   }
 ]
